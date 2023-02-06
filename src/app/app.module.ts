@@ -3,11 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from '../principalApp/app.component'; //module app principal
-import { HeroesComponent } from '../components/heroes/heroes.component'; //module heroes created
+import { AppComponent } from './app.component'; //module app principal
+import { HeroesComponent } from './modules/components/heroes/heroes.component';
+import { HeroDetailComponent } from './modules/components/hero-detail/hero-detail.component'; //module heroes created
 
 @NgModule({
-  declarations: [AppComponent, HeroesComponent],
+  declarations: [AppComponent, HeroesComponent, HeroDetailComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
