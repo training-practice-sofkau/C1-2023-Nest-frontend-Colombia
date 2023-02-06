@@ -8,6 +8,7 @@ import { DepositsComponent } from './components/deposits/deposits.component';
 import { TranfersComponent } from './components/tranfers/tranfers.component';
 import { AuthComponent } from './components/auth/auth.component';
 import { CustomersComponent } from './components/customers/customers.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { CustomersComponent } from './components/customers/customers.component';
     DepositsComponent,
     TranfersComponent,
     AuthComponent,
-    CustomersComponent
+    CustomersComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
