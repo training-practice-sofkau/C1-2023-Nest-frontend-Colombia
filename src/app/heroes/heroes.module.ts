@@ -1,5 +1,6 @@
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
 import { HeroesComponent } from './heroes-page/heroes.component';
 
@@ -14,7 +15,8 @@ import { HeroesComponent } from './heroes-page/heroes.component';
     ],
     imports:
     [
-        CommonModule
+        CommonModule,
+        FormsModule
     ]
 })
 export class HeroesModule {}
