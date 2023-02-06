@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Hero } from '../models/hero';
 
 @Component({
   selector: 'sofka-heroes',
@@ -6,4 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent {
+  hero: Hero = {
+    id: 1,
+    name: 'Windstorm'
+  }
 }
