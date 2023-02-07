@@ -15,6 +15,7 @@ import { AppComponent } from './pages/app/app.component';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { IndexComponent } from './pages/index/index.component';
 import { PhonePipe } from './pipes/phone.pipe';
+import { MomentPipe } from './pipes/moment.pipe';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { PhonePipe } from './pipes/phone.pipe';
     MessagesComponent,
     HeroSearchComponent,
     IndexComponent,
-    PhonePipe
+    PhonePipe,
+    MomentPipe
   ],
   bootstrap: [ AppComponent ]
 })

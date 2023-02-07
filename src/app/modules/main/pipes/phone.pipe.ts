@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PhonePipe implements PipeTransform {
 
   transform(phone: string): string {
-    if(!phone) return "numero erroneo"
+    if(!phone && phone.length!=10) return "numero erroneo"
 
     const cleaned = phone.replace(/\D/g, '');
     const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
