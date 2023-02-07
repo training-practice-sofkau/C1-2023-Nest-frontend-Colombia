@@ -17,7 +17,29 @@ export class InMemoryDataService implements InMemoryDbService {
       birthday: "1998-03-25",
       payroll: 500,
       wins: 12,
-      percent: 0.12}
+      percent: 0.1},
+      {
+      id: 2,
+      name: "Brian",
+      clasification:"Agil",
+      phone : "3206201428",
+      date: "20170223",
+      state: false,
+      birthday: "1999-03-25",
+      payroll: 100,
+      wins: 1,
+      percent: 0.5},
+    {
+      id: 2,
+      name: "Estafany",
+      clasification:"Veloz",
+      phone : "3206201428",
+      date: "20120223",
+      state: true,
+      birthday: "1998-03-25",
+      payroll: 500,
+      wins: 142,
+      percent: 0.4}
     ];
     return {heroes};
   }

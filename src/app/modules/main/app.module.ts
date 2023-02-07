@@ -14,9 +14,9 @@ import { MessagesComponent } from './components/messages/messages.component';
 import { AppComponent } from './pages/app/app.component';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { IndexComponent } from './pages/index/index.component';
-import { PhonePipe } from './pipes/phone.pipe';
-import { MomentPipe } from './pipes/moment.pipe';
-import { StatePipe } from './pipes/state.pipe';
+import { MomentPipe } from './pipes/moment/moment.pipe';
+import { PhonePipe } from './pipes/phone/phone.pipe';
+import { StatePipe } from './pipes/state/state.pipe';
 
 
 @NgModule({
