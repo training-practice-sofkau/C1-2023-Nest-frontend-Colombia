@@ -9,11 +9,11 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './modules/dashboard/components/dashboard/dashboard.component';
+import { HeroDetailComponent } from './modules/dashboard/components/hero-detail/hero-detail.component';
+import { HeroesComponent } from './modules/dashboard/components/heroes/heroes.component';
+import { HeroSearchComponent } from './modules/dashboard/components/hero-search/hero-search.component';
+import { MessagesComponent } from './modules/dashboard/components/messages/messages.component';
 
 @NgModule({
   imports: [

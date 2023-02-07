@@ -1,6 +1,6 @@
-import { HeroDetailComponent } from './../modules/dashboard/components/hero-detail/hero-detail.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { HeroDetailComponent } from './hero-detail.component';
 
 describe('HeroDetailComponent', () => {
   let component: HeroDetailComponent;
