@@ -19,6 +19,18 @@ export class CustomerDetailComponent implements OnInit {
     email: 'email@email.com',
     password: 'password',
     phone: 'phone',
-    avatarUrl: 'avatarUrl'
+    avatarUrl: 'avatarUrl',
+    amount: 4555.99
+  }
+
+  getPercentage(object: Object): number {
+    let len = 0;
+    let value = 0;
+    let json = JSON.parse(JSON.stringify(object));
+    for (let x in object) {
+      len++
+      if(json[x]!=='') {value++}
+    }
+    return value/len
   }
 }

@@ -13,7 +13,7 @@ import { TranfersComponent } from '..';
 import { AuthComponent } from '..';
 import { CustomersComponent } from '..';
 import { DashboardComponent } from '..';
-import { RelativeTimePipe } from '../../shared/pipes/relative-time.pipe';
+import { RelativeTimePipe, PhoneNumberPipe } from 'src/app/shared/pipes';
 import { CustomerDetailComponent } from '../../shared/pages/customer-detail/customer-detail.component';
 
 @NgModule({
@@ -26,6 +26,7 @@ import { CustomerDetailComponent } from '../../shared/pages/customer-detail/cust
     CustomersComponent,
     DashboardComponent,
     RelativeTimePipe,
+    PhoneNumberPipe,
     CustomerDetailComponent
   ],
   imports: [

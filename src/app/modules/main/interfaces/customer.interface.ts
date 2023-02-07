@@ -7,4 +7,5 @@ export interface CustomerInterface {
   password: string;
   avatarUrl?: string;
   birthDate: number | Date | string;
+  amount: number;
 }
