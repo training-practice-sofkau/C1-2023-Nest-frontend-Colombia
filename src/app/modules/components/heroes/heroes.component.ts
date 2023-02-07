@@ -28,13 +28,4 @@ export class HeroesComponent implements OnInit {
   ngOnInit(): void {
     this.getHeroes();
   }
-
-  //creamos una variable para almacenar el heroe seleccionado
-  selectedHero?: Hero;
-
-  //asignamos el heroe que seleccionamos en la vista a la variable ya creada y mostramos un mensaje
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected hero id=${hero.id}`);
-  }
 }
