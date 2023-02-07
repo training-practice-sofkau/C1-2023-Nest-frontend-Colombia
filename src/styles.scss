@@ -1,4 +1,10 @@
 /* Application-wide Styles */
+
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
@@ -38,7 +44,4 @@ button:disabled {
   cursor: auto;
 }
 
-/* everywhere else */
-* {
-  font-family: Arial, Helvetica, sans-serif;
-}
+
