@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MessageService } from '../../services/message.service';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MessageService } from 'src/app/modules/heroes/services/message/message.service';
 
 @Component({
   selector: 'sofka-messages',

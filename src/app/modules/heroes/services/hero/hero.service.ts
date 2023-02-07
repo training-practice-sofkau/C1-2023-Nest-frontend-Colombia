@@ -4,8 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-import { Hero } from '../interfaces/hero';
-import { MessageService } from './message.service';
+import { Hero } from 'src/app/modules/heroes/interfaces/hero';
+import { MessageService } from 'src/app/modules/heroes/services/message/message.service';
 
 @Injectable({ providedIn: 'root' })
 export class HeroService {
