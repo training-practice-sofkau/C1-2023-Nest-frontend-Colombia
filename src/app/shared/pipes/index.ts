@@ -1,6 +1,3 @@
-
-export * from './days-between.pipe';
-
-export * from './phone-number.pipe';
-
-export * from './relative-time.pipe';
+export * from './days-between';
+export * from './phone-number';
+export * from './relative-time';
