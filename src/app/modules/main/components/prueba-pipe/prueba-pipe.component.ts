@@ -16,6 +16,7 @@ export class PruebaPipeComponent implements OnInit {
   jsonObject: {}
   oldFecha: string;
   phone: string;
+  name:string
 
   constructor() {
     this.nombreUpper = "Jerson Daniel Basto Gil";
@@ -27,6 +28,7 @@ export class PruebaPipeComponent implements OnInit {
     this.jsonObject = { name: "Daniel", lastName: "Basto", age: "26" }
     this.oldFecha = "20201231"
     this.phone = "3298765444"
+    this.name="Jerson Daniel Basto"
   }
 
   ngOnInit(): void {

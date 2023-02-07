@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PruebaPipeComponent } from './components/prueba-pipe/prueba-pipe.component';
 import { CustomPipeMomentjsPipe } from './pipes/custom-pipe-momentjs/custom-pipe-momentjs.pipe';
 import { CustomPipePhonePipe } from './pipes/custom-pipe-phone/custom-pipe-phone.pipe';
+import { CustomPipeDataPipe } from './pipes/custom-pipe-data/custom-pipe-data.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CustomPipePhonePipe } from './pipes/custom-pipe-phone/custom-pipe-phone
     DashboardComponent,
     PruebaPipeComponent,
     CustomPipeMomentjsPipe,
-    CustomPipePhonePipe
+    CustomPipePhonePipe,
+    CustomPipeDataPipe
   ],
   imports: [
     BrowserModule,
