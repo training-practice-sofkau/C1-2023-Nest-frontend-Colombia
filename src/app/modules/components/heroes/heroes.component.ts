@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Hero } from '../../interfaces/hero';
 import { HeroService } from '../../services/hero.service';
-import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'sofka-heroes',
@@ -9,23 +9,30 @@ import { MessageService } from '../../services/message.service';
   styleUrls: ['./heroes.component.scss'],
 })
 export class HeroesComponent implements OnInit {
-  //inicializa el constructor y el servicio para inyectarlo
-  constructor(
-    private heroService: HeroService,
-    private messageService: MessageService
-  ) {}
-
-  //creamos un array de heroes
   heroes: Hero[] = [];
 
-  //obtenemos los heroes del metodo del servicio
-  getHeroes(): void {
-    this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
-    //observable para obtener datos de metodos async
-  }
+  constructor(private heroService: HeroService) {}
 
-  //al inicializarse el componente de los heroes obtenemos los heroes
   ngOnInit(): void {
     this.getHeroes();
+  }
+
+  getHeroes(): void {
+    this.heroService.getHeroes().subscribe((heroes) => (this.heroes = heroes));
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) {
+      return;
+    }
+    this.heroService.addHero({ name } as Hero).subscribe((hero) => {
+      this.heroes.push(hero);
+    });
+  }
+
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter((h) => h !== hero);
+    this.heroService.deleteHero(hero.id).subscribe();
   }
 }
