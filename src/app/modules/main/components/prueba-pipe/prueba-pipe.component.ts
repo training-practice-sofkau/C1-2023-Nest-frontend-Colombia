@@ -15,6 +15,7 @@ export class PruebaPipeComponent implements OnInit {
   percent: number;
   jsonObject: {}
   oldFecha: string;
+  phone: string;
 
   constructor() {
     this.nombreUpper = "Jerson Daniel Basto Gil";
@@ -25,6 +26,7 @@ export class PruebaPipeComponent implements OnInit {
     this.percent = 54.093;
     this.jsonObject = { name: "Daniel", lastName: "Basto", age: "26" }
     this.oldFecha = "20201231"
+    this.phone = "3298765444"
   }
 
   ngOnInit(): void {

@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PruebaPipeComponent } from './components/prueba-pipe/prueba-pipe.component';
 import { CustomPipeMomentjsPipe } from './pipes/custom-pipe-momentjs/custom-pipe-momentjs.pipe';
+import { CustomPipePhonePipe } from './pipes/custom-pipe-phone/custom-pipe-phone.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { CustomPipeMomentjsPipe } from './pipes/custom-pipe-momentjs/custom-pipe
     MessagesComponent,
     DashboardComponent,
     PruebaPipeComponent,
-    CustomPipeMomentjsPipe
+    CustomPipeMomentjsPipe,
+    CustomPipePhonePipe
   ],
   imports: [
     BrowserModule,
