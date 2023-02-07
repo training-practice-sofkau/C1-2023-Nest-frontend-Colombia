@@ -1,19 +1,21 @@
+import { PhoneNumberPipe } from './../pipes/phoneNumber.pipe';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+import { InMemoryDataService } from '../../../in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent } from './app.component';
-import { DashboardComponent } from './modules/dashboard/components/dashboard/dashboard.component';
-import { HeroDetailComponent } from './modules/dashboard/components/hero-detail/hero-detail.component';
-import { HeroesComponent } from './modules/dashboard/components/heroes/heroes.component';
-import { HeroSearchComponent } from './modules/dashboard/components/hero-search/hero-search.component';
-import { MessagesComponent } from './modules/dashboard/components/messages/messages.component';
+import { AppComponent } from '../../../app.component';
+import { DashboardComponent } from '../components/dashboard/dashboard.component';
+import { HeroDetailComponent } from '../components/hero-detail/hero-detail.component';
+import { HeroesComponent } from '../components/heroes/heroes.component';
+import { HeroSearchComponent } from '../components/hero-search/hero-search.component';
+import { MessagesComponent } from '../components/messages/messages.component';
+
 
 @NgModule({
   imports: [
@@ -35,7 +37,8 @@ import { MessagesComponent } from './modules/dashboard/components/messages/messa
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    PhoneNumberPipe,
   ],
   bootstrap: [ AppComponent ]
 })
