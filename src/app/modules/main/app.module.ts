@@ -5,9 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './pages/app/app.component';
 import { IndexComponent } from './pages/index/index.component';
+import { MyPipePipe } from './pipes/my-pipe/my-pipe.pipe';
 
 @NgModule({
-  declarations: [AppComponent, IndexComponent],
+  declarations: [AppComponent, IndexComponent, MyPipePipe],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
