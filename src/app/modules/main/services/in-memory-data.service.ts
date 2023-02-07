@@ -7,17 +7,17 @@ import { Hero } from '../models/hero';
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const heroes = [
-      { id: 12, name: 'Dr. Nice',phone : "3206201428", date:"20201103", state:true },
-      { id: 13, name: 'Bombasto',phone : "3206201428", date:"20201103", state:true  },
-      { id: 14, name: 'Celerita',phone : "3206201428", date:"20201103", state:true  },
-      { id: 15, name: 'Magneta',phone : "3206201428", date:"20201103", state:true  },
-      { id: 16, name: 'RubberMan',phone : "3206201428", date:"20201103", state:true  },
-      { id: 17, name: 'Dynama',phone : "3206201428", date:"20201103", state:true  },
-      { id: 18, name: 'Dr. IQ',phone : "3206201428", date:"20201103", state:true  },
-      { id: 19, name: 'Magma',phone : "3206201428", date:"20201103", state:true  },
-      { id: 20, name: 'Tornado',phone : "3206201428", date:"20201103", state:true  },
-      { id: 21, name: 'Julian',phone : "3206201428", date:"20201103", state:false  }
+    const heroes = [{
+      id: 1,
+      name: "Julian",
+      clasification:"fuerte",
+      phone : "3206201428",
+      date: "20180223",
+      state: true,
+      birthday: "1998-03-25",
+      payroll: 500,
+      wins: 12,
+      percent: 0.12}
     ];
     return {heroes};
   }
