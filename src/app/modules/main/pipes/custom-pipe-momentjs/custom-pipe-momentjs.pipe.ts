@@ -6,8 +6,8 @@ import * as moment from 'moment';
 })
 export class CustomPipeMomentjsPipe implements PipeTransform {
   now = moment()
-  transform(date: Date): string {
-    return moment(date).endOf('day').fromNow();
+  transform(date: string): string {
+    return moment(date, "YYYYMMDD").fromNow();
   }
 
 }

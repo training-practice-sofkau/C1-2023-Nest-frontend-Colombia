@@ -9,11 +9,12 @@ export class PruebaPipeComponent implements OnInit {
 
   nombreUpper: string;
   nombreLower: string
-  fecha: Date | number;
+  fecha: Date | number | string;
   amount: number;
   fracction: number
-  percent:number;
-  jsonObject:{}
+  percent: number;
+  jsonObject: {}
+  oldFecha: string;
 
   constructor() {
     this.nombreUpper = "Jerson Daniel Basto Gil";
@@ -22,8 +23,8 @@ export class PruebaPipeComponent implements OnInit {
     this.amount = 25000;
     this.fracction = 23.09877
     this.percent = 54.093;
-    this.jsonObject={name:"Daniel", lastName:"Basto", age:"26"}
-
+    this.jsonObject = { name: "Daniel", lastName: "Basto", age: "26" }
+    this.oldFecha = "20201231"
   }
 
   ngOnInit(): void {
