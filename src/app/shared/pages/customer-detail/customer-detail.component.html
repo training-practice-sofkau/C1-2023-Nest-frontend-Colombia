@@ -10,6 +10,7 @@
   <h3>{{newCustomer.fullName | titlecase}} nació {{newCustomer.birthDate | relativeTime}}</h3>
   <h3>Fecha de cumpleaños: {{newCustomer.birthDate | date:'fullDate'}}</h3>
   <h3>Año de nacimiento: {{newCustomer.birthDate.toString() | slice:0:4}}</h3>
+  <h3>Total dias de vida: {{newCustomer.birthDate | daysBetween}}</h3>
   <h3>Correo electrónico: {{newCustomer.email | lowercase}}</h3>
   <h3>Número de documento: {{newCustomer.document | lowercase}}</h3>
   <h3>Número de teléfono: {{newCustomer.phone | phoneNumber:undefined:' '}}</h3>

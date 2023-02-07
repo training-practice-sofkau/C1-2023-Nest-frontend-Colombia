@@ -14,7 +14,7 @@ export class CustomerDetailComponent implements OnInit {
   }
   newCustomer: CustomerInterface = {
     fullName: 'fullName',
-    birthDate: '1990-01-01',
+    birthDate: new Date('1990-01-01'),
     document: '22',
     email: 'email@email.com',
     password: 'password',

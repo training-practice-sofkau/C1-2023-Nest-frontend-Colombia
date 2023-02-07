@@ -6,6 +6,6 @@ export interface CustomerInterface {
   phone: string;
   password: string;
   avatarUrl?: string;
-  birthDate: number | Date | string;
+  birthDate: Date;
   amount: number;
 }
