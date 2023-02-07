@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { HeroesComponent,DashboardComponent,MessagesComponent,HeroDetailComponent } from './components';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { PruebaPipeComponent } from './components/prueba-pipe/prueba-pipe.component';
+import { CustomPipeMomentjsPipe } from './pipes/custom-pipe-momentjs/custom-pipe-momentjs.pipe';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { HttpClientModule } from '@angular/common/http';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    PruebaPipeComponent,
+    CustomPipeMomentjsPipe
   ],
   imports: [
     BrowserModule,
