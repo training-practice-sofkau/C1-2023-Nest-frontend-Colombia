@@ -8,12 +8,13 @@ import { InMemoryDataService } from '../services/in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent } from '../../../app.component';
+import { AppComponent } from '../pages/app/app.component';
 import { DashboardComponent } from '../componentes/dashboard/dashboard.component';
 import { HeroDetailComponent } from '../componentes/hero-detail/hero-detail.component';
 import { HeroesComponent } from '../componentes/heroes/heroes.component';
 import { HeroSearchComponent } from '../componentes/hero-search/hero-search.component';
 import { MessagesComponent } from '../componentes/messages/messages.component';
+import { PhonePipe } from '../pipes/phone.pipe';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { MessagesComponent } from '../componentes/messages/messages.component';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    PhonePipe
   ],
   bootstrap: [ AppComponent ]
 })
