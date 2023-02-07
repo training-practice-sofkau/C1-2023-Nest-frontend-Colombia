@@ -12,7 +12,10 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { InMemoryDataService } from './services/inMemoryData/in-memory-data.service';
 import { HeroSearchComponent } from "./components/hero-search/hero-search.component";
 import { HeroFormComponent } from './components/hero-form/hero-form.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, TitleCasePipe } from '@angular/common';
+import { PricesComponent } from './components/prices/prices.component';
+import { PhoneFormatPipe } from './pipes/prueba.pipe';
+import { DateFormatPipe } from './pipes/date.pipe';
 
 @NgModule({
     declarations: [
@@ -22,7 +25,11 @@ import { CommonModule } from '@angular/common';
         DashboardComponent,
         HeroSearchComponent,
         HeroSearchComponent,
-        HeroFormComponent
+        HeroFormComponent,
+        PricesComponent,
+        //TitleCasePip,
+        PhoneFormatPipe,
+        DateFormatPipe
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -32,7 +39,9 @@ import { CommonModule } from '@angular/common';
         FormsModule,
         HttpClientModule,
         CommonModule,
+        TitleCasePipe,
         HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
+        //TitleCasePipeModule
     ]
 })
 export class AppModule { }
