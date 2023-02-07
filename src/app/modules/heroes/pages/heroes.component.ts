@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../modules/heroes/interfaces/hero';
-import { HeroService } from '../hero.service';
-import { MessageService } from '../message.service';
+import { Hero } from 'src/app/modules/heroes/interfaces/hero';
+import { HeroService } from 'src/app/modules/heroes/services/hero/hero.service';
+import { MessageService } from '../services/message/message.service';
 
 @Component({
-  selector: 'app-heroes',
+  selector: 'sofka-heroes',
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.scss']
 })

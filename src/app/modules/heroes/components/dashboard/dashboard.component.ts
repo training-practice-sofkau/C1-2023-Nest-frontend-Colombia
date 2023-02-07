@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../modules/heroes/interfaces/hero';
-import { HeroService } from '../hero.service';
+import { Hero } from '../../interfaces/hero';
+import { HeroService } from '../../services/hero/hero.service'
+
 
 @Component({
   selector: 'app-dashboard',
