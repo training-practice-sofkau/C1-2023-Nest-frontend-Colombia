@@ -4,16 +4,16 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
+import { InMemoryDataService } from './modules/dashboard/services/in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { MessagesComponent } from './messages/messages.component';
+import { DashboardComponent } from './modules/dashboard/componentes/dashboard/dashboard.component';
+import { HeroDetailComponent } from './modules/dashboard/componentes/hero-detail/hero-detail.component';
+import { HeroesComponent } from './modules/dashboard/componentes/heroes/heroes.component';
+import { HeroSearchComponent } from './modules/dashboard/componentes/hero-search/hero-search.component';
+import { MessagesComponent } from './modules/dashboard/componentes/messages/messages.component';
 
 @NgModule({
   imports: [
