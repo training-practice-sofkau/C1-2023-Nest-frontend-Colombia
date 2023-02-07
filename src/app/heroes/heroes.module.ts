@@ -5,6 +5,7 @@ import { FormsModule } from "@angular/forms";
 import { HeroesComponent } from './heroes-page/heroes.component';
 import { HeroesListadoComponent } from './heroes-listado/heroes-listado.component';
 import { HeroesDetalleComponent } from './heroes-detalle/heroes-detalle.component';
+import { MessagesComponent } from './messages/messages.component';
 
 
 
@@ -12,10 +13,12 @@ import { HeroesDetalleComponent } from './heroes-detalle/heroes-detalle.componen
     declarations: [
         HeroesComponent,
         HeroesListadoComponent,
-        HeroesDetalleComponent
+        HeroesDetalleComponent,
+        MessagesComponent
     ],
     exports:[
-        HeroesComponent
+        HeroesComponent,
+        MessagesComponent,
     ],
     imports:
     [
