@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Hero } from 'src/app/mock/hero';
+import { Hero } from 'mock/hero';
 
 @Component({
   selector: 'app-hero-form',

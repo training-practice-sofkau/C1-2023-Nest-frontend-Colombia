@@ -5,8 +5,8 @@ import { Observable, Subject } from 'rxjs';
 import {
    debounceTime, distinctUntilChanged, switchMap
  } from 'rxjs/operators';
-import { Hero } from 'src/app/models/hero';
-import { HeroService } from 'src/app/services/hero/hero.service';
+import { Hero } from '../../models/hero';
+import { HeroService } from '../../services/hero/hero.service';
 
 
 @Component({
