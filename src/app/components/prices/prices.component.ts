@@ -13,7 +13,7 @@ export class PricesComponent {
   constructor(){ 
     this.data = 'mariana'
     this.tele = '3177019862'
-    this.date = 20111031
+    this.date = 1671080400000
   }
 
 }
