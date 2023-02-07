@@ -14,6 +14,9 @@ import { MessagesComponent } from 'src/app/modules/heroes/components/message/mes
 import { DashboardComponent } from 'src/app/modules/heroes/components/dashboard/dashboard.component';
 import { HeroSearchComponent } from 'src/app/modules/heroes/components/hero-search/hero-search.component';
 import { MyPipesComponent } from 'src/app/modules/my-pipes/pages/my-pipes.component';
+import { RelativeTimePipe } from 'src/app/modules/my-pipes/pipes/relative-time/relative-time.pipe';
+import { PhoneNumberPipe } from 'src/app/modules/my-pipes/pipes/phone-number/phone-number.pipe';
+import { NameRefactorPipe } from 'src/app/modules/my-pipes/pipes/name-refactor/name-refactor.pipe';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,9 @@ import { MyPipesComponent } from 'src/app/modules/my-pipes/pages/my-pipes.compon
     DashboardComponent,
     HeroSearchComponent,
     MyPipesComponent,
+    RelativeTimePipe,
+    PhoneNumberPipe,
+    NameRefactorPipe,
   ],
   imports: [
     AppRoutingModule,

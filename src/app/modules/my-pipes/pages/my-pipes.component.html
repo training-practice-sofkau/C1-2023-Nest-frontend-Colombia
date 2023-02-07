@@ -1,6 +1,6 @@
 <hr />
-<h2>My pipes</h2>
-<h3>Angular</h3>
+<h2><strong>My pipes</strong></h2>
+<h3><strong>Angular</strong></h3>
 <p>Normal name: {{ fullnameToUpperCase }}</p>
 <p>Normal text: {{ textToLowerCase }}</p>
 <p>Normal date: {{ birthday }}</p>
@@ -8,12 +8,21 @@
 <p>Normal weight: {{ weigth }}</p>
 <p>Normal natality: {{ natalityRate }}</p>
 <hr />
+<h3><strong>Respuestas</strong></h3>
 <p>
-  {{ fullnameToUpperCase | uppercase }} {{ textToLowerCase | lowercase }}
+  {{ fullnameToUpperCase | uppercase }}. {{ textToLowerCase | lowercase }}.
   {{ birthday | date }}. Capital: {{ savings | currency : 'COP' : '$ ' : '1.0'}}. Peso:
-  {{ weigth | number : '1.2-2'}}Kg, Natalidad: {{ natalityRate | percent : '1.1'}}
+  {{ weigth | number : '1.2-2'}}Kg. Natalidad: {{ natalityRate | percent : '1.1'}}
 </p>
 <hr />
+<h3><strong>Custom</strong></h3>
+<p>Normal yearBorn: {{ yearBorn }}</p>
+<p>Normal phoneNumber: {{ phoneNumber }}</p>
+<p>Normal name: {{ name }}</p>
 <hr />
-<hr />
-<hr />
+<h3><strong>Respuestas</strong></h3>
+<p>
+  Nació hace: {{ yearBorn | relativeTime }}.
+  Teléfono: {{phoneNumber | phoneNumber}}.
+  Name reversed: {{ name | nameRefactor }}.
+</p>

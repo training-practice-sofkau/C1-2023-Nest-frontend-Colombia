@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PipeTransform } from '@angular/core';
 
 @Component({
   selector: 'sofka-my-pipes',
@@ -12,6 +12,9 @@ export class MyPipesComponent implements OnInit {
   savings = 2000000;
   weigth = 3.8087;
   natalityRate = 0.514;
+  yearBorn = '2000';
+  phoneNumber = '3025727456';
+  name = 'Santiago Chavarro';
 
   constructor() {}
 
