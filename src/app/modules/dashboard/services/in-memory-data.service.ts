@@ -8,15 +8,15 @@ import { Hero } from '../models/hero';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const heroes = [
-      { id: 12, name: 'Dr. Nice', phone: "3196247894". lastAccident},
-      { id: 13, name: 'Bombasto',  phone: "318847894"},
-      { id: 14, name: 'Celeritas', phone: "3196247894" },
-      { id: 15, name: 'Magneta', phone: "3196247894" },
-      { id: 16, name: 'RubberMan', phone: "3196247894" },
-      { id: 17, name: 'Dynama', phone: "3196247894" },
-      { id: 18, name: 'Dr. IQ', phone: "3196247894" },
-      { id: 19, name: 'Magma', phone: "3196247894" },
-      { id: 20, name: 'Tornado', phone: "3196247894" }
+      { id: 12, name: 'Dr. Nice', phone: "3196247894", lastAccident: "19920322", savedbyhero: '5' },
+      { id: 13, name: 'Bombasto',  phone: "318847894", lastAccident: "20151518", savedbyhero: '75 ' },
+      { id: 14, name: 'Celeritas', phone: "3196247894", lastAccident: "2022016", savedbyhero:'87' },
+      { id: 15, name: 'Magneta', phone: "3196247894", lastAccident: "20210530", savedbyhero:'0' },
+      { id: 16, name: 'RubberMan', phone: "3196247894", lastAccident: "20151518", savedbyhero: '51' },
+      { id: 17, name: 'Dynama', phone: "3196247894", lastAccident:  "20151518", savedbyhero: '42'},
+      { id: 18, name: 'Dr. IQ', phone: "3196247894", lastAccident:"20151518" , savedbyhero: '2'},
+      { id: 19, name: 'Magma', phone: "3196247894", lastAccident:  "20151518", savedbyhero: '5'},
+      { id: 20, name: 'Tornado', phone: "3196247894", lastAccident: "20151518", savedbyhero: '7'}
 
     ];
     return {heroes};

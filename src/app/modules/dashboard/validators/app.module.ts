@@ -15,6 +15,7 @@ import { HeroesComponent } from '../componentes/heroes/heroes.component';
 import { HeroSearchComponent } from '../componentes/hero-search/hero-search.component';
 import { MessagesComponent } from '../componentes/messages/messages.component';
 import { PhonePipe } from '../pipes/phone.pipe';
+import { SavedPipe } from '../pipes/saved.pipe';
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { PhonePipe } from '../pipes/phone.pipe';
     HeroDetailComponent,
     MessagesComponent,
     HeroSearchComponent,
-    PhonePipe
+    PhonePipe,
+    SavedPipe
   ],
   bootstrap: [ AppComponent ]
 })
