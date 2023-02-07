@@ -4,9 +4,13 @@ import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
 import { MessageService } from './message.service';
 import { catchError, map, tap } from 'rxjs/operators';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({ providedIn: 'root' })
+
 export class HeroService {
+
+
+private heroesUrl = 'api/heroes';  // URL to web api
 
   constructor(
     private http: HttpClient,
@@ -51,7 +55,6 @@ private log(message: string) {
   this.messageService.add(`HeroService: ${message}`);
 }
 
-private heroesUrl = 'api/heroes';  // URL to web api
 
 /** GET heroes from the server */
 getHeroes(): Observable<Hero[]> {
@@ -77,10 +80,30 @@ updateHero(hero: Hero): Observable<any> {
   );
 }
 
+/** DELETE: delete the hero from the server */
+deleteHero(id: number): Observable<Hero> {
+  const url = `${this.heroesUrl}/${id}`;
+
+  return this.http.delete<Hero>(url, this.httpOptions).pipe(
+    tap(_ => this.log(`deleted hero id=${id}`)),
+    catchError(this.handleError<Hero>('deleteHero'))
+  );
+}
 
 
-
-
+/* GET heroes whose name contains search term */
+searchHeroes(term: string): Observable<Hero[]> {
+  if (!term.trim()) {
+    // if not search term, return empty hero array.
+    return of([]);
+  }
+  return this.http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
+    tap(x => x.length ?
+       this.log(`found heroes matching "${term}"`) :
+       this.log(`no heroes matching "${term}"`)),
+    catchError(this.handleError<Hero[]>('searchHeroes', []))
+  );
+}
 
 
 }
