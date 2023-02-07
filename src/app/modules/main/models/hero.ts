@@ -3,4 +3,5 @@ export interface Hero {
     name: string;
     phone : string;
     date: string;
+    state: boolean
   }

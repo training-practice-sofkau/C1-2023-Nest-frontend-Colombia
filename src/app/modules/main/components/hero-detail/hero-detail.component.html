@@ -3,6 +3,7 @@
   <div><span>id: </span>{{hero.id}}</div>
   <div><span>phone: </span>{{ hero.phone | phone }}</div>
   <div><span>hace cuanto es heroe: </span>{{ hero.date | moment }}</div>
+  <div><span>Estado: </span>{{ hero.state | state }}</div>
   <div>
     <label for="hero-name">Hero name: </label>
     <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
