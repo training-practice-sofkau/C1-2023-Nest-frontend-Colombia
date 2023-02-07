@@ -12,6 +12,9 @@ import { HeroDetailComponent } from './modules/main/components/hero-details/hero
 import { HeroesComponent } from './modules/main/components/heroes/heroes.component';
 import { InMemoryDataService } from './modules/main/services/in-memory-data.service';
 import { HeroSearchComponent } from './modules/main/components/hero-search/hero-search.component';
+import { PhonePipe } from './modules/main/pipes/phone.pipe';
+import { NumberToStringPipe } from './modules/main/pipes/number-to-string.pipe';
+
 
 @NgModule({
   imports: [
@@ -35,7 +38,8 @@ HttpClientInMemoryWebApiModule.forRoot(
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    PhonePipe,
   ],
   bootstrap: [ AppComponent ]
 })
