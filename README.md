@@ -38,9 +38,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Workshop
 
-1. Organizar las carpetas con la estructura propuesta
-2. Usar los pipes de Angular, un ejemplo por cada pipe
-3. Crear 3 custom pipes.
-- Un custom pipe usando la librería momentjs para reflejar el tiempo relativo
-- Un custom pipe para dar formato a un número de teléfono celular en Colombia. 3114567890 -> 311-456-7890
-- Inventarse un custom pipe para dar formato a un dato.
+1. Crear la maqueta visual de su backend
+2. Crear mínimo 10 commits [TITULO] - [DESCRIPCIÓN]

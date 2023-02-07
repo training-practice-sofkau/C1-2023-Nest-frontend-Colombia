@@ -8,6 +8,13 @@ const routes: Routes = [
     path: '',
     component: IndexComponent,
   },
+  {
+    path: 'hoja-de-vida', // localhost:4200/hoja-de-vida
+    loadChildren: () =>
+      import('../hoja-de-vida/hoja-de-vida.module').then(
+        m => m.HojaDeVidaModule
+      ),
+  },
 ];
 
 @NgModule({
