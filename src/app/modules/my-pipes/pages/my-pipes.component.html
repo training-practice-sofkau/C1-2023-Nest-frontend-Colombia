@@ -1,0 +1,19 @@
+<hr />
+<h2>My pipes</h2>
+<h3>Angular</h3>
+<p>Normal name: {{ fullnameToUpperCase }}</p>
+<p>Normal text: {{ textToLowerCase }}</p>
+<p>Normal date: {{ birthday }}</p>
+<p>Normal currency: {{ savings }}</p>
+<p>Normal weight: {{ weigth }}</p>
+<p>Normal natality: {{ natalityRate }}</p>
+<hr />
+<p>
+  {{ fullnameToUpperCase | uppercase }} {{ textToLowerCase | lowercase }}
+  {{ birthday | date }}. Capital: {{ savings | currency : 'COP' : '$ ' : '1.0'}}. Peso:
+  {{ weigth | number : '1.2-2'}}Kg, Natalidad: {{ natalityRate | percent : '1.1'}}
+</p>
+<hr />
+<hr />
+<hr />
+<hr />

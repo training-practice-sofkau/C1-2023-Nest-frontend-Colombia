@@ -13,6 +13,7 @@ import { HeroDetailComponent } from 'src/app/modules/heroes/components/hero-deta
 import { MessagesComponent } from 'src/app/modules/heroes/components/message/messages.component';
 import { DashboardComponent } from 'src/app/modules/heroes/components/dashboard/dashboard.component';
 import { HeroSearchComponent } from 'src/app/modules/heroes/components/hero-search/hero-search.component';
+import { MyPipesComponent } from 'src/app/modules/my-pipes/pages/my-pipes.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HeroSearchComponent } from 'src/app/modules/heroes/components/hero-sear
     MessagesComponent,
     DashboardComponent,
     HeroSearchComponent,
+    MyPipesComponent,
   ],
   imports: [
     AppRoutingModule,
