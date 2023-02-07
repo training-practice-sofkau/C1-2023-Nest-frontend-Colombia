@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './main/app.component';
-import { HeroesModule } from './heroes/heroes.module';
+import { AppComponent } from './pages/app.component';
+import { HeroesModule } from '../heroes/heroes.module';
 
 @NgModule({
     declarations: [

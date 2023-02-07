@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Hero } from '../interface/heroes.interface';
+import { Hero } from '../../interfaces/heroes.interface';
 
 @Component({
   selector: 'sofka-heroes-detalle',

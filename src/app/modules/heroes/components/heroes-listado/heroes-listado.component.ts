@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Hero } from '../interface/heroes.interface';
-import { HeroService } from '../service/hero.service';
-import { MessageService } from '../service/message.service';
+import { Hero } from '../../interfaces/heroes.interface';
+import { HeroService } from '../../services/hero.service';
+import { MessageService } from '../../services/message.service';
 
 @Component({
   selector: 'sofka-heroes-listado',
