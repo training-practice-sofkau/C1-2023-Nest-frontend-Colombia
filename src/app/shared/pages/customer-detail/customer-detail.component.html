@@ -2,21 +2,29 @@
 <html>
 
 <head>
-  <title>Title of the document</title>
+  <title>SignUp</title>
 </head>
 
 <body>
-  <h2>{{newCustomer.fullName| uppercase}} Details</h2>
-  <h3>{{newCustomer.fullName}} was born {{newCustomer.birthDate | relativeTime}}</h3>
-  <h3> Email: {{newCustomer.email | lowercase}}</h3>
+  <h2>{{newCustomer.fullName| uppercase}} detalles:</h2>
+  <h3>{{newCustomer.fullName | titlecase}} nació {{newCustomer.birthDate | relativeTime}}</h3>
+  <h3>Fecha de cumpleaños: {{newCustomer.birthDate | date:'fullDate'}}</h3>
+  <h3> Correo electrónico: {{newCustomer.email | lowercase}}</h3>
+  <h3> Número de documento: {{newCustomer.document | lowercase}}</h3>
   <div>
     <label for="newCustomer-fullName">FullName: </label>
     <input id="newCustomer-fullName" [(ngModel)]="newCustomer.fullName" placeholder="fullName">
   </div>
   <div>
     <label for="newCustomer-birthDate">BirthDate: </label>
-    <input type="date" id="newCustomer-birthDate" [(ngModel)]="newCustomer.birthDate" placeholder="birthDate"
-      max="2023-02-08">
+    <input
+      type="date"
+      id="newCustomer-birthDate"
+      [(ngModel)]="newCustomer.birthDate"
+      placeholder="birthDate"
+      max="2023-02-08"
+      value="newCustomer.birthDate"
+      >
   </div>
   <div>
     <label for="newCustomer-email">Email: </label>

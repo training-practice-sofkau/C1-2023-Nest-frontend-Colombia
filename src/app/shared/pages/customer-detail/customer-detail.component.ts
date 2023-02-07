@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CustomerInterface } from '../../../modules/interfaces/customer.interface';
+import { CustomerInterface } from '../../../modules/main/interfaces/customer.interface';
 
 @Component({
   selector: 'sofka-bank-customer-detail',
@@ -12,6 +12,13 @@ export class CustomerDetailComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  newCustomer: CustomerInterface = { fullName: 'dd', birthDate: Date.now(), document: '22', email: 'ddd', password: '555', phone: '555' }
-
+  newCustomer: CustomerInterface = {
+    fullName: 'fullName',
+    birthDate: '1990-01-01',
+    document: '22',
+    email: 'email@email.com',
+    password: 'password',
+    phone: 'phone',
+    avatarUrl: 'avatarUrl'
+  }
 }

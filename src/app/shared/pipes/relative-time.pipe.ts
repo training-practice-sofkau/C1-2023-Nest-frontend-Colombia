@@ -6,9 +6,9 @@ import * as moment from 'moment';
 })
 export class RelativeTimePipe implements PipeTransform {
 
-  transform(value: Date | number | undefined): any {
+  transform(value: Date | number | undefined | string): any {
     if(value){
-      console.log(new Date(value))
+      moment.locale('es')
       return moment(new Date(value), 'YYYYMMDD').fromNow();
     }
   }
