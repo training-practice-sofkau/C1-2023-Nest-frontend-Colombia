@@ -13,6 +13,8 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { AppComponent } from './pages/app/app.component';
 import { InMemoryDataService } from './services/in-memory-data.service';
+import { IndexComponent } from './pages/index/index.component';
+import { PhonePipe } from './pipes/phone.pipe';
 
 
 @NgModule({
@@ -35,7 +37,9 @@ import { InMemoryDataService } from './services/in-memory-data.service';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    IndexComponent,
+    PhonePipe
   ],
   bootstrap: [ AppComponent ]
 })
