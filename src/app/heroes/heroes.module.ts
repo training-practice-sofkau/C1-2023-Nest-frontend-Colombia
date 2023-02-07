@@ -9,4 +9,17 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class HeroesModule { }
+export class HeroesModule {
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.heroService.addHero({ name } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      });
+  }
+
+
+
+ }
