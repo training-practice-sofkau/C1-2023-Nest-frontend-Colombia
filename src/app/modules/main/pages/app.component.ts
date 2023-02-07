@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
   selector: 'sofka-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
+
 })
 export class AppComponent {
   title = 'Tour of Heroes';
