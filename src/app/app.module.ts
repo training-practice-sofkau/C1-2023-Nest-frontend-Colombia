@@ -13,6 +13,7 @@ import { HeroSearchComponent } from "./components/hero-search/hero-search.compon
 import { HeroesComponent } from "./components/heroes/heroes.component";
 import { MessagesComponent } from "./components/messages/messages.component";
 import { InMemoryDataService } from "./services/in-memory-data.service";
+import { PhoneCorrectionnPipe } from './pipes/phone-correctionn.pipe';
 
 @NgModule({
   imports: [
@@ -36,7 +37,9 @@ HttpClientInMemoryWebApiModule.forRoot(
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    PhoneCorrectionnPipe,
+    
   ],
   bootstrap: [ AppComponent ]
 })
