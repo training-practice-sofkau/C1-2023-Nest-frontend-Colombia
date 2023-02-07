@@ -4,4 +4,9 @@ export interface Hero {
   phone: string;
   lastfigth: any;
   time: string;
+  birthday: any;
+  nivel: string;
+  city: string;
+  fortune: any;
+  power: any;
 }
