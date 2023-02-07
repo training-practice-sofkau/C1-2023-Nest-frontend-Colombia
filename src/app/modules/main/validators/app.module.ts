@@ -1,3 +1,5 @@
+import { TimeFormatPipe } from './../pipes/time-format.pipe';
+import { relativeTime } from './../pipes/relative-time.pipe';
 import { PhoneNumberPipe } from './../pipes/phoneNumber.pipe';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -39,6 +41,8 @@ import { MessagesComponent } from '../components/messages/messages.component';
     MessagesComponent,
     HeroSearchComponent,
     PhoneNumberPipe,
+    relativeTime,
+    TimeFormatPipe,
   ],
   bootstrap: [ AppComponent ]
 })
