@@ -4,6 +4,7 @@ import { PipesAngularComponent } from './pages/pipes-angular/pipes-angular.compo
 import { PipesPersonalizadoComponent } from './pages/pipes-personalizado/pipes-personalizado.component';
 import { RelativeTimePipe } from './pipes/pipe-time/relative-time.pipe';
 import { NumeroCelPipe } from './pipes/pipe-numero/numero-cel.pipe';
+import { VerificarPipe } from './pipes/pipe-verificar/verificar.pipe';
 
 
 
@@ -13,6 +14,7 @@ import { NumeroCelPipe } from './pipes/pipe-numero/numero-cel.pipe';
     PipesPersonalizadoComponent,
     RelativeTimePipe,
     NumeroCelPipe,
+    VerificarPipe,
   ],
   exports:[
     PipesAngularComponent,

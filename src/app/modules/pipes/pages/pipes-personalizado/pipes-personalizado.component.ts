@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class PipesPersonalizadoComponent {
   tiempo: string = '19960223';
   celular: string = '3058045487';
+  volar: boolean = false;
 }
