@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-
+import { PhoneNumberPipe } from '../../pipes/phoneNumber.pipe';
 import { Hero } from 'src/app/hero';
 import { HeroService } from 'src/app/hero.service';
-
+import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
