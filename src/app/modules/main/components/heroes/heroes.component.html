@@ -1,0 +1,39 @@
+<h2>My Heroes</h2>
+
+<div>
+  <label for="new-hero">Hero name: </label>
+  <!--<input id="new-hero" #heroName />-->
+  <input id="new-hero" [(ngModel)]="h.name" />
+  <input id="new-hero" [(ngModel)]="h.age" />
+  <input id="new-hero" [(ngModel)]="h.power" />
+  <input id="new-hero" [(ngModel)]="h.telephone" />
+  <input id="new-hero" [(ngModel)]="h.lastFight" />
+
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button" (click)="add()">
+    Add hero
+  </button>
+</div>
+
+<div>Filtro Edad</div>
+<div>
+  <label for="">Inicio</label>
+  <input [(ngModel)]="rangeAge.start" name="name" type="text">
+</div>
+<div>
+  <label for="">Fin</label>
+  <input [(ngModel)]="rangeAge.end" name="name" type="text" placeholder="numero">
+</div>
+<button (click)="getHeroes()" >Buscar</button>
+
+<ul class="heroes">
+  <li *ngFor="let hero of heroes | filterByAge: rangeAge ">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <span> {{hero.age}} </span>
+    </a>
+    <button type="button" class="delete" title="delete hero"
+      (click)="delete(hero)">x</button>
+  </li>
+</ul>
