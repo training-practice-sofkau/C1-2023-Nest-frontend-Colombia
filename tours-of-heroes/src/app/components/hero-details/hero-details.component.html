@@ -1,0 +1,18 @@
+<div *ngIf="hero">
+
+  <h2>{{hero.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{hero.id}}</div>
+  <div><span>HumanName: </span>{{hero.humanName | uppercase}}</div>
+  <div><span>phone: </span>{{hero.phone | phone}}</div>
+  <div><span>conversionMoney: </span>{{hero.money| conversionMoney:'COP':'EUR'}}</div>
+  <div><span>power: </span>{{hero.power| power  }}</div>
+  <div><span>planet: </span>{{hero.planet | uppercase  }}</div>
+  <div><span>genre: </span>{{hero.genre | titlecase }}</div>
+  <div><span>birthday: </span>{{hero.birthday | date}}</div>
+  <div><span>Percent: </span>{{hero.percent | percent }}</div>
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+  </div>
+  <button type="button" (click)="goBack()">go back</button>
+</div>

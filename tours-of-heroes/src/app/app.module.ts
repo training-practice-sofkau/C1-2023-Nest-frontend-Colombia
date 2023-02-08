@@ -5,13 +5,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing.module';
-import { MessagesComponent } from './messages/messages.component';
-import { AppComponent } from './modules/main/components/app.component';
-import { DashboardComponent } from './modules/main/components/dashboard/dashboard.component';
-import { HeroDetailComponent } from './modules/main/components/hero-details/hero-details.component';
-import { HeroesComponent } from './modules/main/components/heroes/heroes.component';
-import { InMemoryDataService } from './modules/main/services/in-memory-data.service';
-import { HeroSearchComponent } from './modules/main/components/hero-search/hero-search.component';
+import { AppComponent } from './components/app.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HeroDetailComponent } from './components/hero-details/hero-details.component';
+import { HeroSearchComponent } from './components/hero-search/hero-search.component';
+import { HeroesComponent } from './components/heroes/heroes.component';
+
+import { ConversionMoneyPipe } from './pipes/conversion-money.pipe';
+import { PhonePipe } from './pipes/phone.pipe';
+import { InMemoryDataService } from './services/in-memory-data.service';
+import { MessagesComponent } from './components/messages/messages.component';
+import { PowerPipe } from './pipes/power.pipe';
+import { MomentPipe } from './pipes/moment.pipe';
+
 
 @NgModule({
   imports: [
@@ -34,8 +40,12 @@ HttpClientInMemoryWebApiModule.forRoot(
     DashboardComponent,
     HeroesComponent,
     HeroDetailComponent,
+    HeroSearchComponent,
     MessagesComponent,
-    HeroSearchComponent
+    PhonePipe,
+    ConversionMoneyPipe,
+    PowerPipe,
+    MomentPipe,
   ],
   bootstrap: [ AppComponent ]
 })
