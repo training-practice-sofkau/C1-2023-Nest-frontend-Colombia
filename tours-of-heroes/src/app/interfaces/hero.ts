@@ -4,4 +4,6 @@ export interface Hero {
   phone: string;
   money: number;
   power: number;
+  planet:string;
+  genre: string;
 }
