@@ -12,12 +12,14 @@ import { HeroDetailComponent } from 'src/app/modules/heroes/components/hero-deta
 import { HeroSearchComponent } from 'src/app/modules/heroes/components/hero-search/hero-search.component';
 import { MessagesComponent } from 'src/app/modules/heroes/components/messages/messages.component';
 import { DashboardComponent } from 'src/app/modules/heroes/components/dashboard/dashboard.component';
+import { MyPipesComponent } from '../my-pipes/pages/my-pipes.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     HeroesComponent,
+    MyPipesComponent,
     HeroSearchComponent,
     HeroDetailComponent,
     MessagesComponent

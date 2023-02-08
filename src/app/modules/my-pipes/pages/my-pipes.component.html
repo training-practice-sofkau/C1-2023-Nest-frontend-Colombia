@@ -1,0 +1,18 @@
+<hr />
+<h2><strong>My pipes</strong></h2>
+<h3><strong>Angular</strong></h3>
+<p>Nombre normal: {{ mayuscula }}</p>
+<p>Texto en mayuscula: {{ minuscula }}</p>
+<p>Normal date: {{ cumpleanios }}</p>
+<p>Normal currency: {{ estadodecuenta }}</p>
+<p>Normal weight: {{ peso }}</p>
+<p>Normal natality: {{ natalityRate }}</p>
+<hr />
+<h3><strong>Respuestas</strong></h3>
+<p>
+  {{ mayuscula | uppercase }}. {{ minuscula | lowercase }}.
+  {{ cumpleanios | date }}. Capital: {{ estadodecuenta | currency : 'COP' : '$ ' : '1.0'}}. Peso:
+  {{ peso | number : '1.2-2'}}Kg. Natalidad: {{ natalityRate | percent : '1.1'}}
+</p>
+<hr />
+
