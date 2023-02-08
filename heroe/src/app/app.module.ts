@@ -8,12 +8,12 @@ import { InMemoryDataService } from './data/in-memory-data.service';
 
 import { AppRoutingModule } from './routhing/app-routhing.module';
 
-import { AppComponent } from './app.component';
-import { DashboardComponent } from './dasboard/dasboard.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { HeroesComponent } from './heroe/heroe.component';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
-import { MessagesComponent } from './messages/messages.component';
+import { AppComponent } from './components/app.component';
+import { DashboardComponent } from './components/dasboard.component';
+import { HeroDetailComponent } from './components/hero-detail.component';
+import { HeroesComponent } from './components/heroe.component';
+import { HeroSearchComponent } from './components/hero-search.component';
+import { MessagesComponent } from './components/messages.component';
 
 @NgModule({
   imports: [
