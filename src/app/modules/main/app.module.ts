@@ -2,21 +2,15 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './pages/app/app.component';
-import { HeroesModule } from '../heroes/heroes.module';
-import { PipesModule } from '../pipes/pipes.module';
+import { IndexComponent } from './pages/index/index.component';
+import { MyPipePipe } from './pipes/my-pipe/my-pipe.pipe';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-    ],
-    providers: [],
-    bootstrap: [AppComponent],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HeroesModule,
-        PipesModule
-    ]
+  declarations: [AppComponent, IndexComponent, MyPipePipe],
+  imports: [BrowserModule, AppRoutingModule],
+  providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
