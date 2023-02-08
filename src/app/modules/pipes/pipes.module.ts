@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PipesAngularComponent } from './pages/pipes-angular/pipes-angular.component';
 import { PipesPersonalizadoComponent } from './pages/pipes-personalizado/pipes-personalizado.component';
 import { RelativeTimePipe } from './pipes/pipe-time/relative-time.pipe';
+import { NumeroCelPipe } from './pipes/pipe-numero/numero-cel.pipe';
 
 
 
@@ -11,6 +12,7 @@ import { RelativeTimePipe } from './pipes/pipe-time/relative-time.pipe';
     PipesAngularComponent,
     PipesPersonalizadoComponent,
     RelativeTimePipe,
+    NumeroCelPipe,
   ],
   exports:[
     PipesAngularComponent,
