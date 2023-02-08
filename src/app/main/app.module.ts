@@ -12,7 +12,7 @@ import { HeroDetailComponent } from '../heroes/componentes/hero-detail/hero-deta
 import { MessagesComponent } from '../heroes/componentes/messages/messages.component';
 import { DashboardComponent } from '../heroes/componentes/dashboard/dashboard.component';
 import { HeroSearchComponent } from '../heroes/componentes/hero-search/herosearch.component';
-
+import { MyPipePipe } from '../my-pipes/my-pipe.pipe';
 
 import { AppRoutingModule } from './app-routing.module'
 import { HeroBirthdayComponent } from '../heroes/pipes/pipe/pipe.component';
@@ -26,7 +26,8 @@ import { HeroBirthdayComponent } from '../heroes/pipes/pipe/pipe.component';
     HeroDetailComponent,
     MessagesComponent,
     HeroSearchComponent,
-    HeroBirthdayComponent
+    HeroBirthdayComponent,
+    MyPipePipe
 
    ],
   imports: [
