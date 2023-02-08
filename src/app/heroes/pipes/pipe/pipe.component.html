@@ -1,0 +1,22 @@
+<p>The hero's birthday is {{ birthday | date }}</p>
+<p>letragrande{{ xmen | uppercase }}</p>
+<p>letrapequena{{ xmen2 | lowercase }}</p>
+<p>Normal currency: {{ savings }}</p>
+<p>Normal weight: {{ weigth }}</p>
+<p>Normal natality: {{ natalityRate }}</p>
+<hr />
+<h3><strong>Respuestas</strong></h3>
+<p>
+  {{ birthday | date }}. Capital: {{ savings | currency : 'COP' : '$ ' : '1.0'}}. Peso:
+  {{ weigth | number : '1.2-2'}}Kg. Natalidad: {{ natalityRate | percent : '1.1'}}
+</p>
+<hr />
+<h3><strong>Custom</strong></h3>
+<p>Normal yearBorn: {{ yearBorn }}</p>
+<p>Normal phoneNumber: {{ phoneNumber }}</p>
+<p>Normal name: {{ name }}</p>
+<hr />
+<h3><strong>Respuestas</strong></h3>
+
+
+
