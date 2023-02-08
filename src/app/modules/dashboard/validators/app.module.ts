@@ -4,16 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './modules/dashboard/services/in-memory-data.service';
+import { InMemoryDataService } from '../services/in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
-import { AppComponent } from './app.component';
-import { DashboardComponent } from './modules/dashboard/componentes/dashboard/dashboard.component';
-import { HeroDetailComponent } from './modules/dashboard/componentes/hero-detail/hero-detail.component';
-import { HeroesComponent } from './modules/dashboard/componentes/heroes/heroes.component';
-import { HeroSearchComponent } from './modules/dashboard/componentes/hero-search/hero-search.component';
-import { MessagesComponent } from './modules/dashboard/componentes/messages/messages.component';
+import { AppComponent } from '../pages/app/app.component';
+import { DashboardComponent } from '../componentes/dashboard/dashboard.component';
+import { HeroDetailComponent } from '../componentes/hero-detail/hero-detail.component';
+import { HeroesComponent } from '../componentes/heroes/heroes.component';
+import { HeroSearchComponent } from '../componentes/hero-search/hero-search.component';
+import { MessagesComponent } from '../componentes/messages/messages.component';
+import { PhonePipe } from '../pipes/phone.pipe/phone.pipe';
+import { SavedPipe } from '../pipes/saved.pipe/saved.pipe';
+import { RelativeTimePipe } from '../pipes/relative-time.pipe/relative-time.pipe';
 
 @NgModule({
   imports: [
@@ -35,7 +38,10 @@ import { MessagesComponent } from './modules/dashboard/componentes/messages/mess
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    PhonePipe,
+    RelativeTimePipe,
+    SavedPipe
   ],
   bootstrap: [ AppComponent ]
 })

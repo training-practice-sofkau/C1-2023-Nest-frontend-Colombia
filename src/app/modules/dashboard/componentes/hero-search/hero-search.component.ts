@@ -6,13 +6,13 @@ import {
    debounceTime, distinctUntilChanged, switchMap
  } from 'rxjs/operators';
 
-import { Hero } from '../../../../core/models/hero';
+import { Hero } from '../../models/hero';
 import { HeroService } from '../../services/hero.service';
 
 @Component({
   selector: 'app-hero-search',
   templateUrl: './hero-search.component.html',
-  styleUrls: [ './hero-search.component.css' ]
+  styleUrls: [ './hero-search.component.scss' ]
 })
 export class HeroSearchComponent implements OnInit {
   heroes$!: Observable<Hero[]>;
