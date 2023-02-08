@@ -13,6 +13,10 @@ import { HeroSearchComponent } from 'src/app/modules/heroes/components/hero-sear
 import { MessagesComponent } from 'src/app/modules/heroes/components/messages/messages.component';
 import { DashboardComponent } from 'src/app/modules/heroes/components/dashboard/dashboard.component';
 import { MyPipesComponent } from '../my-pipes/pages/my-pipes.component';
+import { CelularPipe } from '../my-pipes/pipes/celularpipe/celular.pipe';
+import { NombrePipe } from '../my-pipes/pipes/nombrepipe/nombre.pipe';
+import { TiempoPipe } from '../my-pipes/pipes/tiempopipe/tiempo.pipe';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +26,10 @@ import { MyPipesComponent } from '../my-pipes/pages/my-pipes.component';
     MyPipesComponent,
     HeroSearchComponent,
     HeroDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    CelularPipe,
+    NombrePipe,
+    TiempoPipe
   ],
   imports: [
     BrowserModule,
