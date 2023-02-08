@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   })
 
 export class HeroBirthdayComponent implements OnInit{
+
   birthday = new Date(1979, 12, 25);
   heroe : string = 'Mediano'
   herox : string = 'Gigante'

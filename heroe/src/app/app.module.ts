@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -14,6 +14,9 @@ import { HeroDetailComponent } from './components/hero-detail.component';
 import { HeroesComponent } from './components/heroe.component';
 import { HeroSearchComponent } from './components/hero-search.component';
 import { MessagesComponent } from './components/messages.component';
+import { HeroBirthdayComponent } from './Pipes/pipeHero/pipe.component';
+
+
 
 @NgModule({
   imports: [
@@ -21,6 +24,7 @@ import { MessagesComponent } from './components/messages.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    HeroBirthdayComponent,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.

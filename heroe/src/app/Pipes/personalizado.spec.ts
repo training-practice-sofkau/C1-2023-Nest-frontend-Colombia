@@ -1,9 +1,8 @@
-import { TestBed, async } from '@angular/core/testing';
-import { PipepersonalizadoPipe } from './pipepersonalizado.pipe';
+import { personalizado } from './personalizado.pipe'
 
 describe('Pipe: Pipepersonalizadoe', () => {
   it('create an instance', () => {
-    let pipe = new PipepersonalizadoPipe();
+    let pipe = new personalizado();
     expect(pipe).toBeTruthy();
   });
 });
