@@ -3,6 +3,7 @@
 <p>date: {{date}}</p>
 <p>phoneNumber: {{phone}}</p>
 <p>salary: {{salary}}</p>
+<p>year: {{year}}</p>
 
 <!--  -->
 <h2>Examples</h2>
@@ -12,6 +13,12 @@
 <p>salary: {{salary | currency : 'COP' : '$' : '1.0'}}</p>
 <p>salariy: {{salary | percent}}</p>
 <p>salary: {{salary | number}}</p>
+
+<!--  -->
+<h2>Custom</h2>
+<p>name: {{name | namePipe}}</p>
+<p>phone: {{phone | phonePipe}}</p>
+<p>nació hace : {{year | relativeTime}}<p>
 
 
 
