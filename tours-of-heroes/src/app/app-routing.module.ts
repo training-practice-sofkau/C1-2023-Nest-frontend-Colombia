@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './modules/main/components/dashboard/dashboard.component';
-import { HeroDetailComponent } from './modules/main/components/hero-details/hero-details.component';
-import { HeroesComponent } from './modules/main/components/heroes/heroes.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { HeroDetailComponent } from './components/hero-details/hero-details.component';
+import { HeroesComponent } from './components/heroes/heroes.component';
+
 
 
 

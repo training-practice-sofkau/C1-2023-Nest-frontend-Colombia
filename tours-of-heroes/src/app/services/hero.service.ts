@@ -6,7 +6,8 @@ import { catchError, map, tap } from 'rxjs/operators';
 
 
 import { MessageService } from './message.service';
-import { Hero } from 'src/app/hero';
+import { Hero } from '../interfaces/hero';
+
 
 
 @Injectable({ providedIn: 'root' })
