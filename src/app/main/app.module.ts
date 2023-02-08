@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http';
 
@@ -15,6 +15,7 @@ import { HeroSearchComponent } from '../heroes/componentes/hero-search/herosearc
 
 
 import { AppRoutingModule } from './app-routing.module'
+import { HeroBirthdayComponent } from '../heroes/pipes/pipe/pipe.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { AppRoutingModule } from './app-routing.module'
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    HeroBirthdayComponent
 
    ],
   imports: [
