@@ -10,7 +10,7 @@
           "style": "scss"
         }
       },
-      "root": "",
+      "root": "./src",
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
@@ -103,8 +103,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "0cced204-cafe-4693-8237-e141d5eb1789"
   }
 }
