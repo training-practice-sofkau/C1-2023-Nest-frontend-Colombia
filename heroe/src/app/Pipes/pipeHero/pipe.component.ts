@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-
+import { Pipe } from '@angular/core';
 @Component({
   selector: 'app-hero-birthday',
   templateUrl: './pipe.component.html'

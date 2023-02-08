@@ -24,7 +24,7 @@ import { HeroBirthdayComponent } from './Pipes/pipeHero/pipe.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HeroBirthdayComponent,
+    //HeroBirthdayComponent,
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
