@@ -7,6 +7,7 @@ import * as moment from 'moment';
 export class RelativeTimePipe implements PipeTransform {
 
   transform(lastAccident: string): string {
+    moment.locale('es')
     return moment(lastAccident,'YYYYMMDD').fromNow();
   }
 }

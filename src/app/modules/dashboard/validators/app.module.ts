@@ -14,8 +14,9 @@ import { HeroDetailComponent } from '../componentes/hero-detail/hero-detail.comp
 import { HeroesComponent } from '../componentes/heroes/heroes.component';
 import { HeroSearchComponent } from '../componentes/hero-search/hero-search.component';
 import { MessagesComponent } from '../componentes/messages/messages.component';
-import { PhonePipe } from '../pipes/phone.pipe';
-import { SavedPipe } from '../pipes/saved.pipe';
+import { PhonePipe } from '../pipes/phone.pipe/phone.pipe';
+import { SavedPipe } from '../pipes/saved.pipe/saved.pipe';
+import { RelativeTimePipe } from '../pipes/relative-time.pipe/relative-time.pipe';
 
 @NgModule({
   imports: [
@@ -39,6 +40,7 @@ import { SavedPipe } from '../pipes/saved.pipe';
     MessagesComponent,
     HeroSearchComponent,
     PhonePipe,
+    RelativeTimePipe,
     SavedPipe
   ],
   bootstrap: [ AppComponent ]
