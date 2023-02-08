@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>SignUp</title>
+</head>
+
+<body>
+  <h2>{{newCustomer.fullName| uppercase}} detalles:</h2>
+  <h3>{{newCustomer.fullName | titlecase}} nació {{newCustomer.birthDate | relativeTime}}</h3>
+  <h3>Fecha de cumpleaños: {{newCustomer.birthDate | date:'fullDate'}}</h3>
+  <h3>Año de nacimiento: {{newCustomer.birthDate.toString() | slice:0:4}}</h3>
+  <h3>Total dias de vida: {{newCustomer.birthDate | daysBetween}}</h3>
+  <h3>Correo electrónico: {{newCustomer.email | lowercase}}</h3>
+  <h3>Número de documento: {{newCustomer.document | lowercase}}</h3>
+  <h3>Número de teléfono: {{newCustomer.phone | phoneNumber:undefined:' '}}</h3>
+  <h3>Dinero pipe numero: {{newCustomer.amount | number:'.4'}}</h3>
+  <h3>Dinero pipe currency: {{newCustomer.amount | currency:'USD'}}</h3>
+  <h3>Porcentaje de datos llenos en el formulafio: {{getPercentage(newCustomer)| percent:'.4'}}</h3>
+  <h3>Cliente en JSON: {{newCustomer | json}}</h3>
+  <div>
+    <label for="newCustomer-fullName">FullName: </label>
+    <input id="newCustomer-fullName" [(ngModel)]="newCustomer.fullName" placeholder="fullName">
+  </div>
+  <div>
+    <label for="newCustomer-birthDate">BirthDate: </label>
+    <input type="date" id="newCustomer-birthDate" [(ngModel)]="newCustomer.birthDate" placeholder="birthDate"
+      max="2023-02-08" value="newCustomer.birthDate">
+  </div>
+  <div>
+    <label for="newCustomer-email">Email: </label>
+    <input type="email" id="newCustomer-email" [(ngModel)]="newCustomer.email" placeholder="email">
+  </div>
+  <div>
+    <label for="newCustomer-document">document: </label>
+    <input type="document" id="newCustomer-document" [(ngModel)]="newCustomer.document" placeholder="document">
+  </div>
+  <div>
+    <label for="newCustomer-phone">phone: </label>
+    <input type="phone" id="newCustomer-phone" [(ngModel)]="newCustomer.phone" placeholder="phone">
+  </div>
+  <div>
+    <label for="newCustomer-amount">amount: </label>
+    <input type="amount" id="newCustomer-amount" [(ngModel)]="newCustomer.amount" placeholder="amount">
+  </div>
+</body>
+
+</html>
