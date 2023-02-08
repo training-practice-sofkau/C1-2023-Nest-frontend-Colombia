@@ -7,6 +7,9 @@ export class Hero {
     public age: number,
     public lastFight: number,
     public telephone: string,
+    public salary: number,
+    public birthday: number,
+    public height: number,
     public alterEgo?: string
   ) {  }
 

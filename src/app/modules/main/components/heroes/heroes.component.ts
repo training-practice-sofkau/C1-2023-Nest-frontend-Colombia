@@ -28,7 +28,10 @@ export class HeroesComponent implements OnInit {
     power: '',
     age: 0,
     lastFight: 0,
-    telephone: ''
+    telephone: '',
+    salary: 20,
+    birthday: 8789,
+    height: 1.60
   }
 
   constructor(private heroService: HeroService) {

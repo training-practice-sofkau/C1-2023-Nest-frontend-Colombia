@@ -8,15 +8,15 @@ import { Hero } from '../../models/hero';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const heroes = [
-      { id: 12, name: 'Dr. Nice', age: 42, lastFight: 1657843200000, telephone: '3177019868'},
-      { id: 13, name: 'Bombasto', age: 9, lastFight: 164099520000, telephone: '3177019868'  },
-      { id: 14, name: 'Celeritas', age: 20, lastFight: 1671080400000, telephone: '3177019868'  },
-      { id: 15, name: 'Magneta', age: 80, lastFight: 1657843200000, telephone: '3177019868' },
-      { id: 16, name: 'RubberMan', age: 17, lastFight: 1657843200000, telephone: '3177019868'},
-      { id: 17, name: 'Dynama', age: 37, lastFight: 1657843200000, telephone: '3177019868'},
-      { id: 18, name: 'Dr. IQ', age: 42, lastFight: 1657843200000, telephone: '3177019868'},
-      { id: 19, name: 'Magma', age: 10, lastFight: 1657843200000, telephone: '3177019868'},
-      { id: 20, name: 'Tornado', age: 22, lastFight: 1657843200000, telephone: '3177019868' }
+      { id: 12, name: 'Dr. Nice', age: 42, lastFight: 1657843200000, telephone: '3177019868', salary: 4000, birthday: 1657843200000, height: 1.638789},
+      { id: 13, name: 'Bombasto', age: 9, lastFight: 164099520000, telephone: '3177019868', salary: 4500, birthday: 1657843200000, height: 1.639879},
+      { id: 14, name: 'Celeritas', age: 20, lastFight: 1671080400000, telephone: '3177019868', salary: 4500, birthday: 1657843200000, height: 1.63897},
+      { id: 15, name: 'Magneta', age: 80, lastFight: 1657843200000, telephone: '3177019868', salary: 4500, birthday: 1657843200000, height: 1.6387},
+      { id: 16, name: 'RubberMan', age: 17, lastFight: 1657843200000, telephone: '3177019868', salary: 4500, birthday: 1657843200000, height: 1.63987},
+      { id: 17, name: 'Dynama', age: 37, lastFight: 1657843200000, telephone: '3177019868', salary: 4500, birthday: 1657843200000, height: 1.638689},
+      { id: 18, name: 'Dr. IQ', age: 42, lastFight: 1657843200000, telephone: '3177019868', salary: 4500, birthday: 1657843200000, height: 1.63897},
+      { id: 19, name: 'Magma', age: 10, lastFight: 1657843200000, telephone: '3177019868', salary: 4500, birthday: 1657843200000, height: 1.63},
+      { id: 20, name: 'Tornado', age: 22, lastFight: 1657843200000, telephone: '3177019868',salary: 4500, birthday: 1657843200000, height: 1.63}
     ];
     return {heroes};
   }

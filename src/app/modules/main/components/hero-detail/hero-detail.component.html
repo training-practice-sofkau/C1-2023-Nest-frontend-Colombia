@@ -1,8 +1,12 @@
 <div *ngIf="hero">
   <h2>{{hero.name | uppercase}} Details</h2>
   <div><span>id: </span>{{hero.id}}</div>
+  <div><span>Nombre: </span>{{hero.name | uppercase }}</div>
   <div><span>Ultima Pelea: </span>{{hero.lastFight | dateFormat }}</div>
   <div><span>Telefono: </span>{{hero.telephone | phoneFormat }}</div>
+  <div><span>Salario: </span>{{hero.salary | currency: 'COP': 'symbol-narrow':'.0-0'}}</div>
+  <div><span>Cumpleaños: </span>{{hero.birthday | date }}</div>
+  <div><span>Altura: </span>{{hero.height | number }}</div>
   <div>
     <label for="hero-name">Hero name: </label>
     <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
