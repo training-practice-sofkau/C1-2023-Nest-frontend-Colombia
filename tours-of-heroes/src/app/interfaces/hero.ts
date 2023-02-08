@@ -3,4 +3,5 @@ export interface Hero {
   name: string;
   phone: string;
   money: number;
+  power: number;
 }

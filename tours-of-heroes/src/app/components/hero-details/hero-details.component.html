@@ -4,6 +4,7 @@
   <div><span>id: </span>{{hero.id}}</div>
   <div><span>phone: </span>{{hero.phone | phone}}</div>
   <div><span>conversionMoney: </span>{{hero.money| conversionMoney:'COP':'EUR'}}</div>
+  <div><span>power: </span>{{hero.power| power  }}</div>
   <div>
     <label for="hero-name">Hero name: </label>
     <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">

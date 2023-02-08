@@ -15,6 +15,7 @@ import { ConversionMoneyPipe } from './pipes/conversion-money.pipe';
 import { PhonePipe } from './pipes/phone.pipe';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { MessagesComponent } from './components/messages/messages.component';
+import { PowerPipe } from './pipes/power.pipe';
 
 
 @NgModule({
@@ -42,6 +43,7 @@ HttpClientInMemoryWebApiModule.forRoot(
     MessagesComponent,
     PhonePipe,
     ConversionMoneyPipe,
+    PowerPipe,
   ],
   bootstrap: [ AppComponent ]
 })

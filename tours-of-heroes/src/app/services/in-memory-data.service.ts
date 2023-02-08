@@ -9,15 +9,15 @@ import { Hero } from '../interfaces/hero';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const heroes = [
-      { id: 12, name: 'Dr. Nice', phone : '3004567883', money: 3435674},
-      { id: 13, name: 'Bombasto', phone : '3004567883' ,  money: 122231},
-      { id: 14, name: 'Celeritas', phone : '3004567883' , money: 983854},
-      { id: 15, name: 'Magneta' , phone : '3004567883', money: 33245674 },
-      { id: 16, name: 'RubberMan', phone : '3004567883', money: 4355674 },
-      { id: 17, name: 'Dynama', phone : '3004567883',  money: 123174},
-      { id: 18, name: 'Dr. IQ', phone : '3004567883' , money: 56774},
-      { id: 19, name: 'Magma', phone : '3004567883' , money: 3862323},
-      { id: 20, name: 'Tornado', phone : '3004567883', money: 44564}
+      { id: 12, name: 'Dr. Nice', phone : '3004567883', money: 3435674, power: 30},
+      { id: 13, name: 'Bombasto', phone : '3004567883' ,  money: 122231,power: 70},
+      { id: 14, name: 'Celeritas', phone : '3004567883' , money: 983854,power: 92},
+      { id: 15, name: 'Magneta' , phone : '3004567883', money: 33245674,power: 10 },
+      { id: 16, name: 'RubberMan', phone : '3004567883', money: 4355674 ,power: 55},
+      { id: 17, name: 'Dynama', phone : '3004567883',  money: 123174,power: 100},
+      { id: 18, name: 'Dr. IQ', phone : '3004567883' , money: 56774,power: 31},
+      { id: 19, name: 'Magma', phone : '3004567883' , money: 3862323,power: 5},
+      { id: 20, name: 'Tornado', phone : '3004567883', money: 44564,power:44}
     ];
     return {heroes};
   }
