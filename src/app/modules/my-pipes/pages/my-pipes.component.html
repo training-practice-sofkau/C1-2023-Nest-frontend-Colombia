@@ -1,0 +1,29 @@
+<hr />
+<h2 style="color: tomato;"><strong>Mis pipes</strong></h2>
+
+<p>Texto en minuscula: {{ mayuscula }}</p>
+<p>Texto en mayuscula: {{ minuscula }}</p>
+<p>Fecha de calendario: {{ cumpleanio }}</p>
+<p>Numero sin especificacion de moneda: {{ estadodecuenta }}</p>
+<p>Peso sin identificador: {{ peso }}</p>
+<p>Normal natality: {{ natalityRate }}</p>
+<hr />
+<h3 style="color: tomato;"><strong>Datos con pipes aplicados</strong></h3>
+<p>{{ mayuscula | uppercase }}</p>
+<p>{{ minuscula | lowercase }}</p>
+<p>{{ cumpleanio | date }}</p>
+<p>Ahorros: {{ estadodecuenta | currency : 'COP' : '$ ' : '1.0'}}</p>
+<p>Peso:{{ peso | number : '1.2-2'}}Kg</p>
+<p>Natalidad: {{ natalityRate | percent : '1.1'}}</p>
+<hr/>
+<h3 style="color: tomato;"><strong>Pipes Propuestos</strong></h3>
+<p>Año: {{ nacimiento }}</p>
+<p>Celular: {{ celular }}</p>
+<p>Nombre: {{ nombre }}</p>
+<hr />
+
+<h3 style="color: tomato;"><strong>Pipes propuestos aplicados</strong></h3>
+
+<p>Nació: {{ nacimiento | tiempo }}</p>
+<p>Celular: {{celular | celular }}</p>
+<p>Nombre invertido: {{ nombre | nombre }}</p>
