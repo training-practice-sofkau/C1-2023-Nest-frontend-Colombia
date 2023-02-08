@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero } from '../../models/hero';
 import { HeroService } from '../../services/hero/hero.service';
-import { HEROES } from '../../../../../../mock/mock.heroes';
+import { Hero } from 'src/app/modules/main/models/hero';
+
+interface Age {
+  start: number;
+  end: number;
+}
 
 @Component({
   selector: 'app-heroes',
@@ -10,25 +14,50 @@ import { HEROES } from '../../../../../../mock/mock.heroes';
 })
 export class HeroesComponent implements OnInit {
   heroes: Hero[] = [];
+  ageToFilter = 42
+  show = false
 
-  constructor(private heroService: HeroService) { }
+  rangeAge = {
+    start: 0,
+    end: 100,
+  }
+
+  h: Hero = {
+    id: 0,
+    name: '',
+    power: '',
+    age: 0,
+    lastFight: 0,
+    telephone: ''
+  }
+
+  constructor(private heroService: HeroService) {
+    //this.rangeAge.start = this.rangeAge.start;
+    //this.rangeAge.end = this.rangeAge.end
+  }
 
   ngOnInit(): void {
-    this.getHeroes();
+    if(this.rangeAge.start === 0 && this.rangeAge.end === 0){
+
+    }
+   //this.getHeroes();
+   // console.log('h ', this.heroes)
   }
 
   getHeroes(): void {
     this.heroService.getHeroes()
     .subscribe(heroes => this.heroes = heroes);
+    console.log('h ', this.heroes)
   }
 
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.heroService.addHero({ name } as Hero)
+  add(): void {
+    //name = name.trim();
+    //if (!name) { return; }
+    this.heroService.addHero(this.h)
       .subscribe(hero => {
         this.heroes.push(hero);
       });
+      console.log('heros ', this.heroes)
   }
 
   delete(hero: Hero): void {

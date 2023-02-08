@@ -1,6 +1,8 @@
 <div *ngIf="hero">
   <h2>{{hero.name | uppercase}} Details</h2>
   <div><span>id: </span>{{hero.id}}</div>
+  <div><span>Ultima Pelea: </span>{{hero.lastFight | dateFormat }}</div>
+  <div><span>Telefono: </span>{{hero.telephone | phoneFormat }}</div>
   <div>
     <label for="hero-name">Hero name: </label>
     <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
@@ -8,3 +10,4 @@
   <button type="button" (click)="goBack()">go back</button>
   <button type="button" (click)="save()">save</button>
 </div>
+

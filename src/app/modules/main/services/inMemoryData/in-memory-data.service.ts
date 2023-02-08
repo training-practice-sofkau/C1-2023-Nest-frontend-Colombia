@@ -8,15 +8,15 @@ import { Hero } from '../../models/hero';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const heroes = [
-      { id: 12, name: 'Dr. Nice' },
-      { id: 13, name: 'Bombasto' },
-      { id: 14, name: 'Celeritas' },
-      { id: 15, name: 'Magneta' },
-      { id: 16, name: 'RubberMan' },
-      { id: 17, name: 'Dynama' },
-      { id: 18, name: 'Dr. IQ' },
-      { id: 19, name: 'Magma' },
-      { id: 20, name: 'Tornado' }
+      { id: 12, name: 'Dr. Nice', age: 42, lastFight: 1657843200000, telephone: '3177019868'},
+      { id: 13, name: 'Bombasto', age: 9, lastFight: 164099520000, telephone: '3177019868'  },
+      { id: 14, name: 'Celeritas', age: 20, lastFight: 1671080400000, telephone: '3177019868'  },
+      { id: 15, name: 'Magneta', age: 80, lastFight: 1657843200000, telephone: '3177019868' },
+      { id: 16, name: 'RubberMan', age: 17, lastFight: 1657843200000, telephone: '3177019868'},
+      { id: 17, name: 'Dynama', age: 37, lastFight: 1657843200000, telephone: '3177019868'},
+      { id: 18, name: 'Dr. IQ', age: 42, lastFight: 1657843200000, telephone: '3177019868'},
+      { id: 19, name: 'Magma', age: 10, lastFight: 1657843200000, telephone: '3177019868'},
+      { id: 20, name: 'Tornado', age: 22, lastFight: 1657843200000, telephone: '3177019868' }
     ];
     return {heroes};
   }

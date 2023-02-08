@@ -16,6 +16,7 @@ import { CommonModule, TitleCasePipe } from '@angular/common';
 import { PricesComponent } from './main/components/prices/prices.component';
 import { PhoneFormatPipe } from './main/pipes/prueba.pipe';
 import { DateFormatPipe } from './main/pipes/date.pipe';
+import { FilterByAgePipe } from './main/pipes/filter-by-age.pipe';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import { DateFormatPipe } from './main/pipes/date.pipe';
         //TitleCasePip,
         HeroSearchComponent,
         PhoneFormatPipe,
-        DateFormatPipe
+        DateFormatPipe,
+        FilterByAgePipe
     ],
     providers: [],
     bootstrap: [AppComponent],
