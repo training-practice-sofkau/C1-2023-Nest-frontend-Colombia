@@ -12,5 +12,4 @@ export class PipesAngularComponent {
   valor: number = 2000;
   numero: number = 250646.556;
   porcentaje: number = 0.50;
-  
 }
