@@ -8,7 +8,7 @@ import * as moment from 'moment';
 export class DatePipePipe implements PipeTransform {
 
   transform(birthday: string): string {
-    return moment(birthday, "YYYYMMDD").fromNow();
+    return moment(birthday, "YYYY").fromNow();
   }
 
 }
