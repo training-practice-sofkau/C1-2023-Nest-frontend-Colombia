@@ -14,6 +14,8 @@ import { HeroesComponent } from "./components/heroes/heroes.component";
 import { MessagesComponent } from "./components/messages/messages.component";
 import { InMemoryDataService } from "./services/in-memory-data.service";
 import { PhoneCorrectionnPipe } from './pipes/phone-correctionn.pipe';
+import { MomentPipe } from './pipes/moment.pipe';
+import { ChangeMoneyPipe } from './pipes/change-money.pipe';
 
 @NgModule({
   imports: [
@@ -39,6 +41,8 @@ HttpClientInMemoryWebApiModule.forRoot(
     MessagesComponent,
     HeroSearchComponent,
     PhoneCorrectionnPipe,
+    MomentPipe,
+    ChangeMoneyPipe,
     
   ],
   bootstrap: [ AppComponent ]
