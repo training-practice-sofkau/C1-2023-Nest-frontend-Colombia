@@ -9,8 +9,6 @@ export class PipesCustomComponent {
 
 
   phonenumber: string = '314526896';
-
-
   time: string = '13750136';
 
 }
