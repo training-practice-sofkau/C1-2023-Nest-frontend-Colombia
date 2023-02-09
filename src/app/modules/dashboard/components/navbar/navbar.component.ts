@@ -7,10 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  home!: string[];
+  deposits!: string[];
+  newDeposit!: string[];
+  transfers!: string[];
+  newTransfer!: string[];
+  editCustomer!: string[]
+
+  constructor() {
+    this.home = ['dashboard'];
+    this.deposits = ['./deposits'];
+    this.newDeposit = ['./deposits/add'];
+    this.transfers = ['./transfers'];
+    this.newTransfer = ['./transfers/add'];
+    this.editCustomer = ['./edit'];
+  }
 
   ngOnInit(): void {
-    console.log('ddd')
   }
 
 }
