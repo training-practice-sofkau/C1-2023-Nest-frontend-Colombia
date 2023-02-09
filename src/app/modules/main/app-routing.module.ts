@@ -9,7 +9,7 @@ const routes: Routes = [
     component: IndexComponent,
   },
   {
-    path: 'to-do-list', // localhost:4200/to-do-list
+    path: 'to-do-list/dashboard', // localhost:4200/to-do-list
     loadChildren: () =>
       import('../to-do-list/to-do-list.module').then(m => m.ToDoListModule),
   },
