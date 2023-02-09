@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class DeleteTodolistComponent {
 
+  lista: string[];
+
+  constructor(){
+    this.lista = ["../"]
+  }
+
 }

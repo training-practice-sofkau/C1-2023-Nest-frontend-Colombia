@@ -14,8 +14,8 @@ export class ListaComponent {
 constructor(){
   this.editar = ["editar"];
   this.agregar = ["agregar"];
-  this.eliminar = ["agregar"];
-  this.detalles = ["agregar"];
+  this.eliminar = ["eliminar"];
+  this.detalles = ["detalles"];
 }
 
 }

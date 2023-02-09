@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AddTodolistComponent {
 
+  lista: string[];
+
+  constructor(){
+    this.lista = ["../"]
+  }
+
 }
