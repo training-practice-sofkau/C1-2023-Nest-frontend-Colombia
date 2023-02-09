@@ -4,11 +4,11 @@ import { CommonModule } from '@angular/common';
 
 //modulo de rutas
 
-import { } from './pages/creartareas/creartareas.component';
+import {TareasRoutingModule} from './tareas-routing.module';
 
 //componentes
 import { CreartareasComponent } from './pages/creartareas/creartareas.component';
-import { ActualizartareasComponent } from './pages/actualizartareas/actualizartareas/actualizartareas.component';
+import { ActualizartareasComponent } from './pages/actualizartareas/actualizartareas.component';
 import { TraertareasComponent } from './pages/traertareas/traertareas.component';
 import { EliminartareasComponent } from './pages/eliminartareas/eliminartareas.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
@@ -25,8 +25,10 @@ import { PrincipalComponent } from './pages/principal/principal.component';
 
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    TareasRoutingModule
     ],
     exports : [ CreartareasComponent, ActualizartareasComponent, TraertareasComponent, EliminartareasComponent, PrincipalComponent]
+
 })
 export class TareasModule { }

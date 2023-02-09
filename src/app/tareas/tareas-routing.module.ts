@@ -1,7 +1,9 @@
 // Libraries
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ActualizartareasComponent } from './pages/actualizartareas/actualizartareas/actualizartareas.component';
+
+//pages
+import { ActualizartareasComponent } from './pages/actualizartareas/actualizartareas.component';
 import { CreartareasComponent } from './pages/creartareas/creartareas.component';
 import { EliminartareasComponent } from './pages/eliminartareas/eliminartareas.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
@@ -38,4 +40,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HojaDeVidaRoutingModule {}
+export class TareasRoutingModule {}
