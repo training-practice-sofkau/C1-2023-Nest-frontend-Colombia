@@ -10,6 +10,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DetalleToDoListComponent } from './pages/detalle-to-do-list/detalle-to-do-list.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { AgregarToDoListComponent } from './pages/agregar-to-do-list/agregar-to-do-list.component';
+import { ToDoListLayoutComponent } from './layouts/to-do-list-layout/to-do-list-layout.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +19,8 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     DetalleToDoListComponent,
     HeaderComponent,
     FooterComponent,
+    AgregarToDoListComponent,
+    ToDoListLayoutComponent,
   ],
   imports: [CommonModule, ToDoListRoutingModule],
 })
