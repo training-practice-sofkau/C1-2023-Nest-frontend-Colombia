@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent {
+  routeLogIn: string[];
+
+  constructor() {
+    this.routeLogIn = ['../log_in'];
+  }
+
 
 }

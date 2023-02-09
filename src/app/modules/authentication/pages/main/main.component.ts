@@ -6,10 +6,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  routeEstudios: string[];
+  routeSignIn: string[];
+  routeLogIn: string[];
 
   constructor() {
-    this.routeEstudios = ['sign_in'];
+    this.routeSignIn = ['sign_in'];
+    this.routeLogIn = ['log_in'];
   }
 
 }
