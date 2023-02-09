@@ -3,23 +3,25 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
 // Routes
-import { HojaDeVidaRoutingModule } from './hoja-de-vida-routing.module';
+import { ToDoListRoutingModule } from './todo-list-routing.module';
 
 // Components
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
-import { EstudiosComponent } from './pages/estudios/estudios.component';
+import { NewItemComponent } from './pages/new-item/new-item.component';
 import { ExperienciaLaboralComponent } from './pages/experiencia-laboral/experiencia-laboral.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
+import { EditItemComponent } from './pages/edit-item/edit-item.component';
 
 @NgModule({
   declarations: [
     PrincipalComponent,
-    EstudiosComponent,
+    NewItemComponent,
     ExperienciaLaboralComponent,
     HeaderComponent,
     FooterComponent,
+    EditItemComponent,
   ],
-  imports: [CommonModule, HojaDeVidaRoutingModule],
+  imports: [CommonModule, ToDoListRoutingModule],
 })
-export class HojaDeVidaModule {}
+export class ToDoListModule {}

@@ -3,21 +3,26 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 // Pages
-import { EstudiosComponent } from './pages/estudios/estudios.component';
+import { NewItemComponent } from './pages/new-item/new-item.component';
+import { EditItemComponent } from './pages/edit-item/edit-item.component';
 import { ExperienciaLaboralComponent } from './pages/experiencia-laboral/experiencia-laboral.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
 
 const routes: Routes = [
   {
-    path: '', // localhost:4200/hoja-de-vida
+    path: '', // localhost:4200/todo-list
     component: PrincipalComponent,
   },
   {
-    path: 'estudios', // localhost:4200/hoja-de-vida/estudios
-    component: EstudiosComponent,
+    path: 'new-item', // localhost:4200/todo-list/estudios
+    component: NewItemComponent,
   },
   {
-    path: 'experiencia-laboral', // localhost:4200/hoja-de-vida/experiencia-laboral
+    path: 'edit-item/:id', // localhost:4200/todo-list/edit-item/1
+    component: EditItemComponent,
+  },
+  {
+    path: 'experiencia-laboral', // localhost:4200/todo-list/experiencia-laboral
     component: ExperienciaLaboralComponent,
   },
 ];
@@ -26,4 +31,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class HojaDeVidaRoutingModule {}
+export class ToDoListRoutingModule {}

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'sofka-estudios',
-  templateUrl: './estudios.component.html',
-  styleUrls: ['./estudios.component.scss'],
+  selector: 'sofka-new-item',
+  templateUrl: './new-item.component.html',
+  styleUrls: ['./new-item.component.scss'],
 })
-export class EstudiosComponent {
+export class NewItemComponent {
   routePrincipal: string[];
   routeExperienciaLaboral: string[];
 

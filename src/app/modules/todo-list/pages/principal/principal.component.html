@@ -1,0 +1,33 @@
+<!-- eslint-disable prettier/prettier -->
+<div class="header">
+  <sofka-header></sofka-header>
+</div>
+<div class="body">
+  <p>principal works!</p>
+  <button type="button" class="btn btn-primary" [routerLink]="routeNewItem">
+    Nuevo item
+  </button>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Responsible</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of todoList" (click)="editItem(item.Id)">
+      <th scope="row">{{item.Id}}</th>
+      <td>{{item.Title}}</td>
+      <td>{{item.Description}}</td>
+      <td>{{item.Responsible}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<div class="footer">
+  <sofka-footer></sofka-footer>
+</div>
