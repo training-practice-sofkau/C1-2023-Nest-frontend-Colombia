@@ -9,6 +9,7 @@ const routes: Routes = [
   //{ path: 'heroes', component: HeroesComponent },
   //{ path: 'dashboard', component: DashboardComponent },
   //{ path: 'detail/:id', component: HeroDetailComponent },
+  //{ path: 'signIn', component: Authe },
   {
     path: 'authentication',
     loadChildren: () => 

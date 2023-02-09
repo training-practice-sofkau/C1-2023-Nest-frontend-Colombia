@@ -12,11 +12,12 @@ import { HeroesComponent } from './main/components/heroes/heroes.component';
 import { InMemoryDataService } from './main/services/inMemoryData/in-memory-data.service';
 import { HeroSearchComponent } from "./main/components/hero-search/hero-search.component";
 import { HeroFormComponent } from './main/components/hero-form/hero-form.component';
-import { CommonModule, TitleCasePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { PricesComponent } from './main/components/prices/prices.component';
 import { PhoneFormatPipe } from './main/pipes/phoneFormat/prueba.pipe';
 import { DateFormatPipe } from './main/pipes/date/date.pipe';
 import { FilterByAgePipe } from './main/pipes/age/filter-by-age.pipe';
+import { AuthenticationModule } from './authentication/authentication.module';
 
 @NgModule({
     declarations: [
@@ -30,7 +31,7 @@ import { FilterByAgePipe } from './main/pipes/age/filter-by-age.pipe';
         HeroSearchComponent,
         PhoneFormatPipe,
         DateFormatPipe,
-        FilterByAgePipe
+        FilterByAgePipe,
     ],
     providers: [],
     bootstrap: [AppComponent],
@@ -40,7 +41,7 @@ import { FilterByAgePipe } from './main/pipes/age/filter-by-age.pipe';
         FormsModule,
         HttpClientModule,
         CommonModule,
-        TitleCasePipe,
+        AuthenticationModule,
         HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false }),
         //TitleCasePipeModule
     ]
