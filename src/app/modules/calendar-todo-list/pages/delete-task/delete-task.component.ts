@@ -12,8 +12,6 @@ export class DeleteTaskComponent {
   routergoBackMenu: string[];
   routeShowTask = [];
 
-
-
   constructor() {
 
 
