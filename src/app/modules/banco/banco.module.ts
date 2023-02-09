@@ -1,3 +1,4 @@
+import { bancoRoutingModule } from './banco-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from '../main/validators/app-routing.module';
@@ -18,7 +19,7 @@ import { PrincipalComponent } from './pages/principal/principal.component';
     PrincipalComponent
   ],
   imports: [
-    CommonModule, AppRoutingModule
+    CommonModule, bancoRoutingModule
   ]
 })
 export class BancoModule { }
