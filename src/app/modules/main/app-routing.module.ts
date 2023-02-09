@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { IndexComponent } from './pages/index/index.component';
+import { AppComponent } from './pages/app/app.component';
 
-const routes: Routes = [{
-  path:'',
-  component: IndexComponent
-},
-{
-  path: 'dashboard',
-  loadChildren: () =>
-    import('../dashboard/dashboard.module').then(
-      m => m.DashboardModule
-    ),
-},];
+const routes: Routes = [
+  { path: 'index', component: AppComponent },
+  {
+    path: 'shared', loadChildren: () => import('../Auth/Auth.module')
+      .then(m => m.AuthModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('../dashboard/dashboard.module')
+      .then(m => m.DashboardModule)
+  },
+  { path: '', redirectTo: 'index', pathMatch: 'full' },
+  { path: '**', redirectTo: 'index', pathMatch: 'full' },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

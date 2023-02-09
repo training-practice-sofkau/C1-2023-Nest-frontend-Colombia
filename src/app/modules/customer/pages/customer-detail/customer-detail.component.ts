@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CustomerInterface } from '../../../modules/main/interfaces/customer.interface';
+import { CustomerInterface } from '../../../main/interfaces/customer.interface';
 
 @Component({
   selector: 'sofka-bank-customer-detail',

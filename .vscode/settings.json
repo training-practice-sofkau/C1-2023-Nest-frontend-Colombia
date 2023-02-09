@@ -7,7 +7,9 @@
       "ngFor",
       "ngSwitch",
       "ngModel",
-      "[(ngModel)]"
+      "[(ngModel)]",
+      "routerLink",
+      "[routerLink]"
     ],
     "doctype-first": false
   }

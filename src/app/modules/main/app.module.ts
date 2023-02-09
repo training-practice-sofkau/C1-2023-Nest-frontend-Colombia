@@ -1,41 +1,23 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { registerLocaleData } from '@angular/common';
 import localeEsCo from '@angular/common/locales/es-CO'
-registerLocaleData(localeEsCo, 'es-Co');
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from '..';
-import { AccountsComponent } from '..';
-import { DepositsComponent } from '..';
-import { TranfersComponent } from '..';
-import { AuthComponent } from '..';
-import { CustomersComponent } from '..';
-import { DashboardComponent } from '..';
-import { RelativeTimePipe, PhoneNumberPipe, DaysBetweenPipe } from 'src/app/shared/pipes';
-import { CustomerDetailComponent } from '../../shared/pages/customer-detail/customer-detail.component';
+import { AppComponent } from './pages';
+import { CustomerModule } from '../customer/customer.module';
+registerLocaleData(localeEsCo, 'es-Co');
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    AccountsComponent,
-    DepositsComponent,
-    TranfersComponent,
-    AuthComponent,
-    CustomersComponent,
-    DashboardComponent,
-    RelativeTimePipe,
-    PhoneNumberPipe,
-    DaysBetweenPipe,
-    CustomerDetailComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-  ],
+  declarations: [AppComponent],
   providers: [{ provide: LOCALE_ID, useValue: 'es-Co' }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  imports: [
+    CustomerModule,
+    BrowserModule,
+    RouterModule,
+    AppRoutingModule
+  ]
 })
 export class AppModule { }
