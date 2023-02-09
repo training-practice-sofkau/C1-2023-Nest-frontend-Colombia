@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SigninComponent implements OnInit {
 
-  constructor() { }
+  resetPass!: string[];
+  signUp!: string[];
+
+  constructor() {
+    this.resetPass = ['../reset-pass'];
+    this.signUp = ['../signup'];
+  }
 
   ngOnInit(): void {
   }

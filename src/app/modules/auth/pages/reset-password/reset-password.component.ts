@@ -9,13 +9,12 @@ import { Router } from '@angular/router';
 })
 export class ResetPasswordComponent implements OnInit {
 
-  routePrincipal: string[];
-  routeEstudios: string[];
+  signIn!: string[];
+  signUp!: string[];
 
   constructor(private router: Router) {
-    this.routePrincipal = ['../'];
-    this.routeEstudios = ['../estudios'];
-    this.router
+    this.signIn = ['../signin'];
+    this.signUp = ['../signup'];
   }
 
   ngOnInit(): void {

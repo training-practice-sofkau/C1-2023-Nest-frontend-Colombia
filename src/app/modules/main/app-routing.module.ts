@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './pages/app/app.component';
+import { IndexComponent } from './pages/index/index.component';
 
 const routes: Routes = [
-  { path: 'index', component: AppComponent },
+  { path: 'index', component: IndexComponent },
   {
     path: 'shared', loadChildren: () => import('../Auth/Auth.module')
       .then(m => m.AuthModule)

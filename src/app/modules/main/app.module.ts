@@ -7,10 +7,11 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './pages';
 import { CustomerModule } from '../customer/customer.module';
+import { IndexComponent } from './pages/index/index.component';
 registerLocaleData(localeEsCo, 'es-Co');
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, IndexComponent],
   providers: [{ provide: LOCALE_ID, useValue: 'es-Co' }],
   bootstrap: [AppComponent],
   imports: [

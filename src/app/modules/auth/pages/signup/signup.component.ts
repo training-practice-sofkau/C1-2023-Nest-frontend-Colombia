@@ -8,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  signIn!: string[];
+  signUp!: string[];
+
+  constructor() {
+    this.signIn = ['../signin'];
+    this.signUp = ['../signup'];
+  }
 
   ngOnInit(): void {
   }
