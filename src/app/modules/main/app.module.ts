@@ -9,6 +9,7 @@ import { AppComponent } from './pages/app/app.component';
 import { IndexComponent } from './pages/index/index.component';
 import { HeaderComponent } from '../../shared/components/header/header.component';
 import { FooterComponent } from '../../shared/components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { FooterComponent } from '../../shared/components/footer/footer.component
     IndexComponent,
     HeaderComponent,
     FooterComponent,
+    HomeComponent,
   ],
   bootstrap: [ AppComponent ]
 })
