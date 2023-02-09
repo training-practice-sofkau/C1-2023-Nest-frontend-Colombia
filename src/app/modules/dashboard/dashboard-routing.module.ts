@@ -22,6 +22,10 @@ const routes: Routes = [
         path: 'transfers', loadChildren: () => import('../transfers/transfers.module')
           .then(m => m.TransfersModule)
       },
+      {
+        path: 'accounts', loadChildren: () => import('../account/account.module')
+          .then(m => m.AccountsModule)
+      },
       { path: '', redirectTo: '', pathMatch: 'full' },
       { path: '**', redirectTo: '' },
     ]

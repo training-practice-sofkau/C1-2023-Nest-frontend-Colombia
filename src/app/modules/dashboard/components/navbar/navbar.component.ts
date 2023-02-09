@@ -8,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class NavbarComponent implements OnInit {
 
   home!: string[];
+  accounts!: string[];
+  newAccount!: string[];
   deposits!: string[];
   newDeposit!: string[];
   transfers!: string[];
@@ -16,6 +18,8 @@ export class NavbarComponent implements OnInit {
 
   constructor() {
     this.home = ['dashboard'];
+    this.accounts = ['./accounts'];
+    this.newAccount = ['./accounts/add'];
     this.deposits = ['./deposits'];
     this.newDeposit = ['./deposits/add'];
     this.transfers = ['./transfers'];

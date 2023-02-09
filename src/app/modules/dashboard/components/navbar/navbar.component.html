@@ -20,10 +20,18 @@
           </li>
           <li class="nav-item">
             <div class="dropdown">
+              <a class="nav-link dropdown-toggle" [routerLink]="accounts" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">Accounts</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" [routerLink]="newAccount">Create</a></li>
+                <li><a class="dropdown-item" [routerLink]="accounts">Accounts</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <div class="dropdown">
               <a class="nav-link dropdown-toggle" [routerLink]="deposits" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Deposits
-              </a>
+                aria-expanded="false">Deposits</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" [routerLink]="newDeposit">Create</a></li>
                 <li><a class="dropdown-item" [routerLink]="deposits">Deposits</a></li>
@@ -33,22 +41,12 @@
           <li class="nav-item">
             <div class="dropdown">
               <a class="nav-link dropdown-toggle" [routerLink]="transfers" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Transfers
-              </a>
+                aria-expanded="false">Transfers</a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" [routerLink]="newTransfer">Create</a></li>
                 <li><a class="dropdown-item" [routerLink]="transfers">Transfers</a></li>
               </ul>
             </div>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
           </li>
         </ul>
       </div>
