@@ -9,14 +9,7 @@ const routes: Routes = [
     component: IndexComponent,
   },
   {
-    path: 'hoja-de-vida', // localhost:4200/hoja-de-vida
-    loadChildren: () =>
-      import('../hoja-de-vida/hoja-de-vida.module').then(
-        (m) => m.HojaDeVidaModule
-      ),
-  },
-  {
-    path: 'tareas', // localhost:4200/hoja-de-vida
+    path: 'tareas', // localhost:4200/tareas
     loadChildren: () =>
       import('../tareas/tareas.module').then(
         (m) => m.TareasModule

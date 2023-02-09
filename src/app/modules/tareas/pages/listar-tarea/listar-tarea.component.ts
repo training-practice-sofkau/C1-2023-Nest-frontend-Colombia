@@ -9,5 +9,9 @@ import { TAREAS } from '../../mocks/mock-tareas';
 })
 export class ListarTareaComponent {
   resultados: Tarea[] = TAREAS;
+  routeDetalles: string[];
 
+  constructor(){
+    this.routeDetalles = ['../detalle'];
+  }
 }
