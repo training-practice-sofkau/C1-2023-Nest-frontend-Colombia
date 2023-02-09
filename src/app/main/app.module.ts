@@ -3,9 +3,6 @@ import { NgModule, Pipe } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http';
 
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from '../heroes/service/In-memory-data.service';
-
 import { AppComponent } from './componente/app.component';
 import { HeroesComponent } from '../heroes/pages/heroes.component';
 import { HeroDetailComponent } from '../heroes/componentes/hero-detail/hero-detail.component';
@@ -16,7 +13,7 @@ import { MyPipePipe } from '../my-pipes/my-pipe.pipe';
 
 import { AppRoutingModule } from './app-routing.module'
 import { HeroBirthdayComponent } from '../heroes/pipes/pipe/pipe.component';
-
+import { TareasModule } from '../tareas/tareas.module';
 
 @NgModule({
   declarations: [
@@ -35,13 +32,13 @@ import { HeroBirthdayComponent } from '../heroes/pipes/pipe/pipe.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
+    TareasModule
+
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
     // and returns simulated server responses.
     // Remove it when a real server is ready to receive requests.
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
+
   ],
   providers: [],
   bootstrap: [AppComponent]
