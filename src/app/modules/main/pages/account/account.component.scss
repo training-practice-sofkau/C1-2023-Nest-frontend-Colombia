@@ -1,0 +1,31 @@
+.container-account {
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+
+.form-account {
+    margin: auto;
+    border: 1px solid black;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    width: 500px;
+    border-radius: 10px;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(357deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 20%, rgba(0, 212, 255, 1) 100%);
+}
+
+.form-account p {
+    color: white;
+    font-weight: 700;
+}
+
+.subcontainer-account {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    color: white;
+}
