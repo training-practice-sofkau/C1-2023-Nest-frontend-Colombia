@@ -8,7 +8,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
-    path: '', // localhost:4200/to-do-list
+    path: '', // localhost:4200/to-do-list/dashboard
     component: DashboardComponent,
   },
   {
