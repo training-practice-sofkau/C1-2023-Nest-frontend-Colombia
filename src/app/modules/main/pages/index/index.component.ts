@@ -6,13 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent {
-  fecha: Date;
-  precio: number;
-  nombre: string;
-
   constructor() {
-    this.fecha = new Date();
-    this.precio = 123123123;
-    this.nombre = 'Julian Lasso';
   }
 }
