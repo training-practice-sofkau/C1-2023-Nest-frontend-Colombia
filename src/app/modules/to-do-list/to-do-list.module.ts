@@ -12,6 +12,8 @@ import { DetalleToDoListComponent } from './pages/detalle-to-do-list/detalle-to-
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AgregarToDoListComponent } from './pages/agregar-to-do-list/agregar-to-do-list.component';
 import { ToDoListLayoutComponent } from './layouts/to-do-list-layout/to-do-list-layout.component';
+import { EditarToDoListComponent } from './pages/editar-to-do-list/editar-to-do-list.component';
+import { EliminarToDoListComponent } from './pages/eliminar-to-do-list/eliminar-to-do-list.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { ToDoListLayoutComponent } from './layouts/to-do-list-layout/to-do-list-
     FooterComponent,
     AgregarToDoListComponent,
     ToDoListLayoutComponent,
+    EditarToDoListComponent,
+    EliminarToDoListComponent,
   ],
   imports: [CommonModule, ToDoListRoutingModule],
 })
