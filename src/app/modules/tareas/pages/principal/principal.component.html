@@ -1,1 +1,13 @@
-<p>principal works!</p>
+<div class="row">
+    <div *ngFor="let tarea of resultados" class="col-md-4 col-sm-6 animate__animated animate__fadeIn g-4">
+
+        <div class="card">
+            <div class="card-body">
+                <p class="card-text" [routerLink]="routeListar">
+                    {{ tarea.id }}
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>

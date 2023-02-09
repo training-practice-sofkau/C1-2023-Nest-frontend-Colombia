@@ -3,26 +3,29 @@ import { Routes, RouterModule } from '@angular/router';
 import { PrincipalComponent } from './pages/principal/principal.component';
 import { ListarTareaComponent } from './pages/listar-tarea/listar-tarea.component';
 import { DetalleTareaComponent } from './pages/detalle-tarea/detalle-tarea.component';
+import { CrearTareaComponent } from './pages/crear-tarea/crear-tarea.component';
+import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 
 const routes: Routes = [
   {
-    path: '',// localhost:4200/hoja-de-vida
+    path: '',
+    component: MainLayoutComponent,
     children: [
       {
-        path:'home',
+        path:'home',// localhost:4200/tareas
         component: PrincipalComponent
       },
       {
-        path: 'listar',// localhost:4200/listar-tareas
+        path: 'listar',// localhost:4200/tareas/listar
         component: ListarTareaComponent
       },
       {
-        path: 'detalle',// localhost:4200/detalle-tarea
+        path: 'detalle',// localhost:4200/tareas/detalle
         component: DetalleTareaComponent
       },
       {
-        path: 'crear',// localhost:4200/crear-tarea
-        component: DetalleTareaComponent
+        path: 'crear',// localhost:4200/tareas/crear
+        component: CrearTareaComponent
       },
       {
         path: '**',

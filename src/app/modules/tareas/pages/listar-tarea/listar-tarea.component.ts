@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Tarea } from '../../interfaces/tareas.interface';
+import { TAREAS } from '../../mocks/mock-tareas';
 
 @Component({
   selector: 'sofka-listar-tarea',
@@ -6,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./listar-tarea.component.scss']
 })
 export class ListarTareaComponent {
+  resultados: Tarea[] = TAREAS;
 
 }

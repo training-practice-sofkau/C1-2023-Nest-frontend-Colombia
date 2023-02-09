@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Tarea } from '../../interfaces/tareas.interface';
+import { TAREAS } from '../../mocks/mock-tareas';
 
 @Component({
   selector: 'sofka-principal',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./principal.component.scss']
 })
 export class PrincipalComponent {
+  resultados: Tarea[] = TAREAS;
+  routeListar: string[];
 
+  constructor(){
+    this.routeListar = ['../listar'];
+  }
 }
