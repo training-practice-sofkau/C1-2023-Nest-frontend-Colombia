@@ -9,6 +9,9 @@ import { FooterComponent } from './plantillas/footer/footer.component';
 //import { DashboardComponent } from './vistas/dashboard/dashboard.component';
 //import { NuevoComponent } from './vistas/nuevo/nuevo.component';
 //import { EditarComponent } from './vistas/editar/editar.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { FooterComponent } from './plantillas/footer/footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
