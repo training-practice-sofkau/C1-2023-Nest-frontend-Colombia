@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class PutTaskCompleteComponent {
 
+  routergoBackMenu: string[];
+  routeShowTask = [];
+
+
+
+  constructor() {
+
+
+    this.routergoBackMenu = ['../'];
+    this.routeShowTask = [];
+
+
+  }
+
 }
