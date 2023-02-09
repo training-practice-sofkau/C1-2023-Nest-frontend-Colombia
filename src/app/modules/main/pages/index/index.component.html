@@ -1,14 +1,12 @@
-<p>index works!</p>
-<p>
-  {{ fecha | date }}
-</p>
-<p>
-  {{ precio | currency : 'COP' : '$ ' : '1.0' }}
-</p>
-<p>
-  {{ nombre | myPipe : 'parámetro' }}
-</p>
-
-<button type="button" class="btn btn-primary" routerLink="hoja-de-vida">
-  Hoja de Vida
-</button>
+<div class="card text-center">
+  <div class="card-header">
+    ToDo List
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">Welcome to your ToDo list</h5>
+    <a href="#" class="btn btn-primary" routerLink="tareas">Login</a>
+  </div>
+  <div class="card-footer text-muted">
+    {{ fecha }}
+  </div>
+</div>

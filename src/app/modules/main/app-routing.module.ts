@@ -12,7 +12,14 @@ const routes: Routes = [
     path: 'hoja-de-vida', // localhost:4200/hoja-de-vida
     loadChildren: () =>
       import('../hoja-de-vida/hoja-de-vida.module').then(
-        m => m.HojaDeVidaModule
+        (m) => m.HojaDeVidaModule
+      ),
+  },
+  {
+    path: 'tareas', // localhost:4200/hoja-de-vida
+    loadChildren: () =>
+      import('../tareas/tareas.module').then(
+        (m) => m.TareasModule
       ),
   },
 ];

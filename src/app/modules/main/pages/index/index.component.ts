@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import * as moment from 'moment';
 
 @Component({
   selector: 'sofka-index',
@@ -6,13 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent {
-  fecha: Date;
-  precio: number;
-  nombre: string;
+  fecha: string = moment().format('LLL'); 
 
   constructor() {
-    this.fecha = new Date();
-    this.precio = 123123123;
-    this.nombre = 'Julian Lasso';
   }
 }

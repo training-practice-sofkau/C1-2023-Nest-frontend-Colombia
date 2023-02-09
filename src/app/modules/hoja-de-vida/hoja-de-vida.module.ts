@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // Libraries
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
