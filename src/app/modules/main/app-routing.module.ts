@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './main/components/dashboard/dashboard.component';
-import { HeroesComponent } from './main/components/heroes/heroes.component';
-import { HeroDetailComponent } from './main/components/hero-detail/hero-detail.component';
 
 const routes: Routes = [
   //{ path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -11,10 +8,24 @@ const routes: Routes = [
   //{ path: 'detail/:id', component: HeroDetailComponent },
   //{ path: 'signIn', component: Authe },
   {
+    path: '',
+    loadChildren: () => 
+    import('../authentication/authentication.module').then(
+      m => m.AuthenticationModule
+    )
+  },
+  /*{
     path: 'authentication',
     loadChildren: () => 
-    import('../modules/authentication/authentication.module').then(
+    import('../authentication/authentication.module').then(
       m => m.AuthenticationModule
+    )
+  },*/
+  {
+    path: 'user-profile',
+    loadChildren: () => 
+    import('../user/user.module').then(
+      m => m.UserModule
     )
   }
 ];

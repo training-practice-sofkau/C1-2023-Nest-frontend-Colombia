@@ -7,10 +7,17 @@ import { Component } from '@angular/core';
 })
 export class SignInComponent {
   routeLogIn: string[];
+  router: any;
 
   constructor() {
     this.routeLogIn = ['../log_in'];
   }
 
+  goTo(): void {
+    // this.router.navigate(['../experiencia-laboral'], {
+    //   relativeTo: this.route,
+    // });
+    this.router.navigate(['./', 'authentication', 'log_in']);
+  }
 
 }
