@@ -25,6 +25,7 @@ import { InfoTransferComponent } from './pages/info-transfer/info-transfer.compo
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderAfterLoginComponent } from './components/header-after-login/header-after-login.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { NavInfoCustomerComponent } from './components/nav-info-customer/nav-info-customer.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { FooterComponent } from './components/footer/footer.component';
     UpdateCostumerComponent,
     HeaderComponent,
     HeaderAfterLoginComponent,
-    FooterComponent
+    FooterComponent,
+    NavInfoCustomerComponent
   ],
   imports: [
     BrowserModule,
