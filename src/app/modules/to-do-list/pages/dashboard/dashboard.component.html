@@ -1,0 +1,85 @@
+<div class="header">
+  <sofka-header></sofka-header>
+</div>
+<div class="body">
+  <div class="row m-4">
+    <div class="alert alert-info" role="alert">
+      <h5 class="text-primary">
+        ¡Hola! Aquí puedes hacer lo siguiente:
+        <button type="button" class="btn btn-lg btn-outline-primary ms-4" [routerLink]="routeDetalle">
+          Agregar una tarea
+        </button>
+      </h5>
+    </div>
+  </div>
+  <div class="col m-5 mt-0">
+    <h2>Listado de tareas</h2>
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <caption>
+          Listado de tareas
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Day</th>
+            <th scope="col">Título</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Responsable</th>
+            <th scope="col">Completada</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+            <td>
+              <button class="btn btn-warning bg-warning bg-opacity-75 me-2">
+                Editar
+              </button>
+              <button class="btn btn-danger bg-danger bg-opacity-75">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>@fat</td>
+            <td>
+              <button class="btn btn-warning bg-warning bg-opacity-75 me-2">
+                Editar
+              </button>
+              <button class="btn btn-danger bg-danger bg-opacity-75">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td colspan="1">Larry the Bird</td>
+            <td>@twitter</td>
+            <td>@twitter</td>
+            <td>@twitter</td>
+            <td>
+              <button class="btn btn-warning bg-warning bg-opacity-75 me-2">
+                Editar
+              </button>
+              <button class="btn btn-danger bg-danger bg-opacity-75">
+                Eliminar
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <sofka-footer></sofka-footer>
+</div>
