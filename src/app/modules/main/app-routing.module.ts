@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ComponenteEjemploComponent } from '../../shared/components/componente-ejemplo/componente-ejemplo.component';
+import { ListaComponent } from '../todo-list/lista/lista.component';
 import { IndexComponent } from './pages/index/index.component';
 
 const routes: Routes = [
@@ -10,22 +11,12 @@ const routes: Routes = [
     component: IndexComponent,
   },
   {
-    path: 'ejemplo/:id', // localhost:4200/ejemplo/hola
-    component: ComponenteEjemploComponent,
-  },
-  {
-    path: 'hoja-de-vida', // localhost:4200/hoja-de-vida
+    path: 'todolist', // localhost:4200/hoja-de-vida
     loadChildren: () =>
-      import('../hoja-de-vida/hoja-de-vida.module').then(
-        module => module.HojaDeVidaModule
+      import('../todo-list/todo-list.module').then(
+        module => module.TodoListModule
       ),
   },
-  // {
-  //   path: '**',
-  //   redirectTo: '',
-  //   pathMatch: 'full',
-  //   // component: NotFoundErrorComponent,
-  // },
 ];
 
 @NgModule({
