@@ -14,15 +14,8 @@ const routes: Routes = [
       m => m.AuthenticationModule
     )
   },
-  /*{
-    path: 'authentication',
-    loadChildren: () => 
-    import('../authentication/authentication.module').then(
-      m => m.AuthenticationModule
-    )
-  },*/
   {
-    path: 'user-profile',
+    path: 'profile',
     loadChildren: () => 
     import('../user/user.module').then(
       m => m.UserModule
