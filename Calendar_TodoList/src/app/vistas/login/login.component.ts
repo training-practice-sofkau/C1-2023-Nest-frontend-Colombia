@@ -27,6 +27,12 @@ export class LoginComponent implements OnInit{
 
   }
 
+  checkLocalStorage() {
+    if(localStorage.getItem('token')){
+      this.router.navigate(['dashboard']);
+    }
+  }
+
   onLogin(form: LoginI){
     this.api.loginByEmail(form).subscribe(data => {let dataResponse: ResponseI = data;
     if(dataResponse.status == "ok"){
