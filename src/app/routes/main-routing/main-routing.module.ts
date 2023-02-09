@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { HeroesComponent } from 'src/app/components/heroes/heroes.component';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeComponent } from 'src/app/modules/main/pages/home/home.component';
 
 const routes: Routes = [
-  { path: 'heroes', component: HeroesComponent }
+  { path: '', component: HomeComponent }
 ];
 
 @NgModule({
