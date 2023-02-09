@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg bg-dark bg-gradient sticky-top">
   <div class="container-fluid ps-4">
     <a class="navbar-brand text-light" [routerLink]="routeDashboard"><strong>
-        <h2>ToDoList</h2>
+        <h2>ToDoList - SofkaU</h2>
       </strong></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,7 +21,7 @@
             Funciones
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Agregar</a></li>
+            <li><a class="dropdown-item" [routerLink]="routeAdd">Agregar</a></li>
             <!-- <li><a class="dropdown-item" href="#">Another action</a></li>
             <li>
               <hr class="dropdown-divider">

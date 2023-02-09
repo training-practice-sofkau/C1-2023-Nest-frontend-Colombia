@@ -7,7 +7,9 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
   routeDashboard: string[];
+  routeAdd: string[];
   constructor() {
-    this.routeDashboard = ['../'];
+    this.routeDashboard = ['../dashboard'];
+    this.routeAdd = ['add'];
   }
 }
