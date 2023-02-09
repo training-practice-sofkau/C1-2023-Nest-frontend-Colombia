@@ -14,7 +14,7 @@ const routes: Routes = [
       import('../dashoard/dashoard.module').then(m => m.DashoardModule),
   },
   {
-    //DESPUES DEL LOCALHOST ME REDIRIGE A LA PAGINA DESEADA ** EN ESTE CASO MODULE
+    //DESPUES DEL LOCALHOST ME REDIRIGE A LA PAGINA DESEADA ** EN ESTE CASO MODULE AUTH
     path: '**',
     redirectTo: 'auth',
   },

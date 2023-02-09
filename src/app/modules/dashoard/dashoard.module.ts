@@ -3,9 +3,10 @@ import { CommonModule } from '@angular/common';
 
 import { DashoardRoutingModule } from './dashoard-routing.module';
 import { HomeeComponent } from './pages/homee/homee.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
-  declarations: [HomeeComponent],
+  declarations: [HomeeComponent, SidebarComponent],
   imports: [CommonModule, DashoardRoutingModule],
 })
 export class DashoardModule {}
