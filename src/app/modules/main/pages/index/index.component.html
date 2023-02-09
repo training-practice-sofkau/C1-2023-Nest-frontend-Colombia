@@ -12,3 +12,11 @@
 <button type="button" class="btn btn-primary" routerLink="hoja-de-vida">
   Hoja de Vida
 </button>
+
+<sofka-my-component [apellido2]="apellidos">
+  <p>Hola mundo</p>
+</sofka-my-component>
+
+<button type="button" (click)="apellidos = 'Arango Torres'">
+  Cambiar apellidos
+</button>

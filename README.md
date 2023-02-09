@@ -38,8 +38,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Workshop
 
-Week 3 Day 2 - Programación funcional
-
 Week 3 Day 3 - Componentes Web y Navegación
 
 ¿Qué estás entregando?
@@ -48,5 +46,5 @@ Week 3 Day 3 - Componentes Web y Navegación
 
 ¿Qué dificultades se tuvieron?
 
-1. Crear la maqueta visual de su backend
-2. Crear mínimo 10 commits [TITULO] - [DESCRIPCIÓN]
+1. Crear la maqueta visual de su backend (mínimo navegación entre 5 páginas)
+2. Crear mínimo 5 commits [TITULO] - [DESCRIPCIÓN]

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -9,7 +10,7 @@ import { MyPipePipe } from './pipes/my-pipe/my-pipe.pipe';
 
 @NgModule({
   declarations: [AppComponent, IndexComponent, MyPipePipe],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent],
 })
