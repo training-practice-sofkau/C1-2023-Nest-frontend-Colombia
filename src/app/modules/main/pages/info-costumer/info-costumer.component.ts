@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoCostumerComponent implements OnInit {
 
-  constructor() { }
+  routeUpdateCustomer:string[]
+  routeCustomerInfo:string[]
+
+  constructor() { 
+    this.routeUpdateCustomer=["updateCustomer"],
+    this.routeCustomerInfo=[""]
+  }
 
   ngOnInit(): void {
   }

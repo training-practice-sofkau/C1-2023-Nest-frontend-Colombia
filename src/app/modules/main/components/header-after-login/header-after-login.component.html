@@ -1,6 +1,7 @@
 <nav>
-    <button type="button" class="btn btn-primary">Customer</button>
-    <button type="button" class="btn btn-secondary">Account</button>
-    <button type="button" class="btn btn-success">Deposit</button>
-    <button type="button" class="btn btn-danger">Transfer</button>
+    <button type="button" class="btn btn-primary" [routerLink]="routeHome">Home</button>
+    <button type="button" class="btn btn-primary" [routerLink]="routeInfoCustomer">Customer</button>
+    <button type="button" class="btn btn-secondary" [routerLink]="routeAccount">Account</button>
+    <button type="button" class="btn btn-success" [routerLink]="routeInfoDeposit">Deposit</button>
+    <button type="button" class="btn btn-danger" [routerLink]="routeInfoTransfer">Transfer</button>
 </nav>

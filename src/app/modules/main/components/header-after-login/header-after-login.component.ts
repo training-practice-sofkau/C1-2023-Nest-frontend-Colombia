@@ -7,7 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderAfterLoginComponent implements OnInit {
 
-  constructor() { }
+  routeInfoCustomer: string[]
+  routeAccount: string[]
+  routeInfoDeposit: string[]
+  routeInfoTransfer: string[]
+  routeHome: string[]
+
+  constructor() {
+    this.routeInfoCustomer = ["customer"]
+    this.routeAccount = ["account"]
+    this.routeInfoDeposit = ["deposit"]
+    this.routeInfoTransfer = ["transfer"]
+    this.routeHome = [""]
+  }
 
   ngOnInit(): void {
   }
