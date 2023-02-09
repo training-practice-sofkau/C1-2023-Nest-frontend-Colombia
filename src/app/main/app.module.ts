@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './componente/app.component';
+import { RouterModule } from '@angular/router';
 
 //Componentes
 
@@ -36,7 +37,8 @@ import { TareasModule } from '../tareas/tareas.module';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    TareasModule
+    TareasModule,
+    RouterModule
 
 
     // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
