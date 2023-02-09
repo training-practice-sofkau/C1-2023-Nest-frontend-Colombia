@@ -7,4 +7,21 @@ import { Component } from '@angular/core';
 })
 export class DeleteTaskComponent {
 
+
+
+  routergoBackMenu: string[];
+  routeShowTask = [];
+
+
+
+  constructor() {
+
+
+    this.routergoBackMenu = ['../'];
+    this.routeShowTask = [];
+
+
+  }
+
+
 }
