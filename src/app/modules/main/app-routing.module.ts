@@ -9,11 +9,9 @@ const routes: Routes = [
     component: IndexComponent,
   },
   {
-    path: 'hoja-de-vida', // localhost:4200/hoja-de-vida
+    path: 'to-do-list', // localhost:4200/to-do-list
     loadChildren: () =>
-      import('../hoja-de-vida/hoja-de-vida.module').then(
-        m => m.HojaDeVidaModule
-      ),
+      import('../to-do-list/to-do-list.module').then(m => m.ToDoListModule),
   },
 ];
 
