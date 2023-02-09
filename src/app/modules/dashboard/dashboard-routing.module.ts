@@ -7,11 +7,19 @@ const routes: Routes = [
     path: '',
     component: NavbarComponent,
     children: [
+      // {
+      //   path: '', component: CustomerDetailComponent
+      // },
       {
-        path: 'customer', loadChildren: () => import('../customer/customer.module')
+        path: '', loadChildren: () => import('../customer/customer.module')
         .then(m => m.CustomerModule)
       },
-      { path: '**', redirectTo: 'dashboard' },
+      {
+        path: 'deposits', loadChildren: () => import('../deposits/deposits.module')
+        .then(m => m.DepositsModule)
+      },
+      { path: '', redirectTo: '', pathMatch: 'full' },
+      { path: '**', redirectTo: '' },
     ]
   }
 ];
