@@ -5,6 +5,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { InfoCostumerComponent } from './pages/info-costumer/info-costumer.component';
 import { InfoDepositComponent } from './pages/info-deposit/info-deposit.component';
 import { InfoTransferComponent } from './pages/info-transfer/info-transfer.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 import { UpdateCostumerComponent } from './pages/update-costumer/update-costumer.component';
 
 const routes: Routes = [
@@ -13,7 +15,9 @@ const routes: Routes = [
   { path: "transfer", component: InfoTransferComponent },
   { path: "deposit", component: InfoDepositComponent },
   { path: "account", component: AccountComponent },
-  { path: "customer/updateCustomer", component: UpdateCostumerComponent }
+  { path: "customer/updateCustomer", component: UpdateCostumerComponent },
+  { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterComponent }
 ];
 
 @NgModule({
