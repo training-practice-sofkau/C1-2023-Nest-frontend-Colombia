@@ -28,6 +28,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { NavInfoCustomerComponent } from './components/nav-info-customer/nav-info-customer.component';
 import { ServiceUserService } from './services/user-service/service-user.service';
 import { ServiceAccountService } from './services/account-service/service-account.service';
+import { InfoAccountComponent } from './pages/info-account/info-account.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ServiceAccountService } from './services/account-service/service-accoun
     HeaderComponent,
     HeaderAfterLoginComponent,
     FooterComponent,
-    NavInfoCustomerComponent
+    NavInfoCustomerComponent,
+    InfoAccountComponent
   ],
   imports: [
     BrowserModule,

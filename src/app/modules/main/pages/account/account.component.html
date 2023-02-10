@@ -15,6 +15,6 @@
                 <p>Balance: {{account.balance | currency:"COP":"$"}} </p>
             </div>
         </div>
-        <button class="btn-account-get">Observar</button>
+        <button class="btn-account-get" (click)="goToAccount(account.id)">Observar</button>
     </div>
 </div>

@@ -11,4 +11,8 @@ export class ServiceAccountService {
   getAllAccount(){
     return this.httpClient.get("http://localhost:3000/account/")
   }
+
+  getAccountById(id:string | undefined | null){
+    return this.httpClient.get("http://localhost:3000/account/"+id)
+  }
 }

@@ -1,0 +1,48 @@
+.container-one-account{
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+.box-account{
+    border: 1px solid black;
+    padding: 20px;
+    width: 550px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 3px;
+    text-align: center;
+    margin: auto;
+}
+.sub-container-one-account{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.btn-container-account{
+    margin: auto;
+    width: 200px;
+    display: flex;
+    justify-content: space-between;
+}
+.btn-account-update{
+    background-color: green;
+    padding: 10px;
+    border-radius: 10px;
+    color: antiquewhite;
+    transition: 0.2s;
+}
+.btn-account-update:hover{
+    background-color: rgb(54, 221, 54);
+    color: black;
+}
+.btn-account-delete{
+    background-color: red;
+    padding: 10px;
+    border-radius: 10px;
+    color: antiquewhite;
+}
+.btn-account-delete:hover{
+    background-color: rgb(223, 67, 67);
+    color: black;
+}

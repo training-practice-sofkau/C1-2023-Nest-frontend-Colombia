@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from './pages/account/account.component';
 import { HomeComponent } from './pages/home/home.component';
+import { InfoAccountComponent } from './pages/info-account/info-account.component';
 import { InfoCostumerComponent } from './pages/info-costumer/info-costumer.component';
 import { InfoDepositComponent } from './pages/info-deposit/info-deposit.component';
 import { InfoTransferComponent } from './pages/info-transfer/info-transfer.component';
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: "account", component: AccountComponent },
   { path: "customer/updateCustomer", component: UpdateCostumerComponent },
   { path: "login", component: LoginComponent },
-  { path: "register", component: RegisterComponent }
+  { path: "register", component: RegisterComponent },
+  { path: "account/:id", component: InfoAccountComponent }
 ];
 
 @NgModule({

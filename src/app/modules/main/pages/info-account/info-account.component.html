@@ -1,0 +1,32 @@
+<div class="container-one-account">
+    <div class="box-account">
+        <div class="sub-container-one-account">
+            <h5>Nombre Cliente: </h5>
+            <label>{{account.customer.fullName}}</label>
+        </div>
+        <div class="sub-container-one-account">
+            <h5>Id cuenta: </h5>
+            <label>{{account.id}}</label>
+        </div>
+        <div class="sub-container-one-account">
+            <h5>Estado Cuenta: </h5>
+            <label>{{account.state}}</label>
+        </div>
+        <div class="sub-container-one-account">
+            <h5>Balance Cuenta: </h5>
+            <label>{{account.balance | currency:"COP":"$"}}</label>
+        </div>
+        <div class="sub-container-one-account">
+            <h5>ID Tipo de Cuenta: </h5>
+            <label>{{account.accountType.id}}</label>
+        </div>
+        <div class="sub-container-one-account">
+            <h5>Estado Tipo de Cuenta: </h5>
+            <label>{{account.accountType.state}}</label>
+        </div>
+        <div class="btn-container-account">
+            <button class="btn-account-update">Actualizar</button>
+            <button class="btn-account-delete">Delete</button>
+        </div>
+    </div>
+</div>
