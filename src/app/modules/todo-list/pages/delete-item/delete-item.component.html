@@ -1,3 +1,4 @@
+<!-- eslint-disable prettier/prettier -->
 <div class="header">
   <sofka-header></sofka-header>
 </div>
@@ -6,6 +7,32 @@
   <button type="button" class="btn btn-secondary" [routerLink]="routePrincipal">
     Lista de tareas
   </button>
+  <h1>
+    confirmar eliminación del siguiente item:
+  </h1>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Responsible</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">{{itemId.Id}}</th>
+        <td>{{itemId.Title}}</td>
+        <td>{{itemId.Description}}</td>
+        <td>{{itemId.Responsible}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="jumbotron">
+  <button type="button" class="btn btn-danger" [routerLink]="routePrincipal">
+    Eliminar
+  </button>
+</div>
 </div>
 <div class="footer">
   <sofka-footer></sofka-footer>
