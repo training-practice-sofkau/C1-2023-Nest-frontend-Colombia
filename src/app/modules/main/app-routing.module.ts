@@ -1,19 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HeroesListadoComponent } from '../heroes/components/heroes-listado/heroes-listado.component';
-import { DashboardComponent } from '../heroes/components/dashboard/dashboard.component';
-import { HeroesDetalleComponent } from '../heroes/components/heroes-detalle/heroes-detalle.component';
+import { IndexComponent } from './pages/index/index.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  {path: 'listar', component: HeroesListadoComponent},
-  {path: 'dashboard', component: DashboardComponent},
-  { path: 'detail/:id', component: HeroesDetalleComponent },
+  {
+    path: '',
+    component: IndexComponent,
+  },
+  {
+    path: 'tareas', // localhost:4200/tareas
+    loadChildren: () =>
+      import('../tareas/tareas.module').then(
+        (m) => m.TareasModule
+      ),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
