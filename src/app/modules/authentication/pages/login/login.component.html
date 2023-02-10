@@ -1,32 +1,77 @@
 <p>REGISTRARSE!</p>
 
-<form style="width: 50%">  
-  <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Nombre Completo</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5">
+            <h5 class="card-title text-center mb-5 fw-light fs-5">Registrarte</h5>
+            <form (ngSubmit)="onSubmit()" id="frmUsuario">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" 
+                formControlName="fullName" placeholder="Name Completo" 
+                [(ngModel)]="fullName"
+                name="fullName"
+                required>
+                <label for="floatingInput">Nombre Completo</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="Email"
+                [(ngModel)]="email"
+                name="email">
+                <label for="floatingPassword">Correo</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="Telefono"
+                [(ngModel)]="phone"
+                name="phone">
+                <label for="floatingPassword">Telefono</label>
+              </div>
+              <div class="form-floating mb-3">
+                <!--<input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                [(ngModel)]="documentType"
+                name="documentType">-->
+                <label for="floatingPassword">Tipo de documento</label>
+                <select [(ngModel)]="documentType"
+                name="documentType" class="form-select" aria-label="Default select example">
+                  <option *ngFor="let b of documentTypeList" [value]="b"> {{b}} </option>
+                </select> 
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="Documento"
+                [(ngModel)]="document" name="document">
+                <label for="floatingPassword">Documento</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña"
+                [(ngModel)]="password"
+      name="password">
+                <label for="floatingPassword">Contraseña</label>
+              </div>
+              <!--<div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Repite la contraseña</label>
+              </div>-->
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+                <label class="form-check-label" for="rememberPasswordCheck">
+                  Remember password
+                </label>
+              </div>
+              <div class="d-grid">
+                <button class="btn btn-primary btn-login text-uppercase fw-bold" form="frmUsuario" 
+                type="submit">registrarse</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Telefono</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Correo</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Avatar</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Contreseña</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Confirmar contraseña</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</body>
 
 <span>¿Ya tienes una cuenta?</span>
 <a class="btn btn-primary" [routerLink]="routeSignIn">Iniciar sesion</a>
