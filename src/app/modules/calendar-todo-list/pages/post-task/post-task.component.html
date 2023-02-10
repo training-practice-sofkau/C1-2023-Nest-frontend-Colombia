@@ -24,5 +24,6 @@
 </div>
 
 
-<button type="button" class="btn btn-primary" id="ShowAllTaskFinish">MOSTRAR TODAS MIS TAREAS</button>
-  <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
+<button type="button" class="btn btn-primary" (click)="sendData()">CREAR NUEVA TAREA</button>
+<button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
+

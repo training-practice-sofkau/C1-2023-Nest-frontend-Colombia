@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { NewTaskModel } from '../../models/new-task.model';
+import { TaskService } from '../../services/task.service';
 
 @Component({
   selector: 'sofka-post-task',
@@ -7,21 +9,29 @@ import { Component } from '@angular/core';
 })
 export class PostTaskComponent {
 
-
-
   routergoBackMenu: string[];
-  routeShowTask = [];
 
-
-
-  constructor() {
-
-
+  constructor(private readonly task$: TaskService) {
     this.routergoBackMenu = ['../'];
-    this.routeShowTask = [];
+  }
+
+  sendData():void{
+
+    const task = new NewTaskModel('Tarea front', 'Realizar api', 'Estevan Tanga',false);
+
+    this.task$.createTask(task).subscribe({
+
+        next: (data) => console.log(data),
+
+        error: (err) => console.log(err),
+
+        complete: () => console.log('complete')
+
+      });
 
 
   }
+
 
 
 }
