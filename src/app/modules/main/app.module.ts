@@ -15,3 +15,4 @@ import { MyPipePipe } from './pipes/my-pipe/my-pipe.pipe';
   bootstrap: [AppComponent],
 })
 export class AppModule {}
+
