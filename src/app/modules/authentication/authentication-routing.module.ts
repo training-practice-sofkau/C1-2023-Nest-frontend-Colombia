@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MainComponent } from './pages/main/main.component';
-import { ProfileComponent } from './pages/profile/profile.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 
 const routes: Routes = [
@@ -23,10 +22,10 @@ const routes: Routes = [
         path: 'log_in', // localhost:4200/hoja-de-vida/experiencia-laboral
         component: LoginComponent,
       },
-      {
+      /*{
         path: 'profile', // localhost:4200/hoja-de-vida/experiencia-laboral
         component: ProfileComponent,
-      },
+      },*/
     ],
   },
   /*{

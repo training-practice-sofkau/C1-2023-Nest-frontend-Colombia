@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+//import { fc } from '../../../user/user.module'
 
 @Component({
   selector: 'app-sign-in',
@@ -12,14 +13,21 @@ export class SignInComponent {
 
   constructor(private router: Router) {
     this.routeLogIn = ['../log_in'];
-    this.routeProfile = ['../profile']
+    this.routeProfile = ['/profile']
   }
 
   goTo(): void {
+    console.log('enviar')
     // this.router.navigate(['../experiencia-laboral'], {
     //   relativeTo: this.route,
     // });
-    this.router.navigate(['profile']);
+    //this.router.navigate(['/profile/p']);
+    
+  //  this.router.navigate(['/profile']);
+   // this.router.navigate(['./', 'profile', 'profile']);
+   this.router.navigate(['../../../', 'profile', 'p']);
+   //this.router.navigate(['/log_in']);
+
   }
 
 }

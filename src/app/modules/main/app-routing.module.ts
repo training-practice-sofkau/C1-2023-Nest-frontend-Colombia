@@ -20,6 +20,13 @@ const routes: Routes = [
     import('../user/user.module').then(
       m => m.UserModule
     )
+  },
+  {
+    path: 'transfer',
+    loadChildren: () => 
+    import('../transfer/transfer.module').then(
+      m => m.TransferModule
+    )
   }
 ];
 

@@ -4,16 +4,32 @@ import { MainLayoutComponent } from '../authentication/layouts/main-layout/main-
 import { UserProfileComponent } from './pages/user-profile/user-profile.component';
 
 const routes: Routes = [
-  {
+ /*{
     path: '', // localhost:4200/hoja-de-vida
     component: MainLayoutComponent,
-    children: [
+    children: [*/
       {
-        path: 'profile',
+        path: 'p',
         component: UserProfileComponent,
       },
-    ],
-  },
+      /*{
+        path: 'profile', // localhost:4200/hoja-de-vida/experiencia-laboral
+        component: ProfileComponent,
+      },*/
+    //],
+  //},
+  //{
+   // path: '', // localhost:4200/hoja-de-vida
+   // component: MainLayoutComponent,
+    //children: [
+      //{
+       
+      
+      //path: 'profile',
+        //component: UserProfileComponent,
+      //}
+    //],
+  //},
   /*{
     path: 'profile',
     component: UserProfileComponent,
@@ -24,4 +40,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class AuthenticationRoutingModule { }
+export class UserRoutingModule { }

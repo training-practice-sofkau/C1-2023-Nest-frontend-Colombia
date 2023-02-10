@@ -5,7 +5,7 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { MainComponent } from './pages/main/main.component';
 import { LoginComponent } from './pages/login/login.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
-import { ProfileComponent } from './pages/profile/profile.component';
+import { UserProfileComponent } from '../user/pages/user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     MainComponent,
     LoginComponent,
     MainLayoutComponent,
-    ProfileComponent
+    UserProfileComponent
   ],
   imports: [
     CommonModule,
