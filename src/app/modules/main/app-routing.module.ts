@@ -3,12 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccountComponent } from '../account/pages/account/account.component';
 import { HomeComponent } from './pages/home/home.component';
 import { InfoAccountComponent } from '../account/pages/info-account/info-account.component';
-import { InfoCostumerComponent } from './pages/info-costumer/info-costumer.component';
+import { InfoCostumerComponent } from '../user/pages/info-costumer/info-costumer.component';
 import { InfoDepositComponent } from './pages/info-deposit/info-deposit.component';
 import { InfoTransferComponent } from './pages/info-transfer/info-transfer.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { UpdateCostumerComponent } from './pages/update-costumer/update-costumer.component';
+import { UpdateCostumerComponent } from '../user/pages/update-costumer/update-costumer.component';
 
 const routes: Routes = [
   { path: "", component: HomeComponent },

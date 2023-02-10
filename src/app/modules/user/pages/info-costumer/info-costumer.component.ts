@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IGetUser } from '../../interfaces/user-get/user-get.interface';
-import { NewUserModel } from '../../models/new-user.model';
+import { IGetUser } from '../../../main/interfaces/user-get/user-get.interface';
+import { NewUserModel } from '../../../main/models/new-user.model';
 import { ServiceUserService } from '../../services/user-service/service-user.service';
 
 @Component({
