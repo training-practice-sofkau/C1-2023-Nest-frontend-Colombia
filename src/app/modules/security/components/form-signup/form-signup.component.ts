@@ -25,12 +25,12 @@ export class FormSignupComponent implements OnInit {
   }
   registercustomer(): void {
     const customer = new Customer(
-      'c822487e-5e89-4a49-98d5-50ce60b300b1',
-      '1234567893',
-      'Julian Garcia Arenas3',
-      'correo3@example.com',
-      '32062014283',
-      'Password3'
+      this.documentTypeId,
+      this.document,
+      this.fullName,
+      this.email,
+      this.phone,
+      this.password
     );
     this.customerService.createCustomer(customer).subscribe({
       next: (data) => console.log(data),
