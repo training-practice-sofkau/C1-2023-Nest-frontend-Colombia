@@ -9,7 +9,10 @@
       "ngModel",
       "[(ngModel)]",
       "routerLink",
-      "[routerLink]"
+      "[routerLink]",
+      "ngSubmit",
+      "(ngSubmit)",
+      "[formGroup]"
     ],
     "doctype-first": false
   }

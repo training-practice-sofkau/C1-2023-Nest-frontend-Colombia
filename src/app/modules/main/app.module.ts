@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './pages';
 import { CustomerModule } from '../customer/customer.module';
 import { IndexComponent } from './pages/index/index.component';
+import { HttpClientModule } from '@angular/common/http';
 registerLocaleData(localeEsCo, 'es-Co');
 
 @NgModule({
@@ -18,7 +19,8 @@ registerLocaleData(localeEsCo, 'es-Co');
     CustomerModule,
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ]
 })
 export class AppModule { }

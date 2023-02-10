@@ -1,29 +1,30 @@
 //Libraries
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 //Components
 import { SigninComponent } from './pages/signin/signin.component';
-
-//Routes
-import { AuthRoutingModule } from './auth-routing.module';
-import { RouterModule } from '@angular/router';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
 import { SignupComponent } from './pages/signup/signup.component';
 
-
+// Modules
+import { AuthRoutingModule } from './auth-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     SigninComponent,
     ResetPasswordComponent,
-    SignupComponent
+    SignupComponent,
 
   ],
   imports: [
     CommonModule,
     RouterModule,
-    AuthRoutingModule
+    FormsModule,
+    AuthRoutingModule,
+    ReactiveFormsModule,
   ],
   exports: []
 })
