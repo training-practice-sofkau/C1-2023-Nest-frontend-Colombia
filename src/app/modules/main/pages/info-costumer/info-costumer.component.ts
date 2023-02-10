@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IGetUser } from '../../interfaces/user-get/user-get.interface';
+import { NewUserModel } from '../../models/new-user.model';
+import { ServiceUserService } from '../../services/service-user.service';
 
 @Component({
   selector: 'app-info-costumer',
@@ -7,31 +10,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfoCostumerComponent implements OnInit {
 
-  json = {
-    "documentTypeId": "07cd5b09-4aca-4946-a720-d748f4016552",
-    "document": "1231231232",
-    "fullName": "Daniel Basto",
-    "email": "daniel1@gmail.com",
-    "phone": "123123123123",
-    "password": "Jersondani13577"
-  }
   document: string
   fullName: string;
   email: string;
-  phone: string
+  phone: string;
+  users: any
 
-  constructor() {
+  constructor(private readonly userService: ServiceUserService) {
     this.document = ""
     this.fullName = ""
     this.email = ""
     this.phone = ""
+    this.users = []
   }
 
   ngOnInit(): void {
-    this.document = this.json.document;
-    this.fullName = this.json.fullName;
-    this.email = this.json.email;
-    this.phone = this.json.phone
+    this.getAllUser()
+  }
+
+  getAllUser(): void {
+    this.userService.getAllUser().subscribe({
+      next: (data) => {
+        this.users = data
+        console.log(this.users)
+      },
+      error: (err) => { console.log(err) },
+      complete: () => { console.log("complete") }
+    })
   }
 
 }

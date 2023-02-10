@@ -26,6 +26,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { HeaderAfterLoginComponent } from './components/header-after-login/header-after-login.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NavInfoCustomerComponent } from './components/nav-info-customer/nav-info-customer.component';
+import { ServiceUserService } from './services/service-user.service';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,7 @@ import { NavInfoCustomerComponent } from './components/nav-info-customer/nav-inf
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [ServiceUserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
