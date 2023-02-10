@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { AccountRoutingModule } from './account-routing.module';
 import { BalanceComponent } from './components/balance/balance.component';
 import { AccountComponent } from './pages/account/account.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +13,9 @@ import { AccountComponent } from './pages/account/account.component';
     AccountComponent,BalanceComponent
   ],
   imports: [
-    CommonModule,AccountRoutingModule
+    CommonModule,AccountRoutingModule,
+    FormsModule,
+    HttpClientModule,
   ]
 })
 export class AccountModule { }
