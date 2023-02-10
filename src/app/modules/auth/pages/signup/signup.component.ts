@@ -54,10 +54,11 @@ export class SignupComponent implements OnInit {
   }
 
   handlerSuccess(data: UserInterface): void {
-    this.auth$.setAuthorizationToken(data.data.email)
+    //this.auth$.setAuthorizationToken(data.data?.email)
   }
 
   handlerError(err: any): void {
+    console.log(err)
     alert(err?.message)
   }
 }

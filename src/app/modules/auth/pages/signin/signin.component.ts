@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { UserModel } from '../../models/user.model';
+import { UserInterface } from '../../interfaces';
 
 @Component({
   selector: 'sofka-bank-signin',
@@ -30,10 +31,20 @@ export class SigninComponent implements OnInit {
     console.log(this.checkoutForm.value)
     const user = <UserModel>this.checkoutForm.value;
     this.auth$.signIn(user).subscribe({
-      next: (data) => console.log(data),
-      error: (err) => console.log(err),
+      next: (data) => this.handlerSuccess(data),
+      error: (err) => this.handlerError(err),
       complete: () => console.log('complente')
     })
+  }
+
+  handlerSuccess(data: UserInterface): void {
+    //this.auth$.setAuthorizationToken(data.data?.email)
+    alert(data)
+  }
+
+  handlerError(err: any): void {
+    console.log(err)
+    alert(err?.message)
   }
 
   random_bg_color() {

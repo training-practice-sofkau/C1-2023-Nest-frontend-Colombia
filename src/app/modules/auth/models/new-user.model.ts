@@ -1,6 +1,7 @@
 import { DocumentTypeEnum } from "src/app/shared/enums/document-type.enum";
 
 export class NewUserModel {
+  id?:string;
   documentTypeId: DocumentTypeEnum;
   document: string;
   fullName: string;
@@ -8,6 +9,7 @@ export class NewUserModel {
   phone: string;
   password: string;
   avatarUrl?: string;
+  token?: string;
 
   constructor(
     documenType: DocumentTypeEnum,
@@ -16,6 +18,8 @@ export class NewUserModel {
     email: string,
     phone: string,
     password: string,
+    token?: string,
+    id?: string,
     avatarUrl?: string,
   ) {
     this.documentTypeId = documenType;
@@ -25,17 +29,7 @@ export class NewUserModel {
     this.phone = phone;
     this.password = password;
     if (avatarUrl) this.avatarUrl = avatarUrl;
-  }
-
-  getData(): {
-    documentTypeId: DocumentTypeEnum,
-    document: string,
-    fullName: string,
-    email: string,
-    phone: string,
-    password: string,
-    avatarUrl?: string,
-  } {
-    return this
+    if (id) this.id = id;
+    if (token) this.token = token;
   }
 }
