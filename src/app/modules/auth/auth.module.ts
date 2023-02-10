@@ -9,8 +9,8 @@ import { ResetPasswordComponent } from './pages/reset-password/reset-password.co
 import { SignupComponent } from './pages/signup/signup.component';
 
 // Modules
-import { AuthRoutingModule } from './auth-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthRoutingModule } from './auth-routing.module';
 
 @NgModule({
   declarations: [

@@ -12,7 +12,8 @@
       "[routerLink]",
       "ngSubmit",
       "(ngSubmit)",
-      "[formGroup]"
+      "[formGroup]",
+      "formControlName"
     ],
     "doctype-first": false
   }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
+import { UserModel } from '../../models/user.model';
 
 @Component({
   selector: 'sofka-bank-signin',
@@ -9,14 +12,28 @@ export class SigninComponent implements OnInit {
 
   resetPass!: string[];
   signUp!: string[];
+  checkoutForm = this.formBuilder.group({
+    email: '',
+    password: '',
+  });
 
-  constructor() {
+  constructor(private readonly auth$: AuthService, private readonly formBuilder: FormBuilder,) {
     this.resetPass = ['../reset-pass'];
     this.signUp = ['../signup'];
   }
 
   ngOnInit(): void {
     this.random_bg_color();
+  }
+
+  onSubmit() {
+    console.log(this.checkoutForm.value)
+    const user = <UserModel>this.checkoutForm.value;
+    this.auth$.signIn(user).subscribe({
+      next: (data) => console.log(data),
+      error: (err) => console.log(err),
+      complete: () => console.log('complente')
+    })
   }
 
   random_bg_color() {

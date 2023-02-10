@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, NgForm, } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { NewUserModel } from '../../models/new-user.model';
 import { DocumentTypeEnum } from '../../../../shared/enums/document-type.enum';
-import { NgSwitchCase } from '@angular/common';
+import { UserInterface } from '../../interfaces/user.interface';
 
 @Component({
   //standalone: true,
@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
+  onSubmit(): void {
     const user = <NewUserModel>this.checkoutForm.value
     switch (this.checkoutForm.value.documentTypeId) {
       case 'CC': user.documentTypeId = DocumentTypeEnum.CC;
@@ -43,14 +43,21 @@ export class SignupComponent implements OnInit {
       default: user.documentTypeId = DocumentTypeEnum.CC;
     }
     if (user.avatarUrl === '') user.avatarUrl = undefined
-    user.document = user.document+''
-    this.auth$.signUp(<NewUserModel>this.checkoutForm.value).subscribe(
+    user.document = user.document + ''
+    this.auth$.signUp(user).subscribe(
       {
-        next: (data) => console.log(data),
-        error: (err) => console.log(err),
+        next: (data) => this.handlerSuccess(data),
+        error: (err) => this.handlerError(err),
         complete: () => console.log('complente')
       }
     )
   }
 
+  handlerSuccess(data: UserInterface): void {
+    this.auth$.setAuthorizationToken(data.data.email)
+  }
+
+  handlerError(err: any): void {
+    alert(err?.message)
+  }
 }
