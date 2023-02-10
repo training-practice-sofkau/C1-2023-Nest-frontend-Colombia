@@ -1,63 +1,82 @@
-<section class="vh-100" style="background-color: #eee;">
-  <div class="container h-100">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-lg-12 col-xl-11">
-        <div class="card text-black" style="border-radius: 25px;">
-          <div class="card-body p-md-5">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-                <form class="mx-1 mx-md-4">
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" class="form-control" />
-                      <label class="form-label" for="form3Example1c">Your Name</label>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" class="form-control" />
-                      <label class="form-label" for="form3Example3c">Your Email</label>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" class="form-control" />
-                      <label class="form-label" for="form3Example4c">Password</label>
-                    </div>
-                  </div>
-                  <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                    <div class="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" class="form-control" />
-                      <label class="form-label" for="form3Example4cd">Repeat your password</label>
-                    </div>
-                  </div>
-                  <div class="form-check d-flex justify-content-center mb-5">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                    <label class="form-check-label" for="form2Example3">
-                      I agree all statements in <a href="#!">Terms of service</a>
-                    </label>
-                  </div>
-                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" class="btn btn-primary btn-lg">Register</button>
-                  </div>
-                  <div class="d-flex justify-content-between mt-4">
-                    <a class="btn btn-outline-primary" [routerLink]="signIn">Login</a>
-                  </div>
-                </form>
+<div class="container col-12 col-xxl-7 col-xl-8 col-lg-9 col-md-10 col-sm-11 bg-primary shadow text-white bg-dark mt-5">
+  <div class="row align-items-stretch">
+    <div class="col mx-5">
+      <div class="text-center pt-5 pb-3">
+        <img src="../../../../../assets/login/images/s.png" width="128" alt="">
+      </div>
+      <form action="#">
+        <div class="row">
+          <div class="mb-2 col-12 col-sm-6">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-control" type="email" name="email" id="" placeholder="Email">
+          </div>
+          <div class="mb-2 col-12 col-sm-6">
+            <label class="form-label" for="pass">Password</label>
+            <input class="form-control" type="password" name="password" id="" placeholder="Password">
+          </div>
+        </div>
+        <div class="mb-2">
+          <label class="form-label" for="fullName">Fullname</label>
+          <input class="form-control" type="text" name="fullName" id="" placeholder="Fullname">
+        </div>
+        <div class="row mb-3">
+          <div class="mb-2 col-12 col-sm-5">
+            <label class="form-label" for="phone">Phone</label>
+            <input class="form-control" type="phone" name="phone" id="" placeholder="Phone">
+          </div>
+          <div class="mb-2 col-12 col-sm-7">
+            <label class="form-label" for="document">Document</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend bg-dark">
+                <select class="btn btn-outline-light col-12 accordion-body h-100 rounded-0" id="">
+                  <option value="1">C.C</option>
+                  <option value="2">C.E</option>
+                </select>
               </div>
-              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-                <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                  class="img-fluid" alt="Sample image">
-              </div>
+              <input class="form-control" type="text" name="document" placeholder="Document">
             </div>
+          </div>
+        </div>
+        <div class="d-grid bg-dark rounded-3">
+          <button class="btn btn-outline-light" type="submit">Signup</button>
+        </div>
+        <div class="my-2">
+          <span>Have an account?
+            <a [routerLink]="signIn">Signin</a>
+          </span>
+        </div>
+      </form>
+      <div class="container w-100 my-3">
+        <div class="row text-center">
+          <div class="col-12">Signup with</div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-outline-primary w-100 my-2">
+              <div class="row align-items-center">
+                <div class="col-2 d-none d-md-block">
+                  <img src="../../../../../assets/login/images/Facebook_icon.svg" alt="" width="32">
+                </div>
+                <div class="col-12 text-center col-md-10">
+                  Facebook
+                </div>
+              </div>
+            </button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-danger w-100 my-2">
+              <div class="row align-items-center">
+                <div class="col-2 d-none d-md-block">
+                  <img src="../../../../../assets/login/images/Google_icon.svg" alt="" width="32">
+                </div>
+                <div class="col-12 text-center col-md-10">
+                  Google
+                </div>
+              </div>
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
-</section>
+</div>
