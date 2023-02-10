@@ -6,9 +6,9 @@
           <p class="text-muted"> Por favor ingrese todos los datos ya que son obligatorios!</p>
           <input type="text" name="fullName" placeholder="Nombre completo" [(ngModel)]="fullName">
           <input type="text" name="document" placeholder="Cedula" [(ngModel)]="document">
-          <select id="document" placeholder="Tipo de documento" name="documentTypeId" [(ngModel)]="documentTypeId">
-            <option id="document" type="text text-muted" value="c822487e-5e89-4a49-98d5-50ce60b300b1">Cedula de ciudadania</option>
-            <option id="document" type="text text-muted" value="64911806-283f-4e71-ab94-f9098e18cf9a">Cedula de Extranjeria</option>
+          <select id="document" class="text-light" name="documentTypeId" [(ngModel)]="documentTypeId">
+            <option id="document" class="text-dark" type="text text-muted" value="c822487e-5e89-4a49-98d5-50ce60b300b1" selected>Cedula de ciudadania</option>
+            <option id="document" class="text-dark" type="text text-muted" value="64911806-283f-4e71-ab94-f9098e18cf9a">Cedula de Extranjeria</option>
           </select>
           <input type="text" name="phone" placeholder="Phone" [(ngModel)]="phone">
           <input type="text" name="email" placeholder="Correo" [(ngModel)]="email">

@@ -10,6 +10,6 @@ export class CustomersService {
   constructor( private readonly httpClient: HttpClient) {}
 
     createCustomer(customer: Customer){
-      return this.httpClient.post('http://localhost:3000/user',customer.getData())
+      return this.httpClient.post('http://localhost:3000/security/sign-up',customer.getData())
     }
 }
