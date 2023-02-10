@@ -7,7 +7,6 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
   routrHome: string[];
-
   constructor() {
     this.routrHome = ['../'];
   }

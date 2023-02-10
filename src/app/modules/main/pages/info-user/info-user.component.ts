@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sofka-info-user',
@@ -6,8 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./info-user.component.scss'],
 })
 export class InfoUserComponent {
-  routeInfoUser: string[];
-  constructor() {
-    this.routeInfoUser = ['infouser'];
+  constructor(private router: Router) {}
+  redirect() {
+    this.router.navigate(['infouser']);
   }
 }

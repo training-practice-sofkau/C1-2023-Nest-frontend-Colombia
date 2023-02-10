@@ -9,6 +9,7 @@ import { IndexComponent } from './pages/index/index.component';
 import { MyPipePipe } from './pipes/my-pipe/my-pipe.pipe';
 import { RegisterComponent } from './pages/register/register.component';
 import { InfoUserComponent } from './pages/info-user/info-user.component';
+import { DepositComponent } from './pages/deposit/deposit.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { InfoUserComponent } from './pages/info-user/info-user.component';
     MyPipePipe,
     RegisterComponent,
     InfoUserComponent,
+    DepositComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, SharedModule],
   providers: [],
