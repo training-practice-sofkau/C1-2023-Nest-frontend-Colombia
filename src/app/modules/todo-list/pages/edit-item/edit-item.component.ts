@@ -10,12 +10,14 @@ import { TodoListI } from '../../interfaces/todo-list.interface';
 })
 export class EditItemComponent{
 
+  routePrincipal: string[];
   item: TodoListI[];
   itemId: TodoListI;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute)
   {
 
+    this.routePrincipal = ['../../'];
     this.item = [
       {
         Id: 1,
