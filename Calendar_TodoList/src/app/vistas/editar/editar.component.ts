@@ -13,16 +13,14 @@ import { AlertasService } from 'src/app/servicios/alertas/alertas.service';
 })
 export class EditarComponent implements OnInit {
 
-  constructor(private Activaterouter:ActivatedRoute, private router:Router, private api:ApiService, private alertas:AlertasService){}
+ datoTarea !: TareaI;
 
-  datoTarea !: TareaI;
-
-  editarForm = new FormGroup([
+editarForm = new FormGroup([
     nombre: new FormControl(''),
     descripcion: new FormControl(''),
-    jornada: new FormControl('')
+    jornada: new FormControl(''),]);
 
-  ]);
+  constructor(private Activaterouter:ActivatedRoute, private router:Router, private api:ApiService, private alertas:AlertasService){}
 
   ngOnInit(): void{
     let tareaId = this.Activaterouter.snapshot.paramMap.get('id');
@@ -37,9 +35,11 @@ export class EditarComponent implements OnInit {
 
     } )
   }
+
   getToken(){
     return localStorage.getItem('token')
   }
+
   postForm(form: TareaI){
     this.api.putTarea(form).subscribe((data) =>{
       let respuesta : ResponseI = data;
@@ -50,15 +50,21 @@ export class EditarComponent implements OnInit {
       }
     });
   }
-  eliminar(){
+
+  Eliminar(){
     let datos : TareaI = this.editarForm.value;
     this.api.deleteTarea(datos).subscribe(data =>{
       let respuesta : ResponseI = data;
       if(respuesta.status=="ok"){
         this.alertas.showSuccess('Tarea Eliminada', 'Hecho');
+        this.router.navigate(['dashboard']);
       }else{
         this.alertas.showError(respuesta.result.error_msg, 'Error');
       }
     })
+  }
+
+  Salir(){
+    this.router.navigate(['dashboard']);
   }
 }

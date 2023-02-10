@@ -1,24 +1,28 @@
 <app-header></app-header>
-<div class="container">
-    <h3>Lsita de Tareas</h3>
-    <button type="buttom" class="btn btn-primary" (click)="nuevaTarea()">Nueva tarea</button>
-    <table class="table table-bordered table-dark">
-        <thead>
-        <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Jornada</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngForm="let tarea of tareas" (click)="editarTarea(tarea.TareaId)">
-            <th scope="row">{{tarea.Nombre}}</th>
-            <td>{{tarea.Descripcion}}</td>
-            <td>{{tarea.Jornada}}</td>
-            <td>Organizacion de datos</td>
-            <td>Se deben organizar datos para la optimizacion</td>
-            <td>Madrugada</td>
-        </tbody>
-    </table>
+<div>
+  <form>
+    <div class="container">
+        <h3>Lsita de Tareas</h3>
+        <button type="buttom" class="btn btn-primary" (click)="nuevaTarea()">Nueva tarea</button>
+        <table class="table table-bordered table-dark">
+            <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
+                <th scope="col">Jornada</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngForm="let tarea of tareas" (click)="editarTarea(tarea.TareaId)">
+                <th scope="row">{{tarea.Nombre}}</th>
+                <td>{{tarea.Descripcion}}</td>
+                <td>{{tarea.Jornada}}</td>
+                <td>Organizacion de datos</td>
+                <td>Se deben organizar datos para la optimizacion</td>
+                <td>Madrugada</td>
+            </tbody>
+        </table>
+    </div>
+  </form>
 </div>
 <app-footer></app-footer>

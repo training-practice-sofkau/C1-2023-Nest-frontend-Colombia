@@ -37,5 +37,9 @@ export class ApiService {
     let options ={ headers: new HttpHeaders({ 'Conten-type':'application/json' }), body:form };
     return (this.http.delete<ResponseI>(direccion, options));
   }
+  postTarea(form:TareaI):Observable<ResponseI>{
+    let direccion = this.url + "Tareas";
+    return (this.http.post<ResponseI>(direccion, form));
 
+  }
 }
