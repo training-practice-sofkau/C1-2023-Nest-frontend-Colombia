@@ -15,22 +15,22 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: PrincipalComponent,
+        component: PrincipalComponent
       },
       {
         path: 'estudios', // localhost:4200/hoja-de-vida/estudios
-        component: EstudiosComponent,
+        component: EstudiosComponent
       },
       {
         path: 'experiencia-laboral', // localhost:4200/hoja-de-vida/experiencia-laboral
-        component: ExperienciaLaboralComponent,
-      },
-    ],
-  },
+        component: ExperienciaLaboralComponent
+      }
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class HojaDeVidaRoutingModule {}

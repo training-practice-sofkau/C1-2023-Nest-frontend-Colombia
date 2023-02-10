@@ -1,22 +1,27 @@
-<p>index works!</p>
-<p>
-  {{ fecha | date }}
-</p>
-<p>
-  {{ precio | currency : 'COP' : '$ ' : '1.0' }}
-</p>
-<p>
-  {{ nombre | myPipe : 'parámetro' }}
-</p>
+<!-- <input type="text" placeholder="Nombre" [(ngModel)]="nombre" /> -->
 
-<button type="button" class="btn btn-primary" routerLink="hoja-de-vida">
-  Hoja de Vida
-</button>
-
-<sofka-my-component [apellido2]="apellidos">
-  <p>Hola mundo</p>
-</sofka-my-component>
-
-<button type="button" (click)="apellidos = 'Arango Torres'">
-  Cambiar apellidos
-</button>
+<form id="frmUsuario" (ngSubmit)="sendData()">
+  <div>
+    <input
+      type="text"
+      placeholder="Nombre"
+      [(ngModel)]="nombre"
+      name="nombre" />
+  </div>
+  <div>
+    <input type="email" placeholder="Correo" [(ngModel)]="email" name="email" />
+  </div>
+  <div>
+    <input type="tel" placeholder="Teléfono" [(ngModel)]="phone" name="phone" />
+  </div>
+</form>
+<button type="submit" form="frmUsuario">Crear usuario</button>
+<div>
+  {{ nombre }}
+</div>
+<div>
+  {{ email }}
+</div>
+<div>
+  {{ phone }}
+</div>

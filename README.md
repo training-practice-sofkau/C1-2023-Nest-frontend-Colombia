@@ -38,7 +38,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Workshop
 
-Week 3 Day 3 - Componentes Web y Navegación
+Week 3 Day 4 - Consumo de API
 
 ¿Qué estás entregando?
 
@@ -46,5 +46,6 @@ Week 3 Day 3 - Componentes Web y Navegación
 
 ¿Qué dificultades se tuvieron?
 
-1. Crear la maqueta visual de su backend (mínimo navegación entre 5 páginas)
-2. Crear mínimo 5 commits [TITULO] - [DESCRIPCIÓN]
+1. Realizar mínimo 1 consumo de información y mostrar el resultado en pantalla
+2. Realizar mínimo 1 envío de información y que este se refleje en el almacenamiento del backend
+3. Crear mínimo 2 commits [TITULO] - [DESCRIPCIÓN]

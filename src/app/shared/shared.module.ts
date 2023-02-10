@@ -6,6 +6,6 @@ import { ComponenteEjemploComponent } from './components/componente-ejemplo/comp
 @NgModule({
   declarations: [ComponenteEjemploComponent],
   imports: [CommonModule],
-  exports: [ComponenteEjemploComponent],
+  exports: [ComponenteEjemploComponent]
 })
 export class SharedModule {}

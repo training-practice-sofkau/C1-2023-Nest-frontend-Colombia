@@ -4,7 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'sofka-estudios',
   templateUrl: './estudios.component.html',
-  styleUrls: ['./estudios.component.scss'],
+  styleUrls: ['./estudios.component.scss']
 })
 export class EstudiosComponent {
   routePrincipal: string[];

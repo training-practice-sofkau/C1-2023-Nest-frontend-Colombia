@@ -15,7 +15,7 @@ import {
 @Component({
   selector: 'sofka-my-component',
   templateUrl: './componente-ejemplo.component.html',
-  styleUrls: ['./componente-ejemplo.component.scss'],
+  styleUrls: ['./componente-ejemplo.component.scss']
 })
 export class ComponenteEjemploComponent
   implements
