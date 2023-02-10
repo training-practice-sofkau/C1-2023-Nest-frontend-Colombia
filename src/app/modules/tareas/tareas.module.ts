@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TareasRoutingModule } from './tareas-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { PrincipalComponent } from './pages/principal/principal.component';
 import { ListarTareaComponent } from './pages/listar-tarea/listar-tarea.component';
@@ -26,7 +27,8 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
   ],
   imports: [
     CommonModule,
-    TareasRoutingModule
+    TareasRoutingModule,
+    HttpClientModule
   ]
 })
 export class TareasModule { }
