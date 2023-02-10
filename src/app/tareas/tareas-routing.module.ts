@@ -14,24 +14,25 @@ import { TraertareasComponent } from './pages/traertareas/traertareas.component'
 
 const routes: Routes = [
   {
-    path: 'actualizartareas', // localhost:4200/hoja-de-vida
-    component: CreartareasComponent,
+    path: '', // localhost:4200/tareas
+    component : PrincipalComponent
   },
   {
-    path: 'creartareas', // localhost:4200/hoja-de-vida/estudios
+    path: 'actualizartareas', // localhost:4200/tareas/actualizartareas
     component: ActualizartareasComponent,
   },
   {
-    path: 'eliminartareas', // localhost:4200/hoja-de-vida/experiencia-laboral
-    component: TraertareasComponent,
+    path: 'creartareas', // localhost:4200/hoja-de-vida/creartareas
+    component: CreartareasComponent,
   },
   {
-    path: 'principal', // localhost:4200/hoja-de-vida/experiencia-laboral
+    path: 'eliminartareas', // localhost:4200/hoja-de-vida/eliminartareas
     component: EliminartareasComponent,
   },
+
   {
-    path: 'traertaareas', // localhost:4200/hoja-de-vida/experiencia-laboral
-    component: PrincipalComponent,
+    path: 'traertareas', // localhost:4200/hoja-de-vida/experiencia-laboral
+    component: TraertareasComponent,
   },
 
 ];

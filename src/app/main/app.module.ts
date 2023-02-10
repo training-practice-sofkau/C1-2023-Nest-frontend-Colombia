@@ -19,9 +19,10 @@ import { HeroBirthdayComponent } from '../heroes/pipes/pipe/pipe.component';
 
 
 import { TareasModule } from '../tareas/tareas.module';
+import { IndexComponent } from './index/index.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     DashboardComponent,
     HeroesComponent,
@@ -29,8 +30,8 @@ import { TareasModule } from '../tareas/tareas.module';
     MessagesComponent,
     HeroSearchComponent,
     HeroBirthdayComponent,
-    MyPipePipe
-
+    MyPipePipe,
+      IndexComponent
    ],
   imports: [
     BrowserModule,
