@@ -1,0 +1,82 @@
+<div class="container col-12 col-xxl-7 col-xl-8 col-lg-9 col-md-10 col-sm-11 bg-primary shadow text-white bg-dark mt-5">
+  <div class="row align-items-stretch">
+    <div class="col mx-5">
+      <div class="text-center pt-5 pb-3">
+        <img src="../../../../../assets/login/images/s.png" width="128" alt="">
+      </div>
+      <form action="#">
+        <div class="row">
+          <div class="mb-2 col-12 col-sm-6">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-control" type="email" name="email" id="" placeholder="Email">
+          </div>
+          <div class="mb-2 col-12 col-sm-6">
+            <label class="form-label" for="pass">Password</label>
+            <input class="form-control" type="password" name="password" id="" placeholder="Password">
+          </div>
+        </div>
+        <div class="mb-2">
+          <label class="form-label" for="fullName">Fullname</label>
+          <input class="form-control" type="text" name="fullName" id="" placeholder="Fullname">
+        </div>
+        <div class="row mb-3">
+          <div class="mb-2 col-12 col-sm-5">
+            <label class="form-label" for="phone">Phone</label>
+            <input class="form-control" type="phone" name="phone" id="" placeholder="Phone">
+          </div>
+          <div class="mb-2 col-12 col-sm-7">
+            <label class="form-label" for="document">Document</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend bg-dark">
+                <select class="btn btn-outline-light col-12 accordion-body h-100 rounded-0" id="">
+                  <option value="1">C.C</option>
+                  <option value="2">C.E</option>
+                </select>
+              </div>
+              <input class="form-control" type="text" name="document" placeholder="Document">
+            </div>
+          </div>
+        </div>
+        <div class="d-grid bg-dark rounded-3">
+          <button class="btn btn-outline-light" type="submit">Signup</button>
+        </div>
+        <div class="my-2">
+          <span>Have an account?
+            <a [routerLink]="signIn">Signin</a>
+          </span>
+        </div>
+      </form>
+      <div class="container w-100 my-3">
+        <div class="row text-center">
+          <div class="col-12">Signup with</div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <button class="btn btn-outline-primary w-100 my-2">
+              <div class="row align-items-center">
+                <div class="col-2 d-none d-md-block">
+                  <img src="../../../../../assets/login/images/Facebook_icon.svg" alt="" width="32">
+                </div>
+                <div class="col-12 text-center col-md-10">
+                  Facebook
+                </div>
+              </div>
+            </button>
+          </div>
+          <div class="col">
+            <button class="btn btn-outline-danger w-100 my-2">
+              <div class="row align-items-center">
+                <div class="col-2 d-none d-md-block">
+                  <img src="../../../../../assets/login/images/Google_icon.svg" alt="" width="32">
+                </div>
+                <div class="col-12 text-center col-md-10">
+                  Google
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

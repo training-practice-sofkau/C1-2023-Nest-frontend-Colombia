@@ -1,0 +1,64 @@
+  <div class="container col-10 col-xxl-4 col-xl-5 col-lg-6 col-md-7 col-sm-8 bg-primary shadow text-white bg-dark mt-5">
+    <div class="row align-items-stretch">
+      <div class="col mx-5">
+        <div class="text-center pt-5 pb-3">
+          <img src="../../../../../assets/login/images/s.png" width="128" alt="">
+        </div>
+        <form action="#">
+          <div class="mb-2">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-control" type="email" name="email" id="" placeholder="Email">
+          </div>
+          <div class="mb-2">
+            <label class="form-label" for="pass">Password</label>
+            <input class="form-control" type="password" name="password" id="" placeholder="Password">
+          </div>
+          <div class="mb-2 form-check">
+            <input class="form-check-input" type="checkbox" name="keep" id="">
+            <label class="form-check-label" for="keep">Remember me</label>
+          </div>
+          <div class="d-grid bg-dark rounded-3">
+            <button class="btn btn-outline-light" type="submit">Signin</button>
+          </div>
+          <div class="my-2">
+            <span>Don't have an account?
+              <a [routerLink]="signUp">Signup</a>
+            </span>
+            <br>
+            <a [routerLink]="resetPass">Reset password</a>
+          </div>
+        </form>
+        <div class="container w-100 my-3">
+          <div class="row text-center">
+            <div class="col-12">Login with</div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <button class="btn btn-outline-primary w-100 my-2">
+                <div class="row align-items-center">
+                  <div class="col-2 d-none d-md-block">
+                    <img src="../../../../../assets/login/images/Facebook_icon.svg" alt="" width="32">
+                  </div>
+                  <div class="col-12 text-center col-md-10">
+                    Facebook
+                  </div>
+                </div>
+              </button>
+            </div>
+            <div class="col">
+              <button class="btn btn-outline-danger w-100 my-2">
+                <div class="row align-items-center">
+                  <div class="col-2 d-none d-md-block">
+                    <img src="../../../../../assets/login/images/Google_icon.svg" alt="" width="32">
+                  </div>
+                  <div class="col-12 text-center col-md-10">
+                    Google
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
