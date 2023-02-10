@@ -4,7 +4,7 @@ import * as moment from 'moment';
   name: 'relativeTime'
 })
 export class relativeTime implements PipeTransform {
-  transform(value: any): any {
+  transform(value: string): string {
     return "the last fight was " + moment(value).fromNow();
   }
 }

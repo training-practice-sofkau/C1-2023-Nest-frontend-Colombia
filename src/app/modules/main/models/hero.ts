@@ -2,11 +2,12 @@ export interface Hero {
   id: number;
   name: string;
   phone: string;
-  lastfigth: any;
+  lastfigth: string;
   time: string;
-  birthday: any;
+  birthday: string;
   nivel: string;
   city: string;
-  fortune: any;
-  power: any;
+  fortune: string;
+  power: string;
+  victories: string;
 }
