@@ -1,6 +1,5 @@
+/* eslint-disable prettier/prettier */
 import { Component } from '@angular/core';
-import { ApiService } from '../../services/api.service';
-import { Router } from '@angular/router';
 import { TodoListI } from '../../interfaces/todo-list.interface';
 
 @Component({
@@ -10,15 +9,11 @@ import { TodoListI } from '../../interfaces/todo-list.interface';
 })
 export class PrincipalComponent {
   routeNewItem: string[];
-  todoList: TodoListI[] = [];
+  todoList: TodoListI[];
 
   constructor() {
-    //por implementar
     this.routeNewItem = ['new-item'];
-  }
-
-  getTodoList(): void {
-    this.todoList = [
+    this.todoList =[
       {
         Id: 1,
         Title: 'Estudiar Angular',
@@ -46,12 +41,13 @@ export class PrincipalComponent {
     ];
   }
 
+  getTodoList(): void {
+    this.todoList;
+  }
+
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnInit(): void {
     this.getTodoList();
   }
 
-  editItem(item: number): void {
-    console.log('editItem', item);
-  }
 }

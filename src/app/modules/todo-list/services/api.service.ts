@@ -16,5 +16,8 @@ export class ApiService {
       return this.http.get<TodoListI[]>('https://jsonplaceholder.typicode.com/todos');
     }
 
+    public getItemById(id: number): Observable<TodoListI[]> {
+      return this.http.get<TodoListI[]>('https://jsonplaceholder.typicode.com/todos/' + id);
+    }
   }
 

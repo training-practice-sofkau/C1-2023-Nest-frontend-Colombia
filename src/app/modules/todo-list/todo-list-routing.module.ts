@@ -12,6 +12,7 @@ const routes: Routes = [
   {
     path: '', // localhost:4200/todo-list
     component: PrincipalComponent,
+    pathMatch: 'full',
   },
   {
     path: 'new-item', // localhost:4200/todo-list/estudios

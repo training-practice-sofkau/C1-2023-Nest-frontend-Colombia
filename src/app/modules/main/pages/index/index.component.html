@@ -1,17 +1,37 @@
-<p>index works!</p>
+<!-- eslint-disable prettier/prettier -->
+<header class="header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="header__content">
+          <div class="header__logo">
+            <img src="assets/images/th.jpg" alt="logo"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
-<!--
-<p>
-  {{ fecha | date }}
-</p>
-<p>
-  {{ precio | currency : 'COP' : '$ ' : '1.0' }}
-</p>
-<p>
-  {{ nombre | myPipe : 'parámetro' }}
-</p>
--->
+<div class="jumbotron" id="linear-gradient">
+  <h1 class="display-4">Bienvenido a la aplicación de tareas</h1>
+  <p class="lead">Esta aplicación te permite crear, editar y eliminar tareas.</p>
+  <hr class="my-4"/>
+  <p>Para comenzar, inicia sesión.</p>
+  <button type="button" class="btn btn-primary" routerLink="todo-list">
+    Iniciar sesión
+  </button>
+</div>
 
-<button type="button" class="btn btn-primary" routerLink="todo-list">
-  Iniciar sesión
-</button>
+
+  <footer class="footer">
+    <div class="container">
+      <span class="text-muted">Todos los derechos reservados</span>
+    </div>
+  </footer>
+
+
+
+<!-- Path: src\app\modules\main\pages\index\index.component.scss -->
+
+
