@@ -3,7 +3,17 @@
   <sofka-header></sofka-header>
 </div>
 <div class="body">
-  <p>principal works!</p>
+  <h1 class="display-4">Lista de tareas</h1>
+  <p class="lead">Esta página te permite ver todas las tareas, para ver los detalles de una de ellas presiona el botón
+    <button type="button" class="btn btn-primary">
+      Ver
+    </button>
+  .Para crear una nueva tarea, el botón
+  <button type="button" class="btn btn-primary">
+    Nuevo item
+  </button>
+  .</p>
+  <hr class="my-4"/>
   <button type="button" class="btn btn-primary" [routerLink]="routeNewItem">
     Nuevo item
   </button>
@@ -18,11 +28,26 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let item of todoList" routerLink="edit-item/{{item.Id}}">
+    <tr *ngFor="let item of todoList">
       <th scope="row">{{item.Id}}</th>
       <td>{{item.Title}}</td>
       <td>{{item.Description}}</td>
       <td>{{item.Responsible}}</td>
+      <td class="view">
+        <button type="button" class="btn btn-primary" routerLink="view-item/{{item.Id}}">
+          Ver
+        </button>
+      </td>
+      <td class="edit">
+        <button type="button" class="btn btn-primary" routerLink="edit-item/{{item.Id}}">
+          Editar
+        </button>
+      </td>
+      <td class="delete">
+        <button type="button" class="btn btn-primary" routerLink="delete-item/{{item.Id}}">
+          Eliminar
+        </button>
+      </td>
     </tr>
   </tbody>
 </table>

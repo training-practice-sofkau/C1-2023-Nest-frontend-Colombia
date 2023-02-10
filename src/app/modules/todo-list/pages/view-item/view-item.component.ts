@@ -4,17 +4,20 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { TodoListI } from '../../interfaces/todo-list.interface';
 
 @Component({
-  selector: 'sofka-edit-item',
-  templateUrl: './edit-item.component.html',
-  styleUrls: ['./edit-item.component.scss']
+  selector: 'sofka-view-item',
+  templateUrl: './view-item.component.html',
+  styleUrls: ['./view-item.component.scss']
 })
-export class EditItemComponent{
+export class ViewItemComponent{
 
   item: TodoListI[];
   itemId: TodoListI;
+  routePrincipal: string[];
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute)
   {
+
+    this.routePrincipal = ['../../'];
 
     this.item = [
       {
