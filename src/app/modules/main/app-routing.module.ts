@@ -1,18 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeroesComponent } from 'src/app/modules/heroes/pages/heroes.component';
-import { DashboardComponent } from 'src/app/modules/heroes/components/dashboard/dashboard.component';
-import { HeroDetailComponent } from 'src/app/modules/heroes/components/hero-detail/hero-detail.component';
+
+
+import { ComponenteEjemploComponent } from '../../shared/components/componente-ejemplo/componente-ejemplo.component';
+import { ListarComponent } from '../calendario/listar/listar.component';
+import { IndexComponent } from './pages/index/index.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'heroes', component: HeroesComponent }
+  {
+    path: '',
+    component: IndexComponent,
+  },
+  {
+    path: 'items',
+    loadChildren: () =>
+      import('../calendario/calendario.module').then(
+        module => module.CalendarioModule
+      ),
+  },
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
+

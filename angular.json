@@ -1,9 +1,16 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
+
+  "cli": {
+    "packageManager": "npm",
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
+  },
   "newProjectRoot": "projects",
   "projects": {
-    "TourOfHero": {
+    "DEMO-Angular15": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -12,12 +19,14 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+
+      "prefix": "sofka",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/tour-of-hero",
+
+            "outputPath": "dist/demo-angular15",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -30,9 +39,14 @@
               "src/assets"
             ],
             "styles": [
+
+              "./node_modules/bootstrap/scss/bootstrap.scss",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+
           },
           "configurations": {
             "production": {
@@ -48,7 +62,14 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+
             },
             "development": {
               "buildOptimizer": false,
@@ -65,10 +86,12 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "TourOfHero:build:production"
+
+              "browserTarget": "DEMO-Angular15:build:production"
             },
             "development": {
-              "browserTarget": "TourOfHero:build:development"
+              "browserTarget": "DEMO-Angular15:build:development"
+
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +99,9 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "TourOfHero:build"
+
+            "browserTarget": "DEMO-Angular15:build"
+
           }
         },
         "test": {
@@ -97,6 +122,17 @@
             ],
             "scripts": []
           }
+
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
+
         }
       }
     }
