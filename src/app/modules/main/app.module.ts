@@ -13,9 +13,9 @@ import { CustomPipeDataPipe } from './pipes/custom-pipe-data/custom-pipe-data.pi
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { AccountComponent } from './pages/account/account.component';
-import { CreateAccountComponent } from './pages/create-account/create-account.component';
-import { UpdateAccountComponent } from './pages/update-account/update-account.component';
+import { AccountComponent } from '../account/pages/account/account.component';
+import { CreateAccountComponent } from '../account/pages/create-account/create-account.component';
+import { UpdateAccountComponent } from '../account/pages/update-account/update-account.component';
 import { UpdateCostumerComponent } from './pages/update-costumer/update-costumer.component';
 import { CreateDepositComponent } from './pages/create-deposit/create-deposit.component';
 import { CreateTransferComponent } from './pages/create-transfer/create-transfer.component';
@@ -27,8 +27,8 @@ import { HeaderAfterLoginComponent } from './components/header-after-login/heade
 import { FooterComponent } from './components/footer/footer.component';
 import { NavInfoCustomerComponent } from './components/nav-info-customer/nav-info-customer.component';
 import { ServiceUserService } from './services/user-service/service-user.service';
-import { ServiceAccountService } from './services/account-service/service-account.service';
-import { InfoAccountComponent } from './pages/info-account/info-account.component';
+import { ServiceAccountService } from '../account/services/account-service/service-account.service';
+import { InfoAccountComponent } from '../account/pages/info-account/info-account.component';
 
 @NgModule({
   declarations: [
