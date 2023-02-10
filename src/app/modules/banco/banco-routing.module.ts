@@ -1,3 +1,4 @@
+import { RegisterComponent } from './pages/register/register.component';
 import { LogComponent } from './pages/log/log.component';
 import { TransferenciaComponent } from './pages/transferencia/transferencia.component';
 import { HistorialComponent } from './pages/historial/historial.component';
@@ -24,7 +25,9 @@ component: TransferenciaComponent,
 { path: 'registro', //localhost:4200/banco
 component: LogComponent,
 },
-
+{ path: 'formu', //localhost:4200/banco
+component: RegisterComponent,
+},
 ];
 
 @NgModule({

@@ -7,6 +7,10 @@ import { HistorialComponent } from './pages/historial/historial.component';
 import { TransferenciaComponent } from './pages/transferencia/transferencia.component';
 import { LogComponent } from './pages/log/log.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -16,10 +20,12 @@ import { PrincipalComponent } from './pages/principal/principal.component';
     HistorialComponent,
     TransferenciaComponent,
     LogComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    RegisterComponent,
+
   ],
   imports: [
-    CommonModule, bancoRoutingModule
+    CommonModule, bancoRoutingModule, FormsModule, HttpClientModule
   ]
 })
 export class BancoModule { }
