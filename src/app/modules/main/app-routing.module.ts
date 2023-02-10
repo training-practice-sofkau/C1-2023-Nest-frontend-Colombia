@@ -1,14 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeroesComponent, DashboardComponent, HeroDetailComponent } from './components';
-import { PruebaPipeComponent } from './components/prueba-pipe/prueba-pipe.component';
+import { AccountComponent } from './pages/account/account.component';
+import { HomeComponent } from './pages/home/home.component';
+import { InfoCostumerComponent } from './pages/info-costumer/info-costumer.component';
+import { InfoDepositComponent } from './pages/info-deposit/info-deposit.component';
+import { InfoTransferComponent } from './pages/info-transfer/info-transfer.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { UpdateCostumerComponent } from './pages/update-costumer/update-costumer.component';
 
 const routes: Routes = [
-  { path: "heroes", component: HeroesComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'detail/:id', component: HeroDetailComponent },
-  { path: "prueba-pipe", component: PruebaPipeComponent }
+  { path: "", component: HomeComponent },
+  { path: "customer", component: InfoCostumerComponent },
+  { path: "transfer", component: InfoTransferComponent },
+  { path: "deposit", component: InfoDepositComponent },
+  { path: "account", component: AccountComponent },
+  { path: "customer/updateCustomer", component: UpdateCostumerComponent },
+  { path: "login", component: LoginComponent },
+  { path: "register", component: RegisterComponent }
 ];
 
 @NgModule({
