@@ -1,23 +1,20 @@
 <div class="container-account">
-    <div class="form-account">
-        <p>Informacion Usuario</p>
+    <div class="form-account" *ngFor="let account of accounts">
         <div class="subcontainer-account">
-            <p>Usuario: {{customerName}}</p>
-            <p>Estado:{{customerState}}</p>
+            <div class="subcontainer-avatar-customer">
+                <img>
+            </div>
+            <div class="subcontainer-info-customer">
+                <p>Nombre: {{account.customer.fullName | uppercase}}</p>
+                <p>Estado:{{account.customer.state}}</p>
+            </div>
         </div>
-        <p>Informacion Cuenta</p>
         <div class="subcontainer-account">
-            <p>Id: {{idAccount}}</p>
-            <p>Estado: {{state}}</p>
+            <div class="subcontainer-info-customer">
+                <p>Estado: {{account.state}}</p>
+                <p>Balance: {{account.balance | currency:"COP":"$"}} </p>
+            </div>
         </div>
-        <p>Informacion Tipo de Cuenta</p>
-        <div class="subcontainer-account">
-            <p>Id: {{idAccountType}}</p>
-            <p>Estado: {{accountTypeState}}</p>
-        </div>
-        <p>Balance</p>
-        <div class="subcontainer-account">
-            {{balance}}
-        </div>
+        <button class="btn-account-get">Observar</button>
     </div>
 </div>

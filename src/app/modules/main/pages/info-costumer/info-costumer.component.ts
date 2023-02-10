@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IGetUser } from '../../interfaces/user-get/user-get.interface';
 import { NewUserModel } from '../../models/new-user.model';
-import { ServiceUserService } from '../../services/service-user.service';
+import { ServiceUserService } from '../../services/user-service/service-user.service';
 
 @Component({
   selector: 'app-info-costumer',
