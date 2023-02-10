@@ -9,8 +9,8 @@ export class UsersService {
 
   constructor(private readonly httpClient: HttpClient) { }
 
-  createUser(user : NewUserModel): void {
-    return this.httpClient.post("localhost:3000/user", user.getData())
+  createUser(user : NewUserModel) {
+    return this.httpClient.post('localhost:3000/user', user.getData());
   }
 
   // {
