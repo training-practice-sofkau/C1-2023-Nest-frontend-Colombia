@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeroesComponent,DashboardComponent,MessagesComponent,HeroDetailComponent } from './components';
+import { HeroesComponent, DashboardComponent, MessagesComponent, HeroDetailComponent } from './components';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PruebaPipeComponent } from './components/prueba-pipe/prueba-pipe.component';
@@ -63,7 +63,7 @@ import { ServiceAccountService } from './services/account-service/service-accoun
     FormsModule,
     HttpClientModule
   ],
-  providers: [ServiceUserService,ServiceAccountService],
+  providers: [ServiceUserService, ServiceAccountService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
