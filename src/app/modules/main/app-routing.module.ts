@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ComponenteEjemploComponent } from '../../shared/components/componente-ejemplo/componente-ejemplo.component';
+import { ListarComponent } from '../calendario/listar/listar.component';
 import { IndexComponent } from './pages/index/index.component';
 
 const routes: Routes = [
@@ -10,22 +11,12 @@ const routes: Routes = [
     component: IndexComponent,
   },
   {
-    path: 'ejemplo/:id', // localhost:4200/ejemplo/hola
-    component: ComponenteEjemploComponent,
-  },
-  {
-    path: 'hoja-de-vida', // localhost:4200/hoja-de-vida
+    path: 'items',
     loadChildren: () =>
-      import('../hoja-de-vida/hoja-de-vida.module').then(
-        module => module.HojaDeVidaModule
+      import('../calendario/calendario.module').then(
+        module => module.CalendarioModule
       ),
   },
-  // {
-  //   path: '**',
-  //   redirectTo: '',
-  //   pathMatch: 'full',
-  //   // component: NotFoundErrorComponent,
-  // },
 ];
 
 @NgModule({

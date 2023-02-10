@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./editar.component.scss']
 })
 export class EditarComponent {
+  lista: string[];
 
+  constructor(){
+    this.lista = ["../"]
+  }
 }

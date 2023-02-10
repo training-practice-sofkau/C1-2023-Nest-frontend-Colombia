@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./eliminar.component.scss']
 })
 export class EliminarComponent {
+  lista: string[];
 
+  constructor(){
+    this.lista = ["../"]
+  }
 }

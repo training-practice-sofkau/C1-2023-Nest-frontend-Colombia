@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./detalles.component.scss']
 })
 export class DetallesComponent {
+  lista: string[];
 
+  constructor(){
+    this.lista = ["../"]
+  }
 }

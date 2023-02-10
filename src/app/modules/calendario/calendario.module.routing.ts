@@ -10,7 +10,7 @@ import { LayautComponent } from './layaut/layaut.component';
 
 const routes: Routes = [
   {
-    path: '', // localhost:4200/hoja-de-vida
+    path: '',
     component: LayautComponent,
     children: [
       {

@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./agregar.component.scss']
 })
 export class AgregarComponent {
+  lista: string[];
 
+  constructor(){
+    this.lista = ["../"]
+  }
 }
