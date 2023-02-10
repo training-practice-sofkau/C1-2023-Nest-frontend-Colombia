@@ -1,0 +1,87 @@
+<div class="row m-4">
+  <div class="alert alert-info" role="alert">
+    <h5 class="text-primary">
+      ¡Hola! Aquí puedes hacer lo siguiente:
+      <a class="btn btn-lg btn-outline-primary shadow-sm ms-4" [routerLink]="routeAdd">
+        Agregar una tarea
+      </a>
+    </h5>
+  </div>
+</div>
+<div class="col m-5 mt-0">
+  <h2>Listado de tareas</h2>
+  <div class="table-responsive">
+    <table class="table table-striped table-hover-bg-factor">
+      <caption>
+        Listado de tareas
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col">Day</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider ">
+        <tr *ngFor="let item of days" class="text-center">
+          <th scope="row">{{item}}</th>
+          <td colspan="4">
+            <table class="table mb-0">
+              <thead>
+                <tr>
+                  <th scope="col">Título</th>
+                  <th scope="col">Descripción</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of toDoList" class="text-center">
+                  <th scope="row">{{item}}</th>
+                  <td>desc</td>
+                  <td hidden>id</td>
+                  <td class="">
+                    <a class="btn btn-info me-2 text-light" [routerLink]="routeDetail">
+                      <i class="bi bi-eye-fill"></i>
+                    </a>
+                    <a class="btn btn-warning bg-opacity-75 me-2 text-light" [routerLink]="routeEdit">
+                      <i class="bi bi-pencil-fill"></i>
+                    </a>
+                    <!-- <a class="btn btn-danger bg-opacity-75" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                      [routerLink]="routeDelete">
+                      <i class="bi bi-trash-fill"></i>
+                    </a> -->
+                    <a class="btn btn-danger bg-opacity-75" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                      <i class="bi bi-trash-fill"></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Button trigger modal
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-light">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">¿Estás seguro de eliminar?</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body bg-dark text-light">
+        TítuloExample
+      </div>
+      <div class="modal-footer bg-dark text-light">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-danger">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>

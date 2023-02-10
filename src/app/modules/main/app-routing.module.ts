@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeroesComponent } from 'src/app/modules/heroes/pages/heroes.component';
-import { HeroDetailComponent } from 'src/app/modules/heroes/components/hero-detail/hero-detail.component';
-import { DashboardComponent } from 'src/app/modules/heroes/components/dashboard/dashboard.component';
+
+import { IndexComponent } from './pages/index/index.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'heroes', component: HeroesComponent },
+  {
+    path: '',
+    component: IndexComponent,
+  },
+  {
+    path: 'to-do-list/dashboard', // localhost:4200/to-do-list
+    loadChildren: () =>
+      import('../to-do-list/to-do-list.module').then(
+        module => module.ToDoListModule
+      ),
+  },
 ];
 
 @NgModule({
