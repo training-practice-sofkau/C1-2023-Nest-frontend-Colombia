@@ -1,15 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
-import { HeroesComponent } from './components/heroes/heroes.component';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'heroes', component: HeroesComponent }
+  {
+    path: '',
+    component:HomeComponent,
+  },
+  {
+    path: 'account',
+    loadChildren: () => import('../account/account.module').then(m => m.AccountModule),
+  },
+  {
+    path: 'movements',
+    loadChildren: () => import('../movements/movements.module').then(m => m.MovementsModule),
+  },
+  {
+    path: 'security',
+    loadChildren: () => import('../security/security.module').then(m => m.SecurityModule),
+  },
+  {
+    path: 'transfer',
+    loadChildren: () => import('../transfer/transfer.module').then(m => m.TransferModule),
+  },
 ];
 
 @NgModule({
