@@ -5,18 +5,11 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './components/app.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { HeroDetailComponent } from './components/hero-details/hero-details.component';
-import { HeroSearchComponent } from './components/hero-search/hero-search.component';
-import { HeroesComponent } from './components/heroes/heroes.component';
 
-import { ConversionMoneyPipe } from './pipes/conversion-money.pipe';
-import { PhonePipe } from './pipes/phone.pipe';
-import { InMemoryDataService } from './services/in-memory-data.service';
-import { MessagesComponent } from './components/messages/messages.component';
-import { PowerPipe } from './pipes/power.pipe';
-import { MomentPipe } from './pipes/moment.pipe';
+import { InMemoryDataService } from './shared/services/in-memory-data.service';
+
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { AppComponent } from './app.component';
 
 
 @NgModule({
@@ -37,15 +30,7 @@ HttpClientInMemoryWebApiModule.forRoot(
   ],
   declarations: [
     AppComponent,
-    DashboardComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-    HeroSearchComponent,
-    MessagesComponent,
-    PhonePipe,
-    ConversionMoneyPipe,
-    PowerPipe,
-    MomentPipe,
+    NavbarComponent,
   ],
   bootstrap: [ AppComponent ]
 })
