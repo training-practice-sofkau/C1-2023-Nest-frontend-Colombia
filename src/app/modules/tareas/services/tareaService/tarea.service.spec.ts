@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TareaServiceService } from './tarea-service.service';
+import { TareaService } from './tarea.service';
 
-describe('TareaServiceService', () => {
-  let service: TareaServiceService;
+describe('TareaService', () => {
+  let service: TareaService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TareaServiceService);
+    service = TestBed.inject(TareaService);
   });
 
   it('should be created', () => {

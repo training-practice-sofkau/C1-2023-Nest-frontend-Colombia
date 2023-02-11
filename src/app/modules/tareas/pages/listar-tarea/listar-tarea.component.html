@@ -1,5 +1,6 @@
 <ol class="list-group list-group-numbered">
-    <div *ngFor="let tarea of resultados" class="col-md-4 col-sm-6 animate__animated animate__fadeIn g-4">
-        <li class="list-group-item" [routerLink]="routeDetalles">{{tarea.id}} - {{tarea.title}}</li>
+    <div *ngFor="let tarea of tareas" class="col-md-4 col-sm-6 animate__animated animate__fadeIn g-4">
+        <li class="list-group-item" [routerLink]="routeDetalles">{{tarea.calendarModelId
+        }} - {{tarea.title}}</li>
     </div>
 </ol>

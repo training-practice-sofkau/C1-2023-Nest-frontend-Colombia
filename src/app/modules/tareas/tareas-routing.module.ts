@@ -16,7 +16,7 @@ const routes: Routes = [
         component: PrincipalComponent
       },
       {
-        path: 'listar',// localhost:4200/tareas/listar
+        path: 'listar/:dia',// localhost:4200/tareas/listar
         component: ListarTareaComponent
       },
       {
