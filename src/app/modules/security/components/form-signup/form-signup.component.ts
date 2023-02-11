@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+import Swal from 'sweetalert2';
 import { Customer } from '../../models/customer.model';
 import { CustomersService } from '../../services/customer/customers.service';
 
@@ -15,7 +17,9 @@ export class FormSignupComponent implements OnInit {
   phone: string;
   password: string;
 
-  constructor(private readonly customerService: CustomersService) {
+
+  constructor(private readonly customerService: CustomersService,
+      private router: Router) {
     this.documentTypeId = '';
     this.document = '';
     this.fullName = '';
@@ -35,7 +39,19 @@ export class FormSignupComponent implements OnInit {
     this.customerService.createCustomer(customer).subscribe({
       next: (data) => console.log(data),
       error: (err) => console.log(err),
-      complete: () => console.info("completado"),
+      complete: () => {Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Inicio de sesión correcto',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      setTimeout(() =>
+{
+    this.router.navigate(['account']);
+},
+1500);
+    }
     });
   }
 
