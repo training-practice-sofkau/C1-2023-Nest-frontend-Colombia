@@ -57,7 +57,8 @@ import { InfoAccountComponent } from '../account/pages/info-account/info-account
     HeaderAfterLoginComponent,
     FooterComponent,
     NavInfoCustomerComponent,
-    InfoAccountComponent
+    InfoAccountComponent,
+    
   ],
   imports: [
     BrowserModule,
