@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "poppins", sans-serif;
+}
+body {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  height: 41em;
+  background-color: #0c0c0d;
+}
+.container {
+  
+  
+  background: url(https://www.lavanguardia.com/files/content_image_mobile_filter/files/fp/uploads/2022/11/15/6373ab542de24.r_d.1048-826.jpeg) ;
+  background-size:cover;
+  width: 60em;
+  height: 41em ; 
+  border-radius: 20px;
+  display: flexbox;
+  justify-content: center;
+  flex-direction: column;
+  color: #fff;
+  padding: 2em;
+}
+.heading {
+  font-size: 50px;
+  margin-bottom: 0.5em;
+}
+.box {
+  margin: 0.4em 0;
+}
+.container .box p {
+  color: rgba(255, 255, 255, 0.701);
+}
+.container .box div {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  margin: 0.2em 0;
+}
+.container .box input {
+  position: absolute;
+  width: 40%;
+  height: 100%;
+  background: rgba(19, 19, 19);
+  color: #fff;
+  border: none;
+  outline: none;
+  padding-left: 0.8em;
+  border-radius: 10px;
+  transition: all 0.5s;
+}
+.container .box input:focus::placeholder {
+  color: #fff;
+}
+.container .box div::before {
+  content: "";
+  position: absolute;
+  top: 12%;
+  left: 20%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: 40%;
+  border-radius: 10px;
+  background: linear-gradient(to right, #ff416c, #ff4b2b);
+}
+.loginBtn {
+  margin-bottom: 40px;
+  position: absolute; top: 70%;
+  align-content: center;
+  width:12%;
+  height: 40px;
+  border-radius: 10px;
+  margin: 0.2em 0;
+  transform: translate(-1%);
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(to right, #4da7ce, #063ad6);
+  transition: all 0.5s;
+}
+.loginBtn:hover {
+  transform: translate(-1%, 5%);
+  box-shadow: 0 0 10px #ff416d65;
+}
+.registerBtn{
+  position: absolute; top: 80%;
+  box-sizing: 10px;
+  align-content: center;
+  width:12%;
+  height: 40px;
+  border-radius: 10px;
+  margin: 0.2em 0;
+  transform: translate(-1%);
+  cursor: pointer;
+  color: #fff;
+  background: linear-gradient(to right, #4da7ce, #063ad6);
+  transition: all 0.5s;
+  
+}
+.registerBtn:hover {
+  transform: translate(-1%, 5%);
+  box-shadow: 0 0 10px #ff416d65;
+}
+.text {
+  font-size: 0.8em;
+  margin-top: 0.5em;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.625);
+}
+.text a {
+  color: rgba(151, 33, 33, 0.911);
+}

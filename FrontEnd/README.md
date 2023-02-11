@@ -1,6 +1,16 @@
-# ToursOfHeroes
+# C1-2023-Angular-frontend-Colombia
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.10.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
+
+## Installation
+
+```bash
+npm install -g pnpm
+```
+
+```bash
+pnpm install
+```
 
 ## Development server
 
@@ -25,3 +35,16 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Workshop
+
+Week 3 Day 3 - Componentes Web y Navegación
+
+¿Qué estás entregando?
+
+¿Qué hizo falta?
+
+¿Qué dificultades se tuvieron?
+
+1. Crear la maqueta visual de su backend (mínimo navegación entre 5 páginas)
+2. Crear mínimo 5 commits [TITULO] - [DESCRIPCIÓN]
