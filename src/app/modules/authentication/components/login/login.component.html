@@ -1,8 +1,52 @@
-<p>REGISTRARSE!</p>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="frmUsuario" [formGroup]="newUser" (ngSubmit)="onSubmit()">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" placeholder="fullName"
+              formControlName="fullName" id="fullName" name="fullName" required>
+              <label for="floatingPassword">Name Completo</label>
+              <div *ngIf="newUser.get('fullName')?.touched && newUser.get('fullName')?.errors?.['required']"
+              class="alert alert-danger">This field is required.</div>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" placeholder="Email" 
+              formControlName="email" id="email" name="email">
+              <label for="floatingPassword">Correo</label>
+              <div *ngIf="newUser.get('email')?.touched && newUser.get('email')?.errors?.['required']"
+              class="alert alert-danger">This field is required.</div>
+              <div *ngIf="newUser.get('email')?.touched && newUser.get('email')?.errors?.['email']"
+              class="alert alert-danger">email</div>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingPassword" placeholder="Telefono"
+              name="phone">
+              <label for="floatingPassword">Telefono</label>
+              <div *ngIf="newUser.get('phone')?.touched && newUser.get('phone')?.errors?.['required']"
+              class="alert alert-danger">This field is required.</div>
+            </div>
+      
+          </form>
+        </div>
+        <div class="modal-footer">
+          <div class="form-group">
+            <button form="frmUsuario"  class="btn btn-primary">Aceptar</button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--[disabled]="newUser.invalid"-->
+<!--<p>REGISTRARSE!</p>
 
 
 
-<body>
+<body class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="container">
     <div class="row">
       <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -13,7 +57,6 @@
               <div class="form-floating mb-3">
                 <input type="email" class="form-control" id="floatingInput" 
                 formControlName="fullName" placeholder="Name Completo" 
-                [(ngModel)]="fullName"
                 name="fullName"
                 required>
                 <label for="floatingInput">Nombre Completo</label>
@@ -31,9 +74,9 @@
                 <label for="floatingPassword">Telefono</label>
               </div>
               <div class="form-floating mb-3">
-                <!--<input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
                 [(ngModel)]="documentType"
-                name="documentType">-->
+                name="documentType">
                 <label for="floatingPassword">Tipo de documento</label>
                 <select [(ngModel)]="documentType"
                 name="documentType" class="form-select" aria-label="Default select example">
@@ -51,10 +94,10 @@
       name="password">
                 <label for="floatingPassword">Contraseña</label>
               </div>
-              <!--<div class="form-floating mb-3">
+              <div class="form-floating mb-3">
                 <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
                 <label for="floatingPassword">Repite la contraseña</label>
-              </div>-->
+              </div>
               <div class="form-check mb-3">
                 <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
                 <label class="form-check-label" for="rememberPasswordCheck">
@@ -74,5 +117,8 @@
 </body>
 
 <span>¿Ya tienes una cuenta?</span>
-<a class="btn btn-primary" [routerLink]="routeSignIn">Iniciar sesion</a>
+<a class="btn btn-primary" [routerLink]="routeSignIn">Iniciar sesion</a>-->
+
+
+
 

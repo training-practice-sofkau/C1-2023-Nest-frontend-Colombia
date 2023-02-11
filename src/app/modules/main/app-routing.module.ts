@@ -7,11 +7,18 @@ const routes: Routes = [
   //{ path: 'dashboard', component: DashboardComponent },
   //{ path: 'detail/:id', component: HeroDetailComponent },
   //{ path: 'signIn', component: Authe },
-  {
+  /*{
     path: '',
     loadChildren: () => 
     import('../authentication/authentication.module').then(
       m => m.AuthenticationModule
+    )
+  },*/
+  {
+    path: '',
+    loadChildren: () => 
+    import('../landing-page/landing-page.module').then(
+      m => m.LandingPageModule
     )
   },
   {
