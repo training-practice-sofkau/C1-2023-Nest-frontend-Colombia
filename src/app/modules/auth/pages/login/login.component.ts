@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
       ]),
     });
   }
-
+//envio de datos
   sendLogin() {
     const { email, password } = this.formLogin.value;
     this.loginService.sendLogin(email, password).subscribe(
