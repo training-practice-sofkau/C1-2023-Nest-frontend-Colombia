@@ -4,23 +4,33 @@ import { Observable } from 'rxjs';
 import { IGetUser } from '../../../main/interfaces/user-get/user-get.interface';
 import { LoginModel } from '../../../main/models/login.model';
 import { NewUserModel } from '../../../main/models/new-user.model';
+import { UserModel } from '../../models/user.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ServiceUserService {
-
-  constructor(private readonly httpClient: HttpClient) { }
+  constructor(private readonly httpClient: HttpClient) {}
 
   createNewUser(newUser: NewUserModel) {
-    return this.httpClient.post("http://localhost:3000/security/register", newUser.getData())
+    return this.httpClient.post(
+      'http://localhost:3000/security/register',
+      newUser.getData()
+    );
   }
 
-  getAllUser(){
-    return this.httpClient.get("http://localhost:3000/user");
+  getAllUser() {
+    return this.httpClient.get('http://localhost:3000/user');
   }
 
-  login(loginuser: LoginModel){
-    return this.httpClient.post("http://localhost:3000/security/login",loginuser.getData())
+  login(loginuser: LoginModel) {
+    return this.httpClient.post(
+      'http://localhost:3000/security/login',
+      loginuser.getData()
+    );
+  }
+
+  getUserById(id: string): Observable<UserModel> {
+    return this.httpClient.get<UserModel>('http://localhost:3000/user/' + id);
   }
 }

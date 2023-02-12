@@ -5,26 +5,24 @@ import { ServiceUserService } from '../../../user/services/user-service/service-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-
   email: string;
-  password: string
+  password: string;
+  token: string;
   constructor(private readonly userService: ServiceUserService) {
-    this.email = ""
-    this.password = ""
+    this.email = '';
+    this.password = '';
+    this.token = '';
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   login() {
-    const newLogin = new LoginModel(this.email, this.password)
-    this.userService.login(newLogin).subscribe({
-      next: (data) => { console.log(data) },
-      error: (err) => { console.log(err) },
-      complete: () => { console.log("complete") }
-    })
+    const newLogin = new LoginModel(this.email, this.password);
+    this.userService.login(newLogin).subscribe((res:any)=>{
+      localStorage.setItem("token",res.access_token)
+    });
   }
 }

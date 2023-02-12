@@ -9,21 +9,23 @@ import { InfoTransferComponent } from './pages/info-transfer/info-transfer.compo
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UpdateCostumerComponent } from '../user/pages/update-costumer/update-costumer.component';
+import { HomeCustomerComponent } from '../user/pages/home-customer/home-customer.component';
 
 const routes: Routes = [
-  { path: "", component: HomeComponent },
-  { path: "customer", component: InfoCostumerComponent },
-  { path: "transfer", component: InfoTransferComponent },
-  { path: "deposit", component: InfoDepositComponent },
-  { path: "account", component: AccountComponent },
-  { path: "customer/updateCustomer", component: UpdateCostumerComponent },
-  { path: "login", component: LoginComponent },
-  { path: "register", component: RegisterComponent },
-  { path: "account/:id", component: InfoAccountComponent }
+  { path: '', component: HomeComponent },
+  { path: 'customer', component: InfoCostumerComponent },
+  { path: 'transfer', component: InfoTransferComponent },
+  { path: 'deposit', component: InfoDepositComponent },
+  { path: 'account', component: AccountComponent },
+  { path: 'customer/updateCustomer', component: UpdateCostumerComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'account/:id', component: InfoAccountComponent },
+  { path: 'customer/home', component: HomeCustomerComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

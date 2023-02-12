@@ -3,7 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeroesComponent, DashboardComponent, MessagesComponent, HeroDetailComponent } from './components';
+import {
+  HeroesComponent,
+  DashboardComponent,
+  MessagesComponent,
+  HeroDetailComponent,
+} from './components';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PruebaPipeComponent } from './components/prueba-pipe/prueba-pipe.component';
@@ -29,6 +34,12 @@ import { NavInfoCustomerComponent } from './components/nav-info-customer/nav-inf
 import { ServiceUserService } from '../user/services/user-service/service-user.service';
 import { ServiceAccountService } from '../account/services/account-service/service-account.service';
 import { InfoAccountComponent } from '../account/pages/info-account/info-account.component';
+import { HomeCustomerComponent } from '../user/pages/home-customer/home-customer.component';
+import { JwtModule } from '@auth0/angular-jwt';
+
+export function getToken() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
@@ -58,15 +69,20 @@ import { InfoAccountComponent } from '../account/pages/info-account/info-account
     FooterComponent,
     NavInfoCustomerComponent,
     InfoAccountComponent,
-    
+    HomeCustomerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: getToken
+      },
+    }),
   ],
   providers: [ServiceUserService, ServiceAccountService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
