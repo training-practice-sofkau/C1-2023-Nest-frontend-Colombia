@@ -4,11 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 // Components
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AuthGuard } from '../auth/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: NavbarComponent,
+    canActivate: [AuthGuard],
+    canLoad: [AuthGuard],
     children: [
       {
         path: '', loadChildren: () => import('../customer/customer.module')

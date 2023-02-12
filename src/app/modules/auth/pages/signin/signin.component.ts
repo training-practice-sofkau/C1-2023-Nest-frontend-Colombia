@@ -3,6 +3,7 @@ import { FormBuilder } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { UserModel } from '../../models/user.model';
 import { UserInterface } from '../../interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sofka-bank-signin',
@@ -18,7 +19,11 @@ export class SigninComponent implements OnInit {
     password: '',
   });
 
-  constructor(private readonly auth$: AuthService, private readonly formBuilder: FormBuilder,) {
+  constructor(
+    private readonly auth$: AuthService,
+    private readonly formBuilder: FormBuilder,
+    private readonly router: Router
+  ) {
     this.resetPass = ['../reset-pass'];
     this.signUp = ['../signup'];
   }
@@ -28,7 +33,6 @@ export class SigninComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.checkoutForm.value)
     const user = <UserModel>this.checkoutForm.value;
     this.auth$.signIn(user).subscribe({
       next: (data) => this.handlerSuccess(data),
@@ -38,12 +42,13 @@ export class SigninComponent implements OnInit {
   }
 
   handlerSuccess(data: UserInterface): void {
-    //this.auth$.setAuthorizationToken(data.data?.email)
-    alert(data)
+    localStorage.setItem('currentUser', JSON.stringify(data));
+    this.router.navigate(['dashboard']);
+    alert(JSON.stringify(data))
   }
 
   handlerError(err: any): void {
-    console.log(err)
+    console.log(err.error.message)
     alert(err?.message)
   }
 
@@ -52,7 +57,6 @@ export class SigninComponent implements OnInit {
     var g = Math.floor(Math.random() * 256);
     var b = Math.floor(Math.random() * 256);
     var bgColor = "rgb(" + r + "," + g + "," + b + ")";
-    console.log(bgColor);
     document.body.style.background = bgColor;
   }
 

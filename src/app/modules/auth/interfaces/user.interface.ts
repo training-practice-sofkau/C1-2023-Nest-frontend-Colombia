@@ -1,5 +1,15 @@
-import { NewUserModel } from '../models/new-user.model';
+import { DocumentTypeEnum } from 'src/app/shared/enums/document-type.enum';
 export interface UserInterface {
   success: boolean
-  data: NewUserModel
+  data: {
+    id: string;
+    documentTypeId: DocumentTypeEnum;
+    document: string;
+    fullName: string;
+    email: string;
+    phone: string;
+    password: string;
+    avatarUrl?: string;
+    token: string;
+  }
 }
