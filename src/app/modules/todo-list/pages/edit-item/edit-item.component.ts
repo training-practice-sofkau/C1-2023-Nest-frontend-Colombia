@@ -18,48 +18,25 @@ export class EditItemComponent{
   {
 
     this.routePrincipal = ['../../'];
-    this.item = [
-      {
-        Id: 1,
-        Title: 'Estudiar Angular',
-        Description: 'Estudiar Angular',
-        Responsible: 'Juan',
-        IsCompleted: false,
-        State: true,
-      },
-      {
-        Id: 2,
-        Title: 'Estudiar React',
-        Description: 'Estudiar React',
-        Responsible: 'Juan',
-        IsCompleted: false,
-        State: true,
-      },
-      {
-        Id: 3,
-        Title: 'Estudiar Vue',
-        Description: 'Estudiar Vue',
-        Responsible: 'Juan',
-        IsCompleted: false,
-        State: true,
-      },
-    ];
-    this.itemId = this.getItemById(Number(this.activatedRoute.snapshot.paramMap.get('id')));
+    this.item = [];
+    this.itemId = this.getItemById(this.activatedRoute.snapshot.paramMap.get('id'));
+  }
+  getItemById(arg0: string | null): TodoListI {
+    throw new Error('Method not implemented.');
   }
 
-  getItemById(id: number){
-    return this.item[id-1];
-  }
+  // getItemById(id: string): TodoListI{
+  //   return {  };
 
-  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
-  ngOnInit(): void {
-    this.itemId = this.getItemById(Number(this.activatedRoute.snapshot.paramMap.get('id')));
-    console.log(this.itemId);
-  }
+  // // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
+  // ngOnInit(): void {
+  //   this.itemId = this.getItemById(this.activatedRoute.snapshot.paramMap.get('id'));
+  //   console.log(this.itemId);
+  // }
 
-  return(): void {
-    this.router.navigate(['principal']);
-  }
+  // return(): void {
+  //   this.router.navigate(['principal']);
+  // }
 
 
 }

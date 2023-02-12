@@ -1,9 +1,10 @@
 /* eslint-disable prettier/prettier */
 export interface TodoListI {
-  Id: number;
-  Title: string;
-  Description: string;
-  Responsible: string;
-  IsCompleted: boolean;
-  State: boolean;
+  //success: boolean;
+  id: string;
+  title: string;
+  description: string;
+  responsible: string;
+  isCompleted: number;
+  state: number;
 }

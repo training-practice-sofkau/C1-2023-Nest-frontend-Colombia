@@ -9,10 +9,10 @@
     Nuevo item
   </button>
 
-<table class="table table-striped">
+<table class="table table-striped" *ngIf="todoList.length>0">
   <thead>
     <tr>
-      <th scope="col">ID</th>
+      <th scope="col">Id</th>
       <th scope="col">Title</th>
       <th scope="col">Description</th>
       <th scope="col">Responsible</th>
@@ -20,28 +20,29 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of todoList">
-      <th scope="row">{{item.Id}}</th>
-      <td>{{item.Title}}</td>
-      <td>{{item.Description}}</td>
-      <td>{{item.Responsible}}</td>
+      <td>{{item.id}}</td>
+      <td>{{item.title}}</td>
+      <td>{{item.description}}</td>
+      <td>{{item.responsible}}</td>
       <td class="view">
-        <button type="button" class="btn btn-primary" routerLink="view-item/{{item.Id}}">
+        <button type="button" class="btn btn-primary" routerLink="view-item/{{item.id}}">
           Ver
         </button>
       </td>
       <td class="edit">
-        <button type="button" class="btn btn-primary" routerLink="edit-item/{{item.Id}}">
+        <button type="button" class="btn btn-primary" routerLink="edit-item/{{item.id}}">
           Editar
         </button>
       </td>
       <td class="delete">
-        <button type="button" class="btn btn-primary" routerLink="delete-item/{{item.Id}}">
+        <button type="button" class="btn btn-primary" routerLink="delete-item/{{item.id}}">
           Eliminar
         </button>
       </td>
     </tr>
   </tbody>
 </table>
+<p *ngIf="todoList.length <= 0" style="text-align: center;">No se han encontrado actividades</p>
 </div>
 
 <div class="footer">
