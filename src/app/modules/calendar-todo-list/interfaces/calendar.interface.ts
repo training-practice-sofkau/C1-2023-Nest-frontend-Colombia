@@ -4,7 +4,7 @@ export interface ICalendar {
 
   numberDaY: number;
 
-  items: ItaskItems;
+  items: ItaskItems[];
 
 
 }

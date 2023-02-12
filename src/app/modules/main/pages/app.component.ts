@@ -16,7 +16,7 @@ export class AppComponent {
 
   sendData():void{
 
-    const taskfinally = new NewTaskModel('Tarea front', 'Realizar el consumo desdel front', 'Estevan Tangarife',false);
+    const taskfinally = new NewTaskModel('Tarea', 'consumo des del front', 'Estevan ',false,1);
 
 
     this.task$.createTask(taskfinally).subscribe({
