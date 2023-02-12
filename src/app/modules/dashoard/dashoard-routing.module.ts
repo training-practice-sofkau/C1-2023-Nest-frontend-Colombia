@@ -1,16 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeeComponent } from './pages/homee/homee.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { AccountsComponent } from './components/accounts/accounts.component';
+import { AccountsComponent } from './pages/accounts/accounts.component';
+import { TransfersComponent } from './pages/transfers/transfers.component';
+import { CustomersComponent } from './pages/customers/customers.component';
+import { DepositComponent } from './pages/deposit/deposit.component';
+import { HomComponent } from './pages/hom/hom.component';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeeComponent,
     children: [
-      { path: 'siderbar', component: SidebarComponent },
+      { path: 'home', component: HomComponent },
       { path: 'accounts', component: AccountsComponent },
+      { path: 'transfers', component: TransfersComponent },
+      { path: 'customers', component: CustomersComponent },
+      { path: 'deposit', component: DepositComponent },
     ],
   },
 ];

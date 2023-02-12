@@ -1,7 +1,4 @@
-<div
-  id="side"
-  class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark"
-  style="width: 280px">
+<div id="side" class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
   <a
     href="/"
     class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -13,7 +10,7 @@
   <hr />
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
-      <a href="#" class="nav-link active" aria-current="page">
+      <a routerLink="home" class="nav-link active" aria-current="page">
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#home" />
         </svg>
@@ -21,13 +18,13 @@
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link text-white">
+      <a routerLink="accounts" class="nav-link text-white">
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#speedometer2" />
         </svg>
         Account
       </a>
-      <a href="#" class="nav-link text-white">
+      <a routerLink="transfers" class="nav-link text-white">
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#speedometer2" />
         </svg>
@@ -35,11 +32,11 @@
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link text-white">
+      <a routerLink="deposit" class="nav-link text-white">
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#people-circle" />
         </svg>
-        Customers
+        Deposit
       </a>
     </li>
   </ul>
@@ -53,10 +50,10 @@
       <img
         src="https://github.com/mdo.png"
         alt=""
-        width="32"
-        height="32"
+        width="39"
+        height="39"
         class="rounded-circle me-2" />
-      <strong>mdo</strong>
+      <strong>Nombre del usuario</strong>
     </a>
     <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
       <li><a class="dropdown-item" href="#">Settings</a></li>
@@ -65,3 +62,10 @@
     </ul>
   </div>
 </div>
+
+<!-- <div class="d-flex justify-content-center">
+  <div class="container">
+    <a routerLink="accounts">cuenta</a>
+    <a routerLink="transfers">tranferencia</a>
+  </div>
+</div> -->
