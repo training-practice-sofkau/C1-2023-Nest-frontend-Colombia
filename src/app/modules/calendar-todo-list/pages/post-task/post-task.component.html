@@ -1,29 +1,8 @@
 
-<div class="form-floating mb-3">
-  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput"></label>
-</div>
-
-<div class="form-floating mb-3">
-  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput"></label>
-</div>
-
-<div class="form-floating mb-3">
-  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput"></label>
-</div>
-
-<div class="form-floating">
-  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-    <option selected>Esta Completa tu tarea?</option>
-    <option value="1">Si</option>
-    <option value="2">No</option>
-  </select>
-  <label for="floatingSelect">Works with selects</label>
-</div>
+<form id="frmUsuario" (ngSubmit)="sendData()">
 
 
-<button type="button" class="btn btn-primary" (click)="sendData()">CREAR NUEVA TAREA</button>
+</form>
+<button type="submit" form="frmUsuario">CREAR NUEVA TAREA</button>
 <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
 

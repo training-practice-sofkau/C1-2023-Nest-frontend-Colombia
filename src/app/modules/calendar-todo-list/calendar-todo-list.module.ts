@@ -15,6 +15,7 @@ import { DeleteTaskComponent } from './pages/delete-task/delete-task.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ListTasksComponent } from './pages/list-tasks/list-tasks.component';
 
 
 
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     PutTaskComponent,
     DeleteTaskComponent,
     PrincipalComponent,
+    ListTasksComponent,
 
   ],
   imports: [CommonModule,CalendarRoutingModule,FormsModule,

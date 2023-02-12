@@ -17,7 +17,7 @@ export class PostTaskComponent {
 
   sendData():void{
 
-    const task = new NewTaskModel('Tarea front', 'Realizar api', 'Estevan Tanga',false);
+    const task = new NewTaskModel('Tarea front', 'Realizar api', 'Estevan',false);
 
     this.task$.createTask(task).subscribe({
 
