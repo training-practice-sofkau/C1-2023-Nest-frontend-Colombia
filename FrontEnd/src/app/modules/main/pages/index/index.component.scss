@@ -54,7 +54,7 @@ body {
   transition: all 0.5s;
 }
 .container .box input:focus::placeholder {
-  color: #fff;
+  color: #3a3333;
 }
 .container .box div::before {
   content: "";
@@ -83,7 +83,7 @@ body {
 }
 .loginBtn:hover {
   transform: translate(-1%, 5%);
-  box-shadow: 0 0 10px #ff416d65;
+  box-shadow: 0 0 10px #07070765;
 }
 .registerBtn{
   position: absolute; top: 80%;

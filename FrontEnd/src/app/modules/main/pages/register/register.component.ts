@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class RegisterComponent {
 
+  routeUser: string[];
+
+  constructor(){
+    this.routeUser = ['user']
+  }
+
 }
+
