@@ -3,7 +3,7 @@ export interface Item{
   title: String,
   description: string,
   responsible: string,
-  isComplete: boolean,
+  isComplete: number,
   estate: number,
   dia: number,
   mes: number,

@@ -10,6 +10,7 @@ import { MyPipePipe } from './pipes/my-pipe/my-pipe.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {MatTableModule} from '@angular/material/table';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {MatTableModule} from '@angular/material/table';
     AppRoutingModule,
     SharedModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent],
