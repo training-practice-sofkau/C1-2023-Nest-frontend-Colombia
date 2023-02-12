@@ -1,0 +1,27 @@
+<!-- <input type="text" placeholder="Nombre" [(ngModel)]="nombre" /> -->
+
+<form id="frmUsuario" (ngSubmit)="sendData()">
+  <div>
+    <input
+      type="text"
+      placeholder="Nombre"
+      [(ngModel)]="nombre"
+      name="nombre" />
+  </div>
+  <div>
+    <input type="email" placeholder="Correo" [(ngModel)]="email" name="email" />
+  </div>
+  <div>
+    <input type="tel" placeholder="Teléfono" [(ngModel)]="phone" name="phone" />
+  </div>
+</form>
+<button type="submit" form="frmUsuario">Crear usuario</button>
+<div>
+  {{ nombre }}
+</div>
+<div>
+  {{ email }}
+</div>
+<div>
+  {{ phone }}
+</div>

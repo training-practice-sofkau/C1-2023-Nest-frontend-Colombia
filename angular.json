@@ -3,11 +3,21 @@
   "version": 1,
   "cli": {
     "packageManager": "npm",
+<<<<<<< HEAD
     "analytics": "76082aef-3950-42ad-8ef6-16d2b6ad22d0"
   },
   "newProjectRoot": "projects",
   "projects": {
     "tourOfHeroes": {
+=======
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
+  },
+  "newProjectRoot": "projects",
+  "projects": {
+    "DEMO-Angular15": {
+>>>>>>> fe70c39fb1e5094dd8a4f235c00bffdcc7890cfa
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -21,7 +31,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+<<<<<<< HEAD
             "outputPath": "dist/tour-of-heroes",
+=======
+            "outputPath": "dist/demo-angular15",
+>>>>>>> fe70c39fb1e5094dd8a4f235c00bffdcc7890cfa
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -37,7 +51,13 @@
               "./node_modules/bootstrap/scss/bootstrap.scss",
               "src/styles.scss"
             ],
+<<<<<<< HEAD
             "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.min.js"]
+=======
+            "scripts": [
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
+>>>>>>> fe70c39fb1e5094dd8a4f235c00bffdcc7890cfa
           },
           "configurations": {
             "production": {
@@ -53,6 +73,15 @@
                   "maximumError": "4kb"
                 }
               ],
+<<<<<<< HEAD
+=======
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+>>>>>>> fe70c39fb1e5094dd8a4f235c00bffdcc7890cfa
               "outputHashing": "all"
             },
             "development": {
@@ -70,10 +99,17 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
+<<<<<<< HEAD
               "browserTarget": "tourOfHeroes:build:production"
             },
             "development": {
               "browserTarget": "tourOfHeroes:build:development"
+=======
+              "browserTarget": "DEMO-Angular15:build:production"
+            },
+            "development": {
+              "browserTarget": "DEMO-Angular15:build:development"
+>>>>>>> fe70c39fb1e5094dd8a4f235c00bffdcc7890cfa
             }
           },
           "defaultConfiguration": "development"
@@ -81,7 +117,11 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+<<<<<<< HEAD
             "browserTarget": "tourOfHeroes:build"
+=======
+            "browserTarget": "DEMO-Angular15:build"
+>>>>>>> fe70c39fb1e5094dd8a4f235c00bffdcc7890cfa
           }
         },
         "test": {
@@ -102,6 +142,18 @@
             ],
             "scripts": []
           }
+<<<<<<< HEAD
+=======
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
+>>>>>>> fe70c39fb1e5094dd8a4f235c00bffdcc7890cfa
         }
       }
     }
