@@ -26,12 +26,12 @@ export class LoginComponent implements OnInit {
       ]),
     });
   }
-//envio de datos
+  //envio de datos
   sendLogin() {
     const { email, password } = this.formLogin.value;
     this.loginService.sendLogin(email, password).subscribe(
       token => {
-        localStorage.setItem('token', token.token);
+        localStorage.setItem('token', token.access_token);
         this.router.navigate(['dashboard']);
       },
       error => {

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NewUserModel } from '../../models/new-user-models';
 import { UsersService } from '../../services/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sofka-register',
@@ -15,7 +16,7 @@ export class RegisterComponent {
   phone: string;
   password: string;
 
-  constructor(private readonly users$: UsersService) {
+  constructor(private readonly users$: UsersService, private router: Router) {
     this.documentTypeId = '';
     this.document = '';
     this.fullName = '';
@@ -26,23 +27,21 @@ export class RegisterComponent {
 
   sendData(): void {
     const user = new NewUserModel(
-      '7a361cba-2546-4d9b-80fe-28e07bc41e1f',
-      '12345678',
-      'miguel torres',
-      'loco16@hotmail.com',
-      '3196245555',
-      '1lngldsn654*M'
-      // this.documentTypeId,
-      // this.document,
-      // this.fullName,
-      // this.email,
-      // this.phone,
-      // this.password
+      this.documentTypeId,
+      this.document,
+      this.fullName,
+      this.email,
+      this.phone,
+      this.password
     );
     this.users$.createUser(user).subscribe({
-      next: data => console.log(data),
+      next: token => {
+        localStorage.setItem('token', token.access_token);
+      },
       error: err => console.error(err),
-      complete: () => console.info('complete'),
+      complete: () => {
+        this.router.navigate(['dashboard']);
+      },
     });
   }
 }

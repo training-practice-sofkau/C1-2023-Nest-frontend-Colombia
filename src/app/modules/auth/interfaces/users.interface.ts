@@ -1,6 +1,7 @@
 import { UserModel } from '../models/user.model';
 
 export interface IUsers {
-  length: number;
-  data: UserModel[];
+  // length: number;
+  // data: UserModel[];
+  access_token: string;
 }

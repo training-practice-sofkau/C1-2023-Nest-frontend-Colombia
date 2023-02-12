@@ -8,7 +8,38 @@
               <form action="" id="formulario" class="formulario">
                 <h2 class="fw-bold mb-2 text-uppercase">registro</h2>
                 <div class="form-outline form-white mb-4">
+                  <select
+                    [(ngModel)]="documentTypeId"
+                    id="document"
+                    class="text-light"
+                    name="documentTypeId">
+                    <option
+                      id="document"
+                      class="text-dark"
+                      type="text text-muted"
+                      value="7a361cba-2546-4d9b-80fe-28e07bc41e1f"
+                      selected>
+                      Cedula de ciudadania
+                    </option>
+                    <option
+                      id="document"
+                      class="text-dark"
+                      type="text text-muted"
+                      value="7a361cba-2546-4d9b-80fe-28e07bc41e1f">
+                      Cedula de Extranjeria
+                    </option>
+                  </select>
+                  <div class="form-outline form-white mb-4">
+                    <input
+                      name="document"
+                      [(ngModel)]="document"
+                      type="text"
+                      class="form-control form-control-lg" />
+                    <label class="form-label" for="typeEmailX">documento</label>
+                  </div>
                   <input
+                    name="fullName"
+                    [(ngModel)]="fullName"
                     type="text"
                     id="nombre"
                     class="form-control form-control-lg"
@@ -18,15 +49,8 @@
 
                 <div class="form-outline form-white mb-4">
                   <input
-                    type="number"
-                    id="telefono"
-                    class="form-control form-control-lg"
-                    autocomplete="off" />
-                  <label for="" class="formulario__label">telefono</label>
-                </div>
-
-                <div class="form-outline form-white mb-4">
-                  <input
+                    name="email"
+                    [(ngModel)]="email"
                     type="email"
                     id="typeEmailX"
                     class="form-control form-control-lg" />
@@ -35,6 +59,18 @@
 
                 <div class="form-outline form-white mb-4">
                   <input
+                    name="phone"
+                    [(ngModel)]="phone"
+                    type="text"
+                    id="telefono"
+                    class="form-control form-control-lg"
+                    autocomplete="off" />
+                  <label for="" class="formulario__label">telefono</label>
+                </div>
+                <div class="form-outline form-white mb-4">
+                  <input
+                    name="password"
+                    [(ngModel)]="password"
                     type="password"
                     id="typePasswordX"
                     class="form-control form-control-lg" />

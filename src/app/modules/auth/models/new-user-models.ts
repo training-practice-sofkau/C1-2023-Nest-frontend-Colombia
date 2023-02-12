@@ -32,7 +32,7 @@ export class NewUserModel {
   } {
     return {
       documentTypeId: this.documentTypeId,
-      document: this.documentTypeId,
+      document: this.document,
       fullName: this.fullName,
       email: this.email,
       phone: this.phone,

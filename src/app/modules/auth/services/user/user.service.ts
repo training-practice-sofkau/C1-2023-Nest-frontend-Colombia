@@ -11,13 +11,14 @@ import { NewUserModel } from '../../models/new-user-models';
 export class UsersService {
   constructor(private readonly httpClient: HttpClient) {}
 
-  createUser(user: NewUserModel) {
-    return this.httpClient.post('http://localhost:3000/user', user.getData());
+  createUser(user: NewUserModel): Observable<IUsers> {
+    return this.httpClient.post<IUsers>(
+      'http://localhost:3000/security/newUser',
+      user.getData()
+    );
   }
 
   getAll(): Observable<IUsers> {
-    return this.httpClient.get<IUsers>(
-      'http://fe80::9d37:24d5:bbf1:6b9b%3/64:3000/'
-    );
+    return this.httpClient.get<IUsers>('http://localhost:3000/');
   }
 }
