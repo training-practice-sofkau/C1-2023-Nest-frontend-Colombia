@@ -20,7 +20,7 @@ const routes: Routes = [
         component: ListarTareaComponent
       },
       {
-        path: 'detalle',// localhost:4200/tareas/detalle
+        path: 'detalle/:id',// localhost:4200/tareas/detalle
         component: DetalleTareaComponent
       },
       {

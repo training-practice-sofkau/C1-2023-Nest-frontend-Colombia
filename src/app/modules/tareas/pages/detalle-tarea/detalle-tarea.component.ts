@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Tarea } from '../../interfaces/tareas.interface';
-import { TAREAS } from '../../mocks/mock-tareas';
+import { ActivatedRoute } from '@angular/router';
+import { IgetTarea } from '../../interfaces/tareas.interface';
+import { TareaService } from '../../services/tareaService/tarea.service';
 
 @Component({
   selector: 'sofka-detalle-tarea',
@@ -8,5 +9,21 @@ import { TAREAS } from '../../mocks/mock-tareas';
   styleUrls: ['./detalle-tarea.component.scss']
 })
 export class DetalleTareaComponent {
-  resultados: Tarea[] = TAREAS;
+  tarea: IgetTarea[];
+
+  constructor(private readonly tareaService: TareaService, private rutaActiva: ActivatedRoute){
+    this.tarea = new Array<IgetTarea>();
+  }
+
+  ngOnInit(): void {
+    this.rutaActiva.params.subscribe( params => {
+      console.log(params['id']);
+
+      this.tareaService.getTarea(params['id'])
+        .subscribe(tarea => {
+          this.tarea = tarea;
+          console.log(tarea);
+      })
+    })
+  }
 }

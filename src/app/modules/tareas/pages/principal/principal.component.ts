@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Tarea } from '../../interfaces/tareas.interface';
-import { TAREAS } from '../../mocks/mock-tareas';
 import { TareaService } from '../../services/tareaService/tarea.service';
 
 @Component({

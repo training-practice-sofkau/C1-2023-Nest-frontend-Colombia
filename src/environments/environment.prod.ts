@@ -1,4 +1,5 @@
 export const environment = {
-  production: true,
-  url_backend:"https://127.0.0.1:7282"
+  production: false,
+  url_backend_calendar:"https://localhost:7282",
+  url_backend_tarea:"https://localhost:7281"
 };

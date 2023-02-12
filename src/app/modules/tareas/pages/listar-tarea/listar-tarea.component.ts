@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Tarea } from '../../interfaces/tareas.interface';
-import { TAREAS } from '../../mocks/mock-tareas';
+import { IgetTarea } from '../../interfaces/tareas.interface';
 import { TareaService } from '../../services/tareaService/tarea.service';
 
 @Component({
@@ -11,11 +10,11 @@ import { TareaService } from '../../services/tareaService/tarea.service';
 })
 export class ListarTareaComponent {
   routeDetalles: string[];
-  tareas: Tarea[];
+  tareas: IgetTarea[];
 
   constructor(private readonly tareaService: TareaService, private rutaActiva: ActivatedRoute){
     this.routeDetalles = ['../detalle'];
-    this.tareas = new Array<Tarea>();
+    this.tareas = new Array<IgetTarea>();
   }
 
   ngOnInit(): void {
