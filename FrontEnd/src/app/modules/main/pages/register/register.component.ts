@@ -9,9 +9,11 @@ import { Component } from "@angular/core";
 export class RegisterComponent {
 
   routeUser: string[];
-
+  routeForgot: string[];
+  
   constructor(){
     this.routeUser = ['user']
+    this.routeForgot= ['forgot']
   }
 
 }

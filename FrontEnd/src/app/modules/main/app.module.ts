@@ -11,7 +11,7 @@ import { UserComponent } from './pages/user/user.component';
 import { DepositComponent } from './pages/deposit/deposit.component';
 import { AccountComponent } from './pages/account/account.component';
 import { TransferComponent } from './pages/transfer/transfer.component';
-import { FotgotPassComponent } from './pages/fotgot-pass/fotgot-pass.component';
+import { ForgotPassComponent } from './pages/forgot-pass/forgot-pass.component';
 
 
 @NgModule({
@@ -22,7 +22,8 @@ import { FotgotPassComponent } from './pages/fotgot-pass/fotgot-pass.component';
     UserComponent, 
     DepositComponent, 
     AccountComponent, 
-    TransferComponent, FotgotPassComponent ],
+    TransferComponent, 
+    ForgotPassComponent ],
   imports: [BrowserModule, AppRoutingModule, SharedModule],
   providers: [],
   bootstrap: [AppComponent],

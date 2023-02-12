@@ -6,6 +6,7 @@ import { UserComponent } from './pages/user/user.component';
 import { DepositComponent } from './pages/deposit/deposit.component';
 import { TransferComponent } from './pages/transfer/transfer.component';
 import { AccountComponent } from './pages/account/account.component';
+import { ForgotPassComponent } from './pages/forgot-pass/forgot-pass.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,11 @@ const routes: Routes = [
     path: 'transfer',
     component: TransferComponent
   },
+  {
+    path: 'forgot',
+    component: ForgotPassComponent
+  }
+
 
 ];
 
