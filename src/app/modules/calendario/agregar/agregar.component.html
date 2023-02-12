@@ -1,4 +1,47 @@
-<h1 style="text-align: center; margin-top: 5%;">Agrega una nueva tarea a tu agenda</h1>
-<a class="btn btn-lg btn-outline-danger shadow-sm ms-4" [routerLink]="lista">
-  Atrás
-</a>
+<div class="container my-5">
+  <h1 style="text-align: center; margin-top: 5%;">Agrega una nueva tarea a tu agenda</h1>
+
+  <div class="row">
+    <div class="col-6" style="align-items: center;">
+      <form>
+        <form>
+          <div class="mb-3">
+            <label for="title" class="form-label">Titulo</label>
+            <input type="text" class="form-control" id="title">
+          </div>
+          <div class="mb-3">
+            <label for="Description" class="form-label">Desciption</label>
+            <input type="text" class="form-control" id="Description">
+          </div>
+          <div class="mb-3">
+            <label for="Responsible" class="form-label">Responsible</label>
+            <input type="text" class="form-control" id="Responsible">
+          </div>
+          <div class="mb-3">
+            <label for="IsComplete" class="form-label">IsComplete</label>
+            <input type="number" class="form-control" id="IsComplete">
+          </div>
+          <div class="mb-3">
+            <label for="Day" class="form-label">Day</label>
+            <input type="number" class="form-control" id="Day">
+          </div>
+          <div class="mb-3">
+            <label for="Monthly" class="form-label">Monthly</label>
+            <input type="number" class="form-control" id="Monthly">
+          </div>
+          <div class="mb-3">
+            <label for="Year" class="form-label">Year</label>
+            <input type="number" class="form-control" id="Year">
+          </div>
+          <button type="submit" class="btn btn-outline-success">Guardar</button>
+          <a class="btn btn-outline-danger shadow-sm ms-4" [routerLink]="lista">
+            Atrás
+          </a>
+        </form>
+
+      </form>
+
+    </div>
+  </div>
+
+</div>
