@@ -1,6 +1,8 @@
+import { NotExpr } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Route } from '@angular/router';
+import { environment } from 'src/environments/environment';
 import Swal from 'sweetalert2';
 import { IDocumenType } from '../../models/document-type.model';
 import { IUpdateUser } from '../../models/update-user.model';
@@ -20,11 +22,11 @@ export class UpdateCostumerComponent implements OnInit {
     private readonly userService: ServiceUserService,
     private readonly route: ActivatedRoute) {
     this.frmFormulario = new FormGroup({
-      document: new FormControl(),
-      fullName: new FormControl(),
-      email: new FormControl(),
-      phone: new FormControl(),
-      password: new FormControl(),
+      document: new FormControl(null, [Validators.required, Validators.maxLength(11), Validators.minLength(3)]),
+      fullName: new FormControl(null, [Validators.required, Validators.maxLength(50), Validators.minLength(3)]),
+      email: new FormControl(null, [Validators.required, Validators.pattern(new RegExp(environment.regexEmail))]),
+      phone: new FormControl(null, [Validators.required, Validators.maxLength(10), Validators.minLength(10)]),
+      password: new FormControl(null, [Validators.required, Validators.pattern(new RegExp(environment.regexPassword))]),
       documentTypeId: new FormControl()
     })
     this.id = ""
@@ -55,6 +57,7 @@ export class UpdateCostumerComponent implements OnInit {
 
   updateUser() {
     const idNew = this.route.snapshot.paramMap.get("id")
+    console.log(this.frmFormulario)
     this.id = idNew !== null ? idNew : '';
     this.userService.updateUser(this.id, this.frmFormulario.getRawValue()).subscribe({
       next: (data) => {
