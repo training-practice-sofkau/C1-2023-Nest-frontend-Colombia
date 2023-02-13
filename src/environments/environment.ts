@@ -1,3 +1,4 @@
 export const environment = {
-  production: false
+  production: false,
+  urlTareas : "https://localhost:7281/"
 };

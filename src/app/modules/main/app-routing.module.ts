@@ -1,37 +1,34 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { TraerTareasComponent } from '../tareas/pages/traerTareas/traerTareas.component';
 
-import { ComponenteEjemploComponent } from '../../shared/components/componente-ejemplo/componente-ejemplo.component';
 import { IndexComponent } from './pages/index/index.component';
-import { ListUsersComponent } from './pages/list-users/list-users.component';
+
 
 const routes: Routes = [
   {
     path: '',
-    component: IndexComponent
+    component: IndexComponent,
   },
   {
-    path: 'list-users',
-    component: ListUsersComponent
-  },
-  {
-    path: 'ejemplo/:id', // localhost:4200/ejemplo/hola
-    component: ComponenteEjemploComponent
-  },
-  {
-    path: 'hoja-de-vida', // localhost:4200/hoja-de-vida
+    path: 'tareas', //https://localhost:7281/api/ToDo
     loadChildren: () =>
-      import('../hoja-de-vida/hoja-de-vida.module').then(
-        module => module.HojaDeVidaModule
-      )
-  }
+      import('../tareas/tareas.module').then(
+        module => module.TareasModule
+      ),
+
+  },
+
+];
+
+
   // {
   //   path: '**',
   //   redirectTo: '',
   //   pathMatch: 'full',
   //   // component: NotFoundErrorComponent,
   // },
-];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
