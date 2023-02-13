@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'sofka-index',
   templateUrl: './index.component.html',
@@ -7,10 +8,24 @@ import { Component } from '@angular/core';
 })
 export class IndexComponent {
   
+  entrydate: Date;
+  name: string;
+  lastName: string;
+  age: number;
+  
 routeRegister: string [];
+routeUser: string[];
 
-  constructor() {
+  constructor() { // user$ = userService
+
     this.routeRegister = ['register']
-    
+    this.routeUser = ['user']
+
+    this.entrydate = new Date;
+    this.name = 'Juan Esteban';
+    this.lastName = 'Patiño Valencia';
+    this.age = 41;    
   }
+
+
 }

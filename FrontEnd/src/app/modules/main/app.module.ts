@@ -12,6 +12,8 @@ import { DepositComponent } from './pages/deposit/deposit.component';
 import { AccountComponent } from './pages/account/account.component';
 import { TransferComponent } from './pages/transfer/transfer.component';
 import { ForgotPassComponent } from './pages/forgot-pass/forgot-pass.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -24,8 +26,15 @@ import { ForgotPassComponent } from './pages/forgot-pass/forgot-pass.component';
     AccountComponent, 
     TransferComponent, 
     ForgotPassComponent ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule],
+
+  imports: [BrowserModule, 
+    AppRoutingModule, 
+    SharedModule, 
+    FormsModule , 
+    HttpClientModule],
+
   providers: [],
+  
   bootstrap: [AppComponent],
 })
 export class AppModule {}

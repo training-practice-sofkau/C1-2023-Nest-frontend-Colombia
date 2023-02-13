@@ -1,12 +1,16 @@
-<body class="m-0 row justify-content-center">
-  <div class="container">
-    <div class="m-0 row justify-content-center">
-      <h1 class="m-0 row justify-content-center" style="font-size: 600%">
-        JP Bank
-      </h1>
-      <button type="Register" class="registerBtn" [routerLink]="routeRegister">
-        Continue
-      </button>
+<div calss="container">
+
+    <div class="col-md-7">
+      <div class="loginbox"> <img src="https://i.imgur.com/ZYzTdD0.png" class="avatar">
+        <h1>Login Here</h1>
+        <form method="post" action="#">
+          <p>Username</p> <input type="text" name="" placeholder="Enter Username">
+          <p>Password</p> <input type="password" name="" placeholder="Enter Password">
+          <div  class="row d-flex justify-content-center">
+            <button type="button" class="btn btn-outline-danger" [routerLink]="routeUser">Login</button>
+          </div> 
+            <a href="forgot">Lost your password?</a><br> 
+            <a href="register">Don't have an account?</a>
+        </form>
+      </div>
     </div>
-  </div>
-</body>
