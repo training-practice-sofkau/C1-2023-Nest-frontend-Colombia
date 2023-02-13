@@ -28,7 +28,7 @@ export class ServiceUserService {
   login(loginuser: LoginModel): Observable<IResLogin> {
     return this.httpClient.post<IResLogin>(
       'http://localhost:3000/security/login',
-      loginuser.getData()
+      loginuser
     );
   }
 
