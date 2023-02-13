@@ -37,6 +37,7 @@ export class RegisterComponent {
     this.users$.createUser(user).subscribe({
       next: token => {
         localStorage.setItem('token', token.access_token);
+        localStorage.setItem('id', token.id);
       },
       error: err => console.error(err),
       complete: () => {
