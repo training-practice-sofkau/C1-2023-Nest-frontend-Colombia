@@ -1,7 +1,7 @@
 
 export class TaskModel{
 
-  id: number;
+
   title: string;
   descripccion: string;
   resposible: string;
@@ -10,9 +10,8 @@ export class TaskModel{
   idCalendar: number;
   idCalendarNavigation: null
 
-  constructor(id: number,title: string, descripccion: string,resposible: string,isCompleted: boolean,estate: number, idCalendar: number, idCalendarNavigation: null){
+  constructor(title: string, descripccion: string,resposible: string,isCompleted: boolean,estate: number, idCalendar: number, idCalendarNavigation: null){
 
-   this.id = id;
    this.title = title;
    this.descripccion = descripccion;
    this.resposible = resposible;
@@ -24,25 +23,25 @@ export class TaskModel{
 
   }
 
-  /*
 
- getData(): {Title: string, Descripccion: string, Resposible: string, IsCompleted: boolean,Estate: number, IdCalendar: number} {
+
+ getData(): {title: string, descripccion: string, resposible: string, isCompleted: boolean, estate: number, idCalendar: number} {
 
 
   {
 
    return {
 
-   Title: this.Title,
-   Descripccion: this.Descripccion,
-   Resposible: this.Resposible,
-   IsCompleted: this.IsCompleted,
-   Estate: this.Estate,
-   IdCalendar: this.IdCalendar
+   title: this.title,
+   descripccion: this.descripccion,
+   resposible: this.resposible,
+   isCompleted: this.isCompleted,
+   estate: this.estate,
+   idCalendar: this.idCalendar
 
    }
   }
 
- }*/
+ }
 
 }

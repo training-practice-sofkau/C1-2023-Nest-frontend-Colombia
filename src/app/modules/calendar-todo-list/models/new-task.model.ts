@@ -1,4 +1,4 @@
-import { ICalendar } from '../interfaces/calendar.interface';
+
 export class NewTaskModel{
 
    Title: string;

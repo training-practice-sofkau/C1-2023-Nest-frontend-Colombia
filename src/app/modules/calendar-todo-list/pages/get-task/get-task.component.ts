@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskModel } from '../../models/task.model';
 import { TaskService } from '../../services/task.service';
-import { CalendarModel } from '../../models/calendar.models';
 import { ICalendar } from '../../interfaces/calendar.interface';
 
 @Component({
