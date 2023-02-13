@@ -15,19 +15,19 @@ const routes: Routes = [
     component: LayoutsComponent,
     children: [
       {
-        path: 'traer',
+        path: 'traer', //http://localhost:4200/tareas/traer
         component: TraerTareasComponent,
       },
       {
-        path: 'agregar',
+        path: 'crear',//http://localhost:4200/tareas/crear
         component: CrearTareasComponent,
       },
       {
-        path: 'editar',
+        path: 'editar',//http://localhost:4200/tareas/editar
         component: ActualizarTareasComponent,
       },
       {
-        path: 'eliminar',
+        path: 'eliminar',//http://localhost:4200/tareas/eliminar
         component: EliminarTareasComponent
       },
 
