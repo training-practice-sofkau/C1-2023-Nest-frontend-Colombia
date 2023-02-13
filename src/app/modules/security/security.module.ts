@@ -4,16 +4,20 @@ import { SecurityRoutingModule } from './security-routing.module';
 import { FormComponent } from './components/form/form.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormSignupComponent } from './components/form-signup/form-signup.component';
-import { FormsModule } from '@angular/forms';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    FormComponent, LoginComponent, FormSignupComponent, FormSignupComponent
+    FormComponent,
+    LoginComponent,
+    FormSignupComponent,
+    FormSignupComponent,
   ],
   imports: [
-    CommonModule, SecurityRoutingModule, FormsModule
-  ]
+    CommonModule,
+    SecurityRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
-export class SecurityModule { }
+export class SecurityModule {}
