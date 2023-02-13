@@ -1,27 +1,61 @@
-<!-- <input type="text" placeholder="Nombre" [(ngModel)]="nombre" /> -->
-
-<form id="frmUsuario" (ngSubmit)="sendData()">
+<form
+  id="frmUsuario"
+  (ngSubmit)="frmFormulario.valid ? sendData() : null"
+  [formGroup]="frmFormulario">
   <div>
     <input
       type="text"
       placeholder="Nombre"
-      [(ngModel)]="nombre"
+      formControlName="name"
       name="nombre" />
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('name')?.hasError('required') &&
+        frmFormulario.get('name')?.touched
+      ">
+      El nombre es requerido
+    </div>
   </div>
   <div>
-    <input type="email" placeholder="Correo" [(ngModel)]="email" name="email" />
+    <input
+      type="email"
+      placeholder="Correo"
+      formControlName="email"
+      name="email" />
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('email')?.hasError('required') &&
+        frmFormulario.get('email')?.touched
+      ">
+      El email es requerido
+    </div>
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('email')?.hasError('email') &&
+        frmFormulario.get('email')?.touched
+      ">
+      El correo digitado no es válido
+    </div>
   </div>
   <div>
-    <input type="tel" placeholder="Teléfono" [(ngModel)]="phone" name="phone" />
+    <input
+      type="tel"
+      placeholder="Teléfono"
+      formControlName="phone"
+      name="phone" />
+    <div
+      class="altoMensaje"
+      *ngIf="
+        frmFormulario.get('phone')?.hasError('pattern') &&
+        frmFormulario.get('phone')?.touched
+      ">
+      No cumple con la estructura de un correo válido
+    </div>
   </div>
 </form>
-<button type="submit" form="frmUsuario">Crear usuario</button>
-<div>
-  {{ nombre }}
-</div>
-<div>
-  {{ email }}
-</div>
-<div>
-  {{ phone }}
-</div>
+<button type="submit" form="frmUsuario" [disabled]="frmFormulario.invalid">
+  Crear usuario
+</button>

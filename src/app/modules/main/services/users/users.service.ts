@@ -12,10 +12,7 @@ export class UsersService {
   constructor(private readonly httpClient: HttpClient) {}
 
   createUser(user: NewUserModel): Observable<INewUser> {
-    return this.httpClient.post<INewUser>(
-      'http://localhost:3000/api/',
-      user.getData()
-    );
+    return this.httpClient.post<INewUser>('http://localhost:3000/api/', user);
     // this.httpClient.get('http://localhost:3000/api/1231231231231231');
     // this.httpClient.delete('http://localhost:3000/api/1231231231231231');
     // this.httpClient.put('http://localhost:3000/api/', user.getData());

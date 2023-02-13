@@ -38,7 +38,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Workshop
 
-Week 3 Day 4 - Consumo de API
+Week 4 Day 1 - Formularios reactivos
 
 ¿Qué estás entregando?
 
@@ -46,6 +46,5 @@ Week 3 Day 4 - Consumo de API
 
 ¿Qué dificultades se tuvieron?
 
-1. Realizar mínimo 1 consumo de información y mostrar el resultado en pantalla
-2. Realizar mínimo 1 envío de información y que este se refleje en el almacenamiento del backend
-3. Crear mínimo 2 commits [TITULO] - [DESCRIPCIÓN]
+1. Realizar la implementación de 2 formularios reactivos con validaciones
+2. Crear mínimo 2 commits [TITULO] - [DESCRIPCIÓN]
