@@ -1,39 +1,39 @@
 <h1 class="text-center">
     Crear tarea
   </h1>
-<form class="row g-3">
+<form class="row g-3" [formGroup]="tareaForm">
     <div class="form-floating mb-3">
-        <input name="day" type="number" aria-label="First name" class="form-control" [(ngModel)]="tarea.dia">
-        <label for="floatingTextarea">Day</label>
+        <input type="number" aria-label="First name" class="form-control" formControlName="dia">
+        <label for="floatingTextarea">Dia</label>
     </div>
     <div class="form-floating mb-3">
-        <textarea name="title" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" [(ngModel)]="tarea.title"></textarea>
-        <label for="floatingTextarea">Title </label>
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName="title"></textarea>
+        <label for="floatingTextarea">Titulo </label>
     </div>
     <div class="form-floating mb-3">
-        <textarea name="description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"[(ngModel)]="tarea.description"></textarea>
-        <label for="floatingTextarea">Description </label>
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName="description"></textarea>
+        <label for="floatingTextarea">Descripcion </label>
     </div>
     <div class="form-floating mb-3">
-        <textarea name="responsible" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"[(ngModel)]="tarea.responsible"></textarea>
-        <label for="floatingTextarea">Responsible </label>
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName="responsible"></textarea>
+        <label for="floatingTextarea">Responsable </label>
     </div>
     <div class="form-floating mb-3">
-        <select name="priority" class="form-select" id="floatingSelect" aria-label="Floating label select example" [(ngModel)]="tarea.priority">
-        <option selected>Priority </option>
-        <option value="High">High</option>
-        <option value="Medium">Medium</option>
-        <option value="Low">Low</option>
+        <select class="form-select" aria-label="Floating label select example" formControlName="priority">
+        
+        <option value="Alta">Alta</option>
+        <option value="Media">Media</option>
+        <option value="Baja">Baja</option>
         </select>
-        <label for="floatingSelect">Select priority</label>
+        <label for="floatingSelect">Seleccione la prioridad</label>
     </div>
     <div class="form-floating mb-3">
-        <select name="state" class="form-select" id="floatingSelect" aria-label="Floating label select example" [(ngModel)]="tarea.isCompleted">
-        <option selected>State </option>
-        <option value=false>Pending</option>
-        <option value=true>completed</option>
+        <select class="form-select" aria-label="Floating label select example" formControlName="isCompleted">
+        
+        <option value=false>Pendiente</option>
+        <option value=true>Completada</option>
         </select>
-        <label for="floatingSelect">Select state</label>
+        <label for="floatingSelect">Seleccione el estado de la tarea</label>
     </div>
     <div class="col-12">
         <button class="btn btn-primary" type="submit" (click)="crear()">Submit form</button>
