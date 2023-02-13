@@ -12,7 +12,6 @@ import { ToDoListRoutingModule } from './todo-list-routing.module';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { NewItemComponent } from './pages/new-item/new-item.component';
-import { ExperienciaLaboralComponent } from './pages/experiencia-laboral/experiencia-laboral.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
 import { EditItemComponent } from './pages/edit-item/edit-item.component';
 import { ViewItemComponent } from './pages/view-item/view-item.component';
@@ -23,7 +22,6 @@ import { HttpClientModule } from '@angular/common/http';
   declarations: [
     PrincipalComponent,
     NewItemComponent,
-    ExperienciaLaboralComponent,
     HeaderComponent,
     FooterComponent,
     EditItemComponent,
