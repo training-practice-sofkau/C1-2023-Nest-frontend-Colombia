@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AddItemModel } from '../models/addItem.model';
 import { Observable } from 'rxjs'
+import { ITodoItem } from '../models/TodoList.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,7 @@ saveTodoList(newItem: AddItemModel): Observable<any>{
   return this.httpClient.post(this.baseUrl, newItem);
 }
 
-getAllTodoList(): Observable<any>{
-  return this.httpClient.get(this.baseUrl);
+getAllTodoList(): Observable<ITodoItem[]>{
+  return this.httpClient.get<ITodoItem[]>(this.baseUrl);
 }
 }

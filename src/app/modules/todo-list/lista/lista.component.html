@@ -1,16 +1,43 @@
+<table>
+  <thead>
+    <tr>
+      <th>Titulo</th>
+      <th>Descripción</th>
+      <th>Responsable</th>
+      <th>Completado</th>
+    </tr>
+  </thead>
+    <tbody>
+      <tr *ngFor="let tarea of tareas">
+        <td>{{ tarea.title }}</td>
+        <td>{{ tarea.description }}</td>
+        <td>{{ tarea.responsible }}</td>
+        <td>{{ tarea.isCompleted }}</td>
+        <td>
+          <button type="button">Accion</button>
+        </td>
+        <td>
+          <a class="btn btn-info shadow-sm ms-4 btn-sm" [routerLink]="detalles">
+            Detalles Tarea
+          </a>
+        </td>
+        <td>
+          <a class="btn btn-warning shadow-sm ms-4 btn-sm" [routerLink]="editar">
+            Modificar Tarea
+          </a>
+        </td>
+        <td>
+          <a class="btn btn-danger shadow-sm ms-4 btn-sm" [routerLink]="eliminar">
+            Eliminar Tarea
+          </a>
+        </td>
+      </tr>
+    </tbody>
+</table>
+
+
+
 <a class="btn btn-success shadow-sm ms-4" [routerLink]="agregar">
   Agregar Tarea
-</a>
-
-<a class="btn btn-warning shadow-sm ms-4" [routerLink]="editar">
-  Modificar Tarea
-</a>
-
-<a class="btn btn-danger shadow-sm ms-4" [routerLink]="eliminar">
-  Eliminar Tarea
-</a>
-
-<a class="btn btn-info shadow-sm ms-4" [routerLink]="detalles">
-  Detalles Tarea
 </a>
 
