@@ -1,5 +1,27 @@
 <p>add-todolist works!</p>
 
+<form id="frmTodoList">
+  <div>
+    <input type="text" placeholder="Título"/>
+  </div>
+  <div>
+    <input type="text" placeholder="Descripción"/>
+  </div>
+  <div>
+    <input type="text" placeholder="Responsable"/>
+  </div>
+  <div>
+    <input type="text" placeholder="Nombre Calendario"/>
+  </div>
+  <div>
+    <input type="number" placeholder="Día"/>
+  </div>
+</form>
+
+<button type="button" (click)="saveTodoList()">Crear tarea</button>
+
+
+
 <a class="btn btn-lg btn-outline-primary shadow-sm ms-4" [routerLink]="lista">
   Atrás
 </a>

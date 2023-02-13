@@ -23,13 +23,4 @@ export class ListaComponent{
     this.detalles = ["detalles"];
   }
 
-  saveTodoList(): void{
-    const item = new AddItemModel('Terminar Listado', 'Listar los items de la base de datos', 'Leonardo', 6, 'febrero');
-    this.todoListService.saveTodoList(item).subscribe({
-      next: data => console.log(data),
-      error: err => console.error(err),
-      complete: () => console.info('complete')
-    })
-  }
-
 }

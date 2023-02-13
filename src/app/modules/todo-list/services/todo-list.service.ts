@@ -20,6 +20,4 @@ saveTodoList(newItem: AddItemModel): Observable<any>{
 getAllTodoList(): Observable<any>{
   return this.httpClient.get(this.baseUrl);
 }
-
-
 }
