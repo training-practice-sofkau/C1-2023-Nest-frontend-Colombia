@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { TaskModel } from '../../models/task.model';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'sofka-post-task',
@@ -9,6 +10,7 @@ import { TaskModel } from '../../models/task.model';
 })
 export class PostTaskComponent {
 
+  frmFormReactive : FormGroup;
   routergoBackMenu: string[];
 
     title: string;
@@ -31,11 +33,26 @@ export class PostTaskComponent {
     this.estate = 1;
     this.idCalendar = '';
     this.idCalendarNavigation = null;
+    this.frmFormReactive = new FormGroup({
 
+    title: new FormControl(),
+    descripccion: new FormControl(),
+    resposible:new FormControl(),
+    isCompleted:new FormControl(),
+    estate:new FormControl(),
+    idCalendar:new FormControl()
+    });
 
 
   }
+
+
+
+
   sendData(): void {
+
+    console.log('sendData',this.frmFormReactive);
+/*
     const item = new TaskModel(
 
       this.title,
@@ -53,7 +70,9 @@ export class PostTaskComponent {
       error: err => console.log(err),
       complete: () => console.log('completo'),
     });
+    */
   }
+
 }
 
 
