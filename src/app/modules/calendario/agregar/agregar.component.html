@@ -2,36 +2,35 @@
   <h1 style="text-align: center; margin-top: 5%;">Agrega una nueva tarea a tu agenda</h1>
 
   <div class="row">
-    <div class="col-6" style="align-items: center;">
-      <form>
-        <form>
+    <div class="col-6" style="align-items: center;" >
+        <form [formGroup]="formularioAgg" (ngSubmit)="addItemRequired()">
           <div class="mb-3">
             <label for="title" class="form-label">Titulo</label>
-            <input type="text" class="form-control" id="title">
+            <input type="text" class="form-control" id="title" formControlName="title">
           </div>
           <div class="mb-3">
             <label for="Description" class="form-label">Desciption</label>
-            <input type="text" class="form-control" id="Description">
+            <input type="text" class="form-control" id="Description" formControlName="description">
           </div>
           <div class="mb-3">
             <label for="Responsible" class="form-label">Responsible</label>
-            <input type="text" class="form-control" id="Responsible">
+            <input type="text" class="form-control" id="Responsible" formControlName="responsible">
           </div>
           <div class="mb-3">
             <label for="IsComplete" class="form-label">IsComplete</label>
-            <input type="number" class="form-control" id="IsComplete">
+            <input type="number" class="form-control" id="IsComplete" formControlName="isComplete">
           </div>
           <div class="mb-3">
             <label for="Day" class="form-label">Day</label>
-            <input type="number" class="form-control" id="Day">
+            <input type="number" class="form-control" id="Day" formControlName="dia">
           </div>
           <div class="mb-3">
             <label for="Monthly" class="form-label">Monthly</label>
-            <input type="number" class="form-control" id="Monthly">
+            <input type="number" class="form-control" id="Monthly" formControlName="mes">
           </div>
           <div class="mb-3">
             <label for="Year" class="form-label">Year</label>
-            <input type="number" class="form-control" id="Year">
+            <input type="number" class="form-control" id="Year" formControlName="anio">
           </div>
           <button type="submit" class="btn btn-outline-success">Guardar</button>
           <a class="btn btn-outline-danger shadow-sm ms-4" [routerLink]="lista">
@@ -39,7 +38,6 @@
           </a>
         </form>
 
-      </form>
 
     </div>
   </div>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Item } from '../interface/item';
+import { TodoitemService } from '../service/todoitem.service';
 
 @Component({
   selector: 'sofka-agregar',
@@ -9,23 +11,28 @@ import { Item } from '../interface/item';
 export class AgregarComponent {
   lista: string[];
 
-  addItem: Item={
-    id: 0,
-    title: '',
-    description: '',
-    responsible: '',
-    isComplete: 0,
-    estate: 1,
-    dia: 0,
-    mes: 0,
-    anio: 0
-    }
-  constructor(){
-    this.lista = ["../"]
+  formularioAgg:FormGroup;
+
+  constructor(private todoitemService: TodoitemService){
+    this.lista = ["../"],
+    this.formularioAgg = new FormGroup({
+      'title':new FormControl(''),
+      'description':new FormControl(''),
+      'responsible':new FormControl(''),
+      'isComplete':new FormControl(0),
+      'estate':new FormControl(1),
+      'dia': new FormControl(0),
+      'mes': new FormControl(0),
+      'anio': new FormControl(0)
+    })
   }
 
   addItemRequired(){
-    console.log(this.addItem);
+    this.todoitemService.addItem(this.formularioAgg.getRawValue()).subscribe({
+        next:(Item) =>{
+          console.log(Item);
+        }
+    })
   }
 
 }

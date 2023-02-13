@@ -15,4 +15,9 @@ export class TodoitemService {
   getAllItems(): Observable<Item[]>{
    return this.http.get<Item[]>(this.baseApiUrl + '/api/items')
   }
+
+  addItem(addItemRequest: Item): Observable<Item>{
+   return this.http.post<Item>(this.baseApiUrl + '/api/items', addItemRequest);
+  }
+
 }

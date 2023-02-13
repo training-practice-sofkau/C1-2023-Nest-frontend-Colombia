@@ -10,7 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LayautComponent } from './layaut/layaut.component';
 import { CalendarioRoutingModule } from './calendario.module.routing';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -30,6 +30,7 @@ import { FormsModule, NgForm } from '@angular/forms';
     CommonModule,
     CalendarioRoutingModule,
     FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CalendarioModule { }
