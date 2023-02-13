@@ -2,14 +2,14 @@ import { getLocaleDateFormat } from "@angular/common";
 
 export class NewUserModel {
 
-  documentType: string;
+  documentTypeId: string;
   document: string;
   fullName: string;
   email: string;
   phone: string;
   password: string;
   constructor(documentType: string, document: string,  fullName: string, email: string, phone: string, password: string ){
-    this.documentType = documentType;
+    this.documentTypeId = documentType;
     this.document = document;
     this.fullName = fullName;
     this.email = email;
@@ -19,7 +19,7 @@ export class NewUserModel {
 
   getData(): object {
   return {
-    documentType: this.documentType,
+    documentTypeId: this.documentTypeId,
     document: this.document,
     fullName: this.fullName,
     email: this.email,
