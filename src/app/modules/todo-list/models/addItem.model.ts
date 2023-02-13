@@ -5,7 +5,7 @@ export class AddItemModel{
   numberDay: number;
   nameCalendar: string;
 
-  constructor(title: string,   description:string, responsible: string, numberDay: number, nameCalendar: string){
+  constructor(title: string, description:string, responsible: string, numberDay: number, nameCalendar: string){
     this.title = title;
     this.description = description;
     this.responsible = responsible;
