@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserInterface } from '../../interfaces';
 
 @Component({
   //standalone: true,
@@ -19,6 +20,8 @@ export class ResetPasswordComponent implements OnInit {
 
   ngOnInit(): void {
     this.random_bg_color();
+    const user = <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''));
+    if(user) this.router.navigate(['dashboard']);
   }
 
   private random_bg_color() {

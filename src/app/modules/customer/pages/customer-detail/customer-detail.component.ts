@@ -19,7 +19,7 @@ export class CustomerDetailComponent implements OnInit {
   }
 
   getUserInfo(): void {
-    this.user = <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? '');
+    this.user = <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''));
   }
 
   getPercentage(object: Object): number {

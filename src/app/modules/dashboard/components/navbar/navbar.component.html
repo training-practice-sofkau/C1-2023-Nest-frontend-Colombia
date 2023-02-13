@@ -8,7 +8,7 @@
           Customer
         </a>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" [routerLink]="signout">Signout</a></li>
+          <li><a class="dropdown-item" [routerLink]="signout" (click)="signOut()">Signout</a></li>
           <li><a class="dropdown-item" [routerLink]="customerDetail">Profile</a></li>
         </ul>
       </div>

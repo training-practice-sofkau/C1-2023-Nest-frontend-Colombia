@@ -65,7 +65,9 @@ export class SignupComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.random_bg_color()
+    this.random_bg_color();
+    const user = <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''));
+    if(user) this.router.navigate(['dashboard']);
   }
 
   onSubmit(): void {
@@ -122,7 +124,7 @@ export class SignupComponent implements OnInit {
     switch (errorKey) {
       case 'required': message = messages.required
         break
-      case 'pattern': message = messages.pattern
+      case 'pattern': message = messages.pattern//+param==='email'?'. The password must be at least 8 characters and contain at least 1 lowercase, 1 uppercase, and 1 number.':''
         break
       case 'minlength': message = errorValue?.requiredLength + messages.minlength
         break

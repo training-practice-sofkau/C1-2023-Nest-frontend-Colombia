@@ -25,14 +25,16 @@ export class AccountService {
 
   private setUser(user: UserInterface): void {
     this.currentUser = user;
-    this.headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.currentUser.data.token}`,
-    })
+    if(user){
+      this.headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.currentUser.data.token}`,
+      })
+    }
   }
 
   private getUser(): UserInterface {
-    return <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? '');
+    return <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''));
   }
 }
 

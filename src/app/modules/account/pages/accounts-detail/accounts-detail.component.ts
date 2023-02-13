@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../../services/account.service';
 import { AccountInterface } from '../../interfaces/account.interface';
 import { PageAccountsInterface } from '../../interfaces/page-accounts.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'sofka-bank-accounts-detail',
@@ -14,7 +15,8 @@ export class AccountsDetailComponent implements OnInit {
   pagination = { currentPage: 1, range: 10}
   totalPages = 1;
 
-  constructor(private readonly account$: AccountService) { }
+  constructor(private readonly account$: AccountService,
+    readonly router:Router) { }
 
   ngOnInit(): void {
     this.getAll();

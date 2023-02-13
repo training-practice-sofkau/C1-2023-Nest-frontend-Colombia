@@ -15,6 +15,7 @@ export class SigninComponent implements OnInit {
 
   resetPass!: string[];
   signUp!: string[];
+  unauthorized!: boolean;
   checkoutForm!: FormGroup;
 
   constructor(
@@ -28,7 +29,7 @@ export class SigninComponent implements OnInit {
       email: ['', [
         Validators.required,
         Validators.pattern(new RegExp(environment.regexEmail))
-      ]],
+      ],[]],
       password: ['', [
         Validators.required,
       ]],
@@ -37,11 +38,13 @@ export class SigninComponent implements OnInit {
 
   ngOnInit(): void {
     this.random_bg_color();
+    const user = <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''))
+    if(user) this.router.navigate(['dashboard']);
   }
 
   onSubmit() {
     const user = <UserModel>this.checkoutForm.value;
-    this.auth$.signIn(user).subscribe({
+    this.auth$.signIn(user).subscribe({ 
       next: (data) => this.handlerSuccess(data),
       error: (err) => this.handlerError(err),
       complete: () => console.log('complente')
@@ -54,8 +57,28 @@ export class SigninComponent implements OnInit {
   }
 
   handlerError(err: any): void {
-    console.log(err.error.message)
-    alert(err?.message)
+    this.unauthorized = true;
+  }
+
+  handlerValidators(param: 'email' | 'password'): string {
+    return this.checkoutForm.controls[param].errors && this.checkoutForm.controls[param].touched ? 'is-invalid' : ''
+  }
+
+  handlerMessage(param: 'email' | 'password'): string {
+    const messages = {
+      pattern: `Please provide a valid ${param}`,
+      required: `Enter ${param} here`,
+    }
+    let message = '';
+    const errorValue = (Object.values(this.checkoutForm.controls[param].errors ?? {})[0])
+    const errorKey = (Object.keys(this.checkoutForm.controls[param].errors ?? {}))[0]
+    switch (errorKey) {
+      case 'required': message = messages.required
+        break
+      case 'pattern': message = messages.pattern//+param==='email'?'. The password must be at least 8 characters and contain at least 1 lowercase, 1 uppercase, and 1 number.':''
+        break
+    }
+    return message;
   }
 
   private random_bg_color() {

@@ -11,11 +11,15 @@ const routes: Routes = [
     component: NewAccountComponent
   },
   {
-    path: 'delete',
+    path: 'delete/:id',
     component: DeleteAccountComponent
   },
-  { path: '', redirectTo: 'details', pathMatch: 'full' },
-  { path: '**', redirectTo: 'signin' },
+  {
+    path: 'transactions/:id',
+    component: DeleteAccountComponent
+  },
+  { path: '', redirectTo: '', pathMatch: 'full' },
+  //{ path: '**', redirectTo: '' },
 ];
 
 @NgModule({
