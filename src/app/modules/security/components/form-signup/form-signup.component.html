@@ -133,8 +133,8 @@
         <div
           class="text-danger div-alert"
           *ngIf="
-            frmSingUp.get('phone')?.hasError('email') &&
-            frmSingUp.get('phone')?.touched
+            frmSingUp.get('email')?.hasError('email') &&
+            frmSingUp.get('email')?.touched
           "
         >
           *El correo no es valido
