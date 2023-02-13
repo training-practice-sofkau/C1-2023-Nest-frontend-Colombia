@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NewUserModel } from '../../models/new-user-models';
 import { UsersService } from '../../services/user/user.service';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'sofka-register',
@@ -9,40 +11,42 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  documentTypeId: string;
-  document: string;
-  fullName: string;
-  email: string;
-  phone: string;
-  password: string;
-
+  //se de clara el formulario
+  formRegister: FormGroup;
   constructor(private readonly users$: UsersService, private router: Router) {
-    this.documentTypeId = '';
-    this.document = '';
-    this.fullName = '';
-    this.email = '';
-    this.phone = '';
-    this.password = '';
+    //se inicializa el formulario
+    this.formRegister = new FormGroup({
+      documentTypeId: new FormControl('', Validators.required),
+      document: new FormControl('', Validators.required),
+      fullName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(100),
+      ]),
+      email: new FormControl('', [
+        Validators.pattern(new RegExp(environment.regexEmail)),
+      ]),
+      phone: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+    });
   }
 
   sendData(): void {
-    const user = new NewUserModel(
-      this.documentTypeId,
-      this.document,
-      this.fullName,
-      this.email,
-      this.phone,
-      this.password
-    );
-    this.users$.createUser(user).subscribe({
-      next: token => {
-        localStorage.setItem('token', token.access_token);
-        localStorage.setItem('id', token.id);
-      },
-      error: err => console.error(err),
-      complete: () => {
-        this.router.navigate(['dashboard']);
-      },
-    });
+    this.formRegister.get('email')?.addValidators(Validators.email);
+    this.formRegister.get('email')?.updateValueAndValidity();
+    console.log('sendData', this.formRegister);
+    console.log(this.formRegister.getRawValue());
+    this.users$
+      .createUser(this.formRegister.getRawValue() as NewUserModel)
+      .subscribe({
+        next: token => {
+          localStorage.setItem('token', token.access_token);
+          localStorage.setItem('id', token.id);
+        },
+        error: err => console.error(err),
+        complete: () => {
+          this.router.navigate(['dashboard']);
+        },
+      });
   }
 }

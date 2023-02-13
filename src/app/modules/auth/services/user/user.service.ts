@@ -15,7 +15,7 @@ export class UsersService {
   createUser(user: NewUserModel): Observable<IUsers> {
     return this.httpClient.post<IUsers>(
       'http://localhost:3000/security/newUser',
-      user.getData()
+      user
     );
   }
 

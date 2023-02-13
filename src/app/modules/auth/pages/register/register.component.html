@@ -5,84 +5,151 @@
         <div class="card bg-dark text-white" style="border-radius: 1rem">
           <div class="card-body p-5 text-center">
             <div class="mb-md-5 mt-md-4 pb-5">
-              <form action="" id="formulario" class="formulario">
-                <h2 class="fw-bold mb-2 text-uppercase">registro</h2>
+              <form
+                action=""
+                id="formulario"
+                class="formulario"
+                (ngSubmit)="sendData()"
+                [formGroup]="formRegister">
+                <h2 class="fw-bold mb-2 text-uppercase">Registro</h2>
                 <div class="form-outline form-white mb-4">
-                  <select
-                    [(ngModel)]="documentTypeId"
-                    id="document"
-                    class="text-light"
-                    name="documentTypeId">
-                    <option
+                  <div class="form-outline form-white mb-4">
+                    <select
+                      formControlName="documentTypeId"
                       id="document"
-                      class="text-dark"
-                      type="text text-muted"
-                      value="7a361cba-2546-4d9b-80fe-28e07bc41e1f"
-                      selected>
-                      Cedula de ciudadania
-                    </option>
-                    <option
-                      id="document"
-                      class="text-dark"
-                      type="text text-muted"
-                      value="7a361cba-2546-4d9b-80fe-28e07bc41e1f">
-                      Cedula de Extranjeria
-                    </option>
-                  </select>
+                      class="text-light"
+                      name="documentTypeId">
+                      <option
+                        id="document"
+                        class="text-dark"
+                        type="text text-muted"
+                        value="7a361cba-2546-4d9b-80fe-28e07bc41e1f"
+                        selected>
+                        Cedula de ciudadania
+                      </option>
+                      <option
+                        id="document"
+                        class="text-dark"
+                        type="text text-muted"
+                        value="7a361cba-2546-4d9b-80fe-28e07bc41e1f">
+                        Cedula de Extranjeria
+                      </option>
+                    </select>
+                  </div>
+                  <div
+                    class="altoMensaje"
+                    *ngIf="
+                      formRegister
+                        .get('documentTypeId')
+                        ?.hasError('required') &&
+                      formRegister.get('documentTypeId')?.touched
+                    ">
+                    El Tipo de documento es requerido
+                  </div>
                   <div class="form-outline form-white mb-4">
                     <input
                       name="document"
-                      [(ngModel)]="document"
+                      formControlName="document"
                       type="text"
                       class="form-control form-control-lg" />
                     <label class="form-label" for="typeEmailX">documento</label>
                   </div>
+                  <div
+                    class="altoMensaje"
+                    *ngIf="
+                      formRegister.get('document')?.hasError('required') &&
+                      formRegister.get('document')?.touched
+                    ">
+                    El Documento es requerido
+                  </div>
                   <input
                     name="fullName"
-                    [(ngModel)]="fullName"
+                    formControlName="fullName"
                     type="text"
                     id="nombre"
                     class="form-control form-control-lg"
                     autocomplete="off" />
-                  <label for="" class="formulario__label">Nombres</label>
+                  <label for="" class="formulario__label"
+                    >Nombre y apellido</label
+                  >
                 </div>
-
+                <div
+                  class="altoMensaje"
+                  *ngIf="
+                    formRegister.get('fullName')?.hasError('required') &&
+                    formRegister.get('fullName')?.touched
+                  ">
+                  El nombre es requerido
+                </div>
                 <div class="form-outline form-white mb-4">
                   <input
                     name="email"
-                    [(ngModel)]="email"
+                    formControlName="email"
                     type="email"
                     id="typeEmailX"
                     class="form-control form-control-lg" />
                   <label class="form-label" for="typeEmailX">Email</label>
                 </div>
-
+                <div
+                  class="altoMensaje"
+                  *ngIf="
+                    formRegister.get('email')?.hasError('email') &&
+                    formRegister.get('email')?.touched
+                  ">
+                  El correo digitado no es válido
+                </div>
+                <div
+                  class="altoMensaje"
+                  *ngIf="
+                    formRegister.get('email')?.hasError('required') &&
+                    formRegister.get('email')?.touched
+                  ">
+                  El email es requerido
+                </div>
                 <div class="form-outline form-white mb-4">
                   <input
                     name="phone"
-                    [(ngModel)]="phone"
+                    formControlName="phone"
                     type="text"
                     id="telefono"
                     class="form-control form-control-lg"
                     autocomplete="off" />
                   <label for="" class="formulario__label">telefono</label>
+                  <div
+                    class="altoMensaje"
+                    *ngIf="
+                      formRegister.get('phone')?.hasError('required') &&
+                      formRegister.get('phone')?.touched
+                    ">
+                    El telefono es requerido
+                  </div>
                 </div>
                 <div class="form-outline form-white mb-4">
                   <input
                     name="password"
-                    [(ngModel)]="password"
+                    formControlName="password"
                     type="password"
                     id="typePasswordX"
                     class="form-control form-control-lg" />
                   <label class="form-label" for="typePasswordX">Password</label>
                 </div>
-
-                <input
+                <div
+                  class="altoMensaje"
+                  *ngIf="
+                    formRegister.get('password')?.hasError('required') &&
+                    formRegister.get('password')?.touched
+                  ">
+                  la contraseña es requerida
+                </div>
+                <button
                   class="btn btn-outline-light btn-lg px-5"
                   type="button"
                   id="enviar"
                   (click)="sendData()"
-                  value="Enviar" />
+                  form="frmUsuario"
+                  [disabled]="formRegister.invalid">
+                  Enviar
+                </button>
 
                 <br />
                 <br />
