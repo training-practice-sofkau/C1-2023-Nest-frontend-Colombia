@@ -7,13 +7,24 @@ import { FormSignupComponent } from '../../../security/components/form-signup/fo
 import { AccountInterface } from '../../interfaces/account.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AccountService {
-  constructor(private readonly httpClient: HttpClient) {
-  }
+  constructor(private readonly httpClient: HttpClient) {}
 
-  getAll(customer:string):Observable<AccountInterface[]>{
-    return this.httpClient.get<AccountInterface[]>('http://localhost:3000/account/customer/'+customer)
+  createAccount(
+    accountTypeId: string,
+    customerId: string
+  ): Observable<AccountInterface> {
+    const newAccount = { accountTypeId: accountTypeId, customerId: customerId };
+    return this.httpClient.post<AccountInterface>(
+      'http://localhost:3000/account/',
+      newAccount
+    );
+  }
+  getAll(customer: string): Observable<AccountInterface[]> {
+    return this.httpClient.get<AccountInterface[]>(
+      'http://localhost:3000/account/customer/' + customer
+    );
   }
 }

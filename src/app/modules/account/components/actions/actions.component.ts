@@ -13,6 +13,7 @@ export class ActionsComponent implements OnInit {
     private readonly router: Router
   ) {}
   @Input() id!: string;
+  @Input() length!: number;
   transferencia() {
     this.transferService.setCustomerOut(this.id);
     this.router.navigate(['movements/transfer']);

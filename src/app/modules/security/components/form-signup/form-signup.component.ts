@@ -40,10 +40,12 @@ export class FormSignupComponent implements OnInit {
     const newCustomer = this.customerService
       .createCustomer(customer)
       .subscribe({
-        next: (data) =>{
-          this.customerService.setCustomer(data.account.customer.id)
+        next: (data) => {
+          this.customerService.setCustomer(data.account.customer.id);
+          debugger;
           localStorage.setItem('id', data.account.customer.id);
-          localStorage.setItem('token', data.access_token);},
+          localStorage.setItem('token', data.access_token);
+        },
         error: (err) => {
           console.log(err.error.message);
           Swal.fire({
