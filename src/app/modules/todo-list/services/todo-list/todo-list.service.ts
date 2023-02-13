@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { todoListModel } from '../../models/todo-list.model';
 import { Observable } from 'rxjs';
 import { TodoListI } from '../../interfaces/todo-list.interface';
-import { itemI } from '../../interfaces/item.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -27,5 +26,9 @@ export class TodoListService {
 
   editItemById(id: string|null, item: todoListModel): Observable<TodoListI> {
     return this.HttpClient.put<TodoListI>('https://localhost:7281/api/Todoitem/'+id, item.getData());
+  }
+
+  deleteItemById(id: string|null): Observable<TodoListI> {
+    return this.HttpClient.delete<TodoListI>('https://localhost:7281/api/Todoitem/'+id);
   }
 }
