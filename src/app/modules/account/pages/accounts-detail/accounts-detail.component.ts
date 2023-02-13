@@ -38,7 +38,6 @@ export class AccountsDetailComponent implements OnInit {
   getPage(page: number): void {
     this.pagination.currentPage = page;
     this.totalPages = this.accounts.totalPages
-    console.log(this.totalPages)
     this.getAll();
   }
 

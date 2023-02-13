@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { UserModel } from '../../models/user.model';
 import { UserInterface } from '../../interfaces';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'sofka-bank-signin',
@@ -14,18 +15,24 @@ export class SigninComponent implements OnInit {
 
   resetPass!: string[];
   signUp!: string[];
-  checkoutForm = this.formBuilder.group({
-    email: '',
-    password: '',
-  });
+  checkoutForm!: FormGroup;
 
   constructor(
     private readonly auth$: AuthService,
     private readonly formBuilder: FormBuilder,
-    private readonly router: Router
+    private readonly router: Router,
   ) {
     this.resetPass = ['../reset-pass'];
     this.signUp = ['../signup'];
+    this.checkoutForm= this.formBuilder.group({
+      email: ['', [
+        Validators.required,
+        Validators.pattern(new RegExp(environment.regexEmail))
+      ]],
+      password: ['', [
+        Validators.required,
+      ]],
+    });
   }
 
   ngOnInit(): void {
@@ -44,7 +51,6 @@ export class SigninComponent implements OnInit {
   handlerSuccess(data: UserInterface): void {
     localStorage.setItem('currentUser', JSON.stringify(data));
     this.router.navigate(['dashboard']);
-    alert(JSON.stringify(data))
   }
 
   handlerError(err: any): void {
@@ -52,13 +58,11 @@ export class SigninComponent implements OnInit {
     alert(err?.message)
   }
 
-  random_bg_color() {
+  private random_bg_color() {
     var r = Math.floor(Math.random() * 256);
     var g = Math.floor(Math.random() * 256);
     var b = Math.floor(Math.random() * 256);
     var bgColor = "rgb(" + r + "," + g + "," + b + ")";
     document.body.style.background = bgColor;
   }
-
-
 }

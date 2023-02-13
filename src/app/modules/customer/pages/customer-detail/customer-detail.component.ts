@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CustomerInterface } from '../../../main/interfaces/customer.interface';
 import { AuthService } from '../../../auth/services/auth.service';
 import { UserInterface } from '../../../auth/interfaces/user.interface';
 import { DocumentTypeEnum } from '../../../../shared/enums/document-type.enum';
