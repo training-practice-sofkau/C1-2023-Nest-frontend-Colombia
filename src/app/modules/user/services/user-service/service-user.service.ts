@@ -17,7 +17,7 @@ export class ServiceUserService {
   createNewUser(newUser: NewUserModel) {
     return this.httpClient.post(
       'http://localhost:3000/security/register',
-      newUser.getData()
+      newUser
     );
   }
 
