@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Route } from '@angular/router';
 import Swal from 'sweetalert2';
 import { IDocumenType } from '../../models/document-type.model';
@@ -13,23 +14,20 @@ import { ServiceUserService } from '../../services/user-service/service-user.ser
 })
 export class UpdateCostumerComponent implements OnInit {
   id: string | null;
-  document: string
-  fullName: string;
-  email: string;
-  phone: string;
-  password: string;
-  documentTypeId: string;
+  frmFormulario: FormGroup;
 
   constructor(
     private readonly userService: ServiceUserService,
     private readonly route: ActivatedRoute) {
+    this.frmFormulario = new FormGroup({
+      document: new FormControl(),
+      fullName: new FormControl(),
+      email: new FormControl(),
+      phone: new FormControl(),
+      password: new FormControl(),
+      documentTypeId: new FormControl()
+    })
     this.id = ""
-    this.document = ""
-    this.fullName = ""
-    this.email = ""
-    this.phone = ""
-    this.password = ""
-    this.documentTypeId = ""
   }
 
   ngOnInit(): void {
@@ -37,12 +35,14 @@ export class UpdateCostumerComponent implements OnInit {
     this.id = idNew !== null ? idNew : '';
     this.userService.getUserById(this.id).subscribe({
       next: (data) => {
-        this.document = data.document;
-        this.fullName = data.fullName;
-        this.email = data.email;
-        this.phone = data.phone;
-        this.password = data.password;
-        this.documentTypeId = data.documentType.id
+        this.frmFormulario.setValue({
+          document: data.document,
+          fullName: data.fullName,
+          email: data.email,
+          phone: data.phone,
+          password: data.password,
+          documentTypeId: data.documentType.id
+        })
       },
       error: (err) => {
         console.log(err)
@@ -56,8 +56,7 @@ export class UpdateCostumerComponent implements OnInit {
   updateUser() {
     const idNew = this.route.snapshot.paramMap.get("id")
     this.id = idNew !== null ? idNew : '';
-    const updateU = new IUpdateUser(this.documentTypeId, this.document, this.fullName, this.email, this.phone, this.password)
-    this.userService.updateUser(this.id, updateU).subscribe({
+    this.userService.updateUser(this.id, this.frmFormulario.getRawValue()).subscribe({
       next: (data) => {
         Swal.fire({
           title: "Hecho",

@@ -37,7 +37,6 @@ export class ServiceUserService {
   }
 
   updateUser(id: string, user: IUpdateUser): Observable<IUpdateUser> {
-    console.log(user.getData())
-    return this.httpClient.put<IUpdateUser>("http://localhost:3000/user/" + id, user.getData())
+    return this.httpClient.put<IUpdateUser>("http://localhost:3000/user/" + id, user)
   }
 }

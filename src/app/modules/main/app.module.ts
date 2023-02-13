@@ -9,7 +9,7 @@ import {
   MessagesComponent,
   HeroDetailComponent,
 } from './components';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { PruebaPipeComponent } from './components/prueba-pipe/prueba-pipe.component';
 import { CustomPipeMomentjsPipe } from './pipes/custom-pipe-momentjs/custom-pipe-momentjs.pipe';
@@ -75,6 +75,7 @@ export function getToken() {
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     JwtModule.forRoot({
       config: {
