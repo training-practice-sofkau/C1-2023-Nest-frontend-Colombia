@@ -18,11 +18,7 @@ const routes: Routes = [
   {
     path: 'security',
     loadChildren: () => import('../security/security.module').then(m => m.SecurityModule),
-  },
-  {
-    path: 'transfer',
-    loadChildren: () => import('../transfer/transfer.module').then(m => m.TransferModule),
-  },
+  }
 ];
 
 @NgModule({
