@@ -29,7 +29,7 @@
         <div
           class="text-danger div-alert"
           *ngIf="
-            frmSingUp.get('fullName')?.hasError('minLength') &&
+            frmSingUp.get('fullName')?.hasError('minlength') &&
             frmSingUp.get('fullName')?.touched
           "
         >
@@ -38,7 +38,7 @@
         <div
           class="text-danger div-alert"
           *ngIf="
-            frmSingUp.get('fullName')?.hasError('minLength') &&
+            frmSingUp.get('fullName')?.hasError('maxlength') &&
             frmSingUp.get('fullName')?.touched
           "
         >
@@ -157,7 +157,7 @@
         <div
           class="text-danger div-alert"
           *ngIf="
-            frmSingUp.get('password')?.hasError('minLength') &&
+            frmSingUp.get('password')?.hasError('minlength') &&
             frmSingUp.get('password')?.touched
           "
         >
