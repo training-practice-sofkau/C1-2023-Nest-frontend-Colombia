@@ -1,7 +1,7 @@
 <div class="container-login">
-    <div class="form-login">
-        <input class="input-login" placeholder="Email" [(ngModel)]="email">
-        <input class="input-login" placeholder="password" type="password" [(ngModel)]="password">
-        <button class="btn-login" (click)="login()">Iniciar Sesion</button>
-    </div>
+    <form class="form-login" id="formUpdateuser" (ngSubmit)="login()" [formGroup]="frmFormulario">
+        <input class="input-login" placeholder="Email" formControlName="email">
+        <input class="input-login" placeholder="password" type="password" formControlName="password">
+        <button class="btn-login" [disabled]="frmFormulario.invalid">Iniciar Sesion</button>
+    </form>
 </div>
