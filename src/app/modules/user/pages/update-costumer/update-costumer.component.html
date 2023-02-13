@@ -5,19 +5,19 @@
         </div>
         <div class="sub-container">
             <h5> Nombre: </h5>
-            <input class="sub-container-input" placeholder="{{fullName}}">
+            <input class="sub-container-input" placeholder="{{fullName}}" [(ngModel)]="fullName">
         </div>
         <div class="sub-container">
             <h5> Documento: </h5>
-            <input class="sub-container-input" placeholder="{{document}}">
+            <input class="sub-container-input" placeholder="{{document}}" [(ngModel)]="document">
         </div>
         <div class="sub-container">
             <h5> Email: </h5>
-            <input class="sub-container-input" placeholder="{{email}}">
+            <input class="sub-container-input" placeholder="{{email}}" [(ngModel)]="email">
         </div>
         <div class="sub-container">
             <h5> Telefono: </h5>
-            <input class="sub-container-input" placeholder="{{phone}}">
+            <input class="sub-container-input" placeholder="{{phone}}" [(ngModel)]="phone">
         </div>
         <button class="cic-update" (click)="updateUser()">Actualizar</button>
     </div>
