@@ -22,6 +22,18 @@
       ">
                 * El Documento es requerido
             </div>
+            <div class="altoMensaje" *ngIf="
+        frmFormulario.get('document')?.hasError('maxlength') &&
+        frmFormulario.get('document')?.touched
+      ">
+                * El tamaño maximo corresponde a 11 caracteres
+            </div>
+            <div class="altoMensaje" *ngIf="
+        frmFormulario.get('document')?.hasError('minlength') &&
+        frmFormulario.get('document')?.touched
+      ">
+                * El tamaño maximo corresponde a 3 caracteres
+            </div>
         </div>
         <div class="sub-container">
             <h5> Email: </h5>
@@ -42,6 +54,18 @@
         <div class="sub-container">
             <h5> Telefono: </h5>
             <input class="sub-container-input" formControlName="phone">
+            <div class="altoMensaje" *ngIf="
+        frmFormulario.get('phone')?.hasError('maxlength') &&
+        frmFormulario.get('phone')?.touched
+      ">
+                * El tamaño maximo corresponde a 10 caracteres
+            </div>
+            <div class="altoMensaje" *ngIf="
+        frmFormulario.get('phone')?.hasError('minlength') &&
+        frmFormulario.get('phone')?.touched
+      ">
+                * El tamaño maximo corresponde a 10 caracteres
+            </div>
         </div>
         <button class="cic-update" form="formUpdateuser" [disabled]="frmFormulario.invalid">Actualizar</button>
     </form>
