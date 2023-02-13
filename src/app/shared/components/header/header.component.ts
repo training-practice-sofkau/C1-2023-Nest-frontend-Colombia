@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'bank-header',
@@ -8,7 +9,16 @@ import { Component, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
 
   constructor() { }
-
+  clearSesion(){
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Sesión cerrada correctamente',
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    localStorage.clear()
+  }
   ngOnInit(): void {
   }
 

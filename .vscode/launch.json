@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "command": "ng serve --open",
+      "command": "ng serve",
       "name": "Run npm start",
       "request": "launch",
       "type": "node-terminal"

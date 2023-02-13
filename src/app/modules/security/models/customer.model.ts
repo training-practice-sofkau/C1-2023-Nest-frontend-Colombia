@@ -1,4 +1,4 @@
-export class Customer {
+export class CustomerModel {
   documentTypeId: string;
   document: string;
   fullName: string;
