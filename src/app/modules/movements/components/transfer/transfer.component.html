@@ -1,0 +1,42 @@
+<div class="container-login">
+  <div class="row">
+    <div class="card">
+      <form
+        id="transfer-login"
+        class="box form-login"
+        (ngSubmit)="createTransfer()"
+      >
+        <h1>Transferencia</h1>
+        <p class="text-muted">
+          mientras realiza la transacción no recarge la página!
+        </p>
+        <input
+          type="text"
+          name="inComeId"
+          [(ngModel)]="inComeId"
+          placeholder="Id de la cuenta"
+        />
+        <input
+          type="text"
+          name="amount"
+          [(ngModel)]="amount"
+          placeholder="cuanto"
+        />
+        <input
+          type="text"
+          name="reason"
+          [(ngModel)]="reason"
+          placeholder="Razón de la transferencia"
+        />
+        <input
+          type="submit"
+          form="transfer-login"
+          name=""
+          value="enivar"
+          href="#"
+        />
+        <br />
+      </form>
+    </div>
+  </div>
+</div>

@@ -25,7 +25,7 @@ export class CustomersService {
   constructor(private readonly httpClient: HttpClient) {}
 
   createCustomer(customer: CustomerModel): Observable<SingUpInterface> {
-    console.log("entro")
+    console.log('entro');
     let response = this.httpClient.post<SingUpInterface>(
       'http://localhost:3000/security/sign-up',
       customer.getData()
@@ -37,18 +37,6 @@ export class CustomersService {
       'http://localhost:3000/security/sign-in',
       customer.getData()
     );
-    response.subscribe({
-      next: (value) => {
-        localStorage.setItem('id', value.id);
-        localStorage.setItem('token', value.access_token);
-      },
-      error(err) {
-        console.log(err);
-      },
-      complete() {
-        console.log('compleado');
-      },
-    });
     return response;
   }
 }
