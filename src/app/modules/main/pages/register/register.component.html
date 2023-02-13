@@ -1,0 +1,40 @@
+<div class="wrapper rounded bg-white">
+  <div class="h3">Registration Form</div>
+
+  <div class="form">
+    <div class="row">
+      <div class="col-md-6 mt-md-0 mt-3">
+        <label>Full name</label>
+        <input type="text" class="form-control" required />
+      </div>
+    </div>
+    <div class="col-md-6 mt-md-0 mt-3">
+      <label>E-mail</label>
+      <input type="text" class="form-control" required />
+    </div>
+    <div class="col-md-6 mt-md-0 mt-3">
+      <label>Number Document</label>
+      <input type="text" class="form-control" required />
+    </div>
+    <div class="col-md-6 mt-md-0 mt-3">
+      <label>DocumentTypeId</label>
+      <input type="text" class="form-control" required />
+    </div>
+
+    <div class="row"></div>
+    <div class="row">
+      <div class="col-md-6 mt-md-0 mt-3">
+        <label>Phone Number</label>
+        <input type="tel" class="form-control" required />
+      </div>
+    </div>
+    <div class="my-md-2 my-3">
+      <button type="button" class="btn btn-secondary" [routerLink]="routrHome">
+        home
+      </button>
+      <button type="button" (click)="senData()" [routerLink]="['../infouser']">
+        registrar
+      </button>
+    </div>
+  </div>
+</div>
