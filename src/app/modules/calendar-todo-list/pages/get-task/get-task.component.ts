@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskModel } from '../../models/task.model';
 import { TaskService } from '../../services/task.service';
+import { CalendarModel } from '../../models/calendar.models';
+import { ICalendar } from '../../interfaces/calendar.interface';
 
 @Component({
   selector: 'sofka-get-task',
@@ -9,22 +11,16 @@ import { TaskService } from '../../services/task.service';
 })
 export class GetTaskComponent implements OnInit {
 
-
-
   routergoBackMenu: string[];
   routeShowTask = [];
-
-
-
-  alltask: TaskModel[];
-
+  calendarWithTask: ICalendar[];
 
   constructor(private readonly taskService: TaskService) {
 
 
     this.routergoBackMenu = ['../'];
     this.routeShowTask = [];
-    this.alltask = new Array<TaskModel>();
+    this.calendarWithTask = new Array<ICalendar>();
 
 
   }
@@ -32,19 +28,27 @@ export class GetTaskComponent implements OnInit {
   ngOnInit(): void {
 
     this.taskService.GetAll().subscribe({
+    next: (data) => {(this.calendarWithTask = data)
 
-    next: (data) =>
-      console.log(data),
+      data.forEach(element => {
+
+        console.log(element.numberDaY)
+
+        element.items.forEach(element2 =>{
+
+        console.log(element2.descripccion)
+
+        });
+
+
+      });
+
+    },
     error: (err) =>
-      console.log(err),
+    console.log(err),
     complete: () =>
-      console.log('complete')
+    console.log(this.calendarWithTask)
 
     });
   }
-
-
-
-
-
 }

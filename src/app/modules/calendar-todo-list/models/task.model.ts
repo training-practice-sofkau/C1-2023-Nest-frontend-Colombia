@@ -1,25 +1,32 @@
-import { ICalendar } from '../interfaces/calendar.interface';
+
 export class TaskModel{
 
-  Title: string;
-  Descripccion: string;
-  Resposible: string;
-  IsCompleted: boolean;
-  IdCalendar: number;
+  id: number;
+  title: string;
+  descripccion: string;
+  resposible: string;
+  isCompleted: boolean;
+  estate:number;
+  idCalendar: number;
+  idCalendarNavigation: null
 
-  constructor(Title: string, Descripccion: string,Resposible: string,IsCompleted: boolean, IdCalendar: number){
+  constructor(id: number,title: string, descripccion: string,resposible: string,isCompleted: boolean,estate: number, idCalendar: number, idCalendarNavigation: null){
 
+   this.id = id;
+   this.title = title;
+   this.descripccion = descripccion;
+   this.resposible = resposible;
+   this.isCompleted = isCompleted;
+   this.estate = estate;
+   this.idCalendar = idCalendar;
+   this.idCalendarNavigation = idCalendarNavigation;
 
-   this.Title = Title;
-   this.Descripccion = Descripccion;
-   this.Resposible = Resposible;
-   this.IsCompleted = IsCompleted;
-   this.IdCalendar = IdCalendar;
 
   }
 
+  /*
 
- getData(): {Title: string, Descripccion: string, Resposible: string, IsCompleted: boolean, IdCalendar: number} {
+ getData(): {Title: string, Descripccion: string, Resposible: string, IsCompleted: boolean,Estate: number, IdCalendar: number} {
 
 
   {
@@ -30,9 +37,12 @@ export class TaskModel{
    Descripccion: this.Descripccion,
    Resposible: this.Resposible,
    IsCompleted: this.IsCompleted,
+   Estate: this.Estate,
    IdCalendar: this.IdCalendar
+
    }
   }
 
- }
+ }*/
+
 }
