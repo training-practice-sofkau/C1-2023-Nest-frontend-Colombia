@@ -22,7 +22,7 @@ export class PrincipalComponent implements OnInit {
   // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
   ngOnInit(): void {
     this.todoListService.getItems().subscribe({
-      next: (data) =>  {data.forEach((item) => this.todoList.push(item));data.forEach((item) => console.log(item));},
+      next: (data) =>  {data.forEach((item) => this.todoList.push(item))},
       error: err =>  console.log(err),
       complete: () =>  console.log('complete'),
     });

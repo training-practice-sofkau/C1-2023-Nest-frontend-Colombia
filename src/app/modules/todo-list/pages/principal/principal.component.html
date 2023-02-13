@@ -12,7 +12,6 @@
 <table class="table table-striped" *ngIf="todoList.length>0">
   <thead>
     <tr>
-      <th scope="col">Id</th>
       <th scope="col">Title</th>
       <th scope="col">Description</th>
       <th scope="col">Responsible</th>
@@ -20,7 +19,6 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of todoList">
-      <td>{{item.id}}</td>
       <td>{{item.title}}</td>
       <td>{{item.description}}</td>
       <td>{{item.responsible}}</td>
