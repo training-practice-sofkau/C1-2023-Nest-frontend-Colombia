@@ -15,11 +15,11 @@ export class PrincipalComponent {
   }
 
   ngOnInit(): void {
-    this.tareaService.getAll()
-      .subscribe( (tareas) => {
-        this.tareas = tareas;
-        console.log(tareas)
-      });
+    this.tareaService.getAll().subscribe({
+      next: tareas => (this.tareas = tareas),
+      error: err => console.log(err),
+      complete: () => console.log('Complete')
+    });
   }
 
       

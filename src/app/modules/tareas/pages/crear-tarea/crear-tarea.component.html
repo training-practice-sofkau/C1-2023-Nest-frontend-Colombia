@@ -1,27 +1,38 @@
-<div class="container">
+<form class="row g-3">
     <div class="form-floating mb-3">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <input name="day" type="number" aria-label="First name" class="form-control" [(ngModel)]="tarea.dia">
         <label for="floatingTextarea">Day</label>
     </div>
     <div class="form-floating mb-3">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <textarea name="title" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" [(ngModel)]="tarea.title"></textarea>
         <label for="floatingTextarea">Title </label>
     </div>
     <div class="form-floating mb-3">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <textarea name="description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"[(ngModel)]="tarea.description"></textarea>
         <label for="floatingTextarea">Description </label>
     </div>
     <div class="form-floating mb-3">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+        <textarea name="responsible" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"[(ngModel)]="tarea.responsible"></textarea>
         <label for="floatingTextarea">Responsible </label>
     </div>
-    <div class="form-floating">
-        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+    <div class="form-floating mb-3">
+        <select name="priority" class="form-select" id="floatingSelect" aria-label="Floating label select example" [(ngModel)]="tarea.priority">
         <option selected>Priority </option>
-        <option value="1">High</option>
-        <option value="2">Medium</option>
-        <option value="3">Low</option>
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
         </select>
         <label for="floatingSelect">Select priority</label>
     </div>
-</div>
+    <div class="form-floating mb-3">
+        <select name="state" class="form-select" id="floatingSelect" aria-label="Floating label select example" [(ngModel)]="tarea.isCompleted">
+        <option selected>State </option>
+        <option value=false>Pending</option>
+        <option value=true>completed</option>
+        </select>
+        <label for="floatingSelect">Select state</label>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit" (click)="crear()">Submit form</button>
+    </div>
+</form>

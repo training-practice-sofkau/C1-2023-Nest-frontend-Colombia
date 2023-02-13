@@ -17,8 +17,6 @@ export class DetalleTareaComponent {
 
   ngOnInit(): void {
     this.rutaActiva.params.subscribe( params => {
-      console.log(params['id']);
-
       this.tareaService.getTarea(params['id'])
         .subscribe(tarea => {
           this.tarea = tarea;
