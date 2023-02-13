@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/core';
 import { TareaI } from 'src/app/modelos/tarea.interface';
-import { ResponseI } from 'src/app/modelos/response.interface';
 import { ApiService } from 'src/app/servicios/api/api.service';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
-import { AlertasService } from 'src/app/servicios/alertas/alertas.service';
 
 @Component({
   selector: 'app-editar',
@@ -13,70 +11,42 @@ import { AlertasService } from 'src/app/servicios/alertas/alertas.service';
 })
 export class EditarComponent implements OnInit {
 
-  tarea !: TareaI;
-
-  constructor(private Activaterouter:ActivatedRoute, private router:Router, private api:ApiService,
-    private alertas:AlertasService){}
+  constructor(private activaterouter:ActivatedRoute, private router:Router, private api:ApiService){}
 
   datoTarea !: TareaI;
 
-  EditarForm = new FormGroup({
+  editarFor = new FormGroup([
     nombre: new FormControl(''),
     descripcion: new FormControl(''),
-    jornada: new FormControl('')});
+    jornada: new FormControl('')
+
+  ]);
 
   ngOnInit(): void{
-   // let tareaid = this.Activaterouter.snapshot.paramMap.get('id');
-   /* let token = this.getToken();
-    this.api.getSingleTarea(tareaid).subscribe((data: any) =>{
+    let tareaId = this.activaterouter.snapshot.paraMap.get('id');
+    let token = this.getToken();
+    this.api.getSingleTarea(tareaId).subscribe((data: any) =>{
       this.datoTarea = data[0];
-      this.EditarForm.setValue({
-        'nombre':this.datoTarea.nombre,
-        'descripcion':this.datoTarea.descripcion,
-        'jornada':this.datoTarea.jornada
+      this.editarFor.setValue({
+        'nombre':this.datoTarea.Nombre,
+        'descripcion':this.datoTarea.Descripcion,
+        'jornada':this.datoTarea.Jornada,
       })
-    })*/
-  }
 
+    } )
+  }
   getToken(){
     return localStorage.getItem('token')
   }
-
-  postForm(form: any){
-
-    this.tarea={
-      nombre : form.nombre,
-      descripcion : form.descripcion,
-      jornada : form.jornada,
-    };
-
-    console.log(form);
-    console.log(this.tarea);
-
-    this.api.putTarea(this.tarea).subscribe((data) =>{
-      let respuesta : ResponseI = data;
-      if(respuesta.status=="ok"){
-        this.alertas.showSuccess('Dato modificado', 'Hecho');
-      }else{
-        this.alertas.showError(respuesta.result.error_msg, 'Error');
-      }
-    });
-  }
-
- /* Eliminar(){
-    let datos : TareaI = this.EditarForm.value;
-    this.api.deleteTarea(datos).subscribe(data =>{
-      let respuesta : ResponseI = data;
-      if(respuesta.status=="ok"){
-        this.alertas.showSuccess('Tarea Eliminada', 'Hecho');
-        this.router.navigate(['dashboard']);
-      }else{
-        this.alertas.showError(respuesta.result.error_msg, 'Error');
-      }
+  postForm(form: TareaI){
+    this.api.putTarea(form).subscribe((data: any) =>{
+      console.log(data)
     })
-  }*/
-
-  Salir(){
-    this.router.navigate(['dashboard']);
+  }
+  Eliminar(){
+    let datos:TareaI = this.editarFor.value;
+    this.api.deleteTarea(datos).subscribe((data: any) =>{
+      console.log(data);
+    })
   }
 }

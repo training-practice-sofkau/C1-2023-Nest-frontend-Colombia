@@ -1,6 +1,6 @@
 <app-header></app-header>
     <div class="container">
-        <form [FormGroup]="EditarForm" (ngSubmit)="postForm(EditarForm.value)">
+        <form [[formGroup]="editarForm"] (ngSubmit="postForm(editarForm.value)")>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Nombre</label>
                 <input type="text" class="form-control" placeholder="Nombre de la tarea" formControlName="nombre">
@@ -13,9 +13,8 @@
                 <label for="exampleFormControlInput1">Jornada</label>
                 <input type="text" class="form-control" placeholder="Jornada de la tarea" formControlName="jornada">
             </div>
-            <button type="submit" class="btn btn-primary">Guardar</button>
-          <!--  <button type="buttom" class="btn btn-danger" (click)="Eliminar()">Eliminar</button> -->
-            <button type="buttom" class="btn btn-dark" (click)="Salir()">Salir</button>
+            <buttom type="submit" class="btn btn-primary">Guardar</buttom>
+            <buttom type="buttom" class="btn btn-danger" (click)="Eliminar()">Eliminar</buttom>
         </form>
     </div>
 <app-footer></app-footer>
