@@ -13,17 +13,21 @@ export class UserService {
 
   constructor(private readonly httpClient: HttpClient) { }
 
-  createUser(user: NewUserModel): Observable<INewUser> {
-    const r = this.httpClient.post<INewUser>(
-      'localhost:3000/security/register',
+  /*createUser(user: NewUserModel): Observable<INewUser> {
+    console.log('USER ', user)
+    return this.httpClient.post<INewUser>(
+      '/api/security/register',
       user
     );
-    console.log('r ', r);
-    return r
-    // this.httpClient.get('http://localhost:3000/api/1231231231231231');
-    // this.httpClient.delete('http://localhost:3000/api/1231231231231231');
-    // this.httpClient.put('http://localhost:3000/api/', user.getData());
-    // this.httpClient.patch('http://localhost:3000/api/', user.getData());
+  }*/
+
+  createUser(user: NewUserModel): Observable<string> {
+    console.log('USER ', user)
+    const token =  this.httpClient.post<string>(
+      '/api/security/register',
+      user
+    );
+    return token
   }
 
   getAll(): Observable<IUsers> {

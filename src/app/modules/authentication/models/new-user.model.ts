@@ -1,9 +1,10 @@
 
 export interface NewUserModel {
-  documentType: string;
+  documentTypeId: string;
   document: string;
   fullName: string;
   email: string;
   phone: string;
   password: string;
+  avatar: string
 }
