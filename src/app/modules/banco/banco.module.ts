@@ -8,7 +8,7 @@ import { TransferenciaComponent } from './pages/transferencia/transferencia.comp
 import { LogComponent } from './pages/log/log.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -22,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     LogComponent,
     PrincipalComponent,
     RegisterComponent,
+
 
   ],
   imports: [

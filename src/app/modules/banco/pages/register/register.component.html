@@ -6,7 +6,7 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form>
+        <form id="register" (ngSubmit)="registercustomer()">
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-normal mb-0 me-3">Sign in with</p>
             <button type="button" class="btn btn-primary btn-floating mx-1">
@@ -29,43 +29,59 @@
           <!-- Email input -->
           <div class="form-outline mb-4">
             <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid email address" />
+              placeholder="Enter a valid email address" [(ngModel)]="email" name="email"/>
             <label class="form-label" for="form3Example3">Email address</label>
           </div>
-
+          <div>
+            {{email}}
+          </div>
           <!-- Password input -->
           <div class="form-outline mb-3">
             <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter password" />
+              placeholder="Enter password"  [(ngModel)]="password" name="password" />
             <label class="form-label" for="form3Example4">Password</label>
+          </div>
+          <div>
+            {{password}}
           </div>
           <!-- documento input -->
           <div class="form-outline mb-4">
-            <input type="number" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid document" />
+            <input type="text" id="form3Example3" class="form-control form-control-lg"
+              placeholder="Enter a valid document" [(ngModel)]="document" name="document" />
             <label class="form-label" for="form3Example3">Documento</label>
           </div>
-
+          <div>
+            {{document}}
+          </div>
           <!-- fullname input -->
           <div class="form-outline mb-3">
             <input type="string" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter your fullname" />
+              placeholder="Enter your fullname" [(ngModel)]="fullName" name="fullName" />
             <label class="form-label" for="form3Example4">fullname</label>
+          </div>
+          <div>
+            {{fullName}}
           </div>
           <!-- phone input -->
           <div class="form-outline mb-4">
-            <input type="phone" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid phone" />
+            <input type="text" id="form3Example4" class="form-control form-control-lg"
+              placeholder="Enter a valid phone"  [(ngModel)]="phone" name="phone"/>
             <label class="form-label" for="form3Example3">number phone</label>
           </div>
-
+          <div>
+            {{phone}}
+          </div>
           <!-- photo input -->
           <div class="form-outline mb-3">
             <input type="url" id="form3Example4" class="form-control form-control-lg"
               placeholder="Enter url photo" />
             <label class="form-label" for="form3Example4">Photo</label>
           </div>
-
+          <div class="form-outline mb-4">
+            <input type="text" id="form3Example3" class="form-control form-control-lg"
+              placeholder="Enter documentTypeId"  [(ngModel)]="documentTypeId" name="documentTypeId"/>
+            <label class="form-label" for="form3Example3">documentTypeId</label>
+          </div>
           <div class="d-flex justify-content-between align-items-center">
             <!-- Checkbox -->
             <div class="form-check mb-0">
@@ -78,7 +94,7 @@
           </div>
 
           <div class="text-center text-lg-start mt-4 pt-2">
-            <input type="button" (click)="registercustomer()" class="btn btn-primary btn-lg"
+            <input type="submit" form="register" class="btn btn-primary btn-lg"
               style="padding-left: 2.5rem; padding-right: 2.5rem;" value="Register">
 
           </div>

@@ -2,6 +2,7 @@ import { NewUserModel } from './../../../main/models/new-user.model';
 import { UsersService } from './../../../main/services/users/users.service';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -25,7 +26,12 @@ export class RegisterComponent implements OnInit {
   }
   registercustomer(): void {
     const customer = new NewUserModel(
-      "7a361cba-2546-4d9b-80fe-28e07bc41e1f","10536885",  "Carlos pardo", "carlos.pardo@sofka.com.co","31158698745", "An247963456"
+      this.documentTypeId,
+      this.document,
+      this.fullName,
+      this.email,
+      this.phone,
+      this.password
     );
     this.customerService.createUser(customer).subscribe({
       next: (data) => console.log(data),
