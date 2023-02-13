@@ -10,6 +10,8 @@ import { MyPipePipe } from './pipes/my-pipe/my-pipe.pipe';
 import { RegisterComponent } from './pages/register/register.component';
 import { InfoUserComponent } from './pages/info-user/info-user.component';
 import { DepositComponent } from './pages/deposit/deposit.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,13 @@ import { DepositComponent } from './pages/deposit/deposit.component';
     InfoUserComponent,
     DepositComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, SharedModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SharedModule,
+    HttpClientModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

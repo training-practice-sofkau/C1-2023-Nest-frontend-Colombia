@@ -1,10 +1,7 @@
-<button type="button" class="btn btn-secondary" [routerLink]="['../transfer']">
-  Historial de transferencias
-</button>
 <div class="container">
   <div class="card">
     <div class="payment-details">
-      <h3>Payment Details</h3>
+      <h3>informacion de depositos</h3>
       <p>Complete your purchase by providing your payment details.</p>
     </div>
     <div class="input-text">
@@ -36,40 +33,7 @@
       <input type="text" placeholder="Username" />
       <span>Card Holder name</span>
     </div>
-    <div class="billing">
-      <span>Billing Address</span>
-      <select>
-        <option>Select Country</option>
-        <option>United States</option>
-        <option>India</option>
-        <option>England</option>
-        <option>France</option>
-        <option>Germany</option>
-        <option>Japan</option>
-        <option>China</option>
-        <option>Italy</option>
-        <option>Russia</option>
-      </select>
-      <div class="zip-state">
-        <div class="zip">
-          <input type="text" placeholder="ZIP" />
-        </div>
-        <div class="state">
-          <select>
-            <option>Select State</option>
-            <option>New York</option>
-            <option>New Delhi</option>
-            <option>London</option>
-            <option>Paris</option>
-            <option>Berlin</option>
-            <option>Tokyo</option>
-            <option>Bejing</option>
-            <option>Rome</option>
-            <option>Mosco</option>
-          </select>
-        </div>
-      </div>
-    </div>
+
     <div class="input-text">
       <input type="text" placeholder="GB0124589" />
       <span>Vat Number</span>
@@ -92,17 +56,11 @@
         <h5>$16.80</h5>
       </div>
     </div>
-    <div class="pay">
-      <button>Pay</button>
-    </div>
-    <div class="secure">
-      <i class="fa fa-lock"></i>
-      <p>Payments are secured and encrypted</p>
-    </div>
-    <div class="last">
-      <p>Powered by Orman Clark</p>
-      <a href="#"> Terms </a>
-      <a href="#"> Privacy </a>
-    </div>
+    <button
+      type="button"
+      class="btn btn-secondary"
+      [routerLink]="['../transfer']">
+      Historial de transferencias
+    </button>
   </div>
 </div>

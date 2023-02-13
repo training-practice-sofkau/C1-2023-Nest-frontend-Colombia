@@ -4,60 +4,36 @@
   <div class="form">
     <div class="row">
       <div class="col-md-6 mt-md-0 mt-3">
-        <label>First Name</label>
-        <input type="text" class="form-control" required />
-      </div>
-      <div class="col-md-6 mt-md-0 mt-3">
-        <label>Last Name</label>
+        <label>Full name</label>
         <input type="text" class="form-control" required />
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-6 mt-md-0 mt-3">
-        <label>Birthday</label>
-        <input type="date" class="form-control" required />
-      </div>
-      <div class="col-md-6 mt-md-0 mt-3">
-        <label>Gender</label>
-        <div class="d-flex align-items-center mt-2">
-          <label class="option">
-            <input type="radio" name="radio" />Male
-            <span class="checkmark"></span>
-          </label>
-          <label class="option ms-4">
-            <input type="radio" name="radio" />Female
-            <span class="checkmark"></span>
-          </label>
-        </div>
-      </div>
+    <div class="col-md-6 mt-md-0 mt-3">
+      <label>E-mail</label>
+      <input type="text" class="form-control" required />
     </div>
+    <div class="col-md-6 mt-md-0 mt-3">
+      <label>Number Document</label>
+      <input type="text" class="form-control" required />
+    </div>
+    <div class="col-md-6 mt-md-0 mt-3">
+      <label>DocumentTypeId</label>
+      <input type="text" class="form-control" required />
+    </div>
+
+    <div class="row"></div>
     <div class="row">
-      <div class="col-md-6 mt-md-0 mt-3">
-        <label>Email</label>
-        <input type="email" class="form-control" required />
-      </div>
       <div class="col-md-6 mt-md-0 mt-3">
         <label>Phone Number</label>
         <input type="tel" class="form-control" required />
       </div>
     </div>
     <div class="my-md-2 my-3">
-      <label>Subject</label>
-      <select id="sub" required>
-        <option value="" selected hidden>Choose Option</option>
-        <option value="Maths">Maths</option>
-        <option value="Science">Science</option>
-        <option value="Social">Social</option>
-        <option value="Hindi">Hindi</option>
-      </select>
       <button type="button" class="btn btn-secondary" [routerLink]="routrHome">
         home
       </button>
-      <button
-        type="button"
-        class="btn btn-secondary"
-        [routerLink]="['../infouser']">
-        submit
+      <button type="button" (click)="senData()" [routerLink]="['../infouser']">
+        registrar
       </button>
     </div>
   </div>
