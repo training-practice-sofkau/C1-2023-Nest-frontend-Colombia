@@ -13,18 +13,22 @@
   <div class="col col-10">
     <h3>Editar</h3>
     <div class="text-center">
-      <form action="" method="get" class="form-control mt-3 p-3 border-3 border-info text-start">
+      <form [formGroup]="form" action="" method="get" class="form-control mt-3 p-3 border-3 border-info text-start">
         <div class="mb-3 row">
           <label for="Título" class="col-sm-2 col-form-label">Título</label>
           <div class="col-sm-10">
             <input
               type="text"
-              placeholder="Título"
+              placeholder="{{item.title}}"
               id="Título"
               class="form-control"
-              [(ngModel)]="item.title"
+              formControlName="title"
               name="title"
               value="">
+              <div class="mensaje"
+              *ngIf="form.get('title')?.hasError('required') && form.get('title')?.touched">
+              <p class="text-danger">El título es requerido</p>
+            </div>
           </div>
         </div>
         <div class="mb-3 row">
@@ -32,12 +36,16 @@
           <div class="col-sm-10">
             <input
               type="text"
-              placeholder="Descripción"
+              placeholder="{{item.description}}"
               id="Descripción"
               class="form-control"
-              [(ngModel)]="item.description"
+              formControlName="description"
               name="description"
               value="">
+              <div class="mensaje"
+              *ngIf="form.get('description')?.hasError('required') && form.get('description')?.touched">
+              <p class="text-danger">La descripción es requerida</p>
+            </div>
           </div>
         </div>
         <div class="mb-3 row">
@@ -45,12 +53,16 @@
           <div class="col-sm-10">
             <input
               type="text"
-              placeholder="Responsable"
+              placeholder="{{item.responsible}}"
               id="Responsable"
               class="form-control"
-              [(ngModel)]="item.responsible"
+              formControlName="responsible"
               name="responsible"
               value="">
+              <div class="mensaje"
+              *ngIf="form.get('responsible')?.hasError('required') && form.get('responsible')?.touched">
+              <p class="text-danger">El responsable es requerido</p>
+            </div>
           </div>
         </div>
       </form>
@@ -59,8 +71,9 @@
 </div>
 <div class="row m-3">
   <div class="col col-lg-1"></div>
-  <div class="col col-10">
-    <button type="button" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto" (click)="sendItem()"
+  <div class="col col-10"
+  *ngIf="form.valid">
+    <button type="submit" form="form" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto" (click)="sendItem()"
       [routerLink]="routePrincipal">
       <i class="bi bi-arrow-repeat"> Actualizar</i>
     </button>

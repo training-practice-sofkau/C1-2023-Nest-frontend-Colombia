@@ -5,6 +5,8 @@ import { TodoListService } from '../../services/todo-list/todo-list.service';
 import { todoListModel } from '../../models/todo-list.model';
 import { TodoListI } from '../../interfaces/todo-list.interface';
 
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 @Component({
   selector: 'sofka-edit-item',
   templateUrl: './edit-item.component.html',
@@ -12,12 +14,15 @@ import { TodoListI } from '../../interfaces/todo-list.interface';
 })
 export class EditItemComponent implements OnInit{
 
+  form: FormGroup
+
   routePrincipal: string[];
+
   item: TodoListI;
 
   id: string | null | undefined;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private todoListService: TodoListService)
+  constructor(private fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute, private todoListService: TodoListService)
   {
 
     this.routePrincipal = ['../../'];
@@ -31,11 +36,19 @@ export class EditItemComponent implements OnInit{
       state: 0,
     };
 
+    this.form = new FormGroup({
+      title: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+      description: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
+      responsible: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+    });
+
+
+
+
   }
   sendItem(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    const item = new todoListModel(this.item.title, this.item.description, this.item.responsible);
-    this.todoListService.editItemById(this.id, item).subscribe({
+    this.todoListService.editItemById(this.id, this.form.getRawValue()).subscribe({
       next: (data) =>  console.log(data),
       error: err =>  console.log(err),
       complete: () =>  console.log('complete'),
@@ -45,11 +58,10 @@ export class EditItemComponent implements OnInit{
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.todoListService.getItemById(this.id).subscribe({
-      next: (data) =>  {this.item = data;},
+      next: (data) =>  this.item = data,
       error: err =>  console.log(err),
       complete: () =>  console.log('complete'),
     });
-    //console.log(this.itemId);
   }
 
   return(): void {
