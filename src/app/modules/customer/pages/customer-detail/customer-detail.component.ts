@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CustomerInterface } from '../../../main/interfaces/customer.interface';
+import { AuthService } from '../../../auth/services/auth.service';
+import { UserInterface } from '../../../auth/interfaces/user.interface';
+import { DocumentTypeEnum } from '../../../../shared/enums/document-type.enum';
 
 @Component({
   selector: 'sofka-bank-customer-detail',
@@ -8,19 +11,16 @@ import { CustomerInterface } from '../../../main/interfaces/customer.interface';
 })
 export class CustomerDetailComponent implements OnInit {
 
-  constructor() { }
+  user!: UserInterface;
+
+  constructor(private readonly auth$: AuthService) { }
 
   ngOnInit(): void {
+    this.getUserInfo();
   }
-  newCustomer: CustomerInterface = {
-    fullName: 'fullName',
-    birthDate: new Date('1992-01-01'),
-    document: '22',
-    email: 'email@email.com',
-    password: 'password',
-    phone: 'phone',
-    avatarUrl: 'avatarUrl',
-    amount: 4555.99
+
+  getUserInfo(): void {
+    this.user = <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? '');
   }
 
   getPercentage(object: Object): number {
@@ -29,8 +29,16 @@ export class CustomerDetailComponent implements OnInit {
     let json = JSON.parse(JSON.stringify(object));
     for (let x in object) {
       len++
-      if(json[x]!=='') {value++}
+      if (json[x] !== '') { value++ }
     }
-    return value/len
+    return value / len
+  }
+
+  getKeyByValue(value: string) {
+    const indexOfS = Object.values(DocumentTypeEnum).indexOf(value as unknown as DocumentTypeEnum);
+  
+    const key = Object.keys(DocumentTypeEnum)[indexOfS];
+  
+    return key;
   }
 }

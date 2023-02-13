@@ -2,18 +2,16 @@
   <table class="table">
     <thead>
       <tr class="text-center">
-        <th scope="col">AccountId</th>
-        <th scope="col">CustomerId</th>
-        <th scope="col">accountTypeId</th>
+        <th scope="col">Account Id</th>
+        <th scope="col">Account Type</th>
         <th scope="col">Balance</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody class="table-group-divider">
       <tr *ngFor="let a of accounts?.accounts">
-        <td scope="row">{{a.id}}</td>
-        <td>{{a.customerId}}</td>
-        <td>{{a.accountTypeId}}</td>
+        <td scope="row">{{a.id | slice:0:8}}</td>
+        <td>{{a.accountType.name}}</td>
         <td>{{a.balance}}</td>
         <td>
           <div class="btn-group" role="group">

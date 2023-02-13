@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AccountService } from '../services/account.service';
+import { AccountService } from '../../services/account.service';
 import { AccountInterface } from '../../interfaces/account.interface';
 import { PageAccountsInterface } from '../../interfaces/page-accounts.interface';
 

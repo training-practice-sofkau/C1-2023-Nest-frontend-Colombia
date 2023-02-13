@@ -3,7 +3,7 @@ export interface UserInterface {
   success: boolean
   data: {
     id: string;
-    documentTypeId: DocumentTypeEnum;
+    documentTypeId: string;
     document: string;
     fullName: string;
     email: string;

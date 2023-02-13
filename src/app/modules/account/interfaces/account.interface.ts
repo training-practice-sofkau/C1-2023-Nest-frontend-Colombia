@@ -1,6 +1,6 @@
 export interface AccountInterface {
   id: string;
   customerId: string;
-  accountTypeId: string;
+  accountType: { id: string, name: string };
   balance: number;
 }
