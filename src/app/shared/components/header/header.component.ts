@@ -4,12 +4,15 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'bank-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
-  clearSesion(){
+  constructor() {}
+  localstorage(): boolean {
+    if (localStorage.getItem('id')) return true;
+    return false;
+  }
+  clearSesion() {
     Swal.fire({
       position: 'top-end',
       icon: 'success',
@@ -17,9 +20,7 @@ export class HeaderComponent implements OnInit {
       showConfirmButton: false,
       timer: 1500,
     });
-    localStorage.clear()
+    localStorage.clear();
   }
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
