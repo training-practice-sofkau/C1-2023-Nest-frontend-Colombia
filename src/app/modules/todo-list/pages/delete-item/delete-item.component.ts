@@ -9,7 +9,7 @@ import { TodoListService } from '../../services/todo-list/todo-list.service';
   templateUrl: './delete-item.component.html',
   styleUrls: ['./delete-item.component.scss']
 })
-export class DeleteItemComponent implements OnInit{
+export class DeleteItemComponent implements OnInit	{
 
   item: TodoListI;
   itemId: string | null | undefined;
@@ -28,15 +28,24 @@ export class DeleteItemComponent implements OnInit{
   };
 }
 
+ngOnInit(): void {
+  this.itemId = this.activatedRoute.snapshot.paramMap.get('id');
+  this.todoListService.getItemById(this.itemId).subscribe({
+    next: (data) =>  {this.item = data;},
+    error: err =>  console.log(err),
+    complete: () =>  console.log('complete'),
+  });
+  //console.log(this.itemId);
+}
 
-  ngOnInit(): void {
+sendItem(): void {
     this.itemId = this.activatedRoute.snapshot.paramMap.get('id');
     this.todoListService.deleteItemById(this.itemId).subscribe({
       next: (data) =>  {this.item = data;},
       error: err =>  console.log(err),
       complete: () =>  console.log('complete'),
     });
-    //console.log(this.itemId);
+    console.log(this.item);
   }
 
   return(): void {
