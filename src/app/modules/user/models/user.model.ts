@@ -3,13 +3,11 @@ export class UserModel {
   fullName: string;
   email: string;
   phone: string;
-  documentType: string;
-  constructor() {
-    this.document = '';
-    this.fullName = '';
-    this.email = '';
-    this.documentType = '';
-    this.phone = '';
+  constructor(document: string, fullName: string, email: string, phone: string) {
+    this.document = document
+    this.fullName = fullName
+    this.email = email
+    this.phone = phone
   }
 
   getData() {
@@ -18,7 +16,6 @@ export class UserModel {
       fullName: this.fullName,
       email: this.email,
       phone: this.phone,
-      documentType: this.documentType,
     };
   }
 }

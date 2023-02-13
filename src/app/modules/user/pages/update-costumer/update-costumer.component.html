@@ -1,2 +1,24 @@
-<app-nav-info-customer></app-nav-info-customer>
-<p>update-costumer works!</p>
+<div class="container-update-customer">
+    <div class="subcontainer">
+        <div class="sub-container-image">
+            <img>
+        </div>
+        <div class="sub-container">
+            <h5> Nombre: </h5>
+            <input class="sub-container-input" placeholder="{{fullName}}">
+        </div>
+        <div class="sub-container">
+            <h5> Documento: </h5>
+            <input class="sub-container-input" placeholder="{{document}}">
+        </div>
+        <div class="sub-container">
+            <h5> Email: </h5>
+            <input class="sub-container-input" placeholder="{{email}}">
+        </div>
+        <div class="sub-container">
+            <h5> Telefono: </h5>
+            <input class="sub-container-input" placeholder="{{phone}}">
+        </div>
+        <button class="cic-update" (click)="updateUser()">Actualizar</button>
+    </div>
+</div>

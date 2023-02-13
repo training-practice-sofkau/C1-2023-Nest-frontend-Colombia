@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginModel } from '../../models/login.model';
 import { ServiceUserService } from '../../../user/services/user-service/service-user.service';
+import { Route, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -11,18 +13,37 @@ export class LoginComponent implements OnInit {
   email: string;
   password: string;
   token: string;
-  constructor(private readonly userService: ServiceUserService) {
+  constructor(private readonly userService: ServiceUserService,
+    private readonly route: Router) {
     this.email = '';
     this.password = '';
     this.token = '';
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   login() {
     const newLogin = new LoginModel(this.email, this.password);
-    this.userService.login(newLogin).subscribe((res:any)=>{
-      localStorage.setItem("token",res.access_token)
-    });
+    this.userService.login(newLogin).subscribe({
+      next: (data) => {
+        localStorage.setItem("token", data.access_token)
+        this.goToHomeUser()
+        console.log(data)
+      },
+      error: (err) => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: err.error.message
+        })
+      },
+      complete: () => {
+        console.log("complete")
+      }
+    })
+  }
+
+  goToHomeUser() {
+    this.route.navigate(["./customer/home"])
   }
 }

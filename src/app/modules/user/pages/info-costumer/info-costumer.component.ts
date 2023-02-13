@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IGetUser } from '../../../main/interfaces/user-get/user-get.interface';
 import { NewUserModel } from '../../../main/models/new-user.model';
 import { ServiceUserService } from '../../services/user-service/service-user.service';
@@ -16,7 +17,8 @@ export class InfoCostumerComponent implements OnInit {
   phone: string;
   users: any
 
-  constructor(private readonly userService: ServiceUserService) {
+  constructor(private readonly userService: ServiceUserService,
+    private readonly route: Router) {
     this.document = ""
     this.fullName = ""
     this.email = ""
@@ -32,11 +34,14 @@ export class InfoCostumerComponent implements OnInit {
     this.userService.getAllUser().subscribe({
       next: (data) => {
         this.users = data
-        console.log(this.users)
       },
       error: (err) => { console.log(err) },
       complete: () => { console.log("complete") }
     })
   }
 
+  goToUpdate(id: string) {
+    console.log(id)
+    this.route.navigate(["customer/update/" + id])
+  }
 }

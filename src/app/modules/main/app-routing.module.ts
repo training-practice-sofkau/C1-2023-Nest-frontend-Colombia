@@ -22,10 +22,11 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'account/:id', component: InfoAccountComponent },
   { path: 'customer/home', component: HomeCustomerComponent },
+  { path: 'customer/update/:id', component: UpdateCostumerComponent }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
