@@ -29,16 +29,20 @@ export class HomeCustomerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    const idLocal = localStorage.getItem('token');
+    const idLocal = localStorage.getItem('id');
+    console.log(localStorage.getItem("token"))
     this.id = idLocal !== null ? idLocal : '';
     this.customerService.getUserById(this.id).subscribe({
       next: (data) => {
-        console.log(data);
+        this.document = data.document
+        this.fullName = data.fullName
+        this.email = data.email
+        this.phone = data.phone
       },
       error: (err) => {
         console.log(err);
       },
-      complete:()=>{"complete"}
+      complete: () => { "complete" }
     });
   }
 

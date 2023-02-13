@@ -1,5 +1,3 @@
-import { IDocumenType } from "./document-type.model";
-
 export class IUpdateUser {
     documentType: string;
     document: string;

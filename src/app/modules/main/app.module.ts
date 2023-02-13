@@ -85,4 +85,4 @@ export function getToken() {
   providers: [ServiceUserService, ServiceAccountService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

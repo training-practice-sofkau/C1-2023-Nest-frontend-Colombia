@@ -27,8 +27,8 @@ export class LoginComponent implements OnInit {
     this.userService.login(newLogin).subscribe({
       next: (data) => {
         localStorage.setItem("token", data.access_token)
+        localStorage.setItem("id", data.id)
         this.goToHomeUser()
-        console.log(data)
       },
       error: (err) => {
         Swal.fire({

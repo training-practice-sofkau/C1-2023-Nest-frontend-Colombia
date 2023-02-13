@@ -1,3 +1,4 @@
 export interface IResLogin {
-    access_token: string
+    access_token: string,
+    id: string
 }
