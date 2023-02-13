@@ -7,19 +7,25 @@
         <table class="table table-bordered table-dark">
             <thead>
             <tr>
+                <th scope="col">Fecha</th>
+                <th scope="col">Dia</th>
+                <th scope="col">Mes</th>
+                <th scope="col">Año</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Descripcion</th>
                 <th scope="col">Jornada</th>
             </tr>
             </thead>
             <tbody>
-            <tr *ngForm="let tarea of tareas" (click)="editarTarea(tarea.TareaId)">
-                <th scope="row">{{tarea.Nombre}}</th>
-                <td>{{tarea.Descripcion}}</td>
-                <td>{{tarea.Jornada}}</td>
-                <td>Organizacion de datos</td>
-                <td>Se deben organizar datos para la optimizacion</td>
-                <td>Madrugada</td>
+            <tr *ngFor="let tarea of tareas.lista1"> <--(click)="editarTarea(tarea.TareaId)-->
+                <th scope="row">{{tarea.fecha}}</th>
+                <th scope="row">{{tarea.dia}}</th>
+                <th scope="row">{{tarea.mes}}</th>
+                <th scope="row">{{tarea.ano}}</th>
+                <th scope="row">{{tarea.nombre}}</th>
+                <th scope="row">{{tarea.nombre}}</th>
+                <td scope="row">{{tarea.descripcion}}</td>
+                <td scope="row">{{tarea.jornada}}</td>
             </tbody>
         </table>
     </div>

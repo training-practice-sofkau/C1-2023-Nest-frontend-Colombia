@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/servicios/api/api.service';
 import { LoginI } from 'src/app/modelos/login.interface';
@@ -11,9 +10,10 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent implements OnInit{
 
-  loginForm = new FormGroup({
+  LoginForm = new FormGroup({
     usuario : new FormControl('usuario',Validators.required),
     password : new FormControl('password',Validators.required)
   })
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit{
     }
   }
 
-  onLogin(form: LoginI){
+  onLogin(form: any){
     this.api.loginByEmail(form).subscribe(data => {let dataResponse: ResponseI = data;
     if(dataResponse.status == "ok"){
       localStorage.setItem("token",dataResponse.result.token);

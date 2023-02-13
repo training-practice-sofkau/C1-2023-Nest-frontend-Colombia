@@ -13,17 +13,17 @@ import { AlertasService } from 'src/app/servicios/alertas/alertas.service';
 })
 export class NuevoComponent implements OnInit {
 
-  nuevoForm = new FormGroup([
+  nuevoForm = new FormGroup({
     nombre: new FormControl(''),
     descripcion: new FormControl(''),
-    jornada: new FormControl(''),]);
+    jornada: new FormControl('')});
 
     constructor(private api:ApiService, private router:Router, private alertas: AlertasService){}
 
     ngOnInit() : void{
       let token = localStorage.getItem('token');
       this.nuevoForm.patchValue({
-        'token': token
+     //   'token': token,
       });
     }
 
@@ -33,7 +33,7 @@ export class NuevoComponent implements OnInit {
       })
     }
 
-    salir(){
+    Salir(){
       this.router.navigate(['dashboard']);
     }
 }

@@ -1,6 +1,6 @@
 <app-header></app-header>
     <div class="container">
-        <form [[formGroup]="nuevoForm"] (ngSubmit="postForm(nuevoForm.value)")>
+        <form [formGroup]="nuevoForm" (ngSubmit="postForm(nuevoForm.value)")>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Nombre</label>
                 <input type="text" class="form-control" placeholder="Nombre de la tarea" formControlName="nombre">

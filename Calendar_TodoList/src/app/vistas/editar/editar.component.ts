@@ -13,35 +13,47 @@ import { AlertasService } from 'src/app/servicios/alertas/alertas.service';
 })
 export class EditarComponent implements OnInit {
 
- datoTarea !: TareaI;
+  tarea !: TareaI;
 
-editarForm = new FormGroup([
+  constructor(private Activaterouter:ActivatedRoute, private router:Router, private api:ApiService,
+    private alertas:AlertasService){}
+
+  datoTarea !: TareaI;
+
+  EditarForm = new FormGroup({
     nombre: new FormControl(''),
     descripcion: new FormControl(''),
-    jornada: new FormControl(''),]);
-
-  constructor(private Activaterouter:ActivatedRoute, private router:Router, private api:ApiService, private alertas:AlertasService){}
+    jornada: new FormControl('')});
 
   ngOnInit(): void{
-    let tareaId = this.Activaterouter.snapshot.paramMap.get('id');
-    let token = this.getToken();
-    this.api.getSingleTarea(tareaId).subscribe((data: any) =>{
+   // let tareaid = this.Activaterouter.snapshot.paramMap.get('id');
+   /* let token = this.getToken();
+    this.api.getSingleTarea(tareaid).subscribe((data: any) =>{
       this.datoTarea = data[0];
-      this.editarForm.setValue({
-        'nombre':this.datoTarea.Nombre,
-        'descripcion':this.datoTarea.Descripcion,
-        'jornada':this.datoTarea.Jornada,
+      this.EditarForm.setValue({
+        'nombre':this.datoTarea.nombre,
+        'descripcion':this.datoTarea.descripcion,
+        'jornada':this.datoTarea.jornada
       })
-
-    } )
+    })*/
   }
 
   getToken(){
     return localStorage.getItem('token')
   }
 
-  postForm(form: TareaI){
-    this.api.putTarea(form).subscribe((data) =>{
+  postForm(form: any){
+
+    this.tarea={
+      nombre : form.nombre,
+      descripcion : form.descripcion,
+      jornada : form.jornada,
+    };
+
+    console.log(form);
+    console.log(this.tarea);
+
+    this.api.putTarea(this.tarea).subscribe((data) =>{
       let respuesta : ResponseI = data;
       if(respuesta.status=="ok"){
         this.alertas.showSuccess('Dato modificado', 'Hecho');
@@ -51,8 +63,8 @@ editarForm = new FormGroup([
     });
   }
 
-  Eliminar(){
-    let datos : TareaI = this.editarForm.value;
+ /* Eliminar(){
+    let datos : TareaI = this.EditarForm.value;
     this.api.deleteTarea(datos).subscribe(data =>{
       let respuesta : ResponseI = data;
       if(respuesta.status=="ok"){
@@ -62,7 +74,7 @@ editarForm = new FormGroup([
         this.alertas.showError(respuesta.result.error_msg, 'Error');
       }
     })
-  }
+  }*/
 
   Salir(){
     this.router.navigate(['dashboard']);
