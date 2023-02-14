@@ -5,8 +5,8 @@ import { Observable, of } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 
 // Models
-import { NewUserModel } from '../models/new-user.model';
-import { UserModel } from '../models/user.model';
+import { NewAuthModel } from '../models/new-user.model';
+import { AuthModel } from '../models/auth.model';
 
 // Variables and interfaces
 import { environment } from 'src/environments/environment';
@@ -23,7 +23,7 @@ export class AuthService {
 
   constructor(private readonly http: HttpClient) { }
 
-  signUp(user: NewUserModel): Observable<UserInterface> {
+  signUp(user: NewAuthModel): Observable<UserInterface> {
     return this.http.post<UserInterface>(this.uri + 'signup', user)
       .pipe(
         tap(
@@ -32,7 +32,7 @@ export class AuthService {
           }))
   }
 
-  signIn(user: UserModel): Observable<UserInterface> {
+  signIn(user: AuthModel): Observable<UserInterface> {
     return this.http.post<UserInterface>(this.uri + 'signin', user)
       .pipe(
         tap(

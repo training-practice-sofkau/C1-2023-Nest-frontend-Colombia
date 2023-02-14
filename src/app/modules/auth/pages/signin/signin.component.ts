@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
-import { UserModel } from '../../models/user.model';
+import { AuthModel } from '../../models/auth.model';
 import { UserInterface } from '../../interfaces';
 import { Router } from '@angular/router';
 import { environment } from 'src/environments/environment';
@@ -43,7 +43,7 @@ export class SigninComponent implements OnInit {
   }
 
   onSubmit() {
-    const user = <UserModel>this.checkoutForm.value;
+    const user = <AuthModel>this.checkoutForm.value;
     this.auth$.signIn(user).subscribe({ 
       next: (data) => this.handlerSuccess(data),
       error: (err) => this.handlerError(err),

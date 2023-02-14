@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 // Models and interfaces
-import { NewUserModel } from '../../models/new-user.model';
+import { NewAuthModel } from '../../models/new-user.model';
 import { UserInterface } from '../../interfaces/user.interface';
 
 import { DocumentTypeEnum } from '../../../../shared/enums/document-type.enum';
@@ -71,7 +71,7 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const user = <NewUserModel>this.checkoutForm.value
+    const user = <NewAuthModel>this.checkoutForm.value
     switch (this.checkoutForm.value.documentTypeId) {
       case 'CC': user.documentTypeId = DocumentTypeEnum.CC;
         break;

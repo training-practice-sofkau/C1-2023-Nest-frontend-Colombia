@@ -1,6 +1,6 @@
 import { DocumentTypeEnum } from "src/app/shared/enums/document-type.enum";
 
-export class NewUserModel {
+export class NewAuthModel {
   id?:string;
   documentTypeId: DocumentTypeEnum;
   document: string;

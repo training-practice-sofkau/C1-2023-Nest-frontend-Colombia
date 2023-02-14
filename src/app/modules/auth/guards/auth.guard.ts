@@ -24,7 +24,10 @@ export class AuthGuard implements CanActivate, CanLoad {
     return this.auth$.refreshToken()
       .pipe(
         tap(valid => {
-          if (!valid) this.router.navigate(['index'])
+          if (!valid) {
+            localStorage.removeItem('currentUser')
+            this.router.navigate(['index'])
+          }
         }));
   }
 
@@ -32,7 +35,10 @@ export class AuthGuard implements CanActivate, CanLoad {
     return this.auth$.refreshToken()
       .pipe(
         tap(valid => {
-          if (!valid) this.router.navigate(['index'])
+          if (!valid) {
+            localStorage.removeItem('currentUser')
+            this.router.navigate(['index'])
+          }
         }));
   }
 }
