@@ -45,6 +45,8 @@ export class ActualizarTareaComponent {
   
 
   actualizar(){
+    console.log(this.tareaForm);
+    this.tareaForm.get('isCompleted')?.setValue(JSON.parse(this.tareaForm.get('isCompleted')?.value));
     this.rutaActiva.params.subscribe( params => {
       this.tareaService.putTarea(params['dia'],params['id'],this.tareaForm.value)
         .subscribe(tarea => {
