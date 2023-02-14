@@ -1,23 +1,71 @@
 <div class="container-login">
   <div class="row">
-      <div class="card">
-        <form class="box form-login">
-          <h1>Registrarse</h1>
-          <p class="text-muted"> Por favor ingrese todos los datos ya que son obligatorios!</p>
-          <input type="text" name="" placeholder="Nombre completo">
-          <input type="text" name="" placeholder="Tipo de documento">
-          <input type="number" name="" placeholder="Cedula">
-          <select id="document" name="">
-            <option type="text text-muted" value="CC">Cedula de ciudadania</option>
-            <option type="text text-muted" value="CE">Cedula de Extranjeria</option>
-          </select>
-          <input type="number" name="" placeholder="Phone">
-          <input type="text" name="" placeholder="Correo">
-          <input type="password" name="" placeholder="Contraseña">
-          <input type="submit" name="" value="Register" href="#">
-          <br>
-        </form>
-      </div>
+    <div class="card">
+      <form
+        class="box form-login"
+        id="formRegister"
+        (ngSubmit)="registerCustomer()">
+        <h1>Registrarse</h1>
+        <p class="text-muted">
+          Por favor ingrese todos los datos ya que son obligatorios!
+        </p>
+        <input
+          type="text"
+          name="fullName"
+          placeholder="Nombre completo"
+          [(ngModel)]="fullName"
+        />
+        <input
+          type="text"
+          name="document"
+          placeholder="Cedula"
+          [(ngModel)]="document"
+        />
+        <select
+          id="document"
+          class="text-light"
+          name="documentTypeId"
+          [(ngModel)]="documentTypeId"
+        >
+          <option
+            id="document"
+            class="text-dark"
+            type="text text-muted"
+            value="c822487e-5e89-4a49-98d5-50ce60b300b1"
+            selected
+          >
+            Cedula de ciudadania
+          </option>
+          <option
+            id="document"
+            class="text-dark"
+            type="text text-muted"
+            value="64911806-283f-4e71-ab94-f9098e18cf9a"
+          >
+            Cedula de Extranjeria
+          </option>
+        </select>
+        <input
+          type="text"
+          name="phone"
+          placeholder="Phone"
+          [(ngModel)]="phone"
+        />
+        <input
+          type="text"
+          name="email"
+          placeholder="Correo"
+          [(ngModel)]="email"
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Contraseña"
+          [(ngModel)]="password"
+        />
+        <input type="submit" form="formRegister" value="Register" />
+        <br />
+      </form>
+    </div>
   </div>
 </div>
-
