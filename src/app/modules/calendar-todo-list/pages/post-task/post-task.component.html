@@ -1,28 +1,47 @@
-
-<div class="form-floating mb-3">
-  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput"></label>
+<div class="col col-10">
+  <h3>Agregar</h3>
+  <div class="text-center">
+    <form action="" method="get" class="form-control mt-3 p-3 border-3 border-info text-start">
+    <form action="" id="frmAddItem" (ngSubmit)="sendData()"
+      class="form-control mt-3 p-3 border-3 border-info text-start">
+      <div class="mb-3 mt-2 row">
+        <label for="Día" class="col-sm-2 col-form-label">DIA DE FEBRERO</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="numberDaY" placeholder="1" [(ngModel)]="idCalendar" name="idCalendar"
+            min="1" max="28" required>
+        </div>
+      </div>
+      <hr>
+      <div class="mb-3 row">
+        <label for="Título" class="col-sm-2 col-form-label">Título</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="Título" placeholder="Tarea importante" [(ngModel)]="title"
+            name="title" required>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="Descripción" class="col-sm-2 col-form-label">Descripción</label>
+        <div class="col-sm-10">
+          <textarea type="text" class="form-control" id="Descripción" placeholder=" Realizar un api con Angular"
+            [(ngModel)]="descripccion" name="description" required></textarea>
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="Responsable" class="col-sm-2 col-form-label">Responsable</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="Responsable" placeholder="Nombre" [(ngModel)]="resposible"
+            name="resposible" required>
+        </div>
+        <div class="col-sm-10">
+          <label for="Estado" class="col-sm-2 col-form-label">Estado de la tarea</label>
+          <input type="text" class="form-control" id="isCompleted" placeholder="true o false" [(ngModel)]="isCompleted"
+            name="isCompleted" required>
+        </div>
+      </div>
+      <div class="mb-3 row" hidden>
 </div>
+<button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
+<button type="submit" form="frmAddItem" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto">
+  <i class="bi bi-folder-plus"> Guardar</i>
+</button>
 
-<div class="form-floating mb-3">
-  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput"></label>
-</div>
-
-<div class="form-floating mb-3">
-  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput"></label>
-</div>
-
-<div class="form-floating">
-  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-    <option selected>Esta Completa tu tarea?</option>
-    <option value="1">Si</option>
-    <option value="2">No</option>
-  </select>
-  <label for="floatingSelect">Works with selects</label>
-</div>
-
-
-<button type="button" class="btn btn-primary" id="ShowAllTaskFinish">MOSTRAR TODAS MIS TAREAS</button>
-  <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>

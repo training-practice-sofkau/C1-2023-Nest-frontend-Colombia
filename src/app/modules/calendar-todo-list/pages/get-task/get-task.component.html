@@ -1,27 +1,28 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body id="bodyGetTask">
-
-
   <div class="d-grid gap-2 col-6 mx-auto">
-
     <div class="spinner-border text-danger" role="status" id="divSpiner">
       <span class="visually-hidden" >Loading...</span>
     </div>
-    <button type="button" class="btn btn-primary" id="ShowAllTaskFinish">MOSTRAR TODAS MIS TAREAS</button>
     <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
+    <div *ngFor="let data of calendarWithTask" class="col-3 mb-3">
+      <div class="card border border-1 border-success">
+        <div class="card-body">
+          <h5 class="card-title">Día: {{data.numberDaY}} </h5>
+          <h6 class="card-subtitle mb-2 text-muted">Tareas:</h6>
+          <ul *ngFor="let final of data.items">
+          <p>Titulo de tarea:</p>
+          <h6 class="card-title">{{final.title}}</h6>
+          <label>Descripccion de la tarea: </label>
+          <h6 class="card-title">{{final.descripccion}}</h6>
+          <label>Responsable: </label>
+          <h6 class="card-title">{{final.resposible}}</h6>
+          <label>Esta o no completada</label>
+          <h6 class="card-title">{{final.isCompleted}}</h6>
+           <label>---------------------------</label>
+          </ul>
+        </div>
+      </div>
+    </div>
+    </div>
 
-
-  </div>
-
-
-</body>
-</html>
 

@@ -13,8 +13,6 @@ import { AppComponent } from './pages/app.component';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    //PrincipalComponent
-
   ],
   declarations: [
     AppComponent
