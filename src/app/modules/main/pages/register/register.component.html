@@ -47,10 +47,10 @@
         <label>Phone number</label>
         <div>
           <input
-            type="phonrNumber"
+            type="phoneNumber"
             placeholder=""
             [(ngModel)]="phone"
-            name="phonrNumber" />
+            name="phoneNumber" />
         </div>
       </div>
       <div class="row">
@@ -65,15 +65,15 @@
       </div>
       <div class="my-md-2 my-3">
         <button
+          style="margin: 10px"
           type="button"
           class="btn btn-secondary"
           [routerLink]="routrHome">
           home
         </button>
-        <button type="button" class="btn btn-secondary" (click)="senData()">
+        <button type="reset" class="btn btn-secondary" (click)="senData()">
           registrar
         </button>
-        <input class="btn btn-secondary" type="reset" value="Borrar" />
       </div>
     </div>
     {{ fullName }}
@@ -84,3 +84,5 @@
     {{ password }}
   </div>
 </form>
+
+<!-- modificando algunos datos de formulario -->
