@@ -14,8 +14,8 @@ import { UserModel } from '../../models/user.model';
 export class ServiceUserService {
   constructor(private readonly httpClient: HttpClient) { }
 
-  createNewUser(newUser: NewUserModel) {
-    return this.httpClient.post(
+  createNewUser(newUser: NewUserModel):Observable<IResLogin> {
+    return this.httpClient.post<IResLogin>(
       'http://localhost:3000/security/register',
       newUser
     );

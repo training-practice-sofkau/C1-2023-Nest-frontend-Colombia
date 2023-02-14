@@ -36,6 +36,7 @@ import { ServiceAccountService } from '../account/services/account-service/servi
 import { InfoAccountComponent } from '../account/pages/info-account/info-account.component';
 import { HomeCustomerComponent } from '../user/pages/home-customer/home-customer.component';
 import { JwtModule } from '@auth0/angular-jwt';
+import { AccountUserComponent } from '../account/pages/account-user/account-user.component';
 
 export function getToken() {
   return localStorage.getItem('token');
@@ -70,6 +71,7 @@ export function getToken() {
     NavInfoCustomerComponent,
     InfoAccountComponent,
     HomeCustomerComponent,
+    AccountUserComponent
   ],
   imports: [
     BrowserModule,

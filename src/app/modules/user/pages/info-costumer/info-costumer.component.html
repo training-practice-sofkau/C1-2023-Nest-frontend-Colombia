@@ -1,22 +1,37 @@
-<div class="container-info-customer">
-    <h5>{{fullName | customPipeData}} </h5>
+<div class="super-container-all-users">
+  <div class="container-info-customer">
+    <h5>{{ fullName | customPipeData }}</h5>
     <div class="container-form" *ngFor="let user of users">
-        <div class="sub-container-image">
-            <img>
-        </div>
-        <div class="sub-container">
-            <h5> Nombre: </h5>
-            <input class="sub-container-input" disabled placeholder="{{user.fullName}}">
-        </div>
-        <div class="sub-container">
-            <h5> Email: </h5>
-            <input class="sub-container-input" disabled placeholder="{{user.email}}">
-        </div>
-        <div class="sub-container">
-            <h5> Telefono: </h5>
-            <input class="sub-container-input" disabled placeholder="{{user.phone}}">
-        </div>
-        <button class="cic-update" (click)="goToUpdate(user.id)">Actualizar</button>
+      <div class="sub-container-image">
+        <img />
+      </div>
+      <div class="sub-container">
+        <h5>Nombre:</h5>
+        <input
+          class="sub-container-input"
+          disabled
+          placeholder="{{ user.fullName }}"
+        />
+      </div>
+      <div class="sub-container">
+        <h5>Email:</h5>
+        <input
+          class="sub-container-input"
+          disabled
+          placeholder="{{ user.email }}"
+        />
+      </div>
+      <div class="sub-container">
+        <h5>Telefono:</h5>
+        <input
+          class="sub-container-input"
+          disabled
+          placeholder="{{ user.phone }}"
+        />
+      </div>
+      <button class="cic-update" (click)="goToUpdate(user.id)">
+        Actualizar
+      </button>
     </div>
-
+  </div>
 </div>
