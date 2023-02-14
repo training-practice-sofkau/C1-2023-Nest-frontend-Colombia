@@ -12,7 +12,7 @@ import { TodoListService } from '../../services/todo-list/todo-list.service';
 export class ViewItemComponent implements OnInit{
 
   item: TodoListI;
-  //itemId: TodoListI;
+
   routePrincipal: string[];
   itemId: string | null | undefined;
 
@@ -28,6 +28,8 @@ export class ViewItemComponent implements OnInit{
       isCompleted: 0,
       state: 0,
     };
+
+
 
   }
   ngOnInit(): void {

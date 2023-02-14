@@ -2,7 +2,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TodoListService } from '../../services/todo-list/todo-list.service';
-import { todoListModel } from '../../models/todo-list.model';
 import { TodoListI } from '../../interfaces/todo-list.interface';
 
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';

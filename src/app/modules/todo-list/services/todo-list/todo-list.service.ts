@@ -13,7 +13,7 @@ export class TodoListService {
   constructor(private readonly HttpClient: HttpClient) {}
 
   createItem(item: todoListModel): Observable<TodoListI> {
-    return this.HttpClient.post<TodoListI>('https://localhost:7281/api/Todoitem/', item.getData());
+    return this.HttpClient.post<TodoListI>('https://localhost:7281/api/Todoitem/', item);
   }
 
   getItems(): Observable<TodoListI[]> {
