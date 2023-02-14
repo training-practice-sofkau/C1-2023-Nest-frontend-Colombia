@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { Tarea } from '../../interfaces/tareas.interface';
-import { TAREAS } from '../../mocks/mock-tareas';
-import { TareaServiceService } from '../../services/tareaService/tarea-service.service';
+import { TareaService } from '../../services/tareaService/tarea.service';
 
 @Component({
   selector: 'sofka-principal',
@@ -9,10 +7,21 @@ import { TareaServiceService } from '../../services/tareaService/tarea-service.s
   styleUrls: ['./principal.component.scss']
 })
 export class PrincipalComponent {
-  resultados: Tarea[] = TAREAS;
-  routeListar: string[];
+  routeListar: string[] = ['../listar'];
+  tareas: number[];
 
-  constructor(private readonly tareaService: TareaServiceService){
-    this.routeListar = ['../listar'];
+  constructor(private readonly tareaService: TareaService){
+    this.tareas = new Array<number>();
   }
+
+  ngOnInit(): void {
+    this.tareaService.getAll().subscribe({
+      next: tareas => (this.tareas = tareas),
+      error: err => console.log(err),
+      complete: () => console.log('Complete')
+    });
+  }
+
+      
 }
+

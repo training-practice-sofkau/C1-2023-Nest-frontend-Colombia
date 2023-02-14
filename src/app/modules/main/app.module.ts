@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -9,7 +10,7 @@ import { MyPipePipe } from './pipes/my-pipe/my-pipe.pipe';
 
 @NgModule({
   declarations: [AppComponent, IndexComponent, MyPipePipe],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule ],
   providers: [],
   bootstrap: [AppComponent],
 })

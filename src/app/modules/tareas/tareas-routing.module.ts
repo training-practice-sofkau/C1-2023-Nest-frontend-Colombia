@@ -16,11 +16,11 @@ const routes: Routes = [
         component: PrincipalComponent
       },
       {
-        path: 'listar',// localhost:4200/tareas/listar
+        path: 'listar/:dia',// localhost:4200/tareas/listar
         component: ListarTareaComponent
       },
       {
-        path: 'detalle',// localhost:4200/tareas/detalle
+        path: 'detalle/:id',// localhost:4200/tareas/detalle
         component: DetalleTareaComponent
       },
       {
