@@ -1,0 +1,42 @@
+<header>
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <h1 class="display-4 fw-normal">Tu informacion</h1>
+    <p class="fs-3 text-muted">AliBank</p>
+  </div>
+</header>
+<div class="container-home-customer" style="background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; height: 100vh;">
+  <div class="chc-profile d-flex flex-column align-items-center">
+    <div class="chc-profile-first d-flex align-items-center">
+      <div class="chc-avatar rounded-circle mr-3"></div>
+      <h4 class="chc-name">{{ fullName }}</h4>
+    </div>
+    <div class="chc-profile-second d-flex justify-content-between w-100">
+      <div class="chc-info">
+        <h5>Nombre Completo</h5>
+        <h6>{{ fullName }}</h6>
+      </div>
+      <div class="chc-info">
+        <h5>Tipo de documento</h5>
+        <h6>{{ document }}</h6>
+      </div>
+    </div>
+    <div class="chc-profile-third d-flex justify-content-between w-100 mt-3">
+      <div class="chc-info">
+        <h5>Email</h5>
+        <h6>{{ email }}</h6>
+      </div>
+      <div class="chc-info">
+        <h5>Telefono</h5>
+        <h6>{{ phone }}</h6>
+      </div>
+    </div>
+    <div class="chc-profile-four d-flex justify-content-between w-100 mt-3">
+      <button class="btn btn-primary chc-accounts">Mis cuentas</button>
+      <button class="btn btn-primary chc-deposits">Mis depositos</button>
+      <button class="btn btn-primary chc-transfer">Mis transferencias</button>
+    </div>
+    <div class="chc-profile-five mt-3">
+      <button class="btn btn-primary chc-update">Actualizar Datos</button>
+    </div>
+  </div>
+</div>
