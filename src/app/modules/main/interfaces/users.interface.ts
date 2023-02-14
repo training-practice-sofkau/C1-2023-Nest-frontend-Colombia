@@ -1,5 +1,5 @@
 export interface IUsers {
-  documentTypeId: string;
+  documentType: { id: string };
   document: string;
   fullName: string;
   email: string;
