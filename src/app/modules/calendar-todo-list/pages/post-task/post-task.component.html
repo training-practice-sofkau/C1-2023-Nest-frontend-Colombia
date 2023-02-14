@@ -46,16 +46,6 @@
         </div>
       </div>
 
-        <div class="col-sm-10">
-          <label for="Estado" class="col-sm-2 col-form-label">Estado de la tarea</label>
-          <div class="col-sm-10">
-          <input type="text" class="form-control" id="isCompleted" placeholder="true o false"  formControlName="isCompleted"
-            name="isCompleted" required>
-            <div id="altoMensaje" *ngIf="frmFormReactive.get('isCompleted')?.hasError('required')
-         && frmFormReactive.get('isCompleted')?.touched">Campo requerido, ingresar por favor</div>
-        </div>
-      </div>
-
 <button type="submit" form="frmFormReactive" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto">
           <i class="bi bi-folder-plus"> Guardar</i>
 </button>

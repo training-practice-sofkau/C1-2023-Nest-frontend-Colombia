@@ -6,6 +6,7 @@ import { InewTask } from '../interfaces/new-task.interface';
 import { ICalendar } from '../interfaces/calendar.interface';
 import { catchError } from 'rxjs/operators';
 import { TaskModel } from '../models/task.model';
+import { OnlyTaskModel } from '../models/task-only.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,8 @@ export class TaskService {
 
   constructor(private readonly httClient: HttpClient) {}
 
-  createTask(task: TaskModel) : Observable<InewTask> {
-    return this.httClient.post<InewTask>('https://localhost:7281/api/Controlador',task.getData());
+  createTask(task: OnlyTaskModel) : Observable<InewTask> {
+    return this.httClient.post<InewTask>('https://localhost:7281/api/Controlador',task);
   }
 
 

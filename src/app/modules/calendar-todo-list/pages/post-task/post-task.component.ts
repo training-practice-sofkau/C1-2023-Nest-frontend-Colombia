@@ -51,13 +51,13 @@ export class PostTaskComponent {
     console.log('sendData',this.frmFormReactive);
 
     //console.log(this.frmFormReactive.getRawValue());
-    /*
+
     this.task$.createTask(this.frmFormReactive.getRawValue()).subscribe({
       next: data => console.log(data),
       error: err => console.log(err),
       complete: () => console.log('completo'),
     });
-    */
+
 
     /*
     const item = new TaskModel(
