@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AddItemModel } from '../models/addItem.model';
 import { TodoListService } from '../services/todo-list.service';
 
@@ -18,11 +18,11 @@ export class AddTodolistComponent {
     this.lista = ["../"]
 
     this.frmFormulario = new FormGroup({
-      title: new FormControl(''),
-      description: new FormControl(''),
-      responsible: new FormControl(''),
-      numberDay: new FormControl(0),
-      nameCalendar: new FormControl(''),
+      title: new FormControl(null, [Validators.required, Validators.maxLength(50)]),
+      description: new FormControl(null, Validators.required),
+      responsible: new FormControl(null, Validators.required),
+      numberDay: new FormControl(null, Validators.required),
+      nameCalendar: new FormControl(null, Validators.required),
     });
 
   }
@@ -38,5 +38,4 @@ export class AddTodolistComponent {
       complete: () => console.info('complete')
     })
   }
-
 }
