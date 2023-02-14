@@ -9,16 +9,14 @@ import { InfoComponent } from './components/info/info.component';
 import { ActionsComponent } from './components/actions/actions.component';
 import { GenerateComponent } from './components/generate/generate.component';
 
-
-
 @NgModule({
   declarations: [
-    AccountComponent,BalanceComponent, InfoComponent, ActionsComponent, GenerateComponent
+    AccountComponent,
+    InfoComponent,
+    BalanceComponent,
+    ActionsComponent,
+    GenerateComponent,
   ],
-  imports: [
-    CommonModule,AccountRoutingModule,
-    FormsModule,
-    HttpClientModule,
-  ]
+  imports: [CommonModule, AccountRoutingModule, FormsModule, HttpClientModule],
 })
-export class AccountModule { }
+export class AccountModule {}

@@ -1,30 +1,60 @@
 <div class="d-flex m-2 justify-content-center">
   <div class="card p-3">
+    <p class="text-white m-auto pt-3">Transferencia realizada con</p>
     <img
       src="https://i.imgur.com/LnN9yyV.png"
       alt=""
       width="50"
       class="m-auto"
     />
-    <p class="text-white m-auto pt-3">Comprobante:{{ transfer.id }}</p>
-    <div class="d-flex flex-row justify-content-between text-align-center">
-      <i class="fas fa-ellipsis-v"></i>
-    </div>
-    <p class="text-white">Cuenta de origen:{{ transfer.outCome.id }}</p>
+    <p class="text-white m-auto pt-3 font-weight-bold">JG Bank</p>
+    <p class="text-white m-auto pt-3 text-center">
+      Comprobante
+      <span
+        ><p class="text-white font-weight-bold">{{ transfer.id }}</p></span
+      >
+    </p>
+    <p class="text-white">
+      Desde cuenta:
+      <span class="text-white font-weight-bold">
+        {{ transfer.outCome.id }}
+      </span>
+    </p>
+    <p class="text-white">
+      Para cuenta:
+      <span class="text-white font-weight-bold">
+        {{ transfer.inCome.id }}
+      </span>
+    </p>
+    <p class="text-white mb-0">
+      ¿Cuánto?:
+      <span class="text-white font-weight-bold">
+        {{ transfer.amount | currency }}
+      </span>
+    </p>
     <br />
-    <p class="text-white">cuenta destino:{{ transfer.inCome.id }}</p>
-    <br />
-    <span class="text-white mb-2">{{ transfer.amount | currency }}</span>
-    <br />
-    <div class="card-bottom pt-3 px-3 mb-2">
+    <div class="card-bottom pt-3 px-3">
       <div class="d-flex flex-row justify-content-between text-align-center">
         <div class="d-flex flex-column">
-          <p>
-            <span class="text-dark">{{ transfer.reason }}</span>
+          <p class="text-white">
+            Mensaje:
+            <span
+              ><p>
+                <span class="text-dark text fs-5 m-0">{{
+                  transfer.reason
+                }}</span>
+              </p></span
+            >
           </p>
         </div>
       </div>
     </div>
     <br />
+    <p class="text-white">
+      Fecha:
+      <span class="text-white font-weight-bold mb-2">
+        {{ transfer.dateTime | date : "dd/MM/yyyy" }}
+      </span>
+    </p>
   </div>
 </div>

@@ -12,11 +12,17 @@ import { AccountInterface } from '../../interfaces/account.interface';
   styleUrls: ['./info.component.scss'],
 })
 export class InfoComponent implements OnInit {
-  customerId="";
-  accounts  = new Array<AccountInterface>;
-  constructor(private readonly accountService: AccountService, private customerService:CustomersService) {
+  customerId = '';
+  AccountId!: string;
+  accounts = new Array<AccountInterface>();
+  constructor(
+    private readonly accountService: AccountService,
+    private customerService: CustomersService
+  ) {}
+  getAccountId($event: string) {
+    this.AccountId = $event;
+    console.log($event);
   }
-
   ngOnInit(): void {
     // this.customerService.getCustomerObserv().subscribe((id) => this.customerId = id)
     //   this.accountService.getAll(this.customerId).subscribe({

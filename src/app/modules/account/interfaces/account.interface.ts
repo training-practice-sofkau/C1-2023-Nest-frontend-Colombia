@@ -10,4 +10,5 @@ export interface AccountInterface {
     name: string;
     state: boolean;
   };
+  selected: boolean;
 }
