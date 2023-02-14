@@ -22,7 +22,7 @@ const routes: Routes = [
         component: AgregarComponent
       },
       {
-        path: 'editar',
+        path: 'editar/:id',
         component: EditarComponent
       },
       {
@@ -30,7 +30,7 @@ const routes: Routes = [
         component: EliminarComponent
       },
       {
-        path: 'detalles',
+        path: 'detalles/:id',
         component: DetallesComponent
       }
     ],

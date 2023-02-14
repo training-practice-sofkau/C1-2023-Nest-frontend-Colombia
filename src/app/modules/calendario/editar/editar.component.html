@@ -1,6 +1,45 @@
-<h1 style="text-align: center; margin-top: 5%;">¿Alguna tarea para editar?</h1>
-<h2 style="text-align: center;">¡Aquí puedes hacerlo!</h2>
+<div class="container my-5">
 
-<a class="btn btn-lg btn-outline-danger shadow-sm ms-4" [routerLink]="lista">
-  Atrás
-</a>
+<h1 style="text-align: center; margin-top: 5%;">¡Estos son los detalles de tu tarea!</h1>
+<h2 style="text-align: center;">¿Necesitas editarla? ¡Aquí puedes hacerlo!</h2>
+
+<div class="row">
+  <div class="col-6" style="align-items: center;" >
+      <form #form="ngForm">
+        <div class="mb-3">
+          <label for="title" class="form-label">Id</label>
+          <input type="text" class="form-control" id="id" name="id" [(ngModel)]="itemDetalles.id">
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Titulo</label>
+          <input type="text" class="form-control" id="title" name="title" [(ngModel)]="itemDetalles.title">
+        </div>
+        <div class="mb-3">
+          <label for="Description" class="form-label">Desciption</label>
+          <input type="text" class="form-control" id="Description" name="description" [(ngModel)]="itemDetalles.description">
+        </div>
+        <div class="mb-3">
+          <label for="Responsible" class="form-label">Responsible</label>
+          <input type="text" class="form-control" id="Responsible" name="responsible" [(ngModel)]="itemDetalles.responsible">
+        </div>
+        <div class="mb-3">
+          <label for="IsComplete" class="form-label">IsComplete</label>
+          <input type="number" class="form-control" id="IsComplete" name="isComplete" [(ngModel)]="itemDetalles.isComplete">
+        </div>
+        <div class="mb-3">
+          <label for="Day" class="form-label">Day</label>
+          <input type="number" class="form-control" id="Day" name="dia" [(ngModel)]="itemDetalles.dia">
+        </div>
+        <div class="mb-3">
+          <label for="Monthly" class="form-label">Monthly</label>
+          <input type="number" class="form-control" id="Monthly" name="mes" [(ngModel)]="itemDetalles.mes">
+        </div>
+        <div class="mb-3">
+          <label for="Year" class="form-label">Year</label>
+          <input type="number" class="form-control" id="Year" name="anio" [(ngModel)]="itemDetalles.anio">
+        </div>
+        <button type="submit" class="btn btn-outline-success">Guardar</button>
+      </form>
+  </div>
+</div>
+</div>

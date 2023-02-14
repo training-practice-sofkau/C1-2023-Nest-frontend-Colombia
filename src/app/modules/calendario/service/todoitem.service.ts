@@ -20,4 +20,8 @@ export class TodoitemService {
    return this.http.post<Item>(this.baseApiUrl + '/api/items', addItemRequest);
   }
 
+  getItem(id: string): Observable<Item>{
+    return this.http.get<Item>(this.baseApiUrl + '/api/items/'+id)
+  }
+
 }

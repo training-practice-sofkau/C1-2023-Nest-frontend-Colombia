@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Item } from '../interface/item';
 import { TodoitemService } from '../service/todoitem.service';
 
@@ -13,7 +14,7 @@ export class AgregarComponent {
 
   formularioAgg:FormGroup;
 
-  constructor(private todoitemService: TodoitemService){
+  constructor(private todoitemService: TodoitemService, private router: Router){
     this.lista = ["../"],
     this.formularioAgg = new FormGroup({
       'title':new FormControl(''),
@@ -31,6 +32,7 @@ export class AgregarComponent {
     this.todoitemService.addItem(this.formularioAgg.getRawValue()).subscribe({
         next:(Item) =>{
           console.log(Item);
+          this.router.navigate(['items']);
         }
     })
   }
