@@ -1,0 +1,13 @@
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Estilos para el botón cuando se sitúa el cursor sobre él */
+.btn:hover {
+  background-color: #3e8e41;

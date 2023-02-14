@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 import { LoginService } from '../../services/login.service';
 
 @Component({
@@ -12,11 +13,17 @@ export class LoginComponent implements OnInit {
   // tipo FormGrupo creamos una instancia vacia
   formLogin: FormGroup = new FormGroup({});
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private readonly authService: AuthService
+  ) {}
   ngOnInit(): void {
     this.htmlformulario();
   }
-
+  auth(): void {
+    this.authService.GoogleAuth();
+  }
   htmlformulario(): void {
     this.formLogin = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),

@@ -7,6 +7,15 @@ import { CustomersComponent } from './pages/customers/customers.component';
 import { DepositComponent } from './pages/deposit/deposit.component';
 import { HomComponent } from './pages/hom/hom.component';
 
+import {
+  AngularFireAuthGuard,
+  redirectLoggedInTo,
+  redirectUnauthorizedTo
+} from '@angular/fire/compat/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
+
 const routes: Routes = [
   {
     path: '',
