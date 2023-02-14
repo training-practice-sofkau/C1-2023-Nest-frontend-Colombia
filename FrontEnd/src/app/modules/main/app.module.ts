@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from 'src/app/shared/shared.module';
-
 import { AppRoutingModule } from './app-routing.module';
-
 import { AppComponent } from './pages/app/app.component';
 import { IndexComponent } from './pages/index/index.component';
 import { RegisterComponent } from './pages/register/register.component';
@@ -25,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     DepositComponent, 
     AccountComponent, 
     TransferComponent, 
-    ForgotPassComponent ],
+    ForgotPassComponent,
+     ],
 
   imports: [BrowserModule, 
     AppRoutingModule, 

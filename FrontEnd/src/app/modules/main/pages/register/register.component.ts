@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { newUserModel } from "../../models/new-user.model";
+import { UserModel } from "../../models/new-user.model";
 import { UsersService } from "../../services/users/users.service";
 
 
@@ -33,7 +33,7 @@ export class RegisterComponent {
   }
 
   sendData(): void{
-    const user = new newUserModel(
+    const user = new UserModel(
       this.fullName ,
       this.document,
       this.documentType,
