@@ -1,37 +1,36 @@
 <h1 class="text-center">
     Crear tarea
-  </h1>
-  <form class="row g-3">
-    <div class="form-floating mb-3">
-        <textarea name="title" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" [(ngModel)]="tarea.title"></textarea>
-        <label for="floatingTextarea">Title </label>
+
+    <div class="row">
+      <div class="col-6" style="align-items: center;" >
+          <form [formGroup]="frmFormulario" (ngSubmit)="crearTarea()">
+            <div class="mb-3">
+              <label for="title" class="form-label">Titulo</label>
+              <input type="text" class="form-control" id="title" formControlName="title">
+            </div>
+            <div class="altoMensaje"*ngIf="frmFormulario.get('title')?.hasError('required')&&
+            frmFormulario.get('name')?.touched
+          ">
+          El nombre es requerido
+        </div>
+            <div class="mb-3">
+              <label for="Description" class="form-label">Description</label>
+              <input type="text" class="form-control" id="Description" formControlName="description">
+            </div>
+            <div class="mb-3">
+              <label for="Responsible" class="form-label">Responsible</label>
+              <input type="text" class="form-control" id="Responsible" formControlName="responsible">
+            </div>
+            <div class="mb-3">
+              <label for="Priority" class="form-label">Priority</label>
+              <input type="text" class="form-control" id="Priority" formControlName="priority">
+            </div>
+            <div class="mb-3">
+              <label for="IsComplete" class="form-label">IsComplete</label>
+              <input type="number" class="form-control" id="IsComplete" formControlName="isComplete">
+            </div>
+            <button type="submit" class="btn btn-outline-success">crearTarea</button>
+          </form>
+      </div>
     </div>
-    <div class="form-floating mb-3">
-        <textarea name="description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"[(ngModel)]="tarea.description"></textarea>
-        <label for="floatingTextarea">Description </label>
-    </div>
-    <div class="form-floating mb-3">
-        <textarea name="responsible" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"[(ngModel)]="tarea.responsible"></textarea>
-        <label for="floatingTextarea">Responsible </label>
-    </div>
-    <div class="form-floating mb-3">
-        <select name="priority" class="form-select" id="floatingSelect" aria-label="Floating label select example" [(ngModel)]="tarea.priority">
-        <option selected>Priority </option>
-        <option value="High">High</option>
-        <option value="Medium">Medium</option>
-        <option value="Low">Low</option>
-        </select>
-        <label for="floatingSelect">Select priority</label>
-    </div>
-    <div class="form-floating mb-3">
-        <select name="state" class="form-select" id="floatingSelect" aria-label="Floating label select example" [(ngModel)]="tarea.isCompleted">
-        <option selected>State </option>
-        <option value=false>Pending</option>
-        <option value=true>completed</option>
-        </select>
-        <label for="floatingSelect">Select State</label>
-    </div>
-    <div class="col-12">
-        <button class="btn btn-primary" type="submit" (click)="crear()">Submit form</button>
-    </div>
-</form>
+
