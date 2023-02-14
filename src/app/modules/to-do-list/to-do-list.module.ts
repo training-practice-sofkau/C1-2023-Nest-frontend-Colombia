@@ -1,6 +1,8 @@
 // Libraries
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Routes
 import { ToDoListRoutingModule } from './to-do-list-routing.module';
@@ -26,6 +28,6 @@ import { EliminarToDoListComponent } from './pages/eliminar-to-do-list/eliminar-
     EditarToDoListComponent,
     EliminarToDoListComponent,
   ],
-  imports: [CommonModule, ToDoListRoutingModule],
+  imports: [CommonModule, ToDoListRoutingModule, FormsModule, HttpClientModule],
 })
 export class ToDoListModule {}

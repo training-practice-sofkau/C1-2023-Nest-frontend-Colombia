@@ -4,43 +4,45 @@
       <i class="bi bi-arrow-left"></i>
     </a>
   </div>
-  <div class="col col-10 mt-3">
-    <div class="alert alert-info" role="alert">
-      Aquí puedes ver el detalle de tu tarea: TítuloExample
+  <div *ngFor="let item of itemDetail">
+    <div class="col col-10 mt-3">
+      <div class="alert alert-info" role="alert">
+        Aquí puedes ver el detalle de tu tarea: <strong>{{item.title}}</strong>
+      </div>
     </div>
-  </div>
-</div>
-<div class="row m-3">
-  <div class="col col-lg-1"></div>
-  <div class="col col-10">
-    <h3>Detalle</h3>
-    <div class="text-center">
-      <form action="" method="get" class="form-control mt-3 p-3 border-3 border-info text-start">
-        <div class="mb-3 row">
-          <label for="Título" class="col-sm-2 col-form-label">Título</label>
-          <div class="col-sm-10">
-            <input type="text" readonly class="form-control" id="Título" value="TítuloExample">
-          </div>
+    <div class="row m-3">
+      <div class="col col-lg-1"></div>
+      <div class="col col-10">
+        <h3>Detalle</h3>
+        <div class="text-center">
+          <form action="" method="get" class="form-control mt-3 p-3 border-3 border-info text-start">
+            <div class="mb-3 row">
+              <label for="Título" class="col-sm-2 col-form-label">Título</label>
+              <div class="col-sm-10">
+                <input type="text" readonly class="form-control" id="Título" value="{{item.title}}">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="Descripción" class="col-sm-2 col-form-label">Descripción</label>
+              <div class="col-sm-10">
+                <textarea type="text" readonly class="form-control" id="Descripción">{{item.description}}</textarea>
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="Responsable" class="col-sm-2 col-form-label">Responsable</label>
+              <div class="col-sm-10">
+                <input type="text" readonly class="form-control" id="Responsable" value="{{item.responsible}}">
+              </div>
+            </div>
+            <div class="mb-3 row">
+              <label for="Completada" class="col-sm-2 col-form-label">Completada</label>
+              <div class="col-sm-10">
+                <input type="text" readonly class="form-control" id="Completada" value="{{item.isCompleted}}">
+              </div>
+            </div>
+          </form>
         </div>
-        <div class="mb-3 row">
-          <label for="Descripción" class="col-sm-2 col-form-label">Descripción</label>
-          <div class="col-sm-10">
-            <textarea type="text" readonly class="form-control" id="Descripción">DescripciónExample</textarea>
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="Responsable" class="col-sm-2 col-form-label">Responsable</label>
-          <div class="col-sm-10">
-            <input type="text" readonly class="form-control" id="Responsable" value="ResponsableExample">
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="Completada" class="col-sm-2 col-form-label">Completada</label>
-          <div class="col-sm-10">
-            <input type="text" readonly class="form-control" id="Completada" value="CompletadaExample">
-          </div>
-        </div>
-      </form>
+      </div>
     </div>
   </div>
 </div>
