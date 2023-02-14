@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { AddItemModel } from '../models/addItem.model';
 import { TodoListService } from '../services/todo-list.service';
 
@@ -10,30 +11,28 @@ import { TodoListService } from '../services/todo-list.service';
 export class AddTodolistComponent {
   lista: string[];
 
-  title: string;
-  description: string;
-  responsible: string;
-  numberDay: number;
-  nameCalendar: string;
+
+  frmFormulario: FormGroup;
 
   constructor(private readonly todoListService: TodoListService){
     this.lista = ["../"]
 
-    this.title = '';
-    this.description = '';
-    this.responsible = '';
-    this.numberDay = 0;
-    this.nameCalendar = '';
+    this.frmFormulario = new FormGroup({
+      title: new FormControl(''),
+      description: new FormControl(''),
+      responsible: new FormControl(''),
+      numberDay: new FormControl(0),
+      nameCalendar: new FormControl(''),
+    });
 
   }
 
   saveTodoList(): void{
 
-    const item = new AddItemModel(this.title, this.description, this.responsible, this.numberDay, this.nameCalendar);
+    console.log('sendData', this.frmFormulario);
+    console.log(this.frmFormulario.getRawValue());
 
-    console.log(item);
-
-    this.todoListService.saveTodoList(item).subscribe({
+    this.todoListService.saveTodoList(this.frmFormulario.getRawValue()).subscribe({
       next: data => console.log(data),
       error: err => console.error(err),
       complete: () => console.info('complete')

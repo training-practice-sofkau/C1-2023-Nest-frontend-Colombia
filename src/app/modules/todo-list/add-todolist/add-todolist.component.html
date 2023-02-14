@@ -1,22 +1,21 @@
 <div class="container mt-3" >
-  <form class="row">
+  <form class="row" [formGroup]="frmFormulario">
 
     <div class="mb-3">
-      <input type="text" placeholder="Título" [(ngModel)]="title" name="title"/>
+      <input type="text" placeholder="Título" formControlName="title" name="title"/>
     </div>
     <div class="mb-3">
-      <input type="text" placeholder="Descripción" [(ngModel)]="description" name="description"/>
+      <input type="text" placeholder="Descripción" formControlName="description" name="description"/>
     </div>
     <div class="mb-3">
-      <input type="text" placeholder="Responsable" [(ngModel)]="responsible" name="responsible"/>
+      <input type="text" placeholder="Responsable" formControlName="responsible" name="responsible"/>
     </div>
     <div class="mb-3">
-      <input type="text" placeholder="Nombre Calendario" [(ngModel)]="nameCalendar" name="nameCalendar"/>
+      <input type="text" placeholder="Nombre Calendario" formControlName="nameCalendar" name="nameCalendar"/>
     </div>
     <div class="mb-3">
-      <input type="number" placeholder="Día" [(ngModel)]="numberDay" name="numberDay"/>
+      <input type="number" placeholder="Día" formControlName="numberDay" name="numberDay"/>
     </div>
-
     <div>
       <button class="btn btn-primary" type="button" (click)="saveTodoList()">Crear tarea</button>
     </div>
