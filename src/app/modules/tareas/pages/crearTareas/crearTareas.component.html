@@ -1,36 +1,48 @@
 <h1 class="text-center">
-    Crear tarea
+  Crear tarea
 
-    <div class="row">
-      <div class="col-6" style="align-items: center;" >
-          <form [formGroup]="frmFormulario" (ngSubmit)="crearTarea()">
-            <div class="mb-3">
-              <label for="title" class="form-label">Titulo</label>
-              <input type="text" class="form-control" id="title" formControlName="title">
-            </div>
-            <div class="altoMensaje"*ngIf="frmFormulario.get('title')?.hasError('required')&&
-            frmFormulario.get('name')?.touched
-          ">
-          El nombre es requerido
-        </div>
-            <div class="mb-3">
-              <label for="Description" class="form-label">Description</label>
-              <input type="text" class="form-control" id="Description" formControlName="description">
-            </div>
-            <div class="mb-3">
-              <label for="Responsible" class="form-label">Responsible</label>
-              <input type="text" class="form-control" id="Responsible" formControlName="responsible">
-            </div>
-            <div class="mb-3">
-              <label for="Priority" class="form-label">Priority</label>
-              <input type="text" class="form-control" id="Priority" formControlName="priority">
-            </div>
-            <div class="mb-3">
-              <label for="IsComplete" class="form-label">IsComplete</label>
-              <input type="number" class="form-control" id="IsComplete" formControlName="isComplete">
-            </div>
-            <button type="submit" class="btn btn-outline-success">crearTarea</button>
-          </form>
-      </div>
-    </div>
 
+</h1>
+<form id="crearTareas"
+(ngSubmit)="frmFormulario.valid ? crearTarea() : null"
+[formGroup]="frmFormulario" class="row g-3">
+
+  <div class="form-floating mb-3">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="title" name="title"></textarea>
+      <label for="floatingTextarea">Title </label>
+      <p class="text-danger" *ngIf="frmFormulario.get('title')?.hasError('required') &&
+      frmFormulario.get('title')?.touched">El titulo es requerido</p>
+  </div>
+  <div class="form-floating mb-3">
+      <textarea name="description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"formControlName ="description" name="description"></textarea>
+      <label for="floatingTextarea">Description </label>
+      <p class="text-danger" *ngIf="frmFormulario.get('description')?.hasError('required') &&
+      frmFormulario.get('description')?.touched">La descripcion es requerida</p>
+  </div>
+  <div class="form-floating mb-3">
+      <textarea name="responsible" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"formControlName ="responsible" name="responsible"></textarea>
+      <label for="floatingTextarea">Responsible </label>
+      <p class="text-danger" *ngIf="frmFormulario.get('responsible')?.hasError('required') &&
+      frmFormulario.get('responsible')?.touched">Responsable</p>
+  </div>
+  <div class="form-floating mb-3">
+      <select name="priority" class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName ="priority" name="priority">
+      <option selected>Priority </option>
+      <option value="High">High</option>
+      <option value="Medium">Medium</option>
+      <option value="Low">Low</option>
+      </select>
+      <label for="floatingSelect">Select priority</label>
+  </div>
+  <div class="form-floating mb-3">
+      <select name="state" class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName ="isCompleted" name="isCompleted">
+      <option selected>State </option>
+      <option value=false>Pending</option>
+      <option value=true>completed</option>
+      </select>
+      <label for="floatingSelect">Select State</label>
+  </div>
+  <div class="col-12">
+      <button class="btn btn-primary" type="submit" form = "crearTareas">Submit form</button>
+  </div>
+</form>

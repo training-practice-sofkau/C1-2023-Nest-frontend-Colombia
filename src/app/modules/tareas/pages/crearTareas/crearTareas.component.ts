@@ -22,8 +22,16 @@ export class CrearTareasComponent {
         Validators.minLength(3),
         Validators.maxLength(100)
       ]),
-      description: new FormControl(''),
-      responsible: new FormControl(''),
+      description: new FormControl('', [
+        Validators.required,
+        Validators.minLength(20),
+        Validators.maxLength(100)
+      ]),
+      responsible: new FormControl('', [
+        Validators.required,
+        Validators.minLength(20),
+        Validators.maxLength(100)
+      ]),
       priority: new FormControl(''),
       isCompleted:new FormControl(''),
     });
