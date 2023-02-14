@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ComponenteEjemploComponent } from '../../shared/components/componente-ejemplo/componente-ejemplo.component';
+import { Componente1Component } from './pages/componente1/componente1.component';
 import { IndexComponent } from './pages/index/index.component';
 import { ListUsersComponent } from './pages/list-users/list-users.component';
 
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'list-users',
     component: ListUsersComponent
+  },
+  {
+    path: 'componente1',
+    component: Componente1Component
   },
   {
     path: 'ejemplo/:id', // localhost:4200/ejemplo/hola
