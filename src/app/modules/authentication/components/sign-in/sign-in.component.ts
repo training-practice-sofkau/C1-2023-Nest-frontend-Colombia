@@ -48,7 +48,7 @@ export class SignInComponent {
       console.log('re ', data)
       this.router.navigate(['../../../', 'profile', 'p']);
     },
-    error: err => console.error(err),
+    error: err => console.error('err', err),
     complete: () => console.info('complete')
   }
   );
