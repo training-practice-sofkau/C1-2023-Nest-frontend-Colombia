@@ -12,7 +12,7 @@ export class PostTaskComponent {
 
   frmFormReactive : FormGroup;
   routergoBackMenu: string[];
-
+/*
     title: string;
     descripccion: string;
     resposible: string;
@@ -20,35 +20,31 @@ export class PostTaskComponent {
     estate: number;
     idCalendar: string;
     idCalendarNavigation: null;
-
-
-
+*/
   constructor(private readonly task$: TaskService) {
 
     this.routergoBackMenu = ['../'];
-    this.title = '';
+   /* //this.title = '';
     this.descripccion = '';
     this.resposible = '';
     this.isCompleted = false;
     this.estate = 1;
     this.idCalendar = '';
     this.idCalendarNavigation = null;
-
+*/
     this.frmFormReactive = new FormGroup({
 
-    title: new FormControl( Validators.required),
-    descripccion: new FormControl(Validators.required),
-    resposible:new FormControl(Validators.required),
-    isCompleted:new FormControl(Validators.required),
-    estate:new FormControl(Validators.required),
-    idCalendar:new FormControl(Validators.required)
-    });
+    title: new FormControl('', Validators.required),
+    descripccion: new FormControl('', Validators.required),
+    resposible:new FormControl('', Validators.required),
+    isCompleted:new FormControl('', Validators.required),
+    estate:new FormControl('', Validators.required),
+    idCalendar:new FormControl('', Validators.required)
+
+  });
 
 
   }
-
-
-
 
   sendData(): void {
 
@@ -62,9 +58,6 @@ export class PostTaskComponent {
       complete: () => console.log('completo'),
     });
     */
-
-
-
 
     /*
     const item = new TaskModel(

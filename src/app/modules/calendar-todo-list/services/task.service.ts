@@ -19,6 +19,12 @@ export class TaskService {
     return this.httClient.post<InewTask>('https://localhost:7281/api/Controlador',task.getData());
   }
 
+
+  updateTaskCompleted(id: number , task: TaskModel) : Observable<InewTask> {
+    return this.httClient.put<InewTask>('https://localhost:7281/api/Controlador/' + id, task.getData().isCompleted);
+  }
+
+
   GetAll(): Observable<ICalendar[]> {
 
     return this.httClient.get<ICalendar[]>('https://localhost:7281/api/Controlador/AllDaysAndItems');
