@@ -20,6 +20,7 @@ export class DeleteItemComponent implements OnInit	{
 
     this.item = {
       id: '',
+      idUser: '',
       title: '',
       description: '',
       responsible: '',

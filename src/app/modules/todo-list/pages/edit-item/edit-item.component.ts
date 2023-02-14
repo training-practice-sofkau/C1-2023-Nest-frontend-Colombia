@@ -28,6 +28,7 @@ export class EditItemComponent implements OnInit{
 
     this.item = {
       id: '',
+      idUser: '',
       title: '',
       description: '',
       responsible: '',

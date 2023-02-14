@@ -2,6 +2,7 @@
 export interface TodoListI {
   //success: boolean;
   id: string;
+  idUser: string;
   title: string;
   description: string;
   responsible: string;

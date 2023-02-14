@@ -22,6 +22,7 @@ export class ViewItemComponent implements OnInit{
     this.routePrincipal = ['../../'];
     this.item = {
       id: '',
+      idUser: '',
       title: '',
       description: '',
       responsible: '',
