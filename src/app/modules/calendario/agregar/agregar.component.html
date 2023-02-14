@@ -6,31 +6,41 @@
         <form [formGroup]="formularioAgg" (ngSubmit)="addItemRequired()">
           <div class="mb-3">
             <label for="title" class="form-label">Titulo</label>
-            <input type="text" class="form-control" id="title" formControlName="title">
+            <input required type="text" class="form-control" id="title" formControlName="title">
+            <p class="text-danger" *ngIf="formularioAgg.get('title')?.hasError('required') && formularioAgg.get('title')?.touched">Este campo no puede ir vacio</p>
           </div>
           <div class="mb-3">
-            <label for="Description" class="form-label">Desciption</label>
-            <input type="text" class="form-control" id="Description" formControlName="description">
+            <label for="description" class="form-label">Desciption</label>
+            <input required type="text" class="form-control" id="description" formControlName="description">
+            <p class="text-danger" *ngIf="formularioAgg.get('description')?.hasError('required') && formularioAgg.get('description')?.touched">Este campo no puede ir vacio</p>
           </div>
           <div class="mb-3">
-            <label for="Responsible" class="form-label">Responsible</label>
-            <input type="text" class="form-control" id="Responsible" formControlName="responsible">
+            <label for="responsible" class="form-label">Responsible</label>
+            <input required type="text" class="form-control" id="responsible" formControlName="responsible">
+            <p class="text-danger" *ngIf="formularioAgg.get('responsible')?.hasError('required') && formularioAgg.get('responsible')?.touched">Este campo no puede ir vacio</p>
+
           </div>
           <div class="mb-3">
-            <label for="IsComplete" class="form-label">IsComplete</label>
-            <input type="number" class="form-control" id="IsComplete" formControlName="isComplete">
+            <label for="isComplete" class="form-label">IsComplete</label>
+            <input required type="number" class="form-control" id="isComplete" formControlName="isComplete">
+            <p class="text-danger" *ngIf="formularioAgg.get('isComplete')?.hasError('required') && formularioAgg.get('isComplete')?.touched">Este campo no puede ir vacio</p>
           </div>
           <div class="mb-3">
-            <label for="Day" class="form-label">Day</label>
-            <input type="number" class="form-control" id="Day" formControlName="dia">
+            <label for="day" class="form-label">Day</label>
+            <input required type="number" class="form-control" id="day" formControlName="dia">
+            <p class="text-danger" *ngIf="formularioAgg.get('dia')?.hasError('required') && formularioAgg.get('dia')?.touched">Este campo no puede ir vacio</p>
           </div>
           <div class="mb-3">
-            <label for="Monthly" class="form-label">Monthly</label>
-            <input type="number" class="form-control" id="Monthly" formControlName="mes">
+            <label for="monthly" class="form-label">Monthly</label>
+            <input required type="number" class="form-control" id="monthly" formControlName="mes">
+            <p class="text-danger" *ngIf="formularioAgg.get('mes')?.hasError('required') && formularioAgg.get('mes')?.touched">Este campo no puede ir vacio</p>
+
           </div>
           <div class="mb-3">
-            <label for="Year" class="form-label">Year</label>
-            <input type="number" class="form-control" id="Year" formControlName="anio">
+            <label for="year" class="form-label">Year</label>
+            <input required type="number" class="form-control" id="year" formControlName="anio">
+            <p class="text-danger" *ngIf="formularioAgg.get('anio')?.hasError('required') && formularioAgg.get('anio')?.touched">Este campo no puede ir vacio</p>
+
           </div>
           <button type="submit" class="btn btn-outline-success">Guardar</button>
         </form>
