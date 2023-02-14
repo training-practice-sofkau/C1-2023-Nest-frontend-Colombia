@@ -1,5 +1,5 @@
 export interface IgetTarea {
-    id: number;
+    id?: number;
     title: string;
     description: string;
     responsible: string;
