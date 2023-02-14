@@ -1,4 +1,39 @@
-<p>main works!</p>
+<!--<p>main works!</p>-->
 
-<a class="btn btn-primary" [routerLink]="routeSignIn">Iniciar sesion</a>
-<a class="btn btn-primary" [routerLink]="routeLogIn">Registrarte</a>
+<!--<a class="btn btn-primary" [routerLink]="routeSignIn">Iniciar sesion</a>
+<a class="btn btn-primary" [routerLink]="routeLogIn">Registrarte</a>-->
+
+
+<div>nose</div>
+<div>nose</div>
+<div>nose</div>
+<div>nose</div>
+<div>nose</div>
+<div>nose</div>
+<div>nose</div>
+<div>nose</div>
+<div>nose</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Correo</th>
+      <th>Teléfono</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.fullName| lowercase }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.phone }}</td>
+      <td>
+        <button type="button">Acción</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+    

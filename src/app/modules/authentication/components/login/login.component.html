@@ -1,0 +1,208 @@
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="newUser" [formGroup]="newUser" (ngSubmit)="onSubmit()">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" placeholder="fullName"
+              formControlName="fullName" id="fullName" name="fullName" required>
+              <label for="floatingPassword">Name Completo</label>
+              <div *ngIf="newUser.get('fullName')?.hasError('required') && 
+              newUser.get('fullName')?.touched"
+              class="alert alert-danger">Este campo es requerido.</div>
+
+              <div class="alert alert-danger"
+              *ngIf="
+              newUser.get('fullName')?.hasError('minlength') &&
+              newUser.get('fullName')?.touched
+              ">
+              Nombre completo invalido
+            </div>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" placeholder="Email" 
+              formControlName="email" id="email" name="email">
+              <label for="floatingPassword">Correo</label>
+              <div *ngIf="newUser.get('email')?.touched && 
+              newUser.get('email')?.hasError('required')"
+              class="alert alert-danger">Este campo es requerido.</div>
+
+              <div *ngIf="
+              newUser.get('email')?.hasError('email') &&
+              newUser.get('email')?.touched"
+              class="alert alert-danger">Email invalido</div>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingPassword" placeholder="Telefono"
+              name="phone" formControlName="phone">
+              <label for="floatingPassword">Telefono</label>
+              <div *ngIf="newUser.get('phone')?.touched && newUser.get('phone')?.errors?.['required']"
+              class="alert alert-danger">Este campo es requerido.</div>
+            </div>
+            <div class="d-flex">
+
+              <div class="form-floating mb-3">
+                <label for="floatingPassword">Tipo de documento</label>
+                <select formControlName="documentTypeId"
+                name="documentTypeId" class="form-select" aria-label="Default select example">
+                  <option [value]="documentTypeList.CC"> C.C </option>
+                  <option [value]="documentTypeList.foreignerID"> Cédula de extranjería </option>
+                </select> 
+                <div *ngIf="newUser.get('documentTypeId')?.touched && 
+                newUser.get('documentTypeId')?.errors?.['required']"
+                class="alert alert-danger">Tipo de documento es requerido.</div>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="Documento"
+                formControlName="document" name="document">
+                <label for="floatingPassword">Documento</label>
+                <div *ngIf="newUser.get('document')?.touched && 
+                newUser.get('document')?.errors?.['required']"
+                class="alert alert-danger">Este campo es requerido.</div>
+              </div>
+              <div
+              class="alert alert-danger"
+              *ngIf="
+                newUser.get('document')?.hasError('minlength') &&
+                newUser.get('document')?.touched
+              ">
+              El documento digitado no es válido
+            </div>
+            </div>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingPassword" placeholder="Contraseña"
+              name="phone" formControlName="password">
+              <label for="floatingPassword">Contraseña</label>
+              <div *ngIf="newUser.get('password')?.touched && 
+              newUser.get('password')?.errors?.['required']"
+              class="alert alert-danger">Contraseña es requerido.</div>
+           <div
+              class="alert alert-danger"
+              *ngIf="
+                newUser.get('password')?.hasError('pattern') &&
+                newUser.get('password')?.touched
+              ">
+              La contraseña debe tener al entre 8 y 16 caracteres, al menos un dígito,
+               una minúscula, una mayúscula y al menos un numero.
+            </div>
+            </div>
+
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="floatingPassword" placeholder="Contraseña"
+              name="phone" formControlName="confirmPassword">
+              <label for="floatingPassword">Confirmar contraseña</label>
+              <div *ngIf="newUser.get('confirmPassword')?.touched && 
+              newUser.get('confirmPassword')?.errors?.['required']"
+              class="alert alert-danger">Contraseña es requerido.</div>
+
+              <div
+              class="alert alert-danger"
+              *ngIf="
+                newUser.get('confirmPassword')?.errors?.['mustMatch'] &&
+                newUser.get('confirmPassword')?.touched
+              ">
+              Las contraseña no coinciden
+            </div>
+            </div>
+            <div  name="avatar" class="form-floating mb-3">
+              <input class="form-control" formControlName="avatar" type="file">
+            </div>
+            <div class="modal-footer">
+              <div class="form-group">
+                <button form="newUser" type="submit" class="btn btn-primary" [disabled]="newUser.invalid"
+                data-bs-dismiss="modal">
+                  Registrarse</button>
+            </div>
+            </div>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <!--[disabled]="newUser.invalid"
+  [disabled]="newUser.invalid"-->
+<!--<p>REGISTRARSE!</p>
+
+
+
+<body class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+          <div class="card-body p-4 p-sm-5">
+            <h5 class="card-title text-center mb-5 fw-light fs-5">Registrarte</h5>
+            <form (ngSubmit)="onSubmit()" id="frmUsuario">
+              <div class="form-floating mb-3">
+                <input type="email" class="form-control" id="floatingInput" 
+                formControlName="fullName" placeholder="Name Completo" 
+                name="fullName"
+                required>
+                <label for="floatingInput">Nombre Completo</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="Email"
+                [(ngModel)]="email"
+                name="email">
+                <label for="floatingPassword">Correo</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="Telefono"
+                [(ngModel)]="phone"
+                name="phone">
+                <label for="floatingPassword">Telefono</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+                [(ngModel)]="documentType"
+                name="documentType">
+                <label for="floatingPassword">Tipo de documento</label>
+                <select [(ngModel)]="documentType"
+                name="documentType" class="form-select" aria-label="Default select example">
+                  <option *ngFor="let b of documentTypeList" [value]="b"> {{b}} </option>
+                </select> 
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="floatingPassword" placeholder="Documento"
+                [(ngModel)]="document" name="document">
+                <label for="floatingPassword">Documento</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña"
+                [(ngModel)]="password"
+      name="password">
+                <label for="floatingPassword">Contraseña</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Repite la contraseña</label>
+              </div>
+              <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+                <label class="form-check-label" for="rememberPasswordCheck">
+                  Remember password
+                </label>
+              </div>
+              <div class="d-grid">
+                <button class="btn btn-primary btn-login text-uppercase fw-bold" form="frmUsuario" 
+                type="submit">registrarse</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<span>¿Ya tienes una cuenta?</span>
+<a class="btn btn-primary" [routerLink]="routeSignIn">Iniciar sesion</a>-->
+
+
+
+
