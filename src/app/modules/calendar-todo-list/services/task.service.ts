@@ -4,9 +4,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { InewTask } from '../interfaces/new-task.interface';
 import { ICalendar } from '../interfaces/calendar.interface';
-import { catchError } from 'rxjs/operators';
-import { TaskModel } from '../models/task.model';
 import { OnlyTaskModel } from '../models/task-only.model';
+import { TaskUpdateModel } from '../models/task-update.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,10 +20,13 @@ export class TaskService {
   }
 
 
-  updateTaskCompleted(id: number , task: TaskModel) : Observable<InewTask> {
-    return this.httClient.put<InewTask>('https://localhost:7281/api/Controlador/' + id, task.getData().isCompleted);
+  updateTaskCompleted(id: number , task: TaskUpdateModel) : Observable<InewTask> {
+    return this.httClient.put<InewTask>('https://localhost:7281/api/Controlador/UpdateAllTask/' + id, task);
   }
 
+  getById(id: number): Observable<TaskUpdateModel[]> {
+    return this.httClient.get<TaskUpdateModel[]>('https://localhost:7281/api/Controlador/OneDay/' + id);
+  }
 
   GetAll(): Observable<ICalendar[]> {
 
