@@ -1,60 +1,51 @@
 /* eslint-disable prettier/prettier */
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TodoListI } from '../../interfaces/todo-list.interface';
+import { TodoListService } from '../../services/todo-list/todo-list.service';
 
 @Component({
   selector: 'sofka-delete-item',
   templateUrl: './delete-item.component.html',
   styleUrls: ['./delete-item.component.scss']
 })
-export class DeleteItemComponent{
+export class DeleteItemComponent implements OnInit	{
 
-  item: TodoListI[];
-  itemId: TodoListI;
+  item: TodoListI;
+  itemId: string | null | undefined;
   routePrincipal: string[];
-  constructor(private router: Router, private activatedRoute: ActivatedRoute)
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private todoListService: TodoListService)
   {
-
     this.routePrincipal = ['../../'];
 
-    this.item = [
-      {
-        Id: 1,
-        Title: 'Estudiar Angular',
-        Description: 'Estudiar Angular',
-        Responsible: 'Juan',
-        IsCompleted: false,
-        State: true,
-      },
-      {
-        Id: 2,
-        Title: 'Estudiar React',
-        Description: 'Estudiar React',
-        Responsible: 'Juan',
-        IsCompleted: false,
-        State: true,
-      },
-      {
-        Id: 3,
-        Title: 'Estudiar Vue',
-        Description: 'Estudiar Vue',
-        Responsible: 'Juan',
-        IsCompleted: false,
-        State: true,
-      },
-    ];
-    this.itemId = this.getItemById(Number(this.activatedRoute.snapshot.paramMap.get('id')));
-  }
+    this.item = {
+      id: '',
+      title: '',
+      description: '',
+      responsible: '',
+      isCompleted: 0,
+      state: 0,
+  };
+}
 
-  getItemById(id: number){
-    return this.item[id-1];
-  }
+ngOnInit(): void {
+  this.itemId = this.activatedRoute.snapshot.paramMap.get('id');
+  this.todoListService.getItemById(this.itemId).subscribe({
+    next: (data) =>  {this.item = data;},
+    error: err =>  console.log(err),
+    complete: () =>  console.log('complete'),
+  });
+  //console.log(this.itemId);
+}
 
-  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
-  ngOnInit(): void {
-    this.itemId = this.getItemById(Number(this.activatedRoute.snapshot.paramMap.get('id')));
-    console.log(this.itemId);
+sendItem(): void {
+    this.itemId = this.activatedRoute.snapshot.paramMap.get('id');
+    this.todoListService.deleteItemById(this.itemId).subscribe({
+      next: (data) =>  {this.item = data;},
+      error: err =>  console.log(err),
+      complete: () =>  console.log('complete'),
+    });
+    console.log(this.item);
   }
 
   return(): void {

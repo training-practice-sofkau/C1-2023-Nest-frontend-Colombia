@@ -1,10 +1,7 @@
 /* eslint-disable prettier/prettier */
-export interface TodoListI {
-  //success: boolean;
+export interface EditI{
   id: string;
   title: string;
   description: string;
   responsible: string;
-  isCompleted: number;
-  state: number;
 }

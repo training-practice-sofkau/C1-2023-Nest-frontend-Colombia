@@ -21,16 +21,17 @@
     </thead>
     <tbody>
       <tr>
-        <th scope="row">{{itemId.Id}}</th>
-        <td>{{itemId.Title}}</td>
-        <td>{{itemId.Description}}</td>
-        <td>{{itemId.Responsible}}</td>
+        <th scope="row">{{item.id}}</th>
+        <td>{{item.title}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.responsible}}</td>
       </tr>
     </tbody>
   </table>
   <div class="jumbotron">
-  <button type="button" class="btn btn-danger" [routerLink]="routePrincipal">
-    Eliminar
+    <button type="button" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto" (click)="sendItem()"
+    [routerLink]="routePrincipal">
+    <i class="bi bi-arrow-repeat"> Eliminar</i>
   </button>
 </div>
 </div>
