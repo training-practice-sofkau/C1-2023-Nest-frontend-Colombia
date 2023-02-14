@@ -1,5 +1,29 @@
-<p>add-todolist works!</p>
+<div class="container mt-3" >
+  <form class="row">
 
-<a class="btn btn-lg btn-outline-primary shadow-sm ms-4" [routerLink]="lista">
-  Atrás
-</a>
+    <div class="mb-3">
+      <input type="text" placeholder="Título" [(ngModel)]="title" name="title"/>
+    </div>
+    <div class="mb-3">
+      <input type="text" placeholder="Descripción" [(ngModel)]="description" name="description"/>
+    </div>
+    <div class="mb-3">
+      <input type="text" placeholder="Responsable" [(ngModel)]="responsible" name="responsible"/>
+    </div>
+    <div class="mb-3">
+      <input type="text" placeholder="Nombre Calendario" [(ngModel)]="nameCalendar" name="nameCalendar"/>
+    </div>
+    <div class="mb-3">
+      <input type="number" placeholder="Día" [(ngModel)]="numberDay" name="numberDay"/>
+    </div>
+
+    <div>
+      <button class="btn btn-primary" type="button" (click)="saveTodoList()">Crear tarea</button>
+    </div>
+    <div>
+      <button class="btn btn-danger" type="button" [routerLink]="lista">Salir</button>
+    </div>
+  </form>
+</div>
+
+

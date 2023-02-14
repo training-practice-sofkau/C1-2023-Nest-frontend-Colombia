@@ -9,6 +9,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TodolistLayoutComponent } from './layout/todolist-layout/todolist-layout.component';
 import { TodoListRoutingModule } from './todo-list-routing';
+import { FormsModule } from '@angular/forms'
 
 
 
@@ -25,7 +26,8 @@ import { TodoListRoutingModule } from './todo-list-routing';
   ],
   imports: [
     CommonModule,
-    TodoListRoutingModule
+    TodoListRoutingModule,
+    FormsModule
   ]
 })
 export class TodoListModule { }
