@@ -6,6 +6,7 @@ import { IAddItem } from '../interfaces/addItem.interface';
 import { IItems } from '../interfaces/items.interface';
 import { environment } from 'src/environments/environment';
 import { itemDetail } from '../models/itemDetail.model';
+import { IEditAllItem } from '../interfaces/editAllItem.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -14,10 +15,7 @@ export class ToDoListService {
   constructor(private readonly httpClient: HttpClient) {}
 
   addItemToDo(itemToDo: itemToDo): Observable<IAddItem> {
-    return this.httpClient.post<IAddItem>(
-      environment.urlApiToDoList,
-      itemToDo.getData()
-    );
+    return this.httpClient.post<IAddItem>(environment.urlApiToDoList, itemToDo);
   }
 
   getAll(): Observable<IItems[]> {
@@ -31,4 +29,18 @@ export class ToDoListService {
       environment.urlApiToDoList + '/ToDoItem/' + id
     );
   }
+
+  editItem(id: string, item: itemDetail): Observable<IEditAllItem> {
+    return this.httpClient.put<IEditAllItem>(
+      environment.urlApiToDoList + '/UpdateItemAll/' + id,
+      item
+    );
+  }
+
+  // editIsCompletedItem(id: string, isCompleted: boolean): Observable<IEditAllItem> {
+  //   return this.httpClient.put<IEditAllItem>(
+  //     environment.urlApiToDoList + '/UpdateItemAll/' + id,
+  //     item
+  //   );
+  // }
 }
