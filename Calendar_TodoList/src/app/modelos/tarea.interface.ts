@@ -1,5 +1,5 @@
 export interface TareaI{
-    Nombre: string;
-    Descripcion: string;
-    Jornada: string;
+    nombre: string;
+    descripcion: string;
+    jornada: string;
 }

@@ -23,12 +23,12 @@ export class NuevoComponent implements OnInit {
     ngOnInit() : void{
       let token = localStorage.getItem('token');
       this.nuevoForm.patchValue({
-     //   'token': token,
+         //"token" : token,
       });
     }
 
     postForm(form: TareaI){
-      this.api.postTarea(form).subscribe(data =>{
+      this.api.putTarea(form).subscribe((data: any) =>{
         console.log(data);
       })
     }

@@ -3,7 +3,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ApiService } from 'src/app/servicios/api/api.service';
 import { LoginI } from 'src/app/modelos/login.interface';
 import { ResponseI } from 'src/app/modelos/response.interface';
-
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
@@ -13,9 +12,9 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit{
 
-  LoginForm = new FormGroup({
-    usuario : new FormControl('usuario',Validators.required),
-    password : new FormControl('password',Validators.required)
+  loginForm = new FormGroup({
+    usuario : new FormControl( " ", Validators.required),
+    password : new FormControl( " ", Validators.required),
   })
 
   constructor(private api:ApiService, private router: Router){}
@@ -24,7 +23,7 @@ export class LoginComponent implements OnInit{
   errorMsj: any ='';
 
   ngOnInit(): void {
-
+    this.checkLocalStorage();
   }
 
   checkLocalStorage() {

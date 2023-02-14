@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/core';
 import { TareaI } from 'src/app/modelos/tarea.interface';
 import { ApiService } from 'src/app/servicios/api/api.service';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-editar',
@@ -11,28 +11,26 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class EditarComponent implements OnInit {
 
-  constructor(private activaterouter:ActivatedRoute, private router:Router, private api:ApiService){}
+  constructor(private activatedRoute : ActivatedRoute, private api:ApiService){}
 
   datoTarea !: TareaI;
 
-  editarFor = new FormGroup([
+  editarFor = new FormGroup({
     nombre: new FormControl(''),
     descripcion: new FormControl(''),
-    jornada: new FormControl('')
-
-  ]);
+    jornada: new FormControl(''),
+  });
 
   ngOnInit(): void{
-    let tareaId = this.activaterouter.snapshot.paraMap.get('id');
+    let tareaId = this.activatedRoute.snapshot.paramMap.get('id');
     let token = this.getToken();
-    this.api.getSingleTarea(tareaId).subscribe((data: any) =>{
-      this.datoTarea = data[0];
+    this.api.getSingleTarea(tareaId).subscribe(data =>{
+      this.datoTarea = data;
       this.editarFor.setValue({
-        'nombre':this.datoTarea.Nombre,
-        'descripcion':this.datoTarea.Descripcion,
-        'jornada':this.datoTarea.Jornada,
+        'nombre':this.datoTarea.nombre,
+        'descripcion':this.datoTarea.descripcion,
+        'jornada':this.datoTarea.jornada,
       })
-
     } )
   }
   getToken(){
@@ -44,7 +42,7 @@ export class EditarComponent implements OnInit {
     })
   }
   Eliminar(){
-    let datos:TareaI = this.editarFor.value;
+    let datos:any = this.editarFor.value;
     this.api.deleteTarea(datos).subscribe((data: any) =>{
       console.log(data);
     })
