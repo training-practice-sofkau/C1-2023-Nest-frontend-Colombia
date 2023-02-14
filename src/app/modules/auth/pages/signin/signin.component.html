@@ -4,17 +4,17 @@
         <div class="text-center pt-5 pb-3">
           <img src="../../../../../assets/login/images/s.png" width="128" alt="">
         </div>
-        <form action="#">
+        <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
           <div class="mb-2">
             <label class="form-label" for="email">Email</label>
-            <input class="form-control" type="email" name="email" id="" placeholder="Email">
+            <input class="form-control" type="email" name="email" id="email" placeholder="Email" formControlName="email" required>
           </div>
           <div class="mb-2">
-            <label class="form-label" for="pass">Password</label>
-            <input class="form-control" type="password" name="password" id="" placeholder="Password">
+            <label class="form-label" for="password">Password</label>
+            <input class="form-control" type="password" name="password" id="password" placeholder="Password" formControlName="password" required>
           </div>
           <div class="mb-2 form-check">
-            <input class="form-check-input" type="checkbox" name="keep" id="">
+            <input class="form-check-input" type="checkbox" name="keep" id="keep">
             <label class="form-check-label" for="keep">Remember me</label>
           </div>
           <div class="d-grid bg-dark rounded-3">

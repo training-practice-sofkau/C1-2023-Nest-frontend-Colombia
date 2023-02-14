@@ -6,7 +6,7 @@ import { IndexComponent } from './pages/index/index.component';
 const routes: Routes = [
   { path: 'index', component: IndexComponent },
   {
-    path: 'shared', loadChildren: () => import('../Auth/Auth.module')
+    path: 'shared', loadChildren: () => import('../auth/auth.module')
       .then(m => m.AuthModule)
   },
   {

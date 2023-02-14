@@ -1,1 +1,44 @@
-<p>accounts-detail works!</p>
+<div class="container mx-5">
+  <table class="table">
+    <thead>
+      <tr class="text-center">
+        <th scope="col">Account Id</th>
+        <th scope="col">Account Type</th>
+        <th scope="col">Balance</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody class="table-group-divider">
+      <tr *ngFor="let a of accounts?.accounts">
+        <td scope="row">{{a.id | slice:0:8}}</td>
+        <td>{{a.accountType.name}}</td>
+        <td>{{a.balance}}</td>
+        <td>
+          <div class="btn-group" role="group">
+            <button class="btn btn-outline-info btn-sm" type="button">Details</button>
+            <button class="btn btn-outline-danger btn-sm" type="button">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ul class="pagination justify-content-center">
+    <li class="page-item {{pagination.currentPage-1==0?'disabled':''}}">
+      <span class="page-link" (click)="pagination.currentPage-1!==0?getPage(pagination.currentPage-1):''"
+        tabindex="-1">Previous</span>
+    </li>
+    <li class="page-item" (click)="getPage(pagination.currentPage-1)">
+      <span class="page-link" *ngIf="pagination.currentPage-1 !== 0">{{pagination.currentPage-1}}</span>
+    </li>
+    <li class="page-item active">
+      <span class="page-link">{{pagination.currentPage}}</span>
+    </li>
+    <li class="page-item" (click)="getPage(pagination.currentPage+1)">
+      <span class="page-link" *ngIf="pagination.currentPage+1<=totalPages">{{pagination.currentPage+1}}</span>
+    </li>
+    <li class="page-item {{pagination.currentPage+1>totalPages?'disabled':''}}">
+      <span class="page-link"
+        (click)="pagination.currentPage+1>totalPages?'':getPage(pagination.currentPage+1)">Next</span>
+    </li>
+  </ul>
+</div>

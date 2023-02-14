@@ -1,52 +1,56 @@
-<div class="container col-12 col-xxl-7 col-xl-8 col-lg-9 col-md-10 col-sm-11 bg-primary shadow text-white bg-dark mt-5">
+<div class="container col-12 col-xxl-7 col-xl-8 col-lg-9 col-md-10 col-sm-11 bg-primary shadow text-white bg-dark mt-3">
   <div class="row align-items-stretch">
     <div class="col mx-5">
       <div class="text-center pt-5 pb-3">
         <img src="../../../../../assets/login/images/s.png" width="128" alt="">
       </div>
-      <form action="#">
+      <form class="needs-validation" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
         <div class="row">
           <div class="mb-2 col-12 col-sm-6">
             <label class="form-label" for="email">Email</label>
-            <input class="form-control" type="email" name="email" id="" placeholder="Email">
+            <input class="form-control" type="email" name="email" id="email" placeholder="Email" formControlName="email" required>
           </div>
           <div class="mb-2 col-12 col-sm-6">
-            <label class="form-label" for="pass">Password</label>
-            <input class="form-control" type="password" name="password" id="" placeholder="Password">
+            <label class="form-label" for="password">Password</label>
+            <input class="form-control" type="password" name="password" id="password" placeholder="Password" formControlName="password" required>
           </div>
         </div>
         <div class="mb-2">
           <label class="form-label" for="fullName">Fullname</label>
-          <input class="form-control" type="text" name="fullName" id="" placeholder="Fullname">
+          <input class="form-control" type="name" name="fullName" id="fullName" placeholder="Fullname" formControlName="fullName" required>
         </div>
         <div class="row mb-3">
           <div class="mb-2 col-12 col-sm-5">
             <label class="form-label" for="phone">Phone</label>
-            <input class="form-control" type="phone" name="phone" id="" placeholder="Phone">
+            <input class="form-control" type="tel" name="phone" id="phone" placeholder="Phone" formControlName="phone" required>
           </div>
           <div class="mb-2 col-12 col-sm-7">
             <label class="form-label" for="document">Document</label>
-            <div class="input-group mb-3">
+            <div class="input-group">
               <div class="input-group-prepend bg-dark">
-                <select class="btn btn-outline-light col-12 accordion-body h-100 rounded-0" id="">
-                  <option value="1">C.C</option>
-                  <option value="2">C.E</option>
+                <select class="btn btn-outline-light col-12 accordion-body h-100 rounded-0" id="documentTypeId" formControlName="documentTypeId" required>
+                  <option value="CC">C.C</option>
+                  <option value="CE">C.E</option>
                 </select>
               </div>
-              <input class="form-control" type="text" name="document" placeholder="Document">
+              <input class="form-control" type="number" name="document" placeholder="Document" formControlName="document" required>
             </div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label" for="avatar">Avatar</label>
+            <input class="form-control" type="tel" name="avatarUrl" id="avatar" placeholder="Avatar URL" formControlName="avatarUrl">
           </div>
         </div>
         <div class="d-grid bg-dark rounded-3">
           <button class="btn btn-outline-light" type="submit">Signup</button>
         </div>
-        <div class="my-2">
+        <div class="my-1">
           <span>Have an account?
             <a [routerLink]="signIn">Signin</a>
           </span>
         </div>
       </form>
-      <div class="container w-100 my-3">
+      <div class="container w-100 my-1">
         <div class="row text-center">
           <div class="col-12">Signup with</div>
         </div>

@@ -8,17 +8,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './pages';
 import { CustomerModule } from '../customer/customer.module';
 import { IndexComponent } from './pages/index/index.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 registerLocaleData(localeEsCo, 'es-Co');
 
 @NgModule({
   declarations: [AppComponent, IndexComponent],
-  providers: [{ provide: LOCALE_ID, useValue: 'es-Co' }],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'es-Co' },
+  ],
   bootstrap: [AppComponent],
   imports: [
     CustomerModule,
     BrowserModule,
     RouterModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
   ]
 })
 export class AppModule { }
