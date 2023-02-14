@@ -36,13 +36,18 @@ export class UserProfileComponent {
   }
 
   getCustomer(){
-    //localStorage.getItem('token')
-    const token = localStorage.getItem('token') 
-    console.log('t ', token)
-      const usernameFromToken
-       = token ? JWTDecode('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imp1bGlhbi5sYXNzby5zb2ZrYUBnbWFpbC5jb20iLCJpYXQiOjE2NzYzNDk3MzUsImV4cCI6MTY3NjQyMTczNX0.AZi6dMYLZPBTLMjjyScDYrmKp6xx4LnNVA2KzXmJP4o') : null
-
-  console.log('Decoded: ', usernameFromToken);
+    const id = localStorage.getItem('id')
+    if(id){
+      this.user$.getCustomer(id).subscribe({
+        next: data  => {
+          console.log('re ', data)
+          this.user = data
+        },
+        error: err => console.error('err', err),
+        complete: () => console.info('complete')
+      }
+      );
+    }
     //this.user$.getCustomer()
   }
   goTo(): void {

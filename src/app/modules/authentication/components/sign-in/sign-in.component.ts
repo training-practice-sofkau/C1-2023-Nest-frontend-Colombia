@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { TokenModel } from '../../models/sig-in-token.model';
 import { UserService } from '../../services/user/user.service';
 //import { fc } from '../../../user/user.module'
 
@@ -46,7 +47,16 @@ export class SignInComponent {
   this.user$.signIn(user).subscribe({
     next: data  => {
       console.log('re ', data)
+      if(data.status === 'success'){
+        const token = localStorage.getItem('token')
+      if(token){
+        localStorage.removeItem('token')
+      }
+      localStorage.setItem('token', data.token)
+      localStorage.setItem('id', data.user.id)
+
       this.router.navigate(['../../../', 'profile', 'p']);
+      }
     },
     error: err => console.error('err', err),
     complete: () => console.info('complete')
