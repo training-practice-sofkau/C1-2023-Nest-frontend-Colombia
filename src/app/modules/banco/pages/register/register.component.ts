@@ -1,3 +1,4 @@
+import { IUsers } from './../../../main/interfaces/users.interface';
 import { NewUserModel } from './../../../main/models/new-user.model';
 import { UsersService } from './../../../main/services/users/users.service';
 import { Component, OnInit } from '@angular/core';
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent{
   documentTypeId: string;
   document: string;
   fullName: string;
@@ -34,7 +35,10 @@ export class RegisterComponent implements OnInit {
       this.password
     );
     this.customerService.createUser(customer).subscribe({
-      next: (data) => console.log(data),
+      next: token => {
+        localStorage.setItem('token', token.access_token);
+        localStorage.setItem('id', token.id);
+      },
       error: (err) => console.log(err),
       complete: () => console.info("completado"),
     });
