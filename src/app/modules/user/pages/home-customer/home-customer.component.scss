@@ -1,0 +1,112 @@
+.container-home-customer {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
+}
+.chc-profile {
+  margin: auto;
+  width: 600px;
+  height: 580px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 1px;
+  background-color: green;
+}
+.chc-avatar {
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background-color: antiquewhite;
+}
+.chc-profile-first {
+  border: 1px solid black;
+  border-radius: 10px;
+  margin: 1%;
+  margin-top: 3%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px;
+  box-shadow: 0px 0px 5px 1px;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(193, 210, 190, 1) 0%,
+    rgba(79, 228, 77, 1) 100%
+  );
+}
+.chc-info {
+  text-align: center;
+}
+.chc-profile-second,
+.chc-profile-third,
+.chc-profile-four,
+.chc-profile-five {
+  display: flex;
+  gap: 10px;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  justify-content: space-around;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 1px;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(193, 210, 190, 1) 0%,
+    rgba(79, 228, 77, 1) 100%
+  );
+}
+.chc-accounts,
+.chc-deposits,
+.chc-transfer,
+.chc-update {
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+}
+.chc-accounts {
+  background-color: rgb(159, 148, 148);
+}
+.chc-accounts:hover {
+  background-color: rgb(129, 121, 121);
+}
+.chc-accounts:active {
+  background-color: rgb(99, 93, 93);
+}
+.chc-deposits {
+  background-color: rgb(40, 186, 40);
+}
+.chc-deposits:hover {
+  background-color: rgb(38, 149, 38);
+}
+.chc-deposits:active {
+  background-color: rgb(26, 101, 26);
+}
+.chc-transfer {
+  background-color: rgb(230, 44, 44);
+}
+.chc-transfer:hover {
+  background-color: rgb(188, 25, 25);
+}
+.chc-transfer:active {
+  background-color: rgb(144, 34, 34);
+}
+.chc-update {
+  background-color: rgb(54, 54, 241);
+}
+.chc-update:hover {
+  background-color: rgb(41, 41, 210);
+}
+.chc-update:active {
+  background-color: rgb(28, 28, 178);
+}

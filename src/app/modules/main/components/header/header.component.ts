@@ -11,7 +11,7 @@ export class HeaderComponent implements OnInit {
   routeHome: string[]
   routeRegister:string[]
   constructor() {
-    this.login = false
+    this.login = true
     this.routeLogin = ["login"]
     this.routeHome = [""]
     this.routeRegister=["register"]

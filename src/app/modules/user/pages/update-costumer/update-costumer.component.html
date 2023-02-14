@@ -1,0 +1,24 @@
+<div class="container-update-customer" >
+    <form class="subcontainer" [formGroup]="frmFormulario">
+        <div class="sub-container-image">
+            <img>
+        </div>
+        <div class="sub-container">
+            <h5> Nombre: </h5>
+            <input class="sub-container-input" formControlName="fullName">
+        </div>
+        <div class="sub-container">
+            <h5> Documento: </h5>
+            <input class="sub-container-input" formControlName="document">
+        </div>
+        <div class="sub-container">
+            <h5> Email: </h5>
+            <input class="sub-container-input" formControlName="email">
+        </div>
+        <div class="sub-container">
+            <h5> Telefono: </h5>
+            <input class="sub-container-input" formControlName="phone">
+        </div>
+        <button class="cic-update" (click)="updateUser()">Actualizar</button>
+    </form>
+</div>
