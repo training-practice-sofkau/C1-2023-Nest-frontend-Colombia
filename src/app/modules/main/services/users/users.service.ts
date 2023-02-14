@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { INewUSer } from '../../interfaces/newUser.interface';
 import { Observable } from 'rxjs';
+import { IUsers } from '../../interfaces/users.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -17,8 +18,8 @@ export class UsersService {
     );
   }
   infoUser() {
-    return this.httpClient.get(
-      'localhost:3000/customers/45c3388c-f274-4ecc-a082-ff312a104199'
+    return this.httpClient.get<IUsers[]>(
+      'http://localhost:3000/customers/'
       // user.getData()
     );
   }

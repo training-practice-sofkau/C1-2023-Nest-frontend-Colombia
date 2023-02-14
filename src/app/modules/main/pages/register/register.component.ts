@@ -17,12 +17,12 @@ export class RegisterComponent {
   routrHome: string[];
   constructor(private readonly user$: UsersService) {
     this.routrHome = ['../'];
-    this.documentTypeId = '';
+    this.documentTypeId = 'adbf99cd-e973-4e2b-88e0-fab8c6ee77c8';
     this.document = '';
     this.fullName = '';
     this.email = '';
     this.phone = '';
-    this.password = '';
+    this.password = 'Jebkoj*7777';
   }
   senData(): void {
     const user = new newUserModel(
@@ -34,7 +34,9 @@ export class RegisterComponent {
       this.password
     );
     this.user$.createUser(user).subscribe({
-      next: data => console.log(data),
+      next: data => {
+        localStorage.setItem('id', data.id);
+      },
       error: err => console.log(err),
       complete: () => console.log('complete'),
     });
