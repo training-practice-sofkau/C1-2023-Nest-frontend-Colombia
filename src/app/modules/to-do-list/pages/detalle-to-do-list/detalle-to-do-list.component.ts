@@ -20,7 +20,6 @@ export class DetalleToDoListComponent implements OnInit, OnDestroy {
     this.routeDashboard = ['../../'];
     this.itemDetail = new Array<itemDetail>();
   }
-  ngOnDestroy(): void {}
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.toDoList$.getById(params['id']).subscribe({
@@ -29,4 +28,5 @@ export class DetalleToDoListComponent implements OnInit, OnDestroy {
       });
     });
   }
+  ngOnDestroy(): void {}
 }

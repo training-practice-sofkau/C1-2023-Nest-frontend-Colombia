@@ -12,7 +12,7 @@
   <h2 class="mb-4">Listado de tareas</h2>
   <div class="container text-center"></div>
   <div class="row">
-    <div *ngFor="let day of calendarToDo" class="col-3 mb-3">
+    <div *ngFor="let day of calendarToDo" class="col-4 mb-3">
       <div class="card border border-1 border-success">
         <div class="card-body">
           <h5 class="card-title">Día: {{day.indexDay}} </h5>
@@ -28,7 +28,8 @@
                   [routerLink]="['detail', item.itemId]">
                   <i class="bi bi-eye-fill"></i>
                 </a>
-                <a class="btn btn-sm btn-warning bg-warning bg-opacity-75 me-2 text-light" [routerLink]="routeEdit">
+                <a class="btn btn-sm btn-warning bg-warning bg-opacity-75 me-2 text-light"
+                  [routerLink]="['edit', item.itemId]">
                   <i class="bi bi-pencil-fill"></i>
                 </a>
                 <a class="btn btn-sm btn-danger bg-danger bg-opacity-75 text-light" data-bs-toggle="modal"

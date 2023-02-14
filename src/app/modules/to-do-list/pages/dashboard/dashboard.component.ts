@@ -11,7 +11,6 @@ import { ToDoListService } from '../../services/to-do-list.service';
 export class DashboardComponent implements OnInit {
   routeDashboard: string[];
   routeAdd: string[];
-  routeEdit: string[];
   routeDelete: string[];
 
   // Data
@@ -20,7 +19,6 @@ export class DashboardComponent implements OnInit {
   constructor(private readonly toDoList$: ToDoListService) {
     this.routeDashboard = ['../']; //le envio el id
     this.routeAdd = ['add'];
-    this.routeEdit = ['edit', 'id'];
     this.routeDelete = ['delete', 'id'];
 
     //inicializa variables data
@@ -30,7 +28,10 @@ export class DashboardComponent implements OnInit {
     this.toDoList$.getAll().subscribe({
       next: data => (this.calendarToDo = data),
       error: err => console.log(err),
-      complete: () => console.log('completo'),
     });
   }
+
+  // editIsCompleted(id: string): void {
+  //   this.toDoList$.
+  // }
 }
