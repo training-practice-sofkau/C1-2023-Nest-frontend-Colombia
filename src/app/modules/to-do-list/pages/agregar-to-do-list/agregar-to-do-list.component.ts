@@ -26,9 +26,18 @@ export class AgregarToDoListComponent {
         Validators.max(28),
         Validators.min(1),
       ]),
-      title: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required),
-      responsible: new FormControl('', Validators.required),
+      title: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      description: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
+      responsible: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
     });
   }
 

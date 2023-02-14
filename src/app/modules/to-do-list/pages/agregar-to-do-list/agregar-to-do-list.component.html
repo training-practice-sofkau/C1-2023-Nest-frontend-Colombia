@@ -29,7 +29,7 @@
           <label for="Día" class="col-sm-2 col-form-label">Día</label>
           <div class="col-sm-10">
             <input type="number" class="form-control" id="Día" placeholder="1" formControlName="indexDay"
-              name="indexDay" min="1" max="28" required>
+              name="indexDay" min="1" max="28">
             <div class="alert alert-danger p-1 m-1 mt-1 ms-2 w-50" role="alert"
               *ngIf="frmAddItem.get('indexDay')?.hasError('required') && frmAddItem.get('indexDay')?.touched">
               Debes indicar el día al que le vas a asignar la tarea
@@ -41,10 +41,14 @@
           <label for="Título" class="col-sm-2 col-form-label">Título</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" id="Título" placeholder="Hacer algo" formControlName="title"
-              name="title" required>
+              name="title">
             <div class="alert alert-danger p-1 m-1 mt-1 ms-2 w-50" role="alert"
               *ngIf="frmAddItem.get('title')?.hasError('required') && frmAddItem.get('title')?.touched">
               Debes indicar el título de la tarea
+            </div>
+            <div class="alert alert-danger p-1 m-1 mt-1 ms-2 w-50" role="alert"
+              *ngIf="frmAddItem.get('title')?.hasError('minlength') && frmAddItem.get('title')?.touched">
+              El título debe tener tres caracteres o más
             </div>
           </div>
         </div>
@@ -52,10 +56,14 @@
           <label for="Descripción" class="col-sm-2 col-form-label">Descripción</label>
           <div class="col-sm-10">
             <textarea type="text" class="form-control" id="Descripción" placeholder="Necesito..."
-              formControlName="description" name="description" required></textarea>
+              formControlName="description" name="description"></textarea>
             <div class="alert alert-danger p-1 m-1 mt-1 ms-2 w-50" role="alert"
               *ngIf="frmAddItem.get('description')?.hasError('required') && frmAddItem.get('description')?.touched">
               Debes indicar la descripción de la tarea
+            </div>
+            <div class="alert alert-danger p-1 m-1 mt-1 ms-2 w-50" role="alert"
+              *ngIf="frmAddItem.get('description')?.hasError('minlength') && frmAddItem.get('description')?.touched">
+              La descripción debe tener cinco caracteres o más
             </div>
           </div>
         </div>
@@ -63,10 +71,14 @@
           <label for="Responsable" class="col-sm-2 col-form-label">Responsable</label>
           <div class="col-sm-10">
             <input type="text" class="form-control" id="Responsable" placeholder="Nombre" formControlName="responsible"
-              name="responsible" required>
+              name="responsible">
             <div class="alert alert-danger p-1 m-1 mt-1 ms-2 w-50" role="alert"
               *ngIf="frmAddItem.get('responsible')?.hasError('required') && frmAddItem.get('responsible')?.touched">
               Debes indicar el responsable de la tarea
+            </div>
+            <div class="alert alert-danger p-1 m-1 mt-1 ms-2 w-50" role="alert"
+              *ngIf="frmAddItem.get('responsible')?.hasError('minlength') && frmAddItem.get('responsible')?.touched">
+              El responsable debe tener tres caracteres o más
             </div>
           </div>
         </div>
