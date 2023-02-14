@@ -5,6 +5,7 @@ import { FormComponent } from './components/form/form.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormSignupComponent } from './components/form-signup/form-signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GoogleButtonComponent } from './components/google-button/google-button.component';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     FormSignupComponent,
     FormSignupComponent,
+    GoogleButtonComponent,
   ],
   imports: [
     CommonModule,
