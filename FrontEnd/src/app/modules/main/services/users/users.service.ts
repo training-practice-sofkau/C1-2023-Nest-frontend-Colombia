@@ -11,7 +11,7 @@ export class UsersService {
   constructor(private readonly httpClient: HttpClient) {}
 
     createUser(user: newUserModel) {
-      return this.httpClient.post('localhost:3000', user.getData());
+      return this.httpClient.post('http://localhost:3000/security/singUp', user.getData());
 
     }
   }
