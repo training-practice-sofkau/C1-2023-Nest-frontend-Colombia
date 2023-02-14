@@ -41,7 +41,11 @@
       <div class="mb-3 row" hidden>
 </div>
 <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
-<button type="submit" form="frmAddItem" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto">
-  <i class="bi bi-folder-plus"> Guardar</i>
-</button>
+<button type="submit" form="frmAddItem" [disabled]="frmFormReactive.invalid" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto">
+    <i class="bi bi-folder-plus"> Guardar</i>
 
+</button>
+</form>
+</form>
+</div>
+</div>

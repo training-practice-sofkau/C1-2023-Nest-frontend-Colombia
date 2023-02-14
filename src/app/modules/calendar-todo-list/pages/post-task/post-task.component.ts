@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TaskService } from '../../services/task.service';
-import { TaskModel } from '../../models/task.model';
-import { FormControl, FormGroup } from '@angular/forms';
+
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'sofka-post-task',
@@ -33,14 +33,15 @@ export class PostTaskComponent {
     this.estate = 1;
     this.idCalendar = '';
     this.idCalendarNavigation = null;
+
     this.frmFormReactive = new FormGroup({
 
-    title: new FormControl(),
-    descripccion: new FormControl(),
-    resposible:new FormControl(),
-    isCompleted:new FormControl(),
-    estate:new FormControl(),
-    idCalendar:new FormControl()
+    title: new FormControl( Validators.required),
+    descripccion: new FormControl(Validators.required),
+    resposible:new FormControl(Validators.required),
+    isCompleted:new FormControl(Validators.required),
+    estate:new FormControl(Validators.required),
+    idCalendar:new FormControl(Validators.required)
     });
 
 
@@ -52,7 +53,20 @@ export class PostTaskComponent {
   sendData(): void {
 
     console.log('sendData',this.frmFormReactive);
-/*
+
+    //console.log(this.frmFormReactive.getRawValue());
+    /*
+    this.task$.createTask(this.frmFormReactive.getRawValue()).subscribe({
+      next: data => console.log(data),
+      error: err => console.log(err),
+      complete: () => console.log('completo'),
+    });
+    */
+
+
+
+
+    /*
     const item = new TaskModel(
 
       this.title,
