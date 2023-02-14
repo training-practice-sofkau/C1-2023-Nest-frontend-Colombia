@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IgetTarea } from '../../interfaces/tareas.interface';
 import { TareaService } from '../../services/tareaService/tarea.service';
 
 @Component({
@@ -8,10 +9,10 @@ import { TareaService } from '../../services/tareaService/tarea.service';
 })
 export class PrincipalComponent {
   routeListar: string[] = ['../listar'];
-  tareas: number[];
+  tareas: IgetTarea[];
 
   constructor(private readonly tareaService: TareaService){
-    this.tareas = new Array<number>();
+    this.tareas = new Array<IgetTarea>();
   }
 
   ngOnInit(): void {

@@ -29,7 +29,7 @@ const routes: Routes = [
         component: CrearTareaComponent
       },
       {
-        path: 'actualizar/:dia/:id',// localhost:4200/tareas/detalle
+        path: 'actualizar/:id',// localhost:4200/tareas/detalle
         component: ActualizarTareaComponent
       },
       {

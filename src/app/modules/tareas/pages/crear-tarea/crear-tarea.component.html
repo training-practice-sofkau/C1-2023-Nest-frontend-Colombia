@@ -20,7 +20,7 @@
     </div>
 
     <div class="form-floating mb-3">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName="description"></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea1" formControlName="description"></textarea>
         <label for="floatingTextarea">Descripcion </label>
         <span class="form-text text-danger mensajeAlert" *ngIf="tareaForm.get('description')?.hasError('required') && tareaForm.get('description')?.touched ">
             La descripcion es requerida
@@ -28,10 +28,18 @@
     </div>
 
     <div class="form-floating mb-3">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName="responsible"></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" formControlName="responsible"></textarea>
         <label for="floatingTextarea">Responsable </label>
         <span class="form-text text-danger mensajeAlert" *ngIf="tareaForm.get('responsible')?.hasError('required') && tareaForm.get('responsible')?.touched ">
             El responsable es requerido
+        </span>
+    </div>
+
+    <div class="form-floating mb-3">
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea3" formControlName="uidUser"></textarea>
+        <label for="floatingTextarea">Id usuario </label>
+        <span class="form-text text-danger mensajeAlert" *ngIf="tareaForm.get('responsible')?.hasError('required') && tareaForm.get('responsible')?.touched ">
+            El usuario es requerido
         </span>
     </div>
 

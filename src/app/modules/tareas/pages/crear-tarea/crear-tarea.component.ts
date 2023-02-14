@@ -10,19 +10,16 @@ import { TareaService } from '../../services/tareaService/tarea.service';
 })
 export class CrearTareaComponent {
   tareaForm: FormGroup;
-  realizada: boolean;
-  pendiente: boolean;
 
   constructor(private readonly tareaService: TareaService){
-    this.realizada = true;
-    this.pendiente = false;
     this.tareaForm = new FormGroup({
       dia: new FormControl<number | null>(null, [Validators.required, Validators.minLength(1)]),
       title: new FormControl<string | null>(null, Validators.required),
       description: new FormControl<string | null>(null, Validators.required),
       responsible: new FormControl<string | null>(null, Validators.required),
       priority: new FormControl<string | null>(null, Validators.required),
-      isCompleted: new FormControl<boolean | null>(false, Validators.required)
+      isCompleted: new FormControl<boolean | null>(false, Validators.required),
+      uidUser: new FormControl<string | null>(null, Validators.required)
     });
   }
 

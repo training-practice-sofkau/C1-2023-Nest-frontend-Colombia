@@ -30,7 +30,6 @@ export class ActualizarTareaComponent {
         .subscribe(tarea => {
           this.tarea = tarea;
           console.log(tarea);
-          console.log(this.tarea[0].calendarModelId);
           this.tareaForm.setValue({
             title: this.tarea[0].title,
             description: this.tarea[0].description,
@@ -48,7 +47,7 @@ export class ActualizarTareaComponent {
     console.log(this.tareaForm);
     this.tareaForm.get('isCompleted')?.setValue(JSON.parse(this.tareaForm.get('isCompleted')?.value));
     this.rutaActiva.params.subscribe( params => {
-      this.tareaService.putTarea(params['dia'],params['id'],this.tareaForm.value)
+      this.tareaService.putTarea(params['id'],this.tareaForm.value)
         .subscribe(tarea => {
           console.log(tarea);
       })
