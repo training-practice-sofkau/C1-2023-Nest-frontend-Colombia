@@ -5,38 +5,38 @@
 
 <div class="row">
   <div class="col-6" style="align-items: center;" >
-      <form #form="ngForm">
+      <form [formGroup]="itemDetalles2">
         <div class="mb-3">
           <label for="title" class="form-label">Id</label>
-          <input type="text" class="form-control" id="id" name="id" [(ngModel)]="itemDetalles.id">
+          <input type="text" class="form-control" id="id" name="id" formControlName="id">
         </div>
         <div class="mb-3">
           <label for="title" class="form-label">Titulo</label>
-          <input type="text" class="form-control" id="title" name="title" [(ngModel)]="itemDetalles.title">
+          <input type="text" class="form-control" id="title" name="title" formControlName="title">
         </div>
         <div class="mb-3">
           <label for="Description" class="form-label">Desciption</label>
-          <input type="text" class="form-control" id="Description" name="description" [(ngModel)]="itemDetalles.description">
+          <input type="text" class="form-control" id="Description" name="description" formControlName="description">
         </div>
         <div class="mb-3">
           <label for="Responsible" class="form-label">Responsible</label>
-          <input type="text" class="form-control" id="Responsible" name="responsible" [(ngModel)]="itemDetalles.responsible">
+          <input type="text" class="form-control" id="Responsible" name="responsible" formControlName="responsible">
         </div>
         <div class="mb-3">
           <label for="IsComplete" class="form-label">IsComplete</label>
-          <input type="number" class="form-control" id="IsComplete" name="isComplete" [(ngModel)]="itemDetalles.isComplete">
+          <input type="number" class="form-control" id="IsComplete" name="isComplete" formControlName="isComplete">
         </div>
         <div class="mb-3">
           <label for="Day" class="form-label">Day</label>
-          <input type="number" class="form-control" id="Day" name="dia" [(ngModel)]="itemDetalles.dia">
+          <input type="number" class="form-control" id="Day" name="dia" formControlName="dia">
         </div>
         <div class="mb-3">
           <label for="Monthly" class="form-label">Monthly</label>
-          <input type="number" class="form-control" id="Monthly" name="mes" [(ngModel)]="itemDetalles.mes">
+          <input type="number" class="form-control" id="Monthly" name="mes" formControlName="mes">
         </div>
         <div class="mb-3">
           <label for="Year" class="form-label">Year</label>
-          <input type="number" class="form-control" id="Year" name="anio" [(ngModel)]="itemDetalles.anio">
+          <input type="number" class="form-control" id="Year" name="anio" formControlName="anio">
         </div>
         <button type="submit" class="btn btn-outline-success">Guardar</button>
       </form>

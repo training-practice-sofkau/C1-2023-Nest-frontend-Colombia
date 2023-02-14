@@ -11,7 +11,7 @@ import { TodoitemService } from '../service/todoitem.service';
 })
 export class EditarComponent implements OnInit {
   lista: string[];
-
+  itemDetalles2:FormGroup;
   itemDetalles: Item ={
 
     title:"",
@@ -27,6 +27,17 @@ export class EditarComponent implements OnInit {
 
   constructor(private route:ActivatedRoute, private itemService: TodoitemService){
     this.lista = ["../"]
+    this.itemDetalles2 = new FormGroup({
+      'id':new FormControl(''),
+      'title':new FormControl(''),
+      'description':new FormControl(''),
+      'responsible':new FormControl(''),
+      'isComplete':new FormControl(0),
+      'estate':new FormControl(1),
+      'dia': new FormControl(0),
+      'mes': new FormControl(0),
+      'anio': new FormControl(0)
+    })
 
   }
 
@@ -38,7 +49,17 @@ export class EditarComponent implements OnInit {
         if(id){
           this.itemService.getItem(id).subscribe({
             next:(response) => {
-              this.itemDetalles = response
+              this.itemDetalles2.setValue({
+                id:response.id,
+                title:response.title,
+                description:response.description,
+                responsible:response.responsible,
+                isComplete:response.isComplete,
+                estate:response.estate,
+                dia:response.dia,
+                mes:response.mes,
+                anio:response.anio
+              })
             }
           })
         }
