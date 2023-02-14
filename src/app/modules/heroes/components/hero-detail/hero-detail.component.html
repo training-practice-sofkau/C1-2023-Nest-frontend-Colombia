@@ -1,0 +1,26 @@
+<div *ngIf="hero">
+  <h2>{{hero.name | uppercase}} Details</h2>
+
+  <div>
+    <label for="hero-id">Hero id</label>
+    {{hero.id}}</div>
+
+  <div>
+    <label for="hero-birthdate">Hero birthdate</label>
+    <p>{{ hero.birthdate | date }}</p>
+  </div>
+
+
+  <div><span>salary: </span>{{hero.salary | currency : 'COP' : '$' : '1.0'}}</div>
+  <div><span>phoneNumber: </span>{{hero.phoneNumbers}}</div>
+  <div><span>weight: </span>{{hero.weight}}</div>
+
+
+  <div>
+    <label for="hero-name">Hero name: </label>
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="Hero name"/>
+  </div>
+
+  <button type="button" (click)="goBack()">go back</button>
+  <button type="button" (click)="save()">save</button>
+</div>
