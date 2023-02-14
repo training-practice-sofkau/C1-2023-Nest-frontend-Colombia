@@ -8,18 +8,30 @@ import { UsersService } from '../../services/users/users.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
+  documentTypeId: string;
+  document: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  password: string;
   routrHome: string[];
   constructor(private readonly user$: UsersService) {
     this.routrHome = ['../'];
+    this.documentTypeId = '';
+    this.document = '';
+    this.fullName = '';
+    this.email = '';
+    this.phone = '';
+    this.password = '';
   }
   senData(): void {
     const user = new newUserModel(
-      'adbf99cd-e973-4e2b-88e0-fab8c6ee77c8',
-      '1117485113',
-      'firulais nuevo',
-      'felipe@gmail.com',
-      '3124589746',
-      'Jebkoj*7777'
+      this.documentTypeId,
+      this.document,
+      this.fullName,
+      this.email,
+      this.phone,
+      this.password
     );
     this.user$.createUser(user).subscribe({
       next: data => console.log(data),
