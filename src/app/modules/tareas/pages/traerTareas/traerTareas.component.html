@@ -1,0 +1,15 @@
+<h1 class="text-center">
+  Descripcion de Tareas a realizar
+</h1>
+<div class="row">
+  <div *ngFor="let tarea of tareas" class="col-md-4 col-sm-6 animate__animated animate__fadeIn g-4">
+
+      <div class="card">
+          <div class="card-body">
+              <p class="card-text" [routerLink]="['../listar', tarea]">
+                  {{ tarea.title }} - {{ tarea.description}} - {{ tarea.responsible }} - {{ tarea.priority }} - {{ tarea.isCompleted }} - {{ tarea.state }}
+              </p>
+          </div>
+      </div>
+  </div>
+</div>

@@ -4,6 +4,7 @@
   "configurations": [
     {
       "name": "ng serve",
+<<<<<<< HEAD
       "type": "msedge",
       "request": "launch",
       "preLaunchTask": "npm: start",
@@ -13,9 +14,34 @@
     {
       "name": "ng test",
       "type": "msedge",
+=======
+      "type": "pwa-chrome",
+      "request": "launch",
+      // "preLaunchTask": "npm: start",
+      "preLaunchTask": "Serve Frontend",
+      "postDebugTask": "end all",
+      "url": "http://localhost:4200/",
+      "webRoot": "${workspaceFolder}",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "webpack:/*": "${webRoot}/*",
+        "/./*": "${webRoot}/*",
+        "/src/*": "${webRoot}/src/*",
+        "/*": "*",
+        "/./~/*": "${workspaceFolder}/node_modules/*"
+      }
+    },
+    {
+      "name": "ng test",
+      "type": "chrome",
+>>>>>>> fe70c39fb1e5094dd8a4f235c00bffdcc7890cfa
       "request": "launch",
       "preLaunchTask": "npm: test",
       "url": "http://localhost:9876/debug.html"
     }
   ]
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> fe70c39fb1e5094dd8a4f235c00bffdcc7890cfa
