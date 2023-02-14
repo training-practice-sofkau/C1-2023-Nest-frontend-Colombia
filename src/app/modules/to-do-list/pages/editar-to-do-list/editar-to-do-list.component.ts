@@ -13,7 +13,7 @@ export class EditarToDoListComponent implements OnInit {
   routeDashboard: string[];
   //variable
   // success: boolean = false;
-  //consultas
+  //variables consultas
   tittle!: string;
   //formulario
   frmEditItem: FormGroup;
@@ -25,10 +25,19 @@ export class EditarToDoListComponent implements OnInit {
   ) {
     this.routeDashboard = ['../../'];
     this.frmEditItem = new FormGroup({
-      title: new FormControl('', Validators.required),
-      description: new FormControl('', Validators.required),
-      responsible: new FormControl('', Validators.required),
-      isCompleted: new FormControl('', Validators.required),
+      title: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      description: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
+      responsible: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      isCompleted: new FormControl('', [Validators.required]),
     });
   }
 
