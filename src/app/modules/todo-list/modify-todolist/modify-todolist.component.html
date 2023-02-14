@@ -1,4 +1,33 @@
-<p>modify-todolist works!</p>
-<a class="btn btn-lg btn-outline-primary shadow-sm ms-4" [routerLink]="lista">
-  Atrás
-</a>
+<div class="container mt-3" >
+  <form class="row" [formGroup]="frmFormularioModify">
+
+    <div class="mt-3">
+      <input type="text" placeholder="Título" formControlName="title" name="title" />
+    </div>
+    <div *ngIf="frmFormularioModify.get('title')?.hasError('required') &&
+      frmFormularioModify.get('title')?.touched">
+        El título es requerido
+    </div>
+    <div class="mt-3">
+      <input type="text" placeholder="Descripción" formControlName="description" name="description"/>
+    </div>
+    <div *ngIf="frmFormularioModify.get('description')?.hasError('required') &&
+    frmFormularioModify.get('description')?.touched">
+      La decripción es requerida
+    </div>
+    <div class="mt-3">
+      <input type="text" placeholder="Responsable" formControlName="responsible" name="responsible"/>
+    </div>
+    <div *ngIf="frmFormularioModify.get('responsible')?.hasError('required') &&
+    frmFormularioModify.get('responsible')?.touched">
+      El Responsable es requerido
+    </div>
+    <div class="mt-3">
+      <button type="submit" class="btn btn-primary" type="button" [disabled]="frmFormularioModify.invalid">Crear tarea</button>
+
+      <button class="btn btn-danger" type="button" [routerLink]="lista">Salir</button>
+
+    </div>
+
+  </form>
+</div>
