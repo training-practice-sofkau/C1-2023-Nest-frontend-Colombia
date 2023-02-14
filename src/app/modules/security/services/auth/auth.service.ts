@@ -19,7 +19,8 @@ export class AuthService {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        // this.router.navigate(['dashboard']);
+        this.router.navigate(['account']);
+        console.log(result);
         // this.SetUserData(result.user);
       })
       .catch((error) => {

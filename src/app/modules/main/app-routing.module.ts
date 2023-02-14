@@ -18,8 +18,8 @@ const routes: Routes = [
     path: 'account',
     loadChildren: () =>
       import('../account/account.module').then((m) => m.AccountModule),
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectLoggedInToAccount },
+    // canActivate: [AngularFireAuthGuard],
+    // data: { authGuardPipe: redirectLoggedInToAccount },
   },
   {
     path: 'movements',
@@ -31,8 +31,8 @@ const routes: Routes = [
     path: 'security',
     loadChildren: () =>
       import('../security/security.module').then((m) => m.SecurityModule),
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectLoggedInTo },
+    // canActivate: [AngularFireAuthGuard],
+    // data: { authGuardPipe: redirectUnauthorizedTo },
   },
 ];
 
