@@ -23,9 +23,10 @@ export class TransferComponent implements OnInit {
         Validators.required,
         Validators.minLength(10),
       ]),
+      outComeId: new FormControl(this.outComeId),
       amount: new FormControl(null, [
         Validators.required,
-        Validators.pattern(new RegExp(/^(0*[1-9][0-9]*)$/g)),
+        Validators.pattern(new RegExp(/\d+(\.\d{0,9})?/)),
       ]),
       reason: new FormControl(null, [
         Validators.required,
@@ -36,12 +37,16 @@ export class TransferComponent implements OnInit {
   }
 
   createTransfer() {
+    const transfer = TransferModel;
     this.transferService
       .createTransfer(this.frmTransfer.getRawValue())
       .subscribe({
-        next: (data) => {},
+        next: (data) => {
+          this.transferService.setTransferId(data.id);
+          console.log('-----------');
+          console.log(this.transferService.getTransferIdSubject());
+        },
         error: (err) => {
-          console.log(err.error.message);
           Swal.fire({
             position: 'top-end',
             icon: 'error',
@@ -59,7 +64,7 @@ export class TransferComponent implements OnInit {
             timer: 1500,
           });
           setTimeout(() => {
-            this.router.navigate(['account']);
+            this.router.navigate(['movements/vaucher']);
           }, 1500);
         },
       });

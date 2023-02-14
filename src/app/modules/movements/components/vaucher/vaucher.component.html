@@ -1,0 +1,30 @@
+<div class="d-flex m-2 justify-content-center">
+  <div class="card p-3">
+    <img
+      src="https://i.imgur.com/LnN9yyV.png"
+      alt=""
+      width="50"
+      class="m-auto"
+    />
+    <p class="text-white m-auto pt-3">Comprobante:{{ transfer.id }}</p>
+    <div class="d-flex flex-row justify-content-between text-align-center">
+      <i class="fas fa-ellipsis-v"></i>
+    </div>
+    <p class="text-white">Cuenta de origen:{{ transfer.outCome.id }}</p>
+    <br />
+    <p class="text-white">cuenta destino:{{ transfer.inCome.id }}</p>
+    <br />
+    <span class="text-white mb-2">{{ transfer.amount | currency }}</span>
+    <br />
+    <div class="card-bottom pt-3 px-3 mb-2">
+      <div class="d-flex flex-row justify-content-between text-align-center">
+        <div class="d-flex flex-column">
+          <p>
+            <span class="text-dark">{{ transfer.reason }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <br />
+  </div>
+</div>
