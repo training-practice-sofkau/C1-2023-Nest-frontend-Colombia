@@ -4,11 +4,11 @@
     <form id="frmFormReactive" (ngSubmit)="sendData()" [formGroup]="frmFormReactive"
       class="form-control mt-3 p-3 border-3 border-info text-start">
       <div class="mb-3 mt-2 row">
-        <label for="Día" class="col-sm-2 col-form-label">DIA DE FEBRERO</label>
+        <label for="Día" class="col-sm-2 col-form-label">Ingresa el id de la tarea que quieres modificar</label>
         <div class="col-sm-10">
-          <input type="number" class="form-control" id="idCalendar" formControlName="idCalendar" name="idCalendar">
-              <div id="altoMensaje" *ngIf="frmFormReactive.get('idCalendar')?.hasError('required')
-         && frmFormReactive.get('idCalendar')?.touched">Campo requerido, ingresar por favor</div>
+          <input type="number" class="form-control" id="id" formControlName="id" name="id">
+              <div id="altoMensaje" *ngIf="frmFormReactive.get('id')?.hasError('required')
+         && frmFormReactive.get('id')?.touched">Campo requerido, ingresar por favor</div>
           </div>
         </div>
 
@@ -57,6 +57,15 @@
           *ngIf="frmFormReactive.get('isCompleted')?.hasError('required') && frmFormReactive.get('isCompleted')?.touched">
           Elige un valor
         </div>
+
+        <div class="mb-3 mt-2 row">
+          <label for="Día" class="col-sm-2 col-form-label">Ingresa en este campo si quieres cambiarlo de día</label>
+          <div class="col-sm-10">
+            <input type="number" class="form-control" id="idCalendar" formControlName="idCalendar" name="idCalendar">
+                <div id="altoMensaje" *ngIf="frmFormReactive.get('idCalendar')?.hasError('required')
+           && frmFormReactive.get('idCalendar')?.touched">Campo requerido, ingresar por favor</div>
+            </div>
+          </div>
 
 <button type="submit" form="frmFormReactive" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto">
           <i class="bi bi-folder-plus"> Guardar</i>

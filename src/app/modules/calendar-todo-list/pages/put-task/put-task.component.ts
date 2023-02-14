@@ -19,6 +19,7 @@ export class PutTaskComponent {
 
     this.frmFormReactive = new FormGroup({
 
+      id: new FormControl('', Validators.required),
       title: new FormControl('', Validators.required),
       descripccion: new FormControl('', Validators.required),
       resposible:new FormControl('', Validators.required),
@@ -31,16 +32,15 @@ export class PutTaskComponent {
 
   }
 
-
-
   ngOnInit(): void {
     this.ruta.params.subscribe(params => {
       this.task$.getById(params['id']).subscribe({
         next: data => {
             this.frmFormReactive.setValue({
+              id: data[0].id,
               title: data[0].title,
-              description: data[0].descripccion,
-              responsible: data[0].resposible,
+              descripccion: data[0].descripccion,
+              resposible: data[0].resposible,
               isCompleted: data[0].isCompleted,
               idCalendar: data[0].idCalendar
             });
@@ -61,7 +61,7 @@ export class PutTaskComponent {
         .updateTaskCompleted(params['id'], this.frmFormReactive.getRawValue())
         .subscribe({
           next: data => {
-            console.log('complete');
+            console.log('complete', data);
 
           },
           error: err => console.log(err),

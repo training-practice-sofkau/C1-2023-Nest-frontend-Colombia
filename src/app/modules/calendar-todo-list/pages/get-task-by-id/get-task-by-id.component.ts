@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { ActivatedRoute } from '@angular/router';
 import { TaskUpdateModel } from '../../models/task-update.model';
-import { ICalendar } from '../../interfaces/calendar.interface';
+
 
 @Component({
   selector: 'sofka-get-task-by-id',
@@ -26,7 +26,7 @@ export class GetTaskByIdComponent implements OnInit{
   ngOnInit(): void {
     this.ruta.params.subscribe(params => {
       this.task$.getById(params['id']).subscribe({
-        next: data => (this.routeShowTaskById = data),
+        next: data => (console.log(data)),
         error: err => console.log(err),
       });
     });
