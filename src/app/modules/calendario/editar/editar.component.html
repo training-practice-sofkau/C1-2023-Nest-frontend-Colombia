@@ -5,7 +5,7 @@
 
 <div class="row">
   <div class="col-6" style="align-items: center;" >
-      <form [formGroup]="itemDetalles2">
+      <form [formGroup]="itemDetalles2" (ngSubmit)="updateItem()" id="FormAc">
         <div class="mb-3">
           <label for="title" class="form-label">Id</label>
           <input type="text" class="form-control" id="id" name="id" formControlName="id">
@@ -38,7 +38,7 @@
           <label for="Year" class="form-label">Year</label>
           <input type="number" class="form-control" id="Year" name="anio" formControlName="anio">
         </div>
-        <button type="submit" class="btn btn-outline-success">Guardar</button>
+        <button type="submit" class="btn btn-outline-success" form="FormAc">Guardar</button>
       </form>
   </div>
 </div>

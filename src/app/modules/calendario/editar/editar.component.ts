@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from '../interface/item';
 import { TodoitemService } from '../service/todoitem.service';
 
@@ -13,7 +13,7 @@ export class EditarComponent implements OnInit {
   lista: string[];
   itemDetalles2:FormGroup;
   itemDetalles: Item ={
-
+    id:"",
     title:"",
     description:"",
     responsible:"",
@@ -25,7 +25,7 @@ export class EditarComponent implements OnInit {
 
   }
 
-  constructor(private route:ActivatedRoute, private itemService: TodoitemService){
+  constructor(private route:ActivatedRoute, private itemService: TodoitemService, private router: Router){
     this.lista = ["../"]
     this.itemDetalles2 = new FormGroup({
       'id':new FormControl(''),
@@ -67,5 +67,13 @@ export class EditarComponent implements OnInit {
     })
   }
 
-
+  updateItem(){
+    console.log(this.itemDetalles2.getRawValue());
+    this.itemService.updateItem(this.itemDetalles2.get('id')?.value,this.itemDetalles2.getRawValue())
+    .subscribe({
+      next:(response)=>{
+        this.router.navigate(['items']);
+      }
+    });
+  }
 }

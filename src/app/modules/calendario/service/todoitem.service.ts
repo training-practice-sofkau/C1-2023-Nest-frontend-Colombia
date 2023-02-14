@@ -24,4 +24,8 @@ export class TodoitemService {
     return this.http.get<Item>(this.baseApiUrl + '/api/items/'+id)
   }
 
+  updateItem(id: string, updateItemRequest: Item): Observable<Item>{
+    return this.http.put<Item>(this.baseApiUrl + '/api/items/'+id,updateItemRequest)
+  }
+
 }
