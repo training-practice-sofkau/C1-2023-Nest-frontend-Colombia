@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent { 
+export class LoginComponent {
   routeMain: string[];
   routeSignIn: string[];
   //documentTypeList: Array<string> = ['C.C', 'Cedula extranjeria'];
@@ -22,6 +22,7 @@ export class LoginComponent {
 
   newUser!: FormGroup
   submitted = false;
+file: any;
 
   constructor(private readonly user$: UserService) {
     this.newUser = new FormGroup({
@@ -67,7 +68,6 @@ export class LoginComponent {
   }
 
 onSubmit() {
-    this.submitted = true;
 
    if (this.newUser.invalid) {
         return;
@@ -85,8 +85,12 @@ onSubmit() {
   console.log('user ', this.newUser.value)
   this.user$.createUser(user).subscribe({
     next: data  => {
-      console.log('re ', JSON.stringify(data))
-      localStorage.setItem('token', data);
+      if(data.status === 'success'){
+        console.log('re ', data.token)
+        localStorage.setItem('token', data.token);
+        this.submitted = true;
+        this.newUser.reset();
+      }
     },
     error: err => console.error(err),
     complete: () => console.info('complete')

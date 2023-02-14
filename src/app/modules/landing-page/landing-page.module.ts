@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { LandingPageRoutingModule } from './landing-page-routing.module';
 import { LoginComponent } from '../authentication/components/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SignInComponent } from '../authentication/components/sign-in/sign-in.component';
 
 
 
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MainLayoutComponent,
     FooterComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    SignInComponent
   ],
   imports: [
     CommonModule,
