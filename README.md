@@ -38,7 +38,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Workshop
 
-Week 4 Day 1 - Formularios reactivos
+Week 4 Day 2 - Gestión de estados y Firebase (autenticación)
 
 ¿Qué estás entregando?
 
@@ -46,5 +46,7 @@ Week 4 Day 1 - Formularios reactivos
 
 ¿Qué dificultades se tuvieron?
 
-1. Realizar la implementación de 2 formularios reactivos con validaciones
-2. Crear mínimo 2 commits [TITULO] - [DESCRIPCIÓN]
+1. Implementar el manejo de estados en un componente - @Output
+2. Implementar el manejo de estados en un componente - Service
+3. Implementar la identificación con Firebase
+4. Crear mínimo 3 commits [TITULO] - [DESCRIPCIÓN]

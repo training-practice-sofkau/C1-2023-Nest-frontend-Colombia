@@ -3,10 +3,33 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ComponenteEjemploComponent } from '../../shared/components/componente-ejemplo/componente-ejemplo.component';
 import { Componente1Component } from './pages/componente1/componente1.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { IndexComponent } from './pages/index/index.component';
 import { ListUsersComponent } from './pages/list-users/list-users.component';
+import { LoginComponent } from './pages/login/login.component';
+
+import {
+  AngularFireAuthGuard,
+  redirectLoggedInTo,
+  redirectUnauthorizedTo
+} from '@angular/fire/compat/auth-guard';
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectLoggedInToDashboard }
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin }
+  },
   {
     path: '',
     component: IndexComponent

@@ -7,14 +7,20 @@ import { SharedModule } from 'src/app/shared/shared.module';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import { environment } from '../../../environments/environment';
 import { Componente2Component } from './components/componente2/componente2.component';
 import { Componente3Component } from './components/componente3/componente3.component';
+import { Componente4Component } from './components/componente4/componente4.component';
 import { AppComponent } from './pages/app/app.component';
 import { Componente1Component } from './pages/componente1/componente1.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { IndexComponent } from './pages/index/index.component';
 import { ListUsersComponent } from './pages/list-users/list-users.component';
+import { LoginComponent } from './pages/login/login.component';
 import { MyPipePipe } from './pipes/my-pipe/my-pipe.pipe';
-import { Componente4Component } from './components/componente4/componente4.component';
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
   declarations: [
@@ -25,7 +31,9 @@ import { Componente4Component } from './components/componente4/componente4.compo
     Componente1Component,
     Componente2Component,
     Componente3Component,
-    Componente4Component
+    Componente4Component,
+    LoginComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +41,9 @@ import { Componente4Component } from './components/componente4/componente4.compo
     SharedModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
