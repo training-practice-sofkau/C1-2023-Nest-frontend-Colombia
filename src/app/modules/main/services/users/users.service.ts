@@ -16,7 +16,7 @@ export class UsersService {
       user.getData()
     );
   }
-  infoUser(user: newUserModel) {
+  infoUser() {
     return this.httpClient.get(
       'localhost:3000/customers/45c3388c-f274-4ecc-a082-ff312a104199'
       // user.getData()
