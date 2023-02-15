@@ -1,4 +1,36 @@
 <div class="container mx-5">
+  <div class="row pb-3">
+    <div class="col btn-sm">
+      <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Create Account
+      </button>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" (click)="add('Checking account')">Checking account</a></li>
+        <li><a class="dropdown-item" (click)="add('Saving account')">Saving account</a></li>
+      </ul>
+    </div>
+    <div class="col">
+      <ul class="pagination justify-content-center">
+        <li class="page-item {{pagination.currentPage-1==0?'disabled':''}}">
+          <span class="page-link" (click)="pagination.currentPage-1!==0?getPage(pagination.currentPage-1):''"
+            tabindex="-1">Previous</span>
+        </li>
+        <li class="page-item" (click)="getPage(pagination.currentPage-1)">
+          <span class="page-link" *ngIf="pagination.currentPage-1 !== 0">{{pagination.currentPage-1}}</span>
+        </li>
+        <li class="page-item active">
+          <span class="page-link">{{pagination.currentPage}}</span>
+        </li>
+        <li class="page-item" (click)="getPage(pagination.currentPage+1)">
+          <span class="page-link" *ngIf="pagination.currentPage+1<=totalPages">{{pagination.currentPage+1}}</span>
+        </li>
+        <li class="page-item {{pagination.currentPage+1>totalPages?'disabled':''}}">
+          <span class="page-link"
+            (click)="pagination.currentPage+1>totalPages?'':getPage(pagination.currentPage+1)">Next</span>
+        </li>
+      </ul>
+    </div>
+  </div>
   <table class="table">
     <thead>
       <tr class="text-center">
@@ -14,31 +46,30 @@
         <td>{{a.accountType.name}}</td>
         <td>{{a.balance}}</td>
         <td>
-          <div class="btn-group" role="group">
-            <button class="btn btn-outline-info btn-sm" type="button">Details</button>
-            <button class="btn btn-outline-danger btn-sm" type="button">Delete</button>
+          <div class="btn-group dropend">
+            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Actions
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" type="button" routerLink="./delete/{{a.id}}">Transacctions</a>
+              </li>
+              <li><a class="dropdown-item" type="button" routerLink="../transfers/{{a.id}}">Transfers</a></li>
+              <li><a class="dropdown-item" type="button" routerLink="../deposits/{{a.id}}">Deposits</a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" type="button" routerLink="../deposits/{{a.id}}">Add deposits</a></li>
+              <li><a class="dropdown-item" type="button" routerLink="../deposits/{{a.id}}">Generate transfer</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item btn-sm" type="button" (click)="delete(a.id)">Delete</a></li>
+            </ul>
           </div>
         </td>
       </tr>
     </tbody>
   </table>
-  <ul class="pagination justify-content-center">
-    <li class="page-item {{pagination.currentPage-1==0?'disabled':''}}">
-      <span class="page-link" (click)="pagination.currentPage-1!==0?getPage(pagination.currentPage-1):''"
-        tabindex="-1">Previous</span>
-    </li>
-    <li class="page-item" (click)="getPage(pagination.currentPage-1)">
-      <span class="page-link" *ngIf="pagination.currentPage-1 !== 0">{{pagination.currentPage-1}}</span>
-    </li>
-    <li class="page-item active">
-      <span class="page-link">{{pagination.currentPage}}</span>
-    </li>
-    <li class="page-item" (click)="getPage(pagination.currentPage+1)">
-      <span class="page-link" *ngIf="pagination.currentPage+1<=totalPages">{{pagination.currentPage+1}}</span>
-    </li>
-    <li class="page-item {{pagination.currentPage+1>totalPages?'disabled':''}}">
-      <span class="page-link"
-        (click)="pagination.currentPage+1>totalPages?'':getPage(pagination.currentPage+1)">Next</span>
-    </li>
-  </ul>
 </div>

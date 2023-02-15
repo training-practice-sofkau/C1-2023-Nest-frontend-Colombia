@@ -30,7 +30,7 @@ const routes: Routes = [
           .then(m => m.AccountsModule)
       },
       { path: '', redirectTo: '', pathMatch: 'full' },
-      { path: '**', redirectTo: '' },
+      //{ path: '**', redirectTo: '' },
     ]
   }
 ];

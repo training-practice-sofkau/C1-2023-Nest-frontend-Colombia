@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CustomerInterface } from '../../../main/interfaces/customer.interface';
 import { AuthService } from '../../../auth/services/auth.service';
 import { UserInterface } from '../../../auth/interfaces/user.interface';
 import { DocumentTypeEnum } from '../../../../shared/enums/document-type.enum';
@@ -20,7 +19,7 @@ export class CustomerDetailComponent implements OnInit {
   }
 
   getUserInfo(): void {
-    this.user = <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? '');
+    this.user = <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''));
   }
 
   getPercentage(object: Object): number {

@@ -5,13 +5,14 @@ import { Observable } from 'rxjs';
 import { PaginationModel } from '../../../shared/models/pagination.model';
 import { UserInterface } from '../../auth/interfaces/user.interface';
 import { PageAccountsInterface } from '../interfaces/page-accounts.interface';
+import { NewAccountModel } from '../models/new-account.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
 
-  private readonly uri = environment.baseUrl + 'accounts/all'
+  private readonly uri = environment.baseUrl + 'accounts'
   private currentUser!: UserInterface;
   private headers!: HttpHeaders;
 
@@ -20,19 +21,30 @@ export class AccountService {
   }
 
   getAccounts(pagination: PaginationModel): Observable<PageAccountsInterface> {
-    return this.http.post<PageAccountsInterface>(this.uri, pagination, { headers: this.headers });
+    return this.http.post<PageAccountsInterface>(this.uri + '/all', pagination, { headers: this.headers });
+  }
+
+  deleteAccount(accountId: string): Observable<boolean> {
+    return this.http.delete<boolean>(this.uri + '/' + accountId, { headers: this.headers });
+  }
+
+  createAccount(newAccount: NewAccountModel): Observable<boolean> {
+    newAccount.customerId = this.currentUser.data.id;
+    return this.http.post<boolean>(this.uri + '/add', newAccount, { headers: this.headers })
   }
 
   private setUser(user: UserInterface): void {
     this.currentUser = user;
-    this.headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.currentUser.data.token}`,
-    })
+    if (user) {
+      this.headers = new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${this.currentUser.data.token}`,
+      })
+    }
   }
 
   private getUser(): UserInterface {
-    return <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? '');
+    return <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''));
   }
 }
 

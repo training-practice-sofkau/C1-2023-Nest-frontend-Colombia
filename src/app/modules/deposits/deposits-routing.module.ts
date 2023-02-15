@@ -11,6 +11,7 @@ const routes: Routes = [
     path: '',
     children: [
       { path: '', component: DepositsDetailComponent },
+      { path: ':id', component: DepositsDetailComponent },
       { path: 'add', component: NewDepositComponent },
       { path: '', redirectTo: '', pathMatch: 'full' },
       { path: '**', redirectTo: '' },

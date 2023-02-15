@@ -1,4 +1,3 @@
-import { DocumentTypeEnum } from 'src/app/shared/enums/document-type.enum';
 export interface UserInterface {
   success: boolean
   data: {
@@ -9,7 +8,7 @@ export interface UserInterface {
     email: string;
     phone: string;
     password: string;
-    avatarUrl?: string;
+    avatarUrl: string;
     token: string;
   }
 }

@@ -1,18 +1,16 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { UserInterface } from '../../auth';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { UserInterface } from '../../auth/interfaces';
 import { Observable } from 'rxjs';
-import { PageTransfersInterface } from '../interfaces/page-transfers.interface';
-import { PaginationModel } from 'src/app/shared/models/pagination.model';
-import { DateRangeModel } from '../../../shared/models/date-range.model';
+import { DepositInterface } from '../interfaces/deposit.interface';
 
 @Injectable({
   providedIn: 'root'
 })
-export class TransferService {
+export class DepositService {
 
-  private readonly uri = environment.baseUrl + 'transfers/';
+  private readonly uri = environment.baseUrl + 'deposits/all'
   private currentUser!: UserInterface;
   private headers!: HttpHeaders;
 
@@ -20,15 +18,13 @@ export class TransferService {
     this.setUser(this.getUser());
   }
 
-  getTransfersByAccount(pagination: PaginationModel, dateRange?: DateRangeModel):
-    Observable<PageTransfersInterface> {
-    const body = { pagination, dateRange }
-    return this.http.post<PageTransfersInterface>(this.uri, body);
+  getDepositsByAccountId(id: string): Observable<DepositInterface> {
+    return this.http.get<DepositInterface>(this.uri);
   }
 
   private setUser(user: UserInterface): void {
     this.currentUser = user;
-    if(user){
+    if (user) {
       this.headers = new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${this.currentUser.data.token}`,
