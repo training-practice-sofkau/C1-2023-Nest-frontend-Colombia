@@ -5,6 +5,7 @@ import { ListarTareaComponent } from './pages/listar-tarea/listar-tarea.componen
 import { DetalleTareaComponent } from './pages/detalle-tarea/detalle-tarea.component';
 import { CrearTareaComponent } from './pages/crear-tarea/crear-tarea.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
+import { ActualizarTareaComponent } from './pages/actualizar-tarea/actualizar-tarea.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
       {
         path: 'crear',// localhost:4200/tareas/crear
         component: CrearTareaComponent
+      },
+      {
+        path: 'actualizar/:dia/:id',// localhost:4200/tareas/detalle
+        component: ActualizarTareaComponent
       },
       {
         path: '**',

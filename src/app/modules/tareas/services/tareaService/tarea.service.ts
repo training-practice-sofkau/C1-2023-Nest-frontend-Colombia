@@ -29,4 +29,8 @@ export class TareaService {
  postTarea(tarea: IpostTarea): Observable<IgetTarea>{
   return this.httpClient.post<IgetTarea>(`${environment.url_backend_calendar}/calendar`, tarea);
  }
+
+ putTarea(dia:number, idTarea:number, tarea: IpostTarea): Observable<IgetTarea>{
+  return this.httpClient.put<IgetTarea>(`${environment.url_backend_calendar}/Dia/${dia}/Tarea/${idTarea}`, tarea);
+ }
 }

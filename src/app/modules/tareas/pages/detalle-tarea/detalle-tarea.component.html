@@ -1,12 +1,12 @@
 <h1 class="text-center">
   Detalles de la tarea
 </h1>
-<div class="card" style="width: 18rem;">
+<div class="card" style="width: 50rem; height: 10rem;">
     <div class="card-body">
       <h5 class="card-title">{{tarea[0].title}}</h5>
       <h6 class="card-subtitle mb-2 text-muted">ID: {{tarea[0].id}}</h6>
       <p class="card-text">{{tarea[0].description}}</p>
       <a href="#" class="card-link">Delete</a>
-      <a href="#" class="card-link">Update</a>
+      <a class="card-link" [routerLink]="['../../actualizar',tarea[0].calendarModelId ,tarea[0].id]">Update</a>
     </div>
   </div>
