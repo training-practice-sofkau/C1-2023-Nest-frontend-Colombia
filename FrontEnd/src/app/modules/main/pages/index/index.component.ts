@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { environment } from '../../../../../environments/environment.prod';
 
 @Component({
   selector: 'sofka-index',
@@ -8,24 +9,23 @@ import { Component } from '@angular/core';
 })
 export class IndexComponent {
   
-  entrydate: Date;
-  name: string;
-  lastName: string;
-  age: number;
-  
 routeRegister: string [];
 routeUser: string[];
 
-  constructor() { // user$ = userService
+frmFormularyLogin: FormGroup;
 
+  constructor() {
     this.routeRegister = ['register']
     this.routeUser = ['user']
-
-    this.entrydate = new Date;
-    this.name = 'Juan Esteban';
-    this.lastName = 'Patiño Valencia';
-    this.age = 41;    
+  
+    this.frmFormularyLogin = new FormGroup({
+        userName : new FormControl("", [Validators.required ,Validators.minLength(6), Validators.maxLength(80)]),
+        password: new FormControl("", [Validators.required , Validators.minLength(8), Validators.pattern(new RegExp (environment.regexPassword))]),
+    })
   }
 
-
+  sendDataFormulary(): void {
+    console.log('endDataFormulary' , this.frmFormularyLogin)
+    console.log(this.frmFormularyLogin.getRawValue())
+  }
 }

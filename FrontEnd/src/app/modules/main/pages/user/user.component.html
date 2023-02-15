@@ -1,76 +1,55 @@
-<div class="container">
-  <div class="row d-flex justify-content-center">
-    <div class="col-md-7">
-      <div class="card p-2 text-center">
-        <div class="row">
-          <div class="col-md-7 border-right no-gutters">
-            <div class="py-3">
-              <img
-                src="https://cdn-icons-png.flaticon.com/512/94/94392.png"
-                width="100"
-                class="rounded-circle" />
-              <h4 class="text-secondary">User Name</h4>
-              <div class="stats">
-                <table class="table table-borderless">
-                  <tbody>
-                    <tr>
-                      <td>
-                        <div class="d-flex flex-column">
-                          <span class="text-left head">Birthday</span>
-                          <span class="text-left bottom">??/??/????</span>
-                        </div>
-                      </td>
-                      <td>
-                        <div class="d-flex flex-column">
-                          <span class="text-left head">Age</span>
-                          <span class="text-left bottom">????</span>
-                        </div>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div>
-                <button type="button" class="btn btn-primary btn-block">
-                  Save
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  [routerLink]="['../register']">
-                  Return
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-secondary"
-                  [routerLink]="['../deposit']">
-                  Continue
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="py-3">
-              <div>
-                <span class="d-block head">Home Address</span>
-                <span class="bottom">Direction/City/Country</span>
-              </div>
-              <div class="mt-4">
-                <span class="d-block head">Phone 1</span>
-                <span class="bottom">123-456-78-90</span>
-              </div>
-              <div class="mt-4">
-                <span class="d-block head">Phone 2</span>
-                <span class="bottom">098-765-43-21</span>
-              </div>
-              <div class="mt-4">
-                <span class="d-block head">Email</span>
-                <span class="bottom">user@email.com</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Bootstrap 4. Tablas</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<table class="table table-hover table-bordered">
+					<thead>
+						<tr>
+							<th>DocumentTypeId</th>
+							<th>FullName</th>
+							<th>Document</th>
+							<th>Phone</th>
+							<th>Email</th>
+							<th>Password</th>
+						</tr>
+					</thead>
+
+					<tbody>
+
+						<tr *ngFor="let user of users" class="table-warning">
+							<td>{{user.documentType}}</td>
+							<td>{{user.fullName}}</td>
+							<td>{{user.document}}</td>
+							<td>{{user.phone}}</td>
+							<td>{{user.email}}</td>
+							<td>{{user.password}}</td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+	</div>
+</body>
+
+</html>

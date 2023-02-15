@@ -1,30 +1,30 @@
-export class newUserModel {
+export class UserModel {
 
-  documentTypeId: string;
+  
   fullName: string;
   document: string;
+  documentType: string;
   email: string;
   phone: string;
   password: string;
 
-  constructor ( documentTypeId: string,document: string, fullName: string , email: string , phone: string , password: string ){
-    this.documentTypeId = documentTypeId;
+  constructor ( fullName: string, document: string, documentType: string ,  email: string ,phone: string, password: string ){
+    
     this.fullName = fullName;
     this.document = document;
+    this.documentType = documentType;
     this.email = email;
     this.phone = phone;
     this.password = password;
   }
 
   getData(): {
-    documentTypeId: string;
     fullName: string;
     document: string;
     email: string;
     phone: string;
     password: string} {
-  return({ 
-    documentTypeId: this.documentTypeId,
+  return({
     fullName: this.fullName,
     document: this.document,
     email: this.email,
