@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TodoListI } from '../../interfaces/todo-list.interface';
 import { TodoListService } from '../../services/todo-list/todo-list.service';
+import { AuthService } from '../../../main/services/auth/auth.service';
 
 @Component({
   selector: 'sofka-principal',
@@ -13,7 +14,7 @@ export class PrincipalComponent implements OnInit {
   routeNewItem: string[];
   todoList: TodoListI[];
 
-  constructor(private readonly todoListService: TodoListService) {
+  constructor(private readonly todoListService: TodoListService, private readonly authService: AuthService) {
     this.routeNewItem = ['new-item'];
     this.todoList = new Array<TodoListI>();
   }
@@ -31,5 +32,10 @@ export class PrincipalComponent implements OnInit {
   myFc(item: TodoListI): void {
     console.log(item);
   }
+
+  logout(): void {
+    this.authService.SignOut();
+  }
+
 
 }

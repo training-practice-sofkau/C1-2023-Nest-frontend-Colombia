@@ -3,7 +3,10 @@
   <sofka-header></sofka-header>
 </div>
 <div class="row m-3">
+  <div>
+    <button type="button" (click)="logout()">Cerrar sesión</button>
   <h1 class="display-4">Lista de tareas</h1>
+</div>
   <hr class="my-4"/>
   <button type="button" class="btn btn-primary" [routerLink]="routeNewItem">
     Nuevo item

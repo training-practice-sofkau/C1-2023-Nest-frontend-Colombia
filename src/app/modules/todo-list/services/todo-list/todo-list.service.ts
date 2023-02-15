@@ -5,12 +5,14 @@ import { HttpClient } from '@angular/common/http';
 import { todoListModel } from '../../models/todo-list.model';
 import { Observable } from 'rxjs';
 import { TodoListI } from '../../interfaces/todo-list.interface';
+import { Router } from '@angular/router';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TodoListService {
-  constructor(private readonly HttpClient: HttpClient) {}
+  constructor(private readonly HttpClient: HttpClient, private router: Router, private afAuth: AngularFireAuth) {}
 
   createItem(item: todoListModel): Observable<TodoListI> {
     return this.HttpClient.post<TodoListI>('https://localhost:7281/api/Todoitem/', item);
@@ -30,5 +32,13 @@ export class TodoListService {
 
   deleteItemById(id: string|null): Observable<TodoListI> {
     return this.HttpClient.delete<TodoListI>('https://localhost:7281/api/Todoitem/'+id);
+  }
+
+  SignOut() {
+    return this.afAuth.signOut().then(() => {
+      localStorage.removeItem('user');
+      localStorage.removeItem('token');
+      this.router.navigate(['login']);
+    });
   }
 }
