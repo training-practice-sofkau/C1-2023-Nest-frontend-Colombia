@@ -17,7 +17,6 @@ export class TareaService {
   return this.httpClient.get<IgetTarea[]>(`${environment.url_backend_tarea}/ToDo`);
  }
 
-
  getId(dia: number): Observable<IgetTarea[]>{
   return this.httpClient.get<IgetTarea[]>(`${environment.url_backend_tarea}/ToDo/${dia}`);
  }

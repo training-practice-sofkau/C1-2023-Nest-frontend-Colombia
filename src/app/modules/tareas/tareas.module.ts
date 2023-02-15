@@ -26,7 +26,7 @@ import { ActualizarTareaComponent } from './pages/actualizar-tarea/actualizar-ta
     FooterComponent,
     SidebarComponent,
     MainLayoutComponent,
-    ActualizarTareaComponent
+    ActualizarTareaComponent,
   ],
   imports: [
     CommonModule,
