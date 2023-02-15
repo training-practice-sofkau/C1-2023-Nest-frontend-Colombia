@@ -68,7 +68,9 @@ file: any;
     
   }
 
-  
+  auth(): void {
+    this.authService.GoogleAuth()
+ }
 
 onSubmit() {
 
@@ -76,13 +78,14 @@ onSubmit() {
         return;
     }
       const user = {
+        id: '',
         fullName: this.newUser.get('fullName')?.value,
         email: this.newUser.get('email')?.value,
         phone: this.newUser.get('phone')?.value,
         document: this.newUser.get('document')?.value,
         documentTypeId: this.newUser.get('documentTypeId')?.value,
         password: this.newUser.get('password')?.value,
-        avatar: this.newUser.get('avatar')?.value
+        avatarUrl: this.newUser.get('avatar')?.value
       }
    
   console.log('user ', this.newUser.value)

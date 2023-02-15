@@ -33,6 +33,13 @@ export class UserService {
     return res
   }
 
+  updateUser(user: NewUserModel): Observable<TokenModel>{
+    return this.httpClient.put<TokenModel>(
+      `/api/customer/${user.id}`,
+      user
+    )
+  }
+
   signIn(user: SignInModel): Observable<TokenModel>{
     return this.httpClient.post<TokenModel>(
       '/api/security/signIn',

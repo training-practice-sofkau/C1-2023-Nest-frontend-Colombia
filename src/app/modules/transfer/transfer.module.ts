@@ -7,6 +7,7 @@ import { TransferRoutingModule } from './transfer-routing.module';
 
 @NgModule({
   declarations: [
+    TransferComponent
   ],
   imports: [
     CommonModule,

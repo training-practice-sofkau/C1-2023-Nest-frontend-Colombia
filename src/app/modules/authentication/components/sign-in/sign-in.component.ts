@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { TokenModel } from '../../models/sig-in-token.model';
 import { AuthService } from '../../services/auth/auth.service';
 import { UserService } from '../../services/user/user.service';
-//import { fc } from '../../../user/user.module'
+import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-sign-in',
@@ -16,18 +16,19 @@ export class SignInComponent {
   routeProfile: string[];
   user!: FormGroup
   submitted = false;
+  userExist = true
+  modal : NgbModalRef | undefined;
 
   constructor(private router: Router, private readonly user$: UserService,
     private readonly authService: AuthService) {
 
     this.routeLogIn = ['../log_in'];
-    this.routeProfile = ['/profile']
+    this.routeProfile = ['/profile/p']
     this.user = new FormGroup({
       email: new FormControl('', [
         Validators.required,
         Validators.email
       ]),
-      
       password: new FormControl('', [
         Validators.required,
       ]),
@@ -41,8 +42,22 @@ export class SignInComponent {
       email: this.user.get('email')?.value,
     }
     this.authService.registerWithEmailandPassword(this.user.value)
-    .then(res => console.log('RES ', res))
-    .catch(err => console.log('err', err))
+   /* this.user$.createUser(user).subscribe({
+      next: data  => {
+        if(data.status === 'success'){
+          console.log('re ', data.token)
+          localStorage.setItem('token', data.token);
+          this.submitted = true;
+          this.newUser.reset();
+        }
+      },
+      error: err => console.error(err),
+      complete: () => console.info('complete')
+    }*/
+  }
+
+  otra(){
+    this.router.navigate(['profile', 'p']);
   }
 
   auth(): void {
@@ -60,25 +75,26 @@ export class SignInComponent {
       }
    
   console.log('user ', this.user.value)
-  this.user$.signIn(user).subscribe({
+
+  this.user$.signIn (user).subscribe({
     next: data  => {
       console.log('re ', data)
       if(data.status === 'success'){
-        const token = localStorage.getItem('token')
-      if(token){
-        localStorage.removeItem('token')
-      }
-      localStorage.setItem('token', data.token)
-      localStorage.setItem('id', data.user.id)
-
+        this.authService.registerWithEmailandPassword(this.user.value)
       this.router.navigate(['../../../', 'profile', 'p']);
       }
     },
-    error: err => console.error('err', err),
+    error: err => {
+      console.log('entra en error')
+      console.log('user ', this.userExist)
+      this.userExist = false
+      console.error('err', err)
+    },
     complete: () => console.info('complete')
   }
   );
 }
+
   goTo(): void {
     console.log('enviar')
     // this.router.navigate(['../experiencia-laboral'], {
