@@ -5,20 +5,50 @@
       alt="" />
   </div>
   <div class="text-center mt-4 name">Banco Scorpion</div>
-  <form class="p-3 mt-3">
-    <div class="form-field d-flex align-items-center">
-      <span class="far fa-user"></span>
-      <input
-        type="text"
-        name="userName"
-        id="userName"
-        placeholder="Username or Email" />
+  <form class="p-3 mt-3" id="login" [formGroup]="frmLogin">
+    <div>
+      <div class="row">
+        <label>Email</label>
+        <div>
+          <input
+            type="email"
+            placeholder=""
+            formControlName="email"
+            name="email" />
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmLogin.get('email')?.hasError('required') &&
+              frmLogin.get('email')?.touched
+            ">
+            el email es requerido
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label>Password</label>
+        <div>
+          <input
+            type="password"
+            placeholder=""
+            formControlName="password"
+            name="password" />
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmLogin.get('password')?.hasError('required') &&
+              frmLogin.get('password')?.touched
+            ">
+            la contraseña es requerido
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="form-field d-flex align-items-center">
-      <span class="fas fa-key"></span>
-      <input type="password" name="password" id="pwd" placeholder="Password" />
-    </div>
-    <button class="btn mt-3" type="button" [routerLink]="['../infouser']">
+    <button
+      class="btn mt-3"
+      [disabled]="frmLogin.invalid"
+      type="button"
+      [routerLink]="['../infouser']">
       Login
     </button>
   </form>

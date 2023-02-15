@@ -12,6 +12,7 @@ import { InfoUserComponent } from './pages/info-user/info-user.component';
 import { DepositComponent } from './pages/deposit/deposit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateUserComponent } from './components/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     InfoUserComponent,
     DepositComponent,
+    UpdateUserComponent,
   ],
   imports: [
     BrowserModule,

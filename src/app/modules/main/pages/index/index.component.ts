@@ -1,3 +1,4 @@
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,9 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent {
+  frmLogin: FormGroup;
   routeRegister: string[];
 
   constructor() {
     this.routeRegister = ['register'];
+    this.frmLogin = new FormGroup({
+      email: new FormControl(null, Validators.required),
+      password: new FormControl(null, Validators.required),
+    });
   }
 }
