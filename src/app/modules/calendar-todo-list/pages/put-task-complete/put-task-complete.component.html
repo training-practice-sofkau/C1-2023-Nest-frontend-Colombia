@@ -7,29 +7,27 @@
       <div class="mb-3 mt-2 row">
         <label for="Día" class="col-sm-2 col-form-label">id de la tarea</label>
         <div class="col-sm-10">
-          <input type="number" class="form-control" id="idCalendar" formControlName="idCalendar" name="idCalendar">
-              <div id="altoMensaje" *ngIf="frmFormReactive.get('idCalendar')?.hasError('required')
-         && frmFormReactive.get('idCalendar')?.touched">Campo requerido, ingresar por favor</div>
+          <input type="number" class="form-control" id="id" formControlName="id" name="id">
+              <div id="altoMensaje" *ngIf="frmFormReactive.get('id')?.hasError('required')
+         && frmFormReactive.get('id')?.touched">Campo requerido, ingresar por favor</div>
           </div>
         </div>
 
       <hr>
 
       <div class="mb-3 row">
-        <label for="Título" class="col-sm-2 col-form-label">Título</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="Título" placeholder="Tarea importante"  formControlName="title"
-            name="title" required>
-            <div id="altoMensaje" *ngIf="frmFormReactive.get('title')?.hasError('required')
-         && frmFormReactive.get('title')?.touched">Campo requerido, ingresar por favor</div>
+        <label for="isCompleted" class="col-sm-2 col-form-label">Completada</label>
+        <select class="form-control col ms-3 me-3 float-start" aria-label="Default select example"
+          id="isCompleted" formControlName="isCompleted" name="isCompleted">
+          <option value="" selected>Seleccione si esta terminada o no la tarea</option>
+          <option value="true">Si</option>
+          <option value="false">No</option>
+        </select>
         </div>
-      </div>
-
-
 
 <button type="submit" form="frmFormReactive" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto">
           <i class="bi bi-folder-plus"> Guardar</i>
 </button>
-        <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
+        <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome"> AL MENU PRINCIPAL</button>
       </form>
 </div>

@@ -7,6 +7,7 @@ import { ICalendar } from '../interfaces/calendar.interface';
 import { OnlyTaskModel } from '../models/task-only.model';
 import { TaskUpdateModel } from '../models/task-update.model';
 import { TaskModel } from '../models/task.model';
+import { TaskUpdateCompletekModel } from '../models/task-update-complete-model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,11 +26,10 @@ export class TaskService {
     return this.httClient.put<InewTask>('https://localhost:7281/UpdateAllTask/' + id, task);
   }
 
-  updateTaskFinish(id: number, completed:boolean) : Observable<InewTask> {
-    return this.httClient.put<InewTask>('https://localhost:7281/UpdateAll/' + id, completed);
+
+  updateTaskFinish(id: number, task: TaskUpdateCompletekModel) : Observable<InewTask> {
+    return this.httClient.put<InewTask>('https://localhost:7281/CompletedOneTask/' + id, task);
   }
-
-
 
   getById(id: number): Observable<TaskUpdateModel[]> {
     return this.httClient.get<TaskUpdateModel[]>('https://localhost:7281/OneDay/' + id);
