@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TokenModel } from '../../models/sig-in-token.model';
+import { AuthService } from '../../services/auth/auth.service';
 import { UserService } from '../../services/user/user.service';
 //import { fc } from '../../../user/user.module'
 
@@ -16,7 +17,9 @@ export class SignInComponent {
   user!: FormGroup
   submitted = false;
 
-  constructor(private router: Router, private readonly user$: UserService) {
+  constructor(private router: Router, private readonly user$: UserService,
+    private readonly authService: AuthService) {
+
     this.routeLogIn = ['../log_in'];
     this.routeProfile = ['/profile']
     this.user = new FormGroup({
@@ -32,6 +35,19 @@ export class SignInComponent {
      });
   }
 
+  registerFire(){
+    const user = {
+      password: this.user.get('password')?.value,
+      email: this.user.get('email')?.value,
+    }
+    this.authService.registerWithEmailandPassword(this.user.value)
+    .then(res => console.log('RES ', res))
+    .catch(err => console.log('err', err))
+  }
+
+  auth(): void {
+    this.authService.GoogleAuth()
+ }  
   onSubmit() {
     this.submitted = true;
 

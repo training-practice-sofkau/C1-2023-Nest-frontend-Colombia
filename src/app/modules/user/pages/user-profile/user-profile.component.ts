@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/modules/authentication/services/auth/auth.service';
 import { UserService } from 'src/app/modules/authentication/services/user/user.service';
 import { getUserModel } from '../../models/get-user-model';
 //import { t } from '../../../transfer/transfer-routing.module'
@@ -13,7 +14,8 @@ export class UserProfileComponent {
   routeTransfer:string[];
   user: getUserModel
 
-  constructor(private router: Router, private readonly user$: UserService){
+  constructor(private router: Router, private readonly user$: UserService, 
+    private readonly authService: AuthService){
     this.routeTransfer = ['../../../transfer/t']
 
     this.user = {
@@ -33,6 +35,10 @@ export class UserProfileComponent {
 
   ngOnInit(): void {
     this.getCustomer()
+  }
+
+  logout(): void {
+    this.authService.SignOut();
   }
 
   getCustomer(){

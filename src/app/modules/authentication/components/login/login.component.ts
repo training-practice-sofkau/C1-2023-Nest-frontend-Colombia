@@ -5,6 +5,7 @@ import { NewUserModel } from '../../models/new-user.model';
 import { UserService } from '../../services/user/user.service';
 import { MustMatch } from './help-must-match';
 import Swal from 'sweetalert2';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -24,7 +25,7 @@ export class LoginComponent {
   submitted = false;
 file: any;
 
-  constructor(private readonly user$: UserService) {
+  constructor(private readonly user$: UserService, private readonly authService: AuthService) {
     this.newUser = new FormGroup({
       documentTypeId: new FormControl('', [Validators.required]),            
       document: new FormControl('', [
@@ -66,6 +67,8 @@ file: any;
   ngOnInit(): void {
     
   }
+
+  
 
 onSubmit() {
 
