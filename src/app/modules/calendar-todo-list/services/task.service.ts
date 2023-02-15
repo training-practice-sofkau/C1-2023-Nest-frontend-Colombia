@@ -21,12 +21,17 @@ export class TaskService {
   }
 
 
-  updateTaskCompleted(id: string , task: TaskUpdateModel) : Observable<InewTask> {
+  updateTaskCompleted(id: number, task: TaskUpdateModel) : Observable<InewTask> {
     return this.httClient.put<InewTask>('https://localhost:7281/api/Controlador/UpdateAllTask/' + id, task);
   }
 
-  getById(id: any): Observable<TaskModel[]> {
-    return this.httClient.get<TaskModel[]>('https://localhost:7281/OneDay/' + id);
+  getById(id: any): Observable<TaskUpdateModel[]> {
+    return this.httClient.get<TaskUpdateModel[]>('https://localhost:7281/OneDay/' + id);
+  }
+
+
+  getTaskById(id: any): Observable<TaskUpdateModel[]> {
+    return this.httClient.get<TaskUpdateModel[]>('https://localhost:7281/OneTask/' + id);
   }
 
   GetAll(): Observable<ICalendar[]> {

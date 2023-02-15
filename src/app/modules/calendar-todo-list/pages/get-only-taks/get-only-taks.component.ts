@@ -1,18 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TaskService } from '../../services/task.service';
-import { ActivatedRoute } from '@angular/router';
-import { TaskModel } from '../../models/task.model';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TaskUpdateModel } from '../../models/task-update.model';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'sofka-get-task-by-id',
-  templateUrl: './get-task-by-id.component.html',
-  styleUrls: ['./get-task-by-id.component.scss']
+  selector: 'sofka-get-only-taks',
+  templateUrl: './get-only-taks.component.html',
+  styleUrls: ['./get-only-taks.component.scss']
 })
-export class GetTaskByIdComponent {
-
+export class GetOnlyTaksComponent {
   frmFormReactive : FormGroup;
   routergoBackMenu: string[];
   routeShowTaskById: TaskUpdateModel[];
@@ -32,7 +29,7 @@ export class GetTaskByIdComponent {
 
   cargarLista():void{
 
-    this.task$.getById(this.frmFormReactive.get('idCalendar')?.value).subscribe({
+    this.task$.getTaskById(this.frmFormReactive.get('idCalendar')?.value).subscribe({
 
       next: data => (this.routeShowTaskById = data),
       error: err => console.log(err),
@@ -44,6 +41,5 @@ export class GetTaskByIdComponent {
 
   }
 
-  }
-
+}
 

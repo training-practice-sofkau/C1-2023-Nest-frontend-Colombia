@@ -9,6 +9,7 @@ import { PostTaskComponent } from './pages/post-task/post-task.component';
 import { PutTaskCompleteComponent } from './pages/put-task-complete/put-task-complete.component';
 import { PutTaskComponent } from './pages/put-task/put-task.component';
 import { DeleteTaskComponent } from './pages/delete-task/delete-task.component';
+import { GetOnlyTaksComponent } from './pages/get-only-taks/get-only-taks.component';
 
 const routes : Routes = [
   {
@@ -46,7 +47,15 @@ const routes : Routes = [
   path: 'delete-task', //localhost:4200/calendar-todo-list
   component: DeleteTaskComponent,
 
+},
+
+{
+  path: 'get-only-task', //localhost:4200/calendar-todo-list
+  component: GetOnlyTaksComponent,
+
 }
+
+
 
 ];
 

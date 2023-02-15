@@ -15,7 +15,7 @@ import { DeleteTaskComponent } from './pages/delete-task/delete-task.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ListTasksComponent } from './pages/list-tasks/list-tasks.component';
+import { GetOnlyTaksComponent } from './pages/get-only-taks/get-only-taks.component';
 
 
 
@@ -28,7 +28,8 @@ import { ListTasksComponent } from './pages/list-tasks/list-tasks.component';
     PutTaskComponent,
     DeleteTaskComponent,
     PrincipalComponent,
-    ListTasksComponent,
+    GetOnlyTaksComponent
+
 
   ],
   imports: [CommonModule,CalendarRoutingModule,FormsModule,

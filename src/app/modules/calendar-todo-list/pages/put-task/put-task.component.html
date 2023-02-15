@@ -1,7 +1,6 @@
 
   <div class="text-center">
-
-    <form id="frmFormReactive" (ngSubmit)="sendData()" [formGroup]="frmFormReactive"
+    <form id="frmFormReactive" (ngSubmit)="cargarLista" [formGroup]="frmFormReactive"
       class="form-control mt-3 p-3 border-3 border-info text-start">
       <div class="mb-3 mt-2 row">
         <label for="Día" class="col-sm-2 col-form-label">Ingresa el id de la tarea que quieres modificar</label>
@@ -53,6 +52,7 @@
           <option value="false">No</option>
         </select>
         </div>
+
         <div class="alert alert-danger p-1 m-1 mt-1 ms-2 w-50" role="alert"
           *ngIf="frmFormReactive.get('isCompleted')?.hasError('required') && frmFormReactive.get('isCompleted')?.touched">
           Elige un valor
@@ -67,9 +67,7 @@
             </div>
           </div>
 
-<button type="submit" form="frmFormReactive" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto">
-          <i class="bi bi-folder-plus"> Guardar</i>
-</button>
-        <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
+        <button type="button" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
+
       </form>
 </div>

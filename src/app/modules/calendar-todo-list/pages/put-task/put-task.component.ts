@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TaskService } from '../../services/task.service';
 import { ActivatedRoute } from '@angular/router';
+import { TaskUpdateModel } from '../../models/task-update.model';
 @Component({
   selector: 'sofka-put-task',
   templateUrl: './put-task.component.html',
@@ -11,14 +12,11 @@ export class PutTaskComponent {
 
   routergoBackMenu: string[];
   frmFormReactive : FormGroup;
-
   constructor(private readonly task$: TaskService,private ruta: ActivatedRoute) {
 
+
     this.routergoBackMenu = ['../'];
-
-
     this.frmFormReactive = new FormGroup({
-
       id: new FormControl('', Validators.required),
       title: new FormControl('', Validators.required),
       descripccion: new FormControl('', Validators.required),
@@ -28,30 +26,37 @@ export class PutTaskComponent {
 
     });
 
+  }
+
+
+  cargarLista():void{
+
+    this.task$.updateTaskCompleted(this.frmFormReactive.get('idCalendar')?.value,this.frmFormReactive.getRawValue()).subscribe({
+
+      next: data => console.log(data),
+      error: err => console.log(err),
+      complete: ()=> console.log('complete')
+
+
+    })
 
 
   }
 
+/*
   ngOnInit(): void {
-    this.ruta.params.subscribe(params => {
-      this.task$.getById(params['id']).subscribe({
-        next: data => {
-            this.frmFormReactive.setValue({
-              id: data[0].id,
+
+      next: data => {(this.title = data[0].title),
+            this.frmEditItem.setValue({
               title: data[0].title,
-              descripccion: data[0].descripccion,
-              resposible: data[0].resposible,
+              description: data[0].description,
+              responsible: data[0].responsible,
               isCompleted: data[0].isCompleted,
-              idCalendar: data[0].idCalendar
             });
-        },
-        error: err => console.log(err),
-      });
-    });
+        }
   }
-
-
-
+*/
+ /*
   sendData(): void {
     this.frmFormReactive
       .get('isCompleted')
@@ -62,10 +67,10 @@ export class PutTaskComponent {
         .subscribe({
           next: data => {
             console.log('complete', data);
-
           },
           error: err => console.log(err),
         });
     });
   }
+*/
 }

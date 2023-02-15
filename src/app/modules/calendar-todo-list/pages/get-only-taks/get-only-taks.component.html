@@ -1,6 +1,6 @@
 <div class="text-center">
   <form id="frmFormReactive" (ngSubmit)="cargarLista()" [formGroup]="frmFormReactive">
-      <label for="Día" class="col-sm-2 col-form-label">DIA DE FEBRERO</label>
+      <label for="Día" class="col-sm-2 col-form-label">Ingresa el id de la tarea</label>
         <div class="col-sm-10">
         <input type="number" formControlName="idCalendar" id="idCalendar"  name="idCalendar">
             <div id="altoMensaje" *ngIf="frmFormReactive.get('idCalendar')?.hasError('required')
@@ -20,4 +20,5 @@
         <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
     </form>
 </div>
+
 

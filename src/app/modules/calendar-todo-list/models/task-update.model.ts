@@ -9,6 +9,7 @@ export class TaskUpdateModel{
   idCalendar: number;
 
 
+
   constructor(title: string, descripccion: string,resposible: string,isCompleted: boolean,idCalendar: number){
 
    this.title = title;

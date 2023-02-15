@@ -11,14 +11,12 @@ import { ICalendar } from '../../interfaces/calendar.interface';
 export class GetTaskComponent implements OnInit {
 
   routergoBackMenu: string[];
-  routeShowTask = [];
   calendarWithTask: ICalendar[];
 
   constructor(private readonly taskService: TaskService) {
 
 
     this.routergoBackMenu = ['../'];
-    this.routeShowTask = [];
     this.calendarWithTask = new Array<ICalendar>();
 
 
