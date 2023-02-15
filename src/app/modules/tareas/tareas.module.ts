@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 
 import { TareaRoutingModule } from './tareas.module.routing';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { ActualizarTareasComponent } from './pages/actualizarTareas/actualizarTareas.component';
 import { CrearTareasComponent } from './pages/crearTareas/crearTareas.component';
 import { TraerTareasComponent } from './pages/traerTareas/traerTareas.component';
@@ -32,6 +32,7 @@ import { LayoutsComponent } from './layouts/layouts.component';
         TareaRoutingModule,
         FormsModule,
         HttpClientModule,
+        ReactiveFormsModule
 
     ]
 })

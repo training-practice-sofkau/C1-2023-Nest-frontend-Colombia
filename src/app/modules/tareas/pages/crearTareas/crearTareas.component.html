@@ -1,37 +1,48 @@
 <h1 class="text-center">
-    Crear tarea
-  </h1>
-  <form class="row g-3">
-    <div class="form-floating mb-3">
-        <textarea name="title" class="form-control" placeholder="Leave a comment here" id="floatingTextarea" [(ngModel)]="tarea.title"></textarea>
-        <label for="floatingTextarea">Title </label>
-    </div>
-    <div class="form-floating mb-3">
-        <textarea name="description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"[(ngModel)]="tarea.description"></textarea>
-        <label for="floatingTextarea">Description </label>
-    </div>
-    <div class="form-floating mb-3">
-        <textarea name="responsible" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"[(ngModel)]="tarea.responsible"></textarea>
-        <label for="floatingTextarea">Responsible </label>
-    </div>
-    <div class="form-floating mb-3">
-        <select name="priority" class="form-select" id="floatingSelect" aria-label="Floating label select example" [(ngModel)]="tarea.priority">
-        <option selected>Priority </option>
-        <option value="High">High</option>
-        <option value="Medium">Medium</option>
-        <option value="Low">Low</option>
-        </select>
-        <label for="floatingSelect">Select priority</label>
-    </div>
-    <div class="form-floating mb-3">
-        <select name="state" class="form-select" id="floatingSelect" aria-label="Floating label select example" [(ngModel)]="tarea.isCompleted">
-        <option selected>State </option>
-        <option value=false>Pending</option>
-        <option value=true>completed</option>
-        </select>
-        <label for="floatingSelect">Select State</label>
-    </div>
-    <div class="col-12">
-        <button class="btn btn-primary" type="submit" (click)="crear()">Submit form</button>
-    </div>
+  Crear tarea
+
+
+</h1>
+<form id="crearTareas"
+(ngSubmit)="frmFormulario.valid ? crearTarea() : null"
+[formGroup]="frmFormulario" class="row g-3">
+
+  <div class="form-floating mb-3">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" formControlName ="title" name="title"></textarea>
+      <label for="floatingTextarea">Title </label>
+      <p class="text-danger" *ngIf="frmFormulario.get('title')?.hasError('required') &&
+      frmFormulario.get('title')?.touched">El titulo es requerido</p>
+  </div>
+  <div class="form-floating mb-3">
+      <textarea name="description" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"formControlName ="description" name="description"></textarea>
+      <label for="floatingTextarea">Description </label>
+      <p class="text-danger" *ngIf="frmFormulario.get('description')?.hasError('required') &&
+      frmFormulario.get('description')?.touched">La descripcion es requerida</p>
+  </div>
+  <div class="form-floating mb-3">
+      <textarea name="responsible" class="form-control" placeholder="Leave a comment here" id="floatingTextarea"formControlName ="responsible" name="responsible"></textarea>
+      <label for="floatingTextarea">Responsible </label>
+      <p class="text-danger" *ngIf="frmFormulario.get('responsible')?.hasError('required') &&
+      frmFormulario.get('responsible')?.touched">Responsable</p>
+  </div>
+  <div class="form-floating mb-3">
+      <select name="priority" class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName ="priority" name="priority">
+      <option selected>Priority </option>
+      <option value="High">High</option>
+      <option value="Medium">Medium</option>
+      <option value="Low">Low</option>
+      </select>
+      <label for="floatingSelect">Select priority</label>
+  </div>
+  <div class="form-floating mb-3">
+      <select name="state" class="form-select" id="floatingSelect" aria-label="Floating label select example" formControlName ="isCompleted" name="isCompleted">
+      <option selected>State </option>
+      <option value=false>Pending</option>
+      <option value=true>completed</option>
+      </select>
+      <label for="floatingSelect">Select State</label>
+  </div>
+  <div class="col-12">
+      <button class="btn btn-primary" type="submit" form = "crearTareas">Submit form</button>
+  </div>
 </form>
