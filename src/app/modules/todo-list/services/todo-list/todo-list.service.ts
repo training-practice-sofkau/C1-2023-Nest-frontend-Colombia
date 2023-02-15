@@ -13,7 +13,7 @@ export class TodoListService {
   constructor(private readonly HttpClient: HttpClient) {}
 
   createItem(item: todoListModel): Observable<TodoListI> {
-    return this.HttpClient.post<TodoListI>('https://localhost:7281/api/Todoitem/', item.getData());
+    return this.HttpClient.post<TodoListI>('https://localhost:7281/api/Todoitem/', item);
   }
 
   getItems(): Observable<TodoListI[]> {
@@ -25,7 +25,7 @@ export class TodoListService {
   }
 
   editItemById(id: string|null, item: todoListModel): Observable<TodoListI> {
-    return this.HttpClient.put<TodoListI>('https://localhost:7281/api/Todoitem/'+id, item.getData());
+    return this.HttpClient.put<TodoListI>('https://localhost:7281/api/Todoitem/'+id, item);
   }
 
   deleteItemById(id: string|null): Observable<TodoListI> {

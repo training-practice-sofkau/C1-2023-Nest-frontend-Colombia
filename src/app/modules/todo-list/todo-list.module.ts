@@ -2,7 +2,7 @@
 // Libraries
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 // Routes
 
@@ -28,6 +28,6 @@ import { HttpClientModule } from '@angular/common/http';
     ViewItemComponent,
     DeleteItemComponent,
   ],
-  imports: [CommonModule, FormsModule,ToDoListRoutingModule, SharedModule, HttpClientModule]
+  imports: [CommonModule, FormsModule,ReactiveFormsModule, ToDoListRoutingModule, SharedModule, HttpClientModule]
 })
 export class ToDoListModule {}

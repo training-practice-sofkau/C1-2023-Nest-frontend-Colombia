@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Component } from '@angular/core';
-import { todoListModel } from '../../models/todo-list.model';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+//import { todoListModel } from '../../models/todo-list.model';
 import { TodoListService } from '../../services/todo-list/todo-list.service';
 
 @Component({
@@ -10,6 +11,7 @@ import { TodoListService } from '../../services/todo-list/todo-list.service';
 })
 export class NewItemComponent {
 
+  form: FormGroup;
   title: string;
   description: string;
   responsible: string;
@@ -18,18 +20,26 @@ export class NewItemComponent {
   routePrincipal: string[];
   routeExperienciaLaboral: string[];
 
-  constructor(private readonly todoListService: TodoListService) {
+  constructor(private fb: FormBuilder, private readonly todoListService: TodoListService) {
     this.title = '';
     this.description = '';
     this.responsible = '';
 
     this.routePrincipal = ['../'];
     this.routeExperienciaLaboral = ['../experiencia-laboral'];
+
+    this.form = new FormGroup({
+      title: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+      description: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
+      responsible: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
+    });
   }
 
+
+
   sendItem(): void {
-    const item = new todoListModel(this.title, this.description, this.responsible);
-    this.todoListService.createItem(item).subscribe({
+    //const item = new todoListModel(this.title, this.description, this.responsible);
+    this.todoListService.createItem(this.form.getRawValue()).subscribe({
       next: data => console.log(data),
       error: error => console.log(error),
       complete: () => console.log('Complete'),
