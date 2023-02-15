@@ -1,6 +1,6 @@
 
   <div class="text-center">
-    <form id="frmFormReactive" (ngSubmit)="cargarLista" [formGroup]="frmFormReactive"
+    <form id="frmFormReactive" (ngSubmit)="sendData()" [formGroup]="frmFormReactive"
       class="form-control mt-3 p-3 border-3 border-info text-start">
       <div class="mb-3 mt-2 row">
         <label for="Día" class="col-sm-2 col-form-label">Ingresa el id de la tarea que quieres modificar</label>
@@ -44,10 +44,10 @@
       </div>
 
       <div class="mb-3 row">
-        <label for="CompletadaEditar" class="col-sm-2 col-form-label">Completada</label>
+        <label for="isCompleted" class="col-sm-2 col-form-label">Completada</label>
         <select class="form-control col ms-3 me-3 float-start" aria-label="Default select example"
-          id="CompletadaEditar" formControlName="isCompleted" name="isCompleted">
-          <option value="" selected>Seleccione...</option>
+          id="isCompleted" formControlName="isCompleted" name="isCompleted">
+          <option value="" selected>Seleccione si esta terminada o no la tarea</option>
           <option value="true">Sí</option>
           <option value="false">No</option>
         </select>
@@ -68,6 +68,8 @@
           </div>
 
         <button type="button" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
+
+        <button type="submit"  form="frmFormReactive" id="actualizar">Actualizar Tarea</button>
 
       </form>
 </div>

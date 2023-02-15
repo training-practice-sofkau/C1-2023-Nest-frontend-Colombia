@@ -17,7 +17,7 @@ export class PutTaskComponent {
 
     this.routergoBackMenu = ['../'];
     this.frmFormReactive = new FormGroup({
-      id: new FormControl('', Validators.required),
+      id: new FormControl(null, [Validators.required]),
       title: new FormControl('', Validators.required),
       descripccion: new FormControl('', Validators.required),
       resposible:new FormControl('', Validators.required),
@@ -29,48 +29,38 @@ export class PutTaskComponent {
   }
 
 
-  cargarLista():void{
 
-    this.task$.updateTaskCompleted(this.frmFormReactive.get('idCalendar')?.value,this.frmFormReactive.getRawValue()).subscribe({
-
-      next: data => console.log(data),
-      error: err => console.log(err),
-      complete: ()=> console.log('complete')
-
-
-    })
-
-
-  }
-
-/*
   ngOnInit(): void {
-
-      next: data => {(this.title = data[0].title),
-            this.frmEditItem.setValue({
+    this.ruta.params.subscribe(params => {
+      this.task$.getTaskById(params['id']).subscribe({
+        next: data => { this.frmFormReactive.setValue({
               title: data[0].title,
-              description: data[0].description,
-              responsible: data[0].responsible,
+              description: data[0].descripccion,
+              responsible: data[0].resposible,
               isCompleted: data[0].isCompleted,
+              idCalendar:data[0].idCalendar
             });
-        }
+        },
+        error: err => console.log(err),
+      });
+    });
   }
-*/
- /*
+
+
   sendData(): void {
     this.frmFormReactive
-      .get('isCompleted')
-      ?.setValue(JSON.parse(this.frmFormReactive.get('isCompleted')?.value));
+      .get('isCompleted')?.setValue(JSON.parse(this.frmFormReactive.get('isCompleted')?.value));
     this.ruta.params.subscribe(params => {
       this.task$
-        .updateTaskCompleted(params['id'], this.frmFormReactive.getRawValue())
+        .updateTaskCompleted(this.frmFormReactive.get('id')?.value, this.frmFormReactive.getRawValue())
         .subscribe({
           next: data => {
-            console.log('complete', data);
+            console.log(data);
           },
           error: err => console.log(err),
         });
     });
   }
-*/
 }
+
+
