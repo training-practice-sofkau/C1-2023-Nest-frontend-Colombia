@@ -1,6 +1,6 @@
-import { IUsers } from './../../../main/interfaces/users.interface';
-import { NewUserModel } from './../../../main/models/new-user.model';
-import { UsersService } from './../../../main/services/users/users.service';
+import { IUsers } from '../../../main/interfaces/users.interface';
+import { NewUserModel } from '../../../main/models/new-user.model';
+import { UsersService } from '../../../main/services/users/users.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,  FormControl, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent{
+  state:boolean = true;
   // documentTypeId: string;
   // document: string;
   // fullName: string;
@@ -32,27 +33,29 @@ export class RegisterComponent{
       document: new FormControl('', Validators.required),
       fullName: new FormControl('', [
         Validators.required,
-        Validators.minLength(10),
+        Validators.minLength(3),
         Validators.maxLength(50),
       ]),
       email: new FormControl('', [
         Validators.pattern(new RegExp(environment.regexEmail)),
+        Validators.required,
       ]),
       phone: new FormControl('', Validators.required),
+
       password: new FormControl('', Validators.required),
     });
   }
   registercustomer(): void {
     this.frmFormulario.get('email')?.addValidators(Validators.email);
     this.frmFormulario.get('email')?.updateValueAndValidity();
-    console.log('sendData', this.frmFormulario);
+    console.log('registercustomer', this.frmFormulario);
     console.log(this.frmFormulario.getRawValue());
     this.customerService.createUser(this.frmFormulario.getRawValue() as NewUserModel).subscribe({
       next: token => {
         localStorage.setItem('token', token.access_token);
         localStorage.setItem('id', token.id);
       },
-      error: (err) => console.log(err),
+      error: (err) => console.error(err),
       complete: () => console.info("completado"),
     });
   }

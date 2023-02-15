@@ -6,7 +6,7 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form  >
+        <form  [formGroup]="frmFormulario">
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-normal mb-0 me-3">Sign in with</p>
             <button type="button" class="btn btn-primary btn-floating mx-1">
@@ -28,16 +28,30 @@
 
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid email address" formcontrolName="email"/>
-            <label class="form-label" for="form3Example3">Email address</label>
+            <input type="email"  class="form-control form-control-lg"
+              placeholder="Enter a valid email address" formControlName="email" name="email"/>
+              <label class="form-label">Email address</label>
+            <!-- <div class="altoMensaje"
+              *ngIf ="frmFormulario.get('email')?.touched">El correo que ingresaste no es válido
+            </div> -->
+            <div class="altoMensaje"
+                  *ngIf="
+                  frmFormulario.get('email')?.touched  && frmFormulario.get('email')?.hasError('required')
+                    ">
+                  El email es requerido
+            </div>
+
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter password" formcontrolName="password" />
-            <label class="form-label" for="form3Example4">Password</label>
+            <input type="password"  class="form-control form-control-lg"
+              placeholder="Enter password"  formControlName="password" name="password" />
+            <label class="form-label" >Password</label>
+            <div class="altoMensaje"
+              *ngIf="frmFormulario.get('password')?.hasError('required') &&frmFormulario.get('password')?.touched">
+                debes ingresar una contraseña
+            </div>
           </div>
 
           <div class="d-flex justify-content-between align-items-center">
