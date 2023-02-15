@@ -6,7 +6,7 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form id="register" (ngSubmit)="registercustomer()">
+        <form id="register" (ngSubmit)="registercustomer()" [formGroup]="frmFormulario">
           <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
             <p class="lead fw-normal mb-0 me-3">Sign in with</p>
             <button type="button" class="btn btn-primary btn-floating mx-1">
@@ -28,49 +28,70 @@
 
           <!-- Email input -->
           <div class="form-outline mb-4">
-            <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid email address" [(ngModel)]="email" name="email"/>
-            <label class="form-label" for="form3Example3">Email address</label>
+            <input type="email"  class="form-control form-control-lg"
+              placeholder="Enter a valid email address" formControlName="email" name="email"/>
+              <label class="form-label">Email address</label>
+            <!-- <div class="altoMensaje"
+              *ngIf ="frmFormulario.get('email')?.touched">El correo que ingresaste no es válido
+            </div> -->
+            <div class="altoMensaje"
+                  *ngIf="
+                  frmFormulario.get('email')?.touched  && frmFormulario.get('email')?.hasError('required')
+                    ">
+                  El email es requerido
+            </div>
+
           </div>
-          <div>
-            {{email}}
-          </div>
+
+
           <!-- Password input -->
           <div class="form-outline mb-3">
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter password"  [(ngModel)]="password" name="password" />
-            <label class="form-label" for="form3Example4">Password</label>
+            <input type="password"  class="form-control form-control-lg"
+              placeholder="Enter password"  formControlName="password" name="password" />
+            <label class="form-label" >Password</label>
+            <div class="altoMensaje"
+              *ngIf="frmFormulario.get('password')?.hasError('required') &&frmFormulario.get('password')?.touched">
+                debes ingresar una contraseña
+            </div>
           </div>
-          <div>
-            {{password}}
-          </div>
+
           <!-- documento input -->
           <div class="form-outline mb-4">
-            <input type="text" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid document" [(ngModel)]="document" name="document" />
-            <label class="form-label" for="form3Example3">Documento</label>
+            <input type="text" class="form-control form-control-lg"
+              placeholder="Enter a valid document" formControlName="document" name="document" />
+            <label class="form-label">Documento</label>
+            <div class="altoMensaje"
+              *ngIf="frmFormulario.get('document')?.hasError('required') &&frmFormulario.get('document')?.touched">
+              Debes ingresar un documento
+            </div>
           </div>
-          <div>
-            {{document}}
-          </div>
+
           <!-- fullname input -->
           <div class="form-outline mb-3">
-            <input type="string" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter your fullname" [(ngModel)]="fullName" name="fullName" />
-            <label class="form-label" for="form3Example4">fullname</label>
+            <input type="string"  class="form-control form-control-lg"
+              placeholder="Enter your fullname" formControlName="fullName" name="fullName" />
+            <label class="form-label" >fullname</label>
+            <div class="altoMensaje"
+              *ngIf="
+                frmFormulario.get('fullName')?.touched  && frmFormulario.get('fullName')?.hasError('required')
+                  ">Debes ingresar un nombre
+            </div>
           </div>
-          <div>
-            {{fullName}}
-          </div>
+
           <!-- phone input -->
-          <div class="form-outline mb-4">
-            <input type="text" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter a valid phone"  [(ngModel)]="phone" name="phone"/>
-            <label class="form-label" for="form3Example3">number phone</label>
+          <div class="form-outline mb-4"
+          >
+            <input type="text"  class="form-control form-control-lg"
+              placeholder="Enter a valid phone"  formControlName="phone" name="phone"/>
+            <label class="form-label">number phone</label>
+            <div class="altoMensaje"
+              *ngIf="frmFormulario.get('phone')?.touched  && frmFormulario.get('phone')?.hasError('required')
+              ">
+              Debes ingresar un telefono
+            </div>
+
           </div>
-          <div>
-            {{phone}}
-          </div>
+
           <!-- photo input -->
           <div class="form-outline mb-3">
             <input type="url" id="form3Example4" class="form-control form-control-lg"
@@ -79,7 +100,7 @@
           </div>
           <div class="form-outline mb-4">
             <input type="text" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter documentTypeId"  [(ngModel)]="documentTypeId" name="documentTypeId"/>
+              placeholder="Enter documentTypeId"  formControlName="documentTypeId" name="documentTypeId"/>
             <label class="form-label" for="form3Example3">documentTypeId</label>
           </div>
           <div class="d-flex justify-content-between align-items-center">
@@ -95,8 +116,7 @@
 
           <div class="text-center text-lg-start mt-4 pt-2">
             <input type="submit" form="register" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;" value="Register">
-
+              style="padding-left: 2.5rem; padding-right: 2.5rem;" [disabled]="frmFormulario.invalid" value="Register">
           </div>
 
         </form>
@@ -129,4 +149,3 @@
     <!-- Right -->
   </div>
 </section>
-
