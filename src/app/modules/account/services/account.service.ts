@@ -29,7 +29,6 @@ export class AccountService {
   }
 
   createAccount(newAccount: NewAccountModel): Observable<boolean> {
-    newAccount.customerId = this.currentUser.data.id;
     return this.http.post<boolean>(this.uri + '/add', newAccount, { headers: this.headers })
   }
 

@@ -25,11 +25,11 @@ export class SigninComponent implements OnInit {
   ) {
     this.resetPass = ['../reset-pass'];
     this.signUp = ['../signup'];
-    this.checkoutForm= this.formBuilder.group({
+    this.checkoutForm = this.formBuilder.group({
       email: ['', [
         Validators.required,
         Validators.pattern(new RegExp(environment.regexEmail))
-      ],[]],
+      ], []],
       password: ['', [
         Validators.required,
       ]],
@@ -38,25 +38,27 @@ export class SigninComponent implements OnInit {
 
   ngOnInit(): void {
     this.random_bg_color();
-    const user = <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''))
-    if(user) this.router.navigate(['dashboard']);
   }
 
-  onSubmit() {
+  onSubmit(): void {
     const user = <AuthModel>this.checkoutForm.value;
-    this.auth$.signIn(user).subscribe({ 
+    this.auth$.signIn(user).subscribe({
       next: (data) => this.handlerSuccess(data),
       error: (err) => this.handlerError(err),
       complete: () => console.log('complente')
     })
   }
 
+  onGoogle(): void {
+    this.auth$.signInGoogleAuth()
+
+  }
+
   handlerSuccess(data: UserInterface): void {
-    localStorage.setItem('currentUser', JSON.stringify(data));
-    this.router.navigate(['dashboard']);
   }
 
   handlerError(err: any): void {
+    console.log(err)
     this.unauthorized = true;
   }
 
@@ -70,7 +72,6 @@ export class SigninComponent implements OnInit {
       required: `Enter ${param} here`,
     }
     let message = '';
-    const errorValue = (Object.values(this.checkoutForm.controls[param].errors ?? {})[0])
     const errorKey = (Object.keys(this.checkoutForm.controls[param].errors ?? {}))[0]
     switch (errorKey) {
       case 'required': message = messages.required

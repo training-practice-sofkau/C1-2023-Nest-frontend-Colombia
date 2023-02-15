@@ -92,9 +92,11 @@ export class SignupComponent implements OnInit {
     }
   }
 
+  onGoogle(){
+    this.auth$.signUpGoogleAuth();
+  }
+
   handlerSuccess(data: UserInterface): void {
-    localStorage.setItem('currentUser', JSON.stringify(data));
-    this.router.navigate(['dashboard']);
   }
 
   handlerError(err: any): void {

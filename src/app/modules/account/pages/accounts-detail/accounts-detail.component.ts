@@ -41,7 +41,7 @@ export class AccountsDetailComponent implements OnInit {
   }
 
   add(accountTypeId: 'Checking account' | 'Saving account'): void {
-    const newAccount = new NewAccountModel('', AccountTypeEnum[accountTypeId])
+    const newAccount = new NewAccountModel(  AccountTypeEnum[accountTypeId])
     this.account$.createAccount(newAccount).subscribe({
       next: (data) => this.getAll(),
       error: (err) => this.handlerError(err),

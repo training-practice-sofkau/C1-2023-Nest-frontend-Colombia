@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../auth/services/auth.service';
+import { UserInterface } from '../../../auth/interfaces/user.interface';
 
 @Component({
   selector: 'sofka-bank-navbar',
@@ -18,8 +20,9 @@ export class NavbarComponent implements OnInit {
   newTransfer!: string[];
   editCustomer!: string[]
   customerDetail!: string[]
+  currentUser!: UserInterface;
 
-  constructor() {
+  constructor(private readonly auth$: AuthService) {
     this.home = ['dashboard'];
     this.signout = ['../index'];
     this.accounts = ['./accounts'];
@@ -36,8 +39,12 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getUserInfo():void{
+    this.auth$
+  }
+
   signOut():void{
-    localStorage.removeItem('currentUser');
+    this.auth$.signOut().subscribe
   }
 
 }

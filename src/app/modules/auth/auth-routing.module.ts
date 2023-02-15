@@ -3,10 +3,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { SigninComponent } from './pages/signin/signin.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ResetPasswordComponent } from './pages/reset-password/reset-password.component';
+import { SharedGuard } from '../main/guards/shared.guard';
 
 const routes: Routes = [
   {
     path: '',
+    canActivate: [SharedGuard],
+    canLoad: [SharedGuard],
     children: [
       { path: 'signin', component: SigninComponent },
       {

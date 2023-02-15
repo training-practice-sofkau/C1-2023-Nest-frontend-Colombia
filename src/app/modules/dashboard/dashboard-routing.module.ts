@@ -6,12 +6,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { AuthGuard } from '../auth/guards/auth.guard';
 
+// FireBase 
+import {
+  AngularFireAuthGuard,
+  redirectLoggedInTo,
+  redirectUnauthorizedTo
+} from '@angular/fire/compat/auth-guard';
+
+const redirectUnauthorizedToIndex = () => redirectUnauthorizedTo(['login']);
+const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
+
 const routes: Routes = [
   {
     path: '',
     component: NavbarComponent,
     canActivate: [AuthGuard],
     canLoad: [AuthGuard],
+    //data: { authGuardPipe: redirectLoggedInToDashboard },
     children: [
       {
         path: '', loadChildren: () => import('../customer/customer.module')
