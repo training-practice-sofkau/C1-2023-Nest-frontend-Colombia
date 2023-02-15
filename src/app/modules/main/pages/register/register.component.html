@@ -1,40 +1,143 @@
-<div class="wrapper rounded bg-white">
-  <div class="h3">Registration Form</div>
+<form id="registrar" (ngSubmit)="senData()" [formGroup]="frmFormulario">
+  <div class="wrapper rounded bg-white">
+    <div class="h3">Registration Form</div>
 
-  <div class="form">
-    <div class="row">
-      <div class="col-md-6 mt-md-0 mt-3">
+    <div class="form">
+      <div class="row">
         <label>Full name</label>
-        <input type="text" class="form-control" required />
+        <div>
+          <input
+            type="Nombre"
+            placeholder=""
+            formControlName="fullName"
+            name="nombre" />
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmFormulario.get('fullName')?.hasError('required') &&
+              frmFormulario.get('fullName')?.touched
+            ">
+            el nombre es requerido
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="col-md-6 mt-md-0 mt-3">
-      <label>E-mail</label>
-      <input type="text" class="form-control" required />
-    </div>
-    <div class="col-md-6 mt-md-0 mt-3">
-      <label>Number Document</label>
-      <input type="text" class="form-control" required />
-    </div>
-    <div class="col-md-6 mt-md-0 mt-3">
-      <label>DocumentTypeId</label>
-      <input type="text" class="form-control" required />
-    </div>
-
-    <div class="row"></div>
-    <div class="row">
-      <div class="col-md-6 mt-md-0 mt-3">
-        <label>Phone Number</label>
-        <input type="tel" class="form-control" required />
+      <div class="row">
+        <label>E-mail</label>
+        <div>
+          <input
+            type="email"
+            placeholder=""
+            formControlName="email"
+            name="email" />
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmFormulario.get('email')?.hasError('required') &&
+              frmFormulario.get('email')?.touched
+            ">
+            el email es requerido
+          </div>
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmFormulario.get('email')?.hasError('email') &&
+              frmFormulario.get('email')?.touched
+            ">
+            el email no es valido
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="my-md-2 my-3">
-      <button type="button" class="btn btn-secondary" [routerLink]="routrHome">
-        home
-      </button>
-      <button type="button" (click)="senData()" [routerLink]="['../infouser']">
-        registrar
-      </button>
+      <div class="row">
+        <label>Document Number</label>
+        <div>
+          <input
+            type="DocumenteNumber"
+            placeholder=""
+            formControlName="document"
+            name="DocumenteNumber" />
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmFormulario.get('document')?.hasError('required') &&
+              frmFormulario.get('document')?.touched
+            ">
+            el documento es requerido
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label>Documente Type Id</label>
+        <div>
+          <input
+            type="DocumenteTypeId"
+            placeholder=""
+            formControlName="documentTypeId"
+            name="DocumenteTypeId" />
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmFormulario.get('documentTypeId')?.hasError('required') &&
+              frmFormulario.get('documentTypeId')?.touched
+            ">
+            el documento Type Id es requerido
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label>Phone number</label>
+        <div>
+          <input
+            type="phoneNumber"
+            placeholder=""
+            formControlName="phone"
+            name="phoneNumber" />
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmFormulario.get('phone')?.hasError('required') &&
+              frmFormulario.get('phone')?.touched
+            ">
+            el telefono es requerido
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <label>Password</label>
+        <div>
+          <input
+            type="password"
+            placeholder=""
+            formControlName="password"
+            name="password" />
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmFormulario.get('password')?.hasError('required') &&
+              frmFormulario.get('password')?.touched
+            ">
+            la contraseña es requerido
+          </div>
+        </div>
+      </div>
+      <div class="my-md-2 my-3">
+        <button
+          style="margin: 10px"
+          type="button"
+          class="btn btn-secondary"
+          [routerLink]="routrHome">
+          home
+        </button>
+        <button
+          type="reset"
+          class="btn btn-secondary"
+          [disabled]="frmFormulario.invalid"
+          (click)="senData()">
+          registrar
+        </button>
+      </div>
     </div>
   </div>
-</div>
+</form>
+<div>&nbsp;</div>
+
+<!-- modificando algunos datos de formulario -->
