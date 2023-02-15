@@ -11,7 +11,8 @@ import { AppComponent } from './pages/app/app.component';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, 
-    AppRoutingModule, SharedModule, FormsModule, HttpClientModule, ReactiveFormsModule],
+    AppRoutingModule, SharedModule, FormsModule, HttpClientModule, ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

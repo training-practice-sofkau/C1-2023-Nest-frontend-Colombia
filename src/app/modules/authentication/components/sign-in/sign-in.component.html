@@ -1,41 +1,52 @@
-<p>INICIAR SESION!</p>
 
-
-<body>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
-        <div class="card border-0 shadow rounded-3 my-5">
-          <div class="card-body p-4 p-sm-5">
-            <h5 class="card-title text-center mb-5 fw-light fs-5">Sign In</h5>
-            <form>
-              <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                <label for="floatingInput">Email address</label>
-              </div>
-              <div class="form-floating mb-3">
-                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                <label for="floatingPassword">Password</label>
-              </div>
-
-              <div class="form-check mb-3">
-                <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                <label class="form-check-label" for="rememberPasswordCheck">
-                  Remember password
-                </label>
-              </div>
-              <div class="d-grid">
-                <button class="btn btn-primary btn-login text-uppercase fw-bold" type="button"
-                (click)="goTo()">Sign
-                  in</button>
-              </div>
-            </form>
-          </div>
-        </div>
+<div class="modal fade" id="sigInModal" tabindex="-1" aria-labelledby="exampleModalLabel" 
+aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Iniciar sesion</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <div class="modal-body">
+        <form id="user" [formGroup]="user" (ngSubmit)="onSubmit()">
+          <div class="form-floating mb-3">
+            <input formControlName="email" type="email" class="form-control" id="floatingInput" 
+            placeholder="name@example.com">
+            <label for="floatingInput">Correo</label>
+            <div *ngIf="user.get('email')?.touched && 
+            user.get('email')?.errors?.['required']"
+            class="alert alert-danger">Este campo es requerido.</div>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password"
+            formControlName="password">
+            <label for="floatingPassword">Contraseña</label>
+            <div *ngIf="user.get('password')?.touched && 
+            user.get('password')?.errors?.['required']"
+            class="alert alert-danger">Este campo es requerido.</div>
+          </div>
+
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
+            <label class="form-check-label" for="rememberPasswordCheck">
+              Remember password
+            </label>
+          </div>
+          <div class="d-grid">
+            <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit"
+            form="user" [disabled]="user.invalid" data-bs-dismiss="modal">Sign in</button>
+          </div>
+        </form>
+      </div>
+      <div>
+        <span>¿Aun no tienes cuenta?</span>
+        <a class="btn btn-primary" [routerLink]="routeLogIn">Registrarte</a>
+      </div>
+      
     </div>
   </div>
-</body>
+</div>
+
 
 <!--<form>
   <div class="mb-3">
@@ -50,8 +61,7 @@
   <button type="submit" class="btn btn-primary" (click)="goTo()">Enviar</button>
 </form>-->
 
-<span>¿Aun no tienes cuenta?</span>
-<a class="btn btn-primary" [routerLink]="routeLogIn">Registrarte</a>
+
 
 <!--<button type="button" (click)="goTo()">Volver</button>-->
 
