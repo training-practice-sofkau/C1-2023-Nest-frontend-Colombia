@@ -6,57 +6,84 @@
   </div>
   <div class="col col-10 mt-3">
     <div class="alert alert-info" role="alert">
-      Aquí puedes editar tu tarea: TítuloExample
+      Aquí puedes editar tu tarea: <strong>{{tittle}}</strong>
+    </div>
+  </div>
+  <div class="row m-3">
+    <div class="col col-lg-1"></div>
+    <div class="col col-10">
+      <h3>Editar</h3>
+      <div class="text-center">
+        <form id="frmEditItem" (ngSubmit)="sendData()" [formGroup]="frmEditItem"
+          class="form-control mt-3 p-3 border-3 border-info text-start">
+          <div class="mb-3 row">
+            <label for="Título" class="col-sm-2 col-form-label">Título</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="Título" placeholder="Hacer algo" formControlName="title"
+                name="title">
+              <div class="alert alert-danger p-1 m-1 mt-1 ms-2 w-50" role="alert"
+                *ngIf="frmEditItem.get('title')?.hasError('required') && frmEditItem.get('title')?.touched">
+                Debes indicar el título de la tarea
+              </div>
+              <div class="alert alert-danger p-1 m-1 mt-1 ms-2 w-50" role="alert"
+                *ngIf="frmEditItem.get('title')?.hasError('minlength') && frmEditItem.get('title')?.touched">
+                El título debe tener tres caracteres o más
+              </div>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="Descripción" class="col-sm-2 col-form-label">Descripción</label>
+            <div class="col-sm-10">
+              <textarea type="text" class="form-control" id="Descripción" placeholder="Necesito..."
+                formControlName="description" name="description"></textarea>
+              <div class="alert alert-danger p-1 m-1 mt-1 ms-2 w-50" role="alert"
+                *ngIf="frmEditItem.get('description')?.hasError('required') && frmEditItem.get('description')?.touched">
+                Debes indicar la descripción de la tarea
+              </div>
+              <div class="alert alert-danger p-1 m-1 mt-1 ms-2 w-50" role="alert"
+                *ngIf="frmEditItem.get('description')?.hasError('minlength') && frmEditItem.get('description')?.touched">
+                La descripción debe tener cinco caracteres o más
+              </div>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="Responsable" class="col-sm-2 col-form-label">Responsable</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="Responsable" placeholder="Nombre"
+                formControlName="responsible" name="responsible">
+              <div class="alert alert-danger p-1 m-1 mt-1 ms-2 w-50" role="alert"
+                *ngIf="frmEditItem.get('responsible')?.hasError('required') && frmEditItem.get('responsible')?.touched">
+                Debes indicar el responsable de la tarea
+              </div>
+              <div class="alert alert-danger p-1 m-1 mt-1 ms-2 w-50" role="alert"
+                *ngIf="frmEditItem.get('responsible')?.hasError('minlength') && frmEditItem.get('responsible')?.touched">
+                El responsable debe tener tres caracteres o más
+              </div>
+            </div>
+          </div>
+          <div class="mb-3 row">
+            <label for="CompletadaEditar" class="col-sm-2 col-form-label">Completada</label>
+            <select class="form-control col ms-3 me-3 float-start" aria-label="Default select example"
+              id="CompletadaEditar" formControlName="isCompleted" name="isCompleted">
+              <option value="" selected>Seleccione...</option>
+              <option value="true">Sí</option>
+              <option value="false">No</option>
+            </select>
+            <div class="alert alert-danger p-1 m-1 mt-1 ms-2 w-50" role="alert"
+              *ngIf="frmEditItem.get('isCompleted')?.hasError('required') && frmEditItem.get('isCompleted')?.touched">
+              Elige un valor
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>
 <div class="row m-3">
   <div class="col col-lg-1"></div>
   <div class="col col-10">
-    <h3>Editar</h3>
-    <div class="text-center">
-      <form action="" method="get" class="form-control mt-3 p-3 border-3 border-info text-start">
-        <div class="mb-3 row">
-          <label for="Título" class="col-sm-2 col-form-label">Título</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="Título" value="TítuloExample">
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="Descripción" class="col-sm-2 col-form-label">Descripción</label>
-          <div class="col-sm-10">
-            <textarea type="text" class="form-control" id="Descripción">DescripciónExample</textarea>
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="Responsable" class="col-sm-2 col-form-label">Responsable</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="Responsable" value="ResponsableExample">
-          </div>
-        </div>
-        <div class="mb-3 row">
-          <label for="Completada" class="col-sm-2 col-form-label">Completada</label>
-          <select class="form-control col ms-3 me-3 float-start" aria-label="Default select example" id="Completada">
-            <option selected>Seleccione...</option>
-            <option value="1">Sí</option>
-            <option value="0">No</option>
-          </select>
-        </div>
-        <div class="mb-3 row" hidden>
-          <label for="Estado" class="col-sm-2 col-form-label">Estado</label>
-          <div class="col-sm-10">
-            <input type="text" class="form-control" id="Estado" value="true">
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<div class="row m-3">
-  <div class="col col-lg-1"></div>
-  <div class="col col-10">
-    <button type="button" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto"
-      [routerLink]="routeDashboard">
+    <button type="submit" form="frmEditItem" [disabled]="frmEditItem.invalid"
+      class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto">
       <i class="bi bi-arrow-repeat"> Actualizar</i>
     </button>
   </div>
