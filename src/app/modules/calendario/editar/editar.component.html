@@ -1,6 +1,53 @@
-<h1 style="text-align: center; margin-top: 5%;">¿Alguna tarea para editar?</h1>
-<h2 style="text-align: center;">¡Aquí puedes hacerlo!</h2>
+<div class="container my-5">
 
-<a class="btn btn-lg btn-outline-danger shadow-sm ms-4" [routerLink]="lista">
-  Atrás
-</a>
+<h1 style="text-align: center; margin-top: 5%;">¡Estos son los detalles de tu tarea!</h1>
+<h2 style="text-align: center;">¿Necesitas editarla? ¡Aquí puedes hacerlo!</h2>
+
+<div class="row">
+  <div class="col-6" style="align-items: center;" >
+      <form [formGroup]="itemDetalles2" (ngSubmit)="updateItem()" id="FormAc">
+        <div class="mb-3">
+          <label for="title" class="form-label">Titulo</label>
+          <input required type="text" class="form-control" id="title" name="title" formControlName="title">
+          <p class="text-danger" *ngIf="itemDetalles2.get('title')?.hasError('required') && itemDetalles2.get('title')?.touched">Este campo no puede ir vacio</p>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <input required required type="text" class="form-control" id="description" name="description" formControlName="description">
+          <p class="text-danger" *ngIf="itemDetalles2.get('description')?.hasError('required') && itemDetalles2.get('description')?.touched">Este campo no puede ir vacio</p>
+        </div>
+        <div class="mb-3">
+          <label for="responsible" class="form-label">Responsible</label>
+          <input required type="text" class="form-control" id="Responsible" name="responsible" formControlName="responsible">
+          <p class="text-danger" *ngIf="itemDetalles2.get('responsible')?.hasError('required') && itemDetalles2.get('responsible')?.touched">Este campo no puede ir vacio</p>
+
+        </div>
+        <div class="mb-3">
+          <label for="IsComplete" class="form-label">IsComplete</label>
+          <input required type="number" class="form-control" id="IsComplete" name="isComplete" formControlName="isComplete">
+          <p class="text-danger" *ngIf="itemDetalles2.get('isComplete')?.hasError('required') && itemDetalles2.get('isComplete')?.touched">Este campo no puede ir vacio</p>
+
+        </div>
+        <div class="mb-3">
+          <label for="Day" class="form-label">Day</label>
+          <input required type="number" class="form-control" id="Day" name="dia" formControlName="dia">
+          <p class="text-danger" *ngIf="itemDetalles2.get('dia')?.hasError('required') && itemDetalles2.get('dia')?.touched">Este campo no puede ir vacio</p>
+
+        </div>
+        <div class="mb-3">
+          <label for="Monthly" class="form-label">Monthly</label>
+          <input required type="number" class="form-control" id="Monthly" name="mes" formControlName="mes">
+          <p class="text-danger" *ngIf="itemDetalles2.get('mes')?.hasError('required') && itemDetalles2.get('mes')?.touched">Este campo no puede ir vacio</p>
+
+        </div>
+        <div class="mb-3">
+          <label for="Year" class="form-label">Year</label>
+          <input required type="number" class="form-control" id="Year" name="anio" formControlName="anio">
+          <p class="text-danger" *ngIf="itemDetalles2.get('anio')?.hasError('required') && itemDetalles2.get('anio')?.touched">Este campo no puede ir vacio</p>
+
+        </div>
+        <button type="submit" class="btn btn-outline-success" form="FormAc">Guardar</button>
+      </form>
+  </div>
+</div>
+</div>

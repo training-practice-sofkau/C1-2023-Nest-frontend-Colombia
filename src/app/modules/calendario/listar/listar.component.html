@@ -1,15 +1,52 @@
-<a style="margin-right: 5%; margin-top: 5%;" class="btn btn-success shadow-sm ms-4" [routerLink]="agregar">
-  Agregar Tarea
-</a>
+<div class="titulo">
+  <h1>¡Bienvenido a tu lista de tareas!</h1>
+</div>
 
-<a style="margin-right: 5%; margin-top: 5%;" class="btn btn-warning shadow-sm ms-4" [routerLink]="editar">
-  Modificar Tarea
-</a>
 
-<a style="margin-right: 5%; margin-top: 5%;" class="btn btn-danger shadow-sm ms-4" [routerLink]="eliminar">
-  Eliminar Tarea
-</a>
 
-<a style="margin-right: 5%; margin-top: 5%;" class="btn btn-info shadow-sm ms-4" [routerLink]="detalles">
-  Detalles Tarea
-</a>
+<div class="container my-5">
+  <h2 style="margin-bottom: 20px;">Estas son tus actividades pendientes</h2>
+  <table class="table" *ngIf="items && items.length > 0">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Responsible</th>
+        <th>IsComplete</th>
+        <th>Day</th>
+        <th>Monthly</th>
+        <th>Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{item.id}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.responsible}}</td>
+        <td>{{item.isComplete}}</td>
+        <td>{{item.dia}}</td>
+        <td>{{item.mes}}</td>
+        <td>{{item.anio}}</td>
+        <td><a style="margin-right: 5%; margin-top: 5%;" class="btn btn-sm btn-info shadow-sm ms-4" [routerLink]="['editar', item.id]">
+          Ver
+        </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a style="margin-top: 0%;" class="btn btn-success shadow-sm ms-4" [routerLink]="agregar">
+    Agregar Tarea
+  </a>
+  <p *ngIf="!items || items.length <= 0" style="text-align: center;">No se han encontrado actividades</p>
+</div>
+
+
+
+
+
+
+
+
+
