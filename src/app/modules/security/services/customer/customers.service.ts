@@ -28,14 +28,14 @@ export class CustomersService {
     console.log('entro');
     let response = this.httpClient.post<SingUpInterface>(
       'http://localhost:3000/security/sign-up',
-      customer.getData()
+      customer
     );
     return response;
   }
   singIn(customer: singInModel): Observable<SingInInterface> {
     let response = this.httpClient.post<SingInInterface>(
       'http://localhost:3000/security/sign-in',
-      customer.getData()
+      customer
     );
     return response;
   }

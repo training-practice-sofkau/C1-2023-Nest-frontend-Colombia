@@ -3,6 +3,7 @@ import { TransferService } from '../../services/transfer/transfer.service';
 import { TransferModel } from '../../models/transfer.model';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-transfer',
@@ -11,50 +12,62 @@ import { Router } from '@angular/router';
 })
 export class TransferComponent implements OnInit {
   outComeId = this.transferService.getCustomerSubjectOut();
-  inComeId: string;
-  amount: string;
-  reason: string;
+  frmTransfer: FormGroup;
+
   constructor(
     private readonly transferService: TransferService,
     private readonly router: Router
   ) {
-    this.inComeId = '';
-    this.amount = '';
-    this.reason = '';
+    this.frmTransfer = new FormGroup({
+      inComeId: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(10),
+      ]),
+      outComeId: new FormControl(this.outComeId),
+      amount: new FormControl(null, [
+        Validators.required,
+        Validators.pattern(new RegExp(/\d+(\.\d{0,9})?/)),
+      ]),
+      reason: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(1),
+        Validators.maxLength(500),
+      ]),
+    });
   }
 
   createTransfer() {
-    const transfer = new TransferModel(
-      this.outComeId,
-      this.inComeId,
-      this.reason,
-      this.amount
-    );
-    this.transferService.createTransfer(transfer).subscribe({
-      next: (data) => {},
-      error: (err) => {
-        console.log(err.error.message);
-        Swal.fire({
-          position: 'top-end',
-          icon: 'error',
-          title: 'Transferencia erronea',
-          showConfirmButton: false,
-          timer: 3500,
-        });
-      },
-      complete: () => {
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Transferencia correcta',
-          showConfirmButton: false,
-          timer: 1500,
-        });
-        setTimeout(() => {
-          this.router.navigate(['account']);
-        }, 1500);
-      },
-    });
+    const transfer = TransferModel;
+    this.transferService
+      .createTransfer(this.frmTransfer.getRawValue())
+      .subscribe({
+        next: (data) => {
+          this.transferService.setTransferId(data.id);
+          console.log('-----------');
+          console.log(this.transferService.getTransferIdSubject());
+        },
+        error: (err) => {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Transferencia errónea',
+            showConfirmButton: false,
+            timer: 3500,
+          });
+        },
+        complete: () => {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Transferencia correcta',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          setTimeout(() => {
+            this.router.navigate(['movements/vaucher']);
+          }, 1500);
+        },
+      });
   }
   ngOnInit(): void {}
 }

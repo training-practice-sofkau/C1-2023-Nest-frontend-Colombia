@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MovementsComponent } from './pages/movements/movements.component';
 import { TransferComponent } from './components/transfer/transfer.component';
+import { VaucherComponent } from './components/vaucher/vaucher.component';
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: 'transfer',
     component: TransferComponent,
+  },
+  {
+    path: 'vaucher',
+    component: VaucherComponent,
   },
 ];
 

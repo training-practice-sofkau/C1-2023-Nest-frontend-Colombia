@@ -7,12 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { InfoComponent } from './components/info/info.component';
 import { ActionsComponent } from './components/actions/actions.component';
+import { GenerateComponent } from './components/generate/generate.component';
 
 
 
 @NgModule({
   declarations: [
-    AccountComponent,BalanceComponent, InfoComponent, ActionsComponent
+    AccountComponent,BalanceComponent, InfoComponent, ActionsComponent, GenerateComponent
   ],
   imports: [
     CommonModule,AccountRoutingModule,

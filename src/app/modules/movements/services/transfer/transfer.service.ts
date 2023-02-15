@@ -10,14 +10,24 @@ import { TransferModel } from '../../models/transfer.model';
 export class TransferService {
   outComeId = new BehaviorSubject<string>('');
   inComeId = new BehaviorSubject<string>('');
+  transferId = new BehaviorSubject<string>('');
   setCustomerOut(customerId: string) {
     this.outComeId.next(customerId);
+  }
+  setTransferId(transferId: string) {
+    this.transferId.next(transferId);
   }
   setCustomerIn(customerId: string) {
     this.inComeId.next(customerId);
   }
   getCustomerObservOut(): Observable<string> {
     return this.outComeId.asObservable();
+  }
+  getTransferIdObserv(): Observable<string> {
+    return this.transferId.asObservable();
+  }
+  getTransferIdSubject() {
+    return this.transferId.getValue();
   }
   getCustomerSubjectOut() {
     return this.outComeId.getValue();
@@ -34,6 +44,11 @@ export class TransferService {
     return this.httpClient.post<TransferInterface>(
       'http://localhost:3000/transfer/',
       transfer
+    );
+  }
+  getTransfer(transferId: string): Observable<TransferInterface> {
+    return this.httpClient.get<TransferInterface>(
+      'http://localhost:3000/transfer/select/' + transferId
     );
   }
 }
