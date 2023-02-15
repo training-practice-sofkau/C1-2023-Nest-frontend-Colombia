@@ -1,15 +1,35 @@
-<div class="form-floating mb-3">
-  <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com">
-  <label for="floatingInput"></label>
-</div>
 
-<div class="form-floating">
-  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-    <option selected>Esta Completa tu tarea?</option>
-    <option value="1">Si</option>
-    <option value="2">No</option>
-  </select>
-  <label for="floatingSelect">Works with selects</label>
+  <div class="text-center">
+
+    <form id="frmFormReactive" (ngSubmit)="sendData()" [formGroup]="frmFormReactive"
+      class="form-control mt-3 p-3 border-3 border-info text-start">
+
+      <div class="mb-3 mt-2 row">
+        <label for="Día" class="col-sm-2 col-form-label">id de la tarea</label>
+        <div class="col-sm-10">
+          <input type="number" class="form-control" id="idCalendar" formControlName="idCalendar" name="idCalendar">
+              <div id="altoMensaje" *ngIf="frmFormReactive.get('idCalendar')?.hasError('required')
+         && frmFormReactive.get('idCalendar')?.touched">Campo requerido, ingresar por favor</div>
+          </div>
+        </div>
+
+      <hr>
+
+      <div class="mb-3 row">
+        <label for="Título" class="col-sm-2 col-form-label">Título</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="Título" placeholder="Tarea importante"  formControlName="title"
+            name="title" required>
+            <div id="altoMensaje" *ngIf="frmFormReactive.get('title')?.hasError('required')
+         && frmFormReactive.get('title')?.touched">Campo requerido, ingresar por favor</div>
+        </div>
+      </div>
+
+
+
+<button type="submit" form="frmFormReactive" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto">
+          <i class="bi bi-folder-plus"> Guardar</i>
+</button>
+        <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
+      </form>
 </div>
-<button type="button" class="btn btn-success" [routerLink]="routergoBackMenu">VOLVER AL MENU PRINCIPAL</button>
-<button type="button" class="btn btn-success" [routerLink]="">MOSTRAR TODAS MIS TAREAS</button>

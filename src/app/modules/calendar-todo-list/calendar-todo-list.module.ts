@@ -13,7 +13,7 @@ import { PutTaskCompleteComponent } from './pages/put-task-complete/put-task-com
 import { PutTaskComponent } from './pages/put-task/put-task.component';
 import { DeleteTaskComponent } from './pages/delete-task/delete-task.component';
 import { PrincipalComponent } from './pages/principal/principal.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ListTasksComponent } from './pages/list-tasks/list-tasks.component';
 
@@ -32,6 +32,6 @@ import { ListTasksComponent } from './pages/list-tasks/list-tasks.component';
 
   ],
   imports: [CommonModule,CalendarRoutingModule,FormsModule,
-    HttpClientModule]
+    HttpClientModule,ReactiveFormsModule]
 })
 export class CalendarTodoListModule { }
