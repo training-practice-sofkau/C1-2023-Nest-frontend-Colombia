@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { HttpClientModule } from '@angular/common/http'
@@ -12,7 +12,7 @@ import { MyPipePipe } from './pipes/my-pipe/my-pipe.pipe';
 
 @NgModule({
   declarations: [AppComponent, IndexComponent, MyPipePipe],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, FormsModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, SharedModule, ReactiveFormsModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

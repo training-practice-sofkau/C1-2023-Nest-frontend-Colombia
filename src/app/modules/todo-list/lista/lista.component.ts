@@ -10,7 +10,7 @@ import { TodoListService } from '../services/todo-list.service';
 })
 export class ListaComponent implements OnInit{
   agregar: string[];
-  editar: string[];
+  //editar: string[];
   eliminar: string[];
   detalles: string[];
 
@@ -18,7 +18,7 @@ export class ListaComponent implements OnInit{
 
 
   constructor(private readonly todoListService: TodoListService){
-    this.editar = ["editar"];
+    //this.editar = ["editar"];
     this.agregar = ["agregar"];
     this.eliminar = ["eliminar"];
     this.detalles = ["detalles"];

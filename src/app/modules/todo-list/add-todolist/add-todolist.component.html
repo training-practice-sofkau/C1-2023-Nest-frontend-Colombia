@@ -1,29 +1,48 @@
 <div class="container mt-3" >
-  <form class="row">
+  <form class="row" [formGroup]="frmFormulario">
 
-    <div class="mb-3">
-      <input type="text" placeholder="Título" [(ngModel)]="title" name="title"/>
+    <div class="mt-3">
+      <input type="text" placeholder="Título" formControlName="title" name="title" />
+      <div class="text-danger" *ngIf="frmFormulario.get('title')?.hasError('required') &&
+        frmFormulario.get('title')?.touched">
+        El título es requerido
+      </div>
     </div>
-    <div class="mb-3">
-      <input type="text" placeholder="Descripción" [(ngModel)]="description" name="description"/>
+    <div class="mt-3">
+      <input type="text" placeholder="Descripción" formControlName="description" name="description"/>
     </div>
-    <div class="mb-3">
-      <input type="text" placeholder="Responsable" [(ngModel)]="responsible" name="responsible"/>
+    <div class="text-danger" *ngIf="frmFormulario.get('description')?.hasError('required') &&
+    frmFormulario.get('description')?.touched">
+      La decripción es requerida
     </div>
-    <div class="mb-3">
-      <input type="text" placeholder="Nombre Calendario" [(ngModel)]="nameCalendar" name="nameCalendar"/>
+    <div class="mt-3">
+      <input type="text" placeholder="Responsable" formControlName="responsible" name="responsible"/>
     </div>
-    <div class="mb-3">
-      <input type="number" placeholder="Día" [(ngModel)]="numberDay" name="numberDay"/>
+    <div class="text-danger" *ngIf="frmFormulario.get('responsible')?.hasError('required') &&
+    frmFormulario.get('responsible')?.touched">
+      El Responsable es requerido
     </div>
-
-    <div>
-      <button class="btn btn-primary" type="button" (click)="saveTodoList()">Crear tarea</button>
+    <div class="mt-3">
+      <input type="text" placeholder="Nombre Calendario" formControlName="nameCalendar" name="nameCalendar"/>
     </div>
-    <div>
+    <div class="text-danger" *ngIf="frmFormulario.get('nameCalendar')?.hasError('required') &&
+    frmFormulario.get('nameCalendar')?.touched">
+      El nombre del calendario es requerido
+    </div>
+    <div class="mt-3">
+      <input type="number" placeholder="Día" formControlName="numberDay" name="numberDay"/>
+    </div>
+    <div class="text-danger" *ngIf="frmFormulario.get('numberDay')?.hasError('required') &&
+    frmFormulario.get('numberDay')?.touched">
+      El día del calendario es requerido
+    </div>
+    <div class="mt-3">
+      <button type="submit" class="btn btn-primary" type="button" [disabled]="frmFormulario.invalid" (click)="saveTodoList()">Crear tarea</button>
       <button class="btn btn-danger" type="button" [routerLink]="lista">Salir</button>
     </div>
   </form>
 </div>
+
+
 
 

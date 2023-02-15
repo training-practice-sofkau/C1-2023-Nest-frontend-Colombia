@@ -12,7 +12,7 @@ import { ModifyTodolistComponent } from './modify-todolist/modify-todolist.compo
 
 const routes: Routes = [
   {
-    path: '', // localhost:4200/hoja-de-vida
+    path: '', // localhost:4200/todoitems/
     component: TodolistLayoutComponent,
     children: [
       {
@@ -24,7 +24,7 @@ const routes: Routes = [
         component: AddTodolistComponent
       },
       {
-        path: 'editar',
+        path: 'editar/:id',
         component: ModifyTodolistComponent
       },
       {
