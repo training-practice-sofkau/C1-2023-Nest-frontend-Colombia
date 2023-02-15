@@ -2,6 +2,8 @@ import { IUsers } from './../../../main/interfaces/users.interface';
 import { NewUserModel } from './../../../main/models/new-user.model';
 import { UsersService } from './../../../main/services/users/users.service';
 import { Component, OnInit } from '@angular/core';
+import { FormGroup,  FormControl, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -10,31 +12,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent{
-  documentTypeId: string;
-  document: string;
-  fullName: string;
-  email: string;
-  phone: string;
-  password: string;
+  // documentTypeId: string;
+  // document: string;
+  // fullName: string;
+  // email: string;
+  // phone: string;
+  // password: string;
+  frmFormulario: FormGroup;
 
   constructor(public readonly customerService: UsersService) {
-    this.documentTypeId = '';
-    this.document = '';
-    this.fullName = '';
-    this.email = '';
-    this.phone = '';
-    this.password = '';
+    // this.documentTypeId = '';
+    // this.document = '';
+    // this.fullName = '';
+    // this.email = '';
+    // this.phone = '';
+    // this.password = '';
+    this.frmFormulario = new FormGroup({
+      documentTypeId: new FormControl('', Validators.required),
+      document: new FormControl('', Validators.required),
+      fullName: new FormControl('', [
+        Validators.required,
+        Validators.minLength(10),
+        Validators.maxLength(50),
+      ]),
+      email: new FormControl('', [
+        Validators.pattern(new RegExp(environment.regexEmail)),
+      ]),
+      phone: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required),
+    });
   }
   registercustomer(): void {
-    const customer = new NewUserModel(
-      this.documentTypeId,
-      this.document,
-      this.fullName,
-      this.email,
-      this.phone,
-      this.password
-    );
-    this.customerService.createUser(customer).subscribe({
+    this.frmFormulario.get('email')?.addValidators(Validators.email);
+    this.frmFormulario.get('email')?.updateValueAndValidity();
+    console.log('sendData', this.frmFormulario);
+    console.log(this.frmFormulario.getRawValue());
+    this.customerService.createUser(this.frmFormulario.getRawValue() as NewUserModel).subscribe({
       next: token => {
         localStorage.setItem('token', token.access_token);
         localStorage.setItem('id', token.id);
