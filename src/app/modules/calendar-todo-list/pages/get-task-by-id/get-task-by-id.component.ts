@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskService } from '../../services/task.service';
 import { ActivatedRoute } from '@angular/router';
-import { TaskUpdateModel } from '../../models/task-update.model';
+import { TaskModel } from '../../models/task.model';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Component({
@@ -9,35 +10,44 @@ import { TaskUpdateModel } from '../../models/task-update.model';
   templateUrl: './get-task-by-id.component.html',
   styleUrls: ['./get-task-by-id.component.scss']
 })
-export class GetTaskByIdComponent implements OnInit{
+export class GetTaskByIdComponent {
 
-
+  //idCalendar: number;
+  frmFormReactive : FormGroup;
   routergoBackMenu: string[];
-  routeShowTaskById: TaskUpdateModel[];
+  routeShowTaskById: TaskModel[];
+
+
 
   constructor(private readonly task$: TaskService,private ruta: ActivatedRoute)  {
 
 
     this.routergoBackMenu = ['../'];
-    this.routeShowTaskById =  new Array<TaskUpdateModel>() ;
+    this.routeShowTaskById =  new Array<TaskModel>() ;
+    this.frmFormReactive = new FormGroup({
 
-  }
+      idCalendar:new FormControl('', Validators.required)
 
-  ngOnInit(): void {
-    this.ruta.params.subscribe(params => {
-      this.task$.getById(params['id']).subscribe({
-        next: data => (console.log(data)),
-        error: err => console.log(err),
-      });
     });
-  }
-
-
-
-
-
-
-
 
   }
+
+
+  cargarLista():void{
+
+
+    this.task$.getById(this.frmFormReactive.get('idCalendar')?.value).subscribe({
+
+      next: data => (this.routeShowTaskById = data),
+      error: err => console.log(err),
+      complete: ()=> console.log('complete',this.routeShowTaskById)
+
+
+    })
+
+
+  }
+
+  }
+
 

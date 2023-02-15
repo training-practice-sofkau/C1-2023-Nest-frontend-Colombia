@@ -1,0 +1,20 @@
+<div class="text-center">
+  <form id="frmFormReactive" (ngSubmit)="cargarLista()" [formGroup]="frmFormReactive"
+    class="form-control mt-3 p-3 border-3 border-info text-start">
+    <div class="mb-3 mt-2 row">
+      <label for="Día" class="col-sm-2 col-form-label">DIA DE FEBRERO</label>
+      <div class="col-sm-10">
+        <input type="number" formControlName="idCalendar" id="idCalendar"  name="idCalendar">
+            <div id="altoMensaje" *ngIf="frmFormReactive.get('idCalendar')?.hasError('required')
+       && frmFormReactive.get('idCalendar')?.touched">Campo requerido, ingresar por favor</div>
+        </div>
+
+      </div>
+      <!-- <button type="submit" form="frmFormReactive" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto">
+        <i class="bi bi-folder-plus"> Guardar</i> -->
+<!-- </button> -->
+        <button type="submit" form="frmFormReactive">HIJUEPUTA</button>
+
+      <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
+    </form>
+</div>
