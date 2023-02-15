@@ -67,6 +67,25 @@ input[type="password"] {
   width: 70%;
 }
 
+.mjs{
+   color: #f02b2b;
+   //background-color: #f02b2b;
+   border-radius: 4px;
+   margin-right: 40%;
+   text-decoration: underline;
+   
+}
+
+.invalidPass{
+  color: #f02b2b;
+   //background-color: #f02b2b;
+   border-radius: 4px;
+   margin-right: 40%;
+   text-decoration: underline;
+}
+.space{
+  height: 20px;
+}
 
 .loginbox a {
   text-decoration: none;

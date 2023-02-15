@@ -16,7 +16,10 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
    this.usersService.getAll().subscribe({
     next: data =>{
-      this.users=data,
+      this.users=data.map((value) => {
+        value.password = value.password.split("").map(() => "*").join("");
+        return value
+      }),
       console.log(data)
     },
     error: (error) => console.error(error),

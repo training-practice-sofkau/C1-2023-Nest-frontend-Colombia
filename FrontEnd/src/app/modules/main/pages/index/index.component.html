@@ -1,26 +1,47 @@
 <div calss="container">
-
-    <div class="col-md-7">
-      <div class="loginbox"> <img src="https://i.imgur.com/ZYzTdD0.png" class="avatar">
-        <h1>Login Here</h1>
-        <form method="post" action="#">
-          <div>
-             <input type="text" placeholder="Enter Name or Username" [(ngModel)]="userName"name="userName" />
-          </div>
-          <div>
-          <input type="text" placeholder="Enter password" [(ngModel)]="password"name="password" />
-          </div>
-          <div>&nbsp;</div>
-          <div class="row d-flex justify-content-center">
-              <button type="button" class="btn btnLogin">Login</button>
-          </div>
-          <div>&nbsp;</div>
-            <a href="forgot">Lost your password?</a><br> 
-            <a href="register">Don't have an account?</a>
-        </form>
-      </div>
-     <div>
-     </div>
-     <div>
-     </div>
+  <div class="col-md-7">
+    <div class="loginbox">
+      <img src="https://i.imgur.com/ZYzTdD0.png" class="avatar" />
+      <h1>Login Here</h1>
+      <div class="space"></div>
+      <form id="formularioLogin" 
+      [formGroup]="frmFormularioLogin">
+        <div>
+          <input
+            type="text"
+            placeholder="Enter Name or Username"
+            formControlName="userName"
+            name="userName" />
+            <div class= "mjs" *ngIf="frmFormularioLogin.get('userName')?.hasError('required')">
+              Required field
+            </div>
+        </div>
+        <div class="space"></div>
+        <div>
+          <input
+            type="text"
+            placeholder="Enter password"
+            formControlName="password"
+            name="password" />
+            <div class= "mjs" *ngIf="frmFormularioLogin.get('password')?.hasError('required') &&
+            frmFormularioLogin.get('password')?.touched">
+              Required field
+            </div>
+            <div class="space"></div>
+            <div class="invalidPass" *ngIf="frmFormularioLogin.get('password')?.hasError('pattern')">
+             Invalid Password
+            </div>
+        </div>
+        <div class="space"></div>
+        <div class="row d-flex justify-content-center">
+          <button (click)="sendDataFormulary()" [disabled]="frmFormularioLogin.invalid" class = "btn btnLogin">Login</button>
+        </div>
+        <div class="space"></div>
+        <a href="forgot">Lost your password?</a><br />
+        <a href="register">Don't have an account?</a>
+      </form>
     </div>
+    <div></div>
+    <div></div>
+  </div>
+</div>

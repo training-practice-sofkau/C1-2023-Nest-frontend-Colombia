@@ -10,7 +10,7 @@ import { DepositComponent } from './pages/deposit/deposit.component';
 import { AccountComponent } from './pages/account/account.component';
 import { TransferComponent } from './pages/transfer/transfer.component';
 import { ForgotPassComponent } from './pages/forgot-pass/forgot-pass.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -24,13 +24,15 @@ import { HttpClientModule } from '@angular/common/http';
     AccountComponent, 
     TransferComponent, 
     ForgotPassComponent,
+    
      ],
 
   imports: [BrowserModule, 
     AppRoutingModule, 
     SharedModule, 
     FormsModule , 
-    HttpClientModule],
+    HttpClientModule,
+    ReactiveFormsModule],
 
   providers: [],
   
