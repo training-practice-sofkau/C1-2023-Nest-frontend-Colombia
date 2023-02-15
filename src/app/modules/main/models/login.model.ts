@@ -1,16 +1,4 @@
-export class LoginModel {
+export interface LoginModel {
     email: string
     password: string
-
-    constructor(email: string, password: string) {
-        this.email = email
-        this.password = password
-    }
-
-    getData() {
-        return {
-            email: this.email,
-            password: this.password
-        }
-    }
 }

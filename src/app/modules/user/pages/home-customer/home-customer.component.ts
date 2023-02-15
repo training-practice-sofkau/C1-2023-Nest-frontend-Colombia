@@ -12,6 +12,7 @@ import { ServiceUserService } from '../../services/user-service/service-user.ser
 export class HomeCustomerComponent implements OnInit {
   id: string | null;
   document: string;
+  documentType: string;
   fullName: string;
   email: string;
   phone: string;
@@ -26,33 +27,39 @@ export class HomeCustomerComponent implements OnInit {
     this.fullName = '';
     this.email = '';
     this.phone = '';
+    this.documentType = '';
   }
 
   ngOnInit(): void {
     const idLocal = localStorage.getItem('id');
-    console.log(localStorage.getItem("token"))
     this.id = idLocal !== null ? idLocal : '';
     this.customerService.getUserById(this.id).subscribe({
       next: (data) => {
-        this.document = data.document
-        this.fullName = data.fullName
-        this.email = data.email
-        this.phone = data.phone
+        this.document = data.document;
+        this.fullName = data.fullName;
+        this.email = data.email;
+        this.phone = data.phone;
+        this.documentType = data.documentType.name;
       },
       error: (err) => {
         console.log(err);
       },
-      complete: () => { "complete" }
+      complete: () => {
+        'complete';
+      },
     });
   }
 
-  goToAccount(id: string) {
-    this.router.navigate(['./account/' + id]);
+  goToAccount() {
+    this.router.navigate(['./customer/account']);
   }
-  goToDeposits(id: string) {
-    this.router.navigate(['./account/' + id]);
+  goToDeposits() {
+    this.router.navigate(['./customer/deposit']);
   }
-  goTotransfer(id: string) {
-    this.router.navigate(['./account/' + id]);
+  goToTransfer() {
+    this.router.navigate(['./customer/transfer']);
+  }
+  goToUpdateCustomer() {
+    this.router.navigate(['./customer/update/' + this.id]);
   }
 }

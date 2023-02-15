@@ -10,6 +10,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UpdateCostumerComponent } from '../user/pages/update-costumer/update-costumer.component';
 import { HomeCustomerComponent } from '../user/pages/home-customer/home-customer.component';
+import { AccountUserComponent } from '../account/pages/account-user/account-user.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -22,11 +23,12 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'account/:id', component: InfoAccountComponent },
   { path: 'customer/home', component: HomeCustomerComponent },
-  { path: 'customer/update/:id', component: UpdateCostumerComponent }
+  { path: 'customer/update/:id', component: UpdateCostumerComponent },
+  { path: 'customer/account', component: AccountUserComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

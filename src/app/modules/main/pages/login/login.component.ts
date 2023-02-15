@@ -3,6 +3,8 @@ import { LoginModel } from '../../models/login.model';
 import { ServiceUserService } from '../../../user/services/user-service/service-user.service';
 import { Route, Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -10,21 +12,20 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  email: string;
-  password: string;
-  token: string;
+  frmFormulario: FormGroup;
+
   constructor(private readonly userService: ServiceUserService,
     private readonly route: Router) {
-    this.email = '';
-    this.password = '';
-    this.token = '';
+    this.frmFormulario = new FormGroup({
+      email: new FormControl(null, [Validators.required, Validators.pattern(new RegExp(environment.regexEmail))]),
+      password: new FormControl(null, [Validators.required, Validators.pattern(new RegExp(environment.regexPassword))])
+    })
   }
 
   ngOnInit(): void { }
 
   login() {
-    const newLogin = new LoginModel(this.email, this.password);
-    this.userService.login(newLogin).subscribe({
+    this.userService.login(this.frmFormulario.getRawValue()).subscribe({
       next: (data) => {
         localStorage.setItem("token", data.access_token)
         localStorage.setItem("id", data.id)

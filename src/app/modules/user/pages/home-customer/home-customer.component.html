@@ -11,6 +11,10 @@
       </div>
       <div class="chc-info">
         <h5>Tipo de documento</h5>
+        <h6>{{documentType}}</h6>
+      </div>
+      <div class="chc-info">
+        <h5>Numero de documento</h5>
         <h6>{{document}}</h6>
       </div>
     </div>
@@ -25,12 +29,12 @@
       </div>
     </div>
     <div class="chc-profile-four">
-        <button class="chc-accounts">Mis cuentas</button>
+        <button class="chc-accounts" (click)="goToAccount()">Mis cuentas</button>
         <button class="chc-deposits">Mis depositos</button>
         <button class="chc-transfer">Mis transferencias</button>
     </div>
     <div class="chc-profile-five">
-        <button class="chc-update">Actulizar Datos</button>
+        <button class="chc-update" (click)="goToUpdateCustomer()">Actulizar Datos</button>
     </div>  
   </div>
 </div>
