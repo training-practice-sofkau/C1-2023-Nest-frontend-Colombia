@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CustomerDetailComponent } from './pages/customer-detail/customer-detail.component';
 import { CustomerRoutingModule } from './customer-routing.module';
 import { SharedModule } from '../../shared/shared.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CustomerEditComponent } from './components/customer-edit/customer-edit.component';
 
 
@@ -15,6 +15,7 @@ import { CustomerEditComponent } from './components/customer-edit/customer-edit.
     SharedModule,
     FormsModule,
     CustomerRoutingModule,
+    ReactiveFormsModule,
   ],
   exports:[CustomerRoutingModule]
 })

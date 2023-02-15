@@ -21,6 +21,8 @@
     "@angular/router": "^14.2.0",
     "@auth0/angular-jwt": "^5.1.2",
     "@popperjs/core": "^2.11.6",
+    "@types/aos": "^3.0.4",
+    "aos": "^2.3.4",
     "bootstrap": "^5.2.3",
     "jquery": "^3.6.3",
     "moment": "^2.29.4",

@@ -1,2 +1,70 @@
-<p>customer-edit works!{{value}}</p>
-<p>{{value}}--</p>
+<div class="card bg-white">
+  <div class="card-body">
+    <form class="needs-validation" [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="mb-2 col-12 col-sm-6">
+          <label class="form-label" for="email">Email</label>
+          <input class="form-control {{handlerValidators('email')}}" type="email" name="email" id="email"
+            placeholder="Email" formControlName="email" required>
+          <div class="invalid-feedback">
+            {{handlerMessage('email')}}
+          </div>
+        </div>
+        <div class="mb-2 col-12 col-sm-6">
+          <label class="form-label" for="password">Password</label>
+          <input class="form-control {{handlerValidators('password')}}" type="password" name="password" id="password"
+            placeholder="Password" formControlName="password" required>
+          <div class="invalid-feedback">
+            {{handlerMessage('password')}}
+          </div>
+        </div>
+      </div>
+      <div class="mb-2">
+        <label class="form-label" for="fullName">Fullname</label>
+        <input class="form-control {{handlerValidators('fullName')}}" type="name" name="fullName" id="fullName"
+          placeholder="Fullname" formControlName="fullName" required>
+        <div class="invalid-feedback">
+          {{handlerMessage('fullName')}}
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="mb-2 col-12 col-sm-5">
+          <label class="form-label" for="phone">Phone</label>
+          <input class="form-control {{handlerValidators('phone')}}" type="tel" name="phone" id="phone"
+            placeholder="Phone" formControlName="phone" required>
+          <div class="invalid-feedback">
+            {{handlerMessage('phone')}}
+          </div>
+        </div>
+        <div class="mb-2 col-12 col-sm-7">
+          <label class="form-label" for="document">Document</label>
+          <div class="input-group">
+            <div class="input-group-prepend bg-dark">
+              <select
+                class="btn btn-outline-light col-12 accordion-body h-100 rounded-0 {{handlerValidators('documentTypeId')}}"
+                id="documentTypeId" formControlName="documentTypeId">
+                <option value="CC">C.C</option>
+                <option value="CE">C.E</option>
+              </select>
+              <div class="invalid-feedback col-1">
+                {{handlerMessage('documentTypeId')}}
+              </div>
+            </div>
+            <input class="form-control {{handlerValidators('document')}}" type="text" name="document"
+              placeholder="Document" formControlName="document" required>
+            <div class="invalid-feedback">
+              {{handlerMessage('document')}}
+            </div>
+          </div>
+        </div>
+        <div class="mb-2">
+          <label class="form-label" for="avatar">Avatar</label>
+          <input class="form-control" type="tel" name="avatarUrl" id="avatar" placeholder="Avatar URL"
+            formControlName="avatarUrl">
+        </div>
+      </div>
+      <div class="col">
+        <button class="btn btn-outline-primary w-100 my-1" type="button" (click)="changeProfile()">Update</button>
+      </div>
+    </form>
+  </div>
