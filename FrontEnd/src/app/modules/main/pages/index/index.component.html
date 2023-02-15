@@ -5,14 +5,15 @@
       <h1>Login Here</h1>
       <div class="space"></div>
       <form id="formularioLogin" 
-      [formGroup]="frmFormularioLogin">
+      [formGroup]="frmFormularyLogin">
         <div>
           <input
             type="text"
             placeholder="Enter Name or Username"
             formControlName="userName"
             name="userName" />
-            <div class= "mjs" *ngIf="frmFormularioLogin.get('userName')?.hasError('required')">
+            <div class= "mjs" *ngIf="frmFormularyLogin.get('userName')?.hasError('required') &&
+            frmFormularyLogin.get('userName')?.touched ">
               Required field
             </div>
         </div>
@@ -23,18 +24,18 @@
             placeholder="Enter password"
             formControlName="password"
             name="password" />
-            <div class= "mjs" *ngIf="frmFormularioLogin.get('password')?.hasError('required') &&
-            frmFormularioLogin.get('password')?.touched">
+            <div class= "mjs" *ngIf="frmFormularyLogin.get('password')?.hasError('required') &&
+            frmFormularyLogin.get('password')?.touched">
               Required field
             </div>
             <div class="space"></div>
-            <div class="invalidPass" *ngIf="frmFormularioLogin.get('password')?.hasError('pattern')">
+            <div class="invalidPass" *ngIf="frmFormularyLogin.get('password')?.hasError('pattern')">
              Invalid Password
             </div>
         </div>
         <div class="space"></div>
         <div class="row d-flex justify-content-center">
-          <button (click)="sendDataFormulary()" [disabled]="frmFormularioLogin.invalid" class = "btn btnLogin">Login</button>
+          <button (click)="sendDataFormulary()" [disabled]="frmFormularyLogin.invalid" class = "btn btnLogin">Login</button>
         </div>
         <div class="space"></div>
         <a href="forgot">Lost your password?</a><br />

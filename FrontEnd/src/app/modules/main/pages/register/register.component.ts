@@ -1,6 +1,8 @@
 import { Component } from "@angular/core";
 import { UserModel } from "../../models/new-user.model";
 import { UsersService } from "../../services/users/users.service";
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { environment } from '../../../../../environments/environment.prod';
 
 
 @Component({
@@ -12,41 +14,35 @@ export class RegisterComponent {
 
   routeUser: string[];
   routeForgot: string[];
-
+/*
   fullName: string;
   document: string;
   documentType: string;
   email: string;
   phone: string;
   password: string;
+*/
+  frmFormularyRegister: FormGroup;
   
   constructor(private readonly usersService: UsersService){
     this.routeUser = ['user'];
     this.routeForgot= ['forgot'];
-    this.fullName = '';
-    this.document = '';
-    this.documentType= '';
-    this.email = '';
-    this.phone = '';
-    this.password = '';
 
+    this.frmFormularyRegister = new FormGroup ({
+      fullName: new FormControl("",[Validators.required, Validators.minLength(6), Validators.maxLength(80)]),
+      document: new FormControl("", [Validators.required, Validators.minLength(5),Validators.maxLength(15)]),
+      documentType: new FormControl("",[Validators.required]),
+      email: new FormControl("", [Validators.required, Validators.pattern(environment.regexEmail)]),
+      phone: new FormControl("", [Validators.required, Validators.pattern(environment.regexPhone)]),
+      password: new FormControl("", [Validators.required,Validators.minLength(6),Validators.pattern(environment.regexPassword)]),
+
+    })
   }
 
+
   sendData(): void{
-    const user = new UserModel(
-      this.fullName ,
-      this.document,
-      this.documentType,
-      this.email,
-      this.phone ,
-      this.password,
-    );
-    this.usersService.createUser(user).subscribe({
-      next: data => {
-        console.log(data),
-        console.log(user)
-       return(user) 
-      },
+    this.usersService.createUser(this.frmFormularyRegister.getRawValue()).subscribe({
+      next: (data) =>console.log(data),
       error: err => console.error(err),
       complete: () => console.log('complete')
 

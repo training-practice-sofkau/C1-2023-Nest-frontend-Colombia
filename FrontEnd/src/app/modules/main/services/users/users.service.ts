@@ -16,7 +16,7 @@ export class UsersService {
   constructor(private readonly httpClient: HttpClient) {}
 
     createUser(user: UserModel):Observable<INewUser> {
-      return this.httpClient.post<INewUser>('http://localhost:3000/security/singUp', user.getData());
+      return this.httpClient.post<INewUser>('http://localhost:3000/security/singUp', user);
 
     }
 
