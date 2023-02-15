@@ -11,7 +11,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { InfoUserComponent } from './pages/info-user/info-user.component';
 import { DepositComponent } from './pages/deposit/deposit.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,6 +28,7 @@ import { FormsModule } from '@angular/forms';
     SharedModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

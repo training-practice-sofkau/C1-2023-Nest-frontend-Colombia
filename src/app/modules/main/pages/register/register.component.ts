@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { newUserModel } from '../../models/new-user.model';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment.prod';
 import { UsersService } from '../../services/users/users.service';
 
 @Component({
@@ -8,37 +9,35 @@ import { UsersService } from '../../services/users/users.service';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
-  documentTypeId: string;
-  document: string;
-  fullName: string;
-  email: string;
-  phone: string;
-  password: string;
+  frmFormulario: FormGroup;
   routrHome: string[];
+
   constructor(private readonly user$: UsersService) {
     this.routrHome = ['../'];
-    this.documentTypeId = 'adbf99cd-e973-4e2b-88e0-fab8c6ee77c8';
-    this.document = '';
-    this.fullName = '';
-    this.email = '';
-    this.phone = '';
-    this.password = 'Jebkoj*7777';
+    this.frmFormulario = new FormGroup({
+      documentTypeId: new FormControl(null, Validators.required),
+      document: new FormControl(null, Validators.required),
+      fullName: new FormControl(null, [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.maxLength(100),
+      ]),
+      email: new FormControl(null, [
+        Validators.required,
+        Validators.email,
+        Validators.pattern(new RegExp(environment.regexEmail)),
+      ]),
+      phone: new FormControl(null, [Validators.required]),
+      password: new FormControl(null, Validators.required),
+    });
   }
   senData(): void {
-    const user = new newUserModel(
-      this.documentTypeId,
-      this.document,
-      this.fullName,
-      this.email,
-      this.phone,
-      this.password
-    );
-    this.user$.createUser(user).subscribe({
+    console.log('senData', this.frmFormulario);
+    console.log(this.frmFormulario.getRawValue());
+    this.user$.createUser(this.frmFormulario.getRawValue()).subscribe({
       next: data => {
         localStorage.setItem('id', data.id);
       },
-      error: err => console.log(err),
-      complete: () => console.log('complete'),
     });
   }
 }

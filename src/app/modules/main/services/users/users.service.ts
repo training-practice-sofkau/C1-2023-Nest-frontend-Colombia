@@ -14,13 +14,10 @@ export class UsersService {
   createUser(user: newUserModel): Observable<INewUSer> {
     return this.httpClient.post<INewUSer>(
       'http://localhost:3000/customers/',
-      user.getData()
+      user
     );
   }
   infoUser() {
-    return this.httpClient.get<IUsers[]>(
-      'http://localhost:3000/customers/'
-      // user.getData()
-    );
+    return this.httpClient.get<IUsers[]>('http://localhost:3000/customers/');
   }
 }

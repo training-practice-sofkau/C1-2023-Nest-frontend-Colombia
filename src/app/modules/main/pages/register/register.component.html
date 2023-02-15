@@ -1,4 +1,4 @@
-<form id="registrar" (ngSubmit)="senData()">
+<form id="registrar" (ngSubmit)="senData()" [formGroup]="frmFormulario">
   <div class="wrapper rounded bg-white">
     <div class="h3">Registration Form</div>
 
@@ -9,18 +9,42 @@
           <input
             type="Nombre"
             placeholder=""
-            [(ngModel)]="fullName"
+            formControlName="fullName"
             name="nombre" />
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmFormulario.get('fullName')?.hasError('required') &&
+              frmFormulario.get('fullName')?.touched
+            ">
+            el nombre es requerido
+          </div>
         </div>
       </div>
       <div class="row">
         <label>E-mail</label>
         <div>
           <input
-            type="E-mail"
+            type="email"
             placeholder=""
-            [(ngModel)]="email"
-            name="E-mail" />
+            formControlName="email"
+            name="email" />
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmFormulario.get('email')?.hasError('required') &&
+              frmFormulario.get('email')?.touched
+            ">
+            el email es requerido
+          </div>
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmFormulario.get('email')?.hasError('email') &&
+              frmFormulario.get('email')?.touched
+            ">
+            el email no es valido
+          </div>
         </div>
       </div>
       <div class="row">
@@ -29,8 +53,16 @@
           <input
             type="DocumenteNumber"
             placeholder=""
-            [(ngModel)]="document"
+            formControlName="document"
             name="DocumenteNumber" />
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmFormulario.get('document')?.hasError('required') &&
+              frmFormulario.get('document')?.touched
+            ">
+            el documento es requerido
+          </div>
         </div>
       </div>
       <div class="row">
@@ -39,8 +71,16 @@
           <input
             type="DocumenteTypeId"
             placeholder=""
-            [(ngModel)]="documentTypeId"
-            name="nombre" />
+            formControlName="documentTypeId"
+            name="DocumenteTypeId" />
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmFormulario.get('documentTypeId')?.hasError('required') &&
+              frmFormulario.get('documentTypeId')?.touched
+            ">
+            el documento Type Id es requerido
+          </div>
         </div>
       </div>
       <div class="row">
@@ -49,8 +89,16 @@
           <input
             type="phoneNumber"
             placeholder=""
-            [(ngModel)]="phone"
+            formControlName="phone"
             name="phoneNumber" />
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmFormulario.get('phone')?.hasError('required') &&
+              frmFormulario.get('phone')?.touched
+            ">
+            el telefono es requerido
+          </div>
         </div>
       </div>
       <div class="row">
@@ -59,8 +107,16 @@
           <input
             type="password"
             placeholder=""
-            [(ngModel)]="password"
+            formControlName="password"
             name="password" />
+          <div
+            class="altoMensaje"
+            *ngIf="
+              frmFormulario.get('password')?.hasError('required') &&
+              frmFormulario.get('password')?.touched
+            ">
+            la contraseña es requerido
+          </div>
         </div>
       </div>
       <div class="my-md-2 my-3">
@@ -71,18 +127,17 @@
           [routerLink]="routrHome">
           home
         </button>
-        <button type="reset" class="btn btn-secondary" (click)="senData()">
+        <button
+          type="reset"
+          class="btn btn-secondary"
+          [disabled]="frmFormulario.invalid"
+          (click)="senData()">
           registrar
         </button>
       </div>
     </div>
-    {{ fullName }}
-    {{ email }}
-    {{ document }}
-    {{ documentTypeId }}
-    {{ phone }}
-    {{ password }}
   </div>
 </form>
+<div>&nbsp;</div>
 
 <!-- modificando algunos datos de formulario -->
