@@ -4,7 +4,7 @@ import { CustomerDetailComponent } from './pages/customer-detail/customer-detail
 import { CustomerRoutingModule } from './customer-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 import { FormsModule } from '@angular/forms';
-import { CustomerEditComponent } from './pages/customer-edit/customer-edit.component';
+import { CustomerEditComponent } from './components/customer-edit/customer-edit.component';
 
 
 

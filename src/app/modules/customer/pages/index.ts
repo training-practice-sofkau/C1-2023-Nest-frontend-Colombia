@@ -1,2 +1,2 @@
 export * from './customer-detail';
-export * from './customer-edit';
+export * from '../components/customer-edit';

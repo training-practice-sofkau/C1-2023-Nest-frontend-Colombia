@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'sofka-bank-customer-edit',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer-edit.component.scss']
 })
 export class CustomerEditComponent implements OnInit {
+
+  @Input () value?: string;
 
   constructor() { }
 

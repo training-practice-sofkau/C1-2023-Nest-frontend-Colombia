@@ -6,6 +6,8 @@
       <p class="card-text">Email: {{user.data.email | lowercase}}</p>
       <p class="card-text">Phone: {{user.data.phone | phoneNumber:undefined:' '}}</p>
       <p class="card-text">Document: {{getKeyByValue(user.data.documentTypeId)}}. {{user.data.document}}</p>
+      <a type="button" class="btn btn-primary" (click)="setState()">Primary</a>
     </div>
   </div>
 </div>
+<sofka-bank-customer-edit [value]="state1"></sofka-bank-customer-edit>

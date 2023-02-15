@@ -11,6 +11,7 @@ import { DocumentTypeEnum } from '../../../../shared/enums/document-type.enum';
 export class CustomerDetailComponent implements OnInit {
 
   user!: UserInterface;
+  state1?: string;
 
   constructor(private readonly auth$: AuthService) { }
 
@@ -20,6 +21,10 @@ export class CustomerDetailComponent implements OnInit {
 
   getUserInfo(): void {
     this.user = <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''));
+  }
+
+  setState(): void {
+    this.state1 = this.state1+'h'
   }
 
   getPercentage(object: Object): number {
@@ -35,9 +40,9 @@ export class CustomerDetailComponent implements OnInit {
 
   getKeyByValue(value: string) {
     const indexOfS = Object.values(DocumentTypeEnum).indexOf(value as unknown as DocumentTypeEnum);
-  
+
     const key = Object.keys(DocumentTypeEnum)[indexOfS];
-  
+
     return key;
   }
 }
