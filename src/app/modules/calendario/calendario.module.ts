@@ -11,6 +11,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LayautComponent } from './layaut/layaut.component';
 import { CalendarioRoutingModule } from './calendario.module.routing';
 import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -24,6 +25,7 @@ import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     LayautComponent,
+    LoginComponent,
 
   ],
   imports: [

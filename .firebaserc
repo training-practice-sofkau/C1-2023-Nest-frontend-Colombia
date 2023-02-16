@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "login-angular-21460": {
+      "hosting": {
+        "DEMO-Angular15": [
+          "login-angular-21460"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "login-angular-21460"
+  }
+}

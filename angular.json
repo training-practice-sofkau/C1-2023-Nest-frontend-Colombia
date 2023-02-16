@@ -1,7 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-
   "cli": {
     "packageManager": "npm",
     "schematicCollections": [
@@ -19,13 +18,11 @@
       },
       "root": "",
       "sourceRoot": "src",
-
       "prefix": "sofka",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-
             "outputPath": "dist/demo-angular15",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -46,7 +43,6 @@
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
-
           },
           "configurations": {
             "production": {
@@ -62,14 +58,12 @@
                   "maximumError": "4kb"
                 }
               ],
-
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
                 }
-              ],
-
+              ]
             },
             "development": {
               "buildOptimizer": false,
@@ -86,12 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-
               "browserTarget": "DEMO-Angular15:build:production"
             },
             "development": {
               "browserTarget": "DEMO-Angular15:build:development"
-
             }
           },
           "defaultConfiguration": "development"
@@ -99,9 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-
             "browserTarget": "DEMO-Angular15:build"
-
           }
         },
         "test": {
@@ -123,7 +113,6 @@
             ],
             "scripts": []
           }
-
         },
         "lint": {
           "builder": "@angular-eslint/builder:lint",
@@ -133,7 +122,16 @@
               "src/**/*.html"
             ]
           }
-
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "DEMO-Angular15:build:production",
+            "firebaseProject": "login-angular-21460",
+            "firebaseHostingSite": "login-angular-21460"
+          }
         }
       }
     }

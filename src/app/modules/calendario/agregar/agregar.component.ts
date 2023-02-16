@@ -34,7 +34,8 @@ export class AgregarComponent {
           console.log(Item);
           this.router.navigate(['items']);
         }
-    })
+      }
+    )
   }
 
 }

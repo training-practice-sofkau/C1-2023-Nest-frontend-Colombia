@@ -8,11 +8,13 @@ import { EditarComponent } from './editar/editar.component';
 import { DetallesComponent } from './detalles/detalles.component';
 import { LayautComponent } from './layaut/layaut.component';
 
+
 const routes: Routes = [
   {
     path: '',
     component: LayautComponent,
     children: [
+
       {
         path: '',
         component: ListarComponent,

@@ -38,7 +38,6 @@ export class EditarComponent implements OnInit {
       'mes': new FormControl(0),
       'anio': new FormControl(0)
     })
-
   }
 
   ngOnInit(): void {

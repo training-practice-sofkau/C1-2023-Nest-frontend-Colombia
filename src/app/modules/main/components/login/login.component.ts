@@ -2,16 +2,15 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'sofka-index',
-  templateUrl: './index.component.html',
-  styleUrls: ['./index.component.scss'],
+  selector: 'sofka-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class IndexComponent {
+export class LoginComponent {
+
   constructor(private readonly authService: AuthService) {}
 
   auth(): void{
     this.authService.GoogleAuth();
   }
-
-
 }
