@@ -14,7 +14,7 @@ const redirectLoggedInToDashboard = () => redirectLoggedInTo(['']);
 
 const routes: Routes = [
   {
-    path: 'p',
+    path: '',
     component: UserProfileComponent,
     //data: { authGuardPipe: redirectLoggedInToDashboard },
     //canActivate: [UserGuardGuard],

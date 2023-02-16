@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/modules/authentication/services/auth/auth.service';
-import { UserService } from 'src/app/modules/authentication/services/user/user.service';
+import { UserService } from 'src/app/modules/user/services/user-profile/user.service';
 
 @Component({
   selector: 'app-landing-pge',

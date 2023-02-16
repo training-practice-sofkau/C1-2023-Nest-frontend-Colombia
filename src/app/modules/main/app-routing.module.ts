@@ -46,21 +46,24 @@ const routes: Routes = [
     loadChildren: () => 
     import('../transfer/transfer.module').then(
       m => m.TransferModule
-    )
+    ),
+    canActivate: [UserGuardGuard]
   },
   {
     path: 'account',
     loadChildren: () => 
     import('../account/account.module').then(
       m => m.AccountModule
-    )
+    ),
+    canActivate: [UserGuardGuard]
   },
   {
     path: 'deposit',
     loadChildren: () => 
     import('../deposit/deposit.module').then(
       m => m.DepositModule
-    )
+    ),
+    canActivate: [UserGuardGuard]
   }
 ];
 

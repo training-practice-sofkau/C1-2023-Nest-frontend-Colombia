@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/modules/authentication/services/auth/auth.service';
-import { UserService } from 'src/app/modules/authentication/services/user/user.service';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MustMatch } from 'src/app/modules/authentication/components/login/help-must-match';
 import { AccountService } from 'src/app/modules/account/services/account/account.service';
@@ -9,6 +8,8 @@ import { AccountModel } from 'src/app/modules/account/models/account.model';
 import { DepositService } from 'src/app/modules/deposit/services/deposit.service';
 import { MakeDepositModel } from 'src/app/modules/deposit/models/make-deposit.model';
 import { StateBalanceService } from 'src/app/modules/account/services/state-balance/state-balance.service';
+import { UserService } from '../../services/user-profile/user.service';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -91,7 +92,42 @@ export class UserProfileComponent {
   ngOnInit(): void {
     this.getCustomer()
     //this.getBalance()
+    /***/ 
     this.getAccounts()
+  }
+
+  deleteCustomer(){
+    const user = localStorage.getItem('user')
+    const u = JSON.parse(user ? user : '')
+    Swal.fire({
+      title: 'Estas seguro?',
+      text: "Estas seguro de eliminar tu cuenta!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor:  '#d33',
+      cancelButtonColor: '#3085d6',
+      confirmButtonText: 'Si, eliminar!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.user$.deleteUser(u.uid).subscribe({
+          next: data  => {
+            if(data){
+              Swal.fire(
+                'Eliminado!',
+                'Se ha eliminado la cuenta.',
+                'success'
+              )
+              this.authService.SignOut()
+              window.location.reload();
+            } else {
+              Swal.fire('Para elimanar cuenta tu balance debe ser 0')
+            }
+          },
+          error: err => console.error('err', err),
+          complete: () => console.info('complete')
+        });
+      }
+    })
   }
 
   changeRouterButton(router: String[]): void {

@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TokenModel } from '../../models/sig-in-token.model';
 import { AuthService } from '../../services/auth/auth.service';
-import { UserService } from '../../services/user/user.service';
+import { UserService } from '../../../user/services/user-profile/user.service';
 import { NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -23,7 +23,7 @@ export class SignInComponent {
     private readonly authService: AuthService) {
 
     this.routeLogIn = ['../log_in'];
-    this.routeProfile = ['/profile/p']
+    this.routeProfile = ['/profile']
     this.user = new FormGroup({
       email: new FormControl('', [
         Validators.required,
@@ -81,7 +81,6 @@ export class SignInComponent {
       console.log('re ', data)
       if(data.status === 'success'){
         this.authService.registerWithEmailandPassword(this.user.value)
-      this.router.navigate(['../../../', 'profile', 'p']);
       }
     },
     error: err => {
@@ -90,7 +89,10 @@ export class SignInComponent {
       this.userExist = false
       console.error('err', err)
     },
-    complete: () => console.info('complete')
+    complete: () => {
+      this.router.navigate(['profile']);
+      console.info('complete')
+    } 
   }
   );
 }

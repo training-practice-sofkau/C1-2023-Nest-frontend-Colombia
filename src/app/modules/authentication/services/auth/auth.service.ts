@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import * as auth from 'firebase/auth';
 import { createUserWithEmailAndPassword, Auth } from '@angular/fire/auth'
-import { UserService } from '../user/user.service';
+import { UserService } from '../../../user/services/user-profile/user.service';
 import { NewUserModel } from '../../models/new-user.model';
 
 @Injectable({
@@ -91,7 +91,7 @@ export class AuthService {
         },
         complete: () => {
           console.info('complete')
-          this.router.navigate(['profile', 'p']);
+          this.router.navigate(['profile']);
         } 
       })
       })
@@ -105,6 +105,8 @@ export class AuthService {
       localStorage.removeItem('user');
       localStorage.removeItem('uid');
       localStorage.removeItem('token');
+      localStorage.removeItem('accountId');
+      localStorage.removeItem('state');
       this.router.navigate(['']);
     });
   }

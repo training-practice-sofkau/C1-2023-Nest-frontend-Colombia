@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { TransferComponent } from './pages/transfer/transfer.component';
 import { TransferRoutingModule } from './transfer-routing.module';
 import { FormsModule } from '@angular/forms';
-
-
+import { DateFormatPipe } from './pipes/date.pipe';
 
 @NgModule({
   declarations: [
-    TransferComponent
+    TransferComponent,
+    DateFormatPipe
   ],
   imports: [
     CommonModule,

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { NewUserModel } from '../../models/new-user.model';
-import { UserService } from '../../services/user/user.service';
+import { UserService } from '../../../user/services/user-profile/user.service';
 import { MustMatch } from './help-must-match';
 import Swal from 'sweetalert2';
 import { AuthService } from '../../services/auth/auth.service';
