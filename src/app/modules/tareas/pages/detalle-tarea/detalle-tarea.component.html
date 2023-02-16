@@ -6,7 +6,7 @@
       <h5 class="card-title">{{tarea[0].title}}</h5>
       <h6 class="card-subtitle mb-2 text-muted">ID: {{tarea[0].id}}</h6>
       <p class="card-text">{{tarea[0].description}}</p>
-      <a href="#" class="card-link">Delete</a>
-      <a class="card-link" [routerLink]="['../../actualizar' ,tarea[0].id]">Update</a>
+      <button type="button" class="btn btn-outline-danger" (click)="eliminar()">Eliminar</button>
+      <button type="button" class="btn btn-outline-primary" [routerLink]="['../../actualizar' ,tarea[0].id]">Actualizar</button>
     </div>
   </div>

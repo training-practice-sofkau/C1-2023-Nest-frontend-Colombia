@@ -17,8 +17,12 @@ export class TareaService {
   return this.httpClient.get<IgetTarea[]>(`${environment.url_backend_tarea}/ToDo`);
  }
 
- getId(dia: number): Observable<IgetTarea[]>{
-  return this.httpClient.get<IgetTarea[]>(`${environment.url_backend_tarea}/ToDo/${dia}`);
+ getIdUser(id: string | null): Observable<number[]>{
+  return this.httpClient.get<number[]>(`${environment.url_backend_tarea}/Usuario/${id}`);
+ }
+
+ getIdDia(dia: number): Observable<IgetTarea[]>{
+  return this.httpClient.get<IgetTarea[]>(`${environment.url_backend_tarea}/Lista/${dia}`);
  }
 
  getTarea(id: number): Observable<IgetTarea[]>{
@@ -32,4 +36,9 @@ export class TareaService {
  putTarea(id: number, tarea: IpostTarea): Observable<any>{
   return this.httpClient.put<any>(`${environment.url_backend_tarea}/ToDo/${id}`, tarea);
  }
+
+ deleteTarea(id: number): Observable<any>{
+  return this.httpClient.delete<any>(`${environment.url_backend_tarea}/ToDo/${id}`);
+ }
+
 }

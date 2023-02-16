@@ -19,11 +19,12 @@ export class CrearTareaComponent {
       responsible: new FormControl<string | null>(null, Validators.required),
       priority: new FormControl<string | null>(null, Validators.required),
       isCompleted: new FormControl<boolean | null>(false, Validators.required),
-      uidUser: new FormControl<string | null>(null, Validators.required)
+      uidUser: new FormControl<string | null>(null)
     });
   }
 
   crear(){
+    this.tareaForm.get('uidUser')?.setValue(localStorage.getItem('uid'));
     this.tareaForm.get('isCompleted')?.setValue(JSON.parse(this.tareaForm.get('isCompleted')?.value));
     console.log(this.tareaForm.value);
     console.log(this.tareaForm.get('isCompleted')?.value);

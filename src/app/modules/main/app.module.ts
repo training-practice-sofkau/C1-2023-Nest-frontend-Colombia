@@ -13,15 +13,18 @@ import { IndexComponent } from './pages/index/index.component';
 import { MyPipePipe } from './pipes/my-pipe/my-pipe.pipe';
 import { environment } from '../../../environments/environment';
 import { LoginComponent } from './pages/login/login.component';
+import { RegistrarComponent } from './pages/registrar/registrar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, IndexComponent, MyPipePipe, LoginComponent],
+  declarations: [AppComponent, IndexComponent, MyPipePipe, LoginComponent, RegistrarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { IndexComponent } from './pages/index/index.component';
 import { LoginComponent } from './pages/login/login.component';
+import { RegistrarComponent } from './pages/registrar/registrar.component';
 
 import {
   AngularFireAuthGuard,
@@ -11,20 +12,22 @@ import {
 } from '@angular/fire/compat/auth-guard'
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
-const redirectLoggedInToIndex = () => redirectLoggedInTo(['']);
+const redirectLoggedInToTareas = () => redirectLoggedInTo(['tareas']);
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
     canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectLoggedInToIndex}
+    data: { authGuardPipe: redirectLoggedInToTareas}
+  },
+  {
+    path: 'registrar',
+    component: RegistrarComponent
   },
   {
     path: '',
-    component: IndexComponent,
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedToLogin}
+    component: IndexComponent
   },
   {
     path: 'tareas', // localhost:4200/tareas

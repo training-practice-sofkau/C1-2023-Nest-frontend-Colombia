@@ -3,27 +3,24 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
-  selector: 'sofka-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'sofka-registrar',
+  templateUrl: './registrar.component.html',
+  styleUrls: ['./registrar.component.scss']
 })
-export class LoginComponent {
+export class RegistrarComponent {
   usuarioForm: FormGroup;
 
-  constructor(private readonly authService: AuthService ){
+  constructor(private readonly authService: AuthService){
     this.usuarioForm = new FormGroup({
       correo: new FormControl<string>('', [Validators.required, Validators.minLength(1)]),
       contrasenia: new FormControl<string>('', Validators.required)
     });
   }
 
-  entrar(){
+  registrar(){
     console.log(this.usuarioForm.get('correo')?.value)
     console.log(this.usuarioForm.get('contrasenia')?.value)
-    this.authService.SignIn(this.usuarioForm.get('correo')?.value, this.usuarioForm.get('contrasenia')?.value);
+    this.authService.SignUp(this.usuarioForm.get('correo')?.value, this.usuarioForm.get('contrasenia')?.value);
   }
 
-  auth(): void{
-    this.authService.GoogleAuth();
-  }
 }
