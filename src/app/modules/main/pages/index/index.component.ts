@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'sofka-index',
@@ -6,15 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent {
-  fecha: Date;
-  precio: number;
-  nombre: string;
-  apellidos: string;
+  constructor(private readonly authService: AuthService) {}
 
-  constructor() {
-    this.fecha = new Date();
-    this.precio = 123123123;
-    this.nombre = 'Julian Lasso';
-    this.apellidos = 'Lasso Figueroa';
+  logOut(): void{
+    this.authService.SignOut();
   }
+
 }

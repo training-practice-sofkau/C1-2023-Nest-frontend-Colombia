@@ -1,22 +1,21 @@
 <p>index works!</p>
-<p>
-  {{ fecha | date }}
-</p>
-<p>
-  {{ precio | currency : 'COP' : '$ ' : '1.0' }}
-</p>
-<p>
-  {{ nombre | myPipe : 'parámetro' }}
-</p>
 
 <button type="button" class="btn btn-primary" routerLink="todolist">
-  Hoja de Vida
+  Lista de tareas
 </button>
 
-<sofka-my-component [apellido2]="apellidos">
+<button type="button" class="btn btn-danger" (click)="logOut()">
+  Cerrar sesión
+</button>
+
+
+
+
+
+<!-- <sofka-my-component [apellido2]="apellidos">
   <p>Hola mundo</p>
-</sofka-my-component>
+</sofka-my-component> -->
 
-<button type="button" (click)="apellidos = 'Arango Torres'">
+<!-- <button type="button" (click)="apellidos = 'Arango Torres'">
   Cambiar apellidos
-</button>
+</button> -->
