@@ -10,8 +10,39 @@ import { PutTaskCompleteComponent } from './pages/put-task-complete/put-task-com
 import { PutTaskComponent } from './pages/put-task/put-task.component';
 import { DeleteTaskComponent } from './pages/delete-task/delete-task.component';
 import { GetOnlyTaksComponent } from './pages/get-only-taks/get-only-taks.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LoginComponent } from './pages/login/login.component';
+
+
+import{
+
+  AngularFireAuthGuard,
+  redirectLoggedInTo,
+  redirectUnauthorizedTo
+
+
+} from '@angular/fire/compat/auth-guard';
+ const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectLoggedInToDashboard = () => redirectLoggedInTo(['calendar-todo-list/dashboard']);
+
+
 
 const routes : Routes = [
+
+  {
+    path: 'login', //localhost:4200/calendar-todo-list
+    component: LoginComponent,
+    //si puede o no entrar
+    canActivate: [AngularFireAuthGuard],
+    data:{authGuardPipe: redirectLoggedInToDashboard}
+  },
+
+  {
+    path: 'dashboard', //localhost:4200/calendar-todo-list
+    component: DashboardComponent,
+    canActivate: [AngularFireAuthGuard],
+    data:{authGuardPipe: redirectUnauthorizedToLogin}
+  },
   {
     path: '', //localhost:4200/calendar-todo-list
     component: PrincipalComponent,

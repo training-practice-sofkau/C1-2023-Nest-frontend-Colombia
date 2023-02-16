@@ -16,6 +16,11 @@ import { PrincipalComponent } from './pages/principal/principal.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { GetOnlyTaksComponent } from './pages/get-only-taks/get-only-taks.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from './environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 
 
@@ -28,11 +33,14 @@ import { GetOnlyTaksComponent } from './pages/get-only-taks/get-only-taks.compon
     PutTaskComponent,
     DeleteTaskComponent,
     PrincipalComponent,
-    GetOnlyTaksComponent
+    GetOnlyTaksComponent,
+    LoginComponent,
+    DashboardComponent,
 
 
   ],
   imports: [CommonModule,CalendarRoutingModule,FormsModule,
-    HttpClientModule,ReactiveFormsModule]
+    HttpClientModule,ReactiveFormsModule, AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule]
 })
 export class CalendarTodoListModule { }
