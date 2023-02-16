@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/modules/authentication/services/auth/auth.service';
 import { UserService } from 'src/app/modules/authentication/services/user/user.service';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { getUserModel } from '../../models/get-user-model';
 import { MustMatch } from 'src/app/modules/authentication/components/login/help-must-match';
+import { AccountService } from 'src/app/modules/account/services/account/account.service';
+import { AccountModel } from 'src/app/modules/account/models/account.model';
+import { DepositService } from 'src/app/modules/deposit/services/deposit.service';
+import { MakeDepositModel } from 'src/app/modules/deposit/models/make-deposit.model';
+import { StateBalanceService } from 'src/app/modules/account/services/state-balance/state-balance.service';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -12,10 +16,19 @@ import { MustMatch } from 'src/app/modules/authentication/components/login/help-
 })
 export class UserProfileComponent {
   routeTransfer:string[];
+  routeDeposit: string[];
   routeAccount:string[];
   photo: string
   updatUser: FormGroup
   id: string 
+  balance!: number
+  account!: AccountModel[]
+  depositAmount!: MakeDepositModel
+  amount!: number
+  buttonClicked = false;
+  stateBalance: number
+
+  @Output() changeRouter: EventEmitter<String[]>;
 
   documentTypeList = { 
     CC: "52f0d46a-af27-451a-8021-9ab99e00ef1c",
@@ -23,11 +36,23 @@ export class UserProfileComponent {
    }
 
   constructor(private router: Router, private readonly user$: UserService, 
-    private readonly authService: AuthService){
-    this.routeTransfer = ['/transfer/t']
+    private readonly authService: AuthService, private accountService: AccountService,
+    private readonly depositService: DepositService, private stateBalanceService: StateBalanceService){
+    this.stateBalance = this.stateBalanceService.balance
+
+    this.changeRouter = new EventEmitter<String[]>();
+
+    this.routeTransfer = ['/transfer']
     this.routeAccount = ['/account']
+    this.routeDeposit = ['/deposit']
     this.photo = ''
     this.id = ''
+
+   /* this.depositAmount = {
+      account: "7eb31c82-ddd1-47e6-ba2f-f775ea04aa4c",
+    "amount": 100,
+    "dateTime": 1640995200000
+    }*/
 
     this.updatUser = new FormGroup({
       documentTypeId: new FormControl('', [Validators.required]),            
@@ -65,11 +90,106 @@ export class UserProfileComponent {
 
   ngOnInit(): void {
     this.getCustomer()
+    //this.getBalance()
+    this.getAccounts()
+  }
+
+  changeRouterButton(router: String[]): void {
+    console.log('cambiarEstadoC2', router);
+    this.changeRouter.emit(router);
+  }
+
+  changeBalance(): void {
+    this.balance = this.stateBalanceService.balance;
+    this.stateBalanceService.changeBalance
+  }
+
+  makeDeposit(){
+    console.log('THIS', this.amount)
+    const date = new Date()
+    const accountId = localStorage.getItem('accountId')
+    this.depositAmount = {
+      account: accountId ? accountId : '',
+      amount: Number(this.amount),
+      dateTime: date.getTime()
+    }
+    this.depositService.makeADeposit(this.depositAmount).subscribe({
+      next: data  => {
+        console.log('re ', data.amount)
+        //this.balance = data
+        this.stateBalanceService.balance = data.amount
+      },
+      error: err => console.error('err', err),
+      complete: () => console.info('complete')
+    }
+    );
   }
 
   logout(): void {
     this.authService.SignOut();
   }
+
+  getAccounts(){
+    console.log('entra en get account')
+    const user = localStorage.getItem('user')
+    const u = JSON.parse(user ? user : '')
+    this.accountService.getAccountsByCustomer(u.uid).subscribe({
+      next: data  => {
+        this.account = data
+        localStorage.setItem('accountId', this.account[0].id)
+        this.accountService.getBalanceByIdAccount(this.account[0].id).subscribe({
+          next: data  => {
+            //this.balance = data
+            this.stateBalanceService.balance = data
+            //this.balance = this.stateBalanceService.balance
+          },
+          error: err => console.error('err', err),
+          complete: () => console.info('complete')
+        }
+        );
+      },
+      error: err => console.error('err', err),
+      complete: () => console.info('complete')
+    }
+    );
+  }
+
+ /* getBalance(){
+    console.log('entra en get account')
+    const user = localStorage.getItem('user')
+    const u = JSON.parse(user ? user : '')
+    this.accountService.getAccountsByCustomer(u.uid).subscribe({
+      next: data  => {
+        this.account = data
+        localStorage.setItem('accountId', this.account[0].id)
+        this.accountService.getBalanceByIdAccount(this.account[0].id).subscribe({
+          next: data  => {
+            this.balance = data
+            this.stateBalanceService.balance = this.balance
+            this.balance = this.stateBalanceService.balance
+          },
+          error: err => console.error('err', err),
+          complete: () => console.info('complete')
+        }
+        );
+      },
+      error: err => console.error('err', err),
+      complete: () => console.info('complete')
+    }
+    );
+  }*/
+
+  /*getBalance(){
+    this.accountService.getBalanceByIdAccount(this.account[0].id).subscribe({
+      next: data  => {
+        console.log('reBalanc ', data)
+        this.balance = data
+      },
+      error: err => console.error('err', err),
+      complete: () => console.info('complete')
+    }
+    );
+  }*/
 
   updateUser(){
     const user = {
@@ -113,6 +233,7 @@ export class UserProfileComponent {
           this.updatUser.get('avatar')?.setValue(data.avatarUrl)                  
           this.id = data.id
           this.photo = data.avatarUrl
+
         },
         error: err => console.error('err', err),
         complete: () => console.info('complete')

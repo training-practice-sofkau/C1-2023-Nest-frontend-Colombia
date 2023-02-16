@@ -106,23 +106,62 @@
             <div class="card-header"></div>
             <div class="card-body">
               <div class="d-flex flex-row mb-3">
-                <div>
-                  <button class="btn btn-primary btn-login" 
-                  type="button" [routerLink]="routeAccount">Mis cuentas</button>
-                 </div>
-                <div>
-                  <button class="btn btn-primary btn-login" 
-                  type="button"(click)="goTo()">Mis transferencias</button>
-                 </div>
-                 <div>
-                  <button class="btn btn-primary btn-login" 
-                  type="button"(click)="goTo()">Mis depositos</button>
-                 </div>
+                <app-button-shared (changeRouter)="changeRouterButton(['/account'])" 
+                message="Mis Cuentas"></app-button-shared>
+                <app-button-shared (changeRouter)="changeRouterButton(['/transfer'])" 
+                message="Mis Transferencias"></app-button-shared>
+                <app-button-shared (changeRouter)="changeRouterButton(['/deposit'])" 
+                message="Mis Depositos"></app-button-shared>
               </div>
             </div>
         </div>
+
+        <div class="card mb-4">
+            <div class="card-header"></div>
+            <div class="card-body">
+              <div class="d-flex flex-row mb-3">
+                <!--<div class="title-text mt-5">
+                    <h2>Balance</h2>
+                    <h3> {{balance}} </h3>
+                </div>-->
+                <app-balance></app-balance>
+                <div>
+                    <button class="btn btn-primary" 
+                    type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Hacer un deposito</button>
+                   </div>
+              </div>
+            </div>
     </div>
   </div>
 </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="col-md-6">
+                <label class="small mb-1" for="inputLocation">Deposito</label>
+                <input class="form-control" [(ngModel)]="amount"
+                type="text" placeholder="Deposito" >
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" 
+          (click)="makeDeposit()">
+            Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 
 

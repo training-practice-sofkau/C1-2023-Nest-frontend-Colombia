@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TransferComponent } from './pages/transfer/transfer.component';
 import { TransferRoutingModule } from './transfer-routing.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +12,8 @@ import { TransferRoutingModule } from './transfer-routing.module';
   ],
   imports: [
     CommonModule,
-    TransferRoutingModule
+    TransferRoutingModule,
+    FormsModule
   ]
 })
 export class TransferModule { }

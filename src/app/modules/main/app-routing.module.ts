@@ -54,6 +54,13 @@ const routes: Routes = [
     import('../account/account.module').then(
       m => m.AccountModule
     )
+  },
+  {
+    path: 'deposit',
+    loadChildren: () => 
+    import('../deposit/deposit.module').then(
+      m => m.DepositModule
+    )
   }
 ];
 
