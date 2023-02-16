@@ -9,6 +9,7 @@
             <th>Descripción</th>
             <th>Responsable</th>
             <th>Completado</th>
+            <th>Acciones</th>
           </tr>
         </thead>
           <tbody>
@@ -21,13 +22,9 @@
                 <a class="btn btn-info shadow-sm ms-4 btn-sm" [routerLink]="detalles">
                   Detalles Tarea
                 </a>
-              </td>
-              <td>
                 <a class="btn btn-warning shadow-sm ms-4 btn-sm" [routerLink]="['editar', tarea.id]">
                   Modificar Tarea
                 </a>
-              </td>
-              <td>
                 <a class="btn btn-danger shadow-sm ms-4 btn-sm" [routerLink]="eliminar">
                   Eliminar Tarea
                 </a>
@@ -39,6 +36,9 @@
   </div>
   <a class="btn btn-success shadow-sm ms-4" [routerLink]="agregar">
     Agregar Tarea
+  </a>
+  <a class="btn btn-danger shadow-sm ms-4" [routerLink]="salir">
+    Salir
   </a>
 </div>
 

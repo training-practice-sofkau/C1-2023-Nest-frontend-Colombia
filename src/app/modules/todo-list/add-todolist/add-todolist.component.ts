@@ -11,11 +11,14 @@ import { TodoListService } from '../services/todo-list.service';
 export class AddTodolistComponent {
   lista: string[];
 
-
   frmFormulario: FormGroup;
+
+  uidUser: string;
 
   constructor(private readonly todoListService: TodoListService){
     this.lista = ["../"]
+
+    this.uidUser = localStorage.getItem('uid') ?? '';
 
     this.frmFormulario = new FormGroup({
       title: new FormControl(null, [Validators.required, Validators.maxLength(50)]),
@@ -23,6 +26,7 @@ export class AddTodolistComponent {
       responsible: new FormControl(null, Validators.required),
       numberDay: new FormControl(null, Validators.required),
       nameCalendar: new FormControl(null, Validators.required),
+      uidUser: new FormControl(''),
     });
 
   }
@@ -31,6 +35,8 @@ export class AddTodolistComponent {
 
     console.log('sendData', this.frmFormulario);
     console.log(this.frmFormulario.getRawValue());
+
+    this.frmFormulario.get('uidUser')?.setValue(this.uidUser);
 
     this.todoListService.saveTodoList(this.frmFormulario.getRawValue()).subscribe({
       next: data => console.log(data),

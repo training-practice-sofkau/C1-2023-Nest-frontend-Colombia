@@ -1,6 +1,7 @@
 // Libraries
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { IndexComponent } from '../main/pages/index/index.component';
 import { AddTodolistComponent } from './add-todolist/add-todolist.component';
 import { DeleteTodolistComponent } from './delete-todolist/delete-todolist.component';
 import { DetailTodolistComponent } from './detail-todolist/detail-todolist.component';
@@ -37,6 +38,10 @@ const routes: Routes = [
       }
     ],
   },
+  {
+    path: 'salir',
+    component: IndexComponent
+  }
 ];
 
 @NgModule({

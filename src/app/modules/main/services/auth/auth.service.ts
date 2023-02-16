@@ -22,8 +22,10 @@ export class AuthService {
       .signInWithPopup(provider)
       .then((result) => {
         this.router.navigate(['']);
-        console.log(result);
-        localStorage.setItem('user', JSON.stringify(result.user))
+        //console.log(result);
+        localStorage.setItem('user', JSON.stringify(result.user));
+        localStorage.setItem('uid', result.user?.uid ?? '');
+        //console.log(localStorage.getItem('uid'));
         //this.SetUserData(result.user);
       })
       .catch((error) => {
@@ -35,6 +37,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
+      localStorage.removeItem('uid');
       this.router.navigate(['login']);
     });
   }

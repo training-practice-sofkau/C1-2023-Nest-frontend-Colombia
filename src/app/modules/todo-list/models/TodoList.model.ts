@@ -6,4 +6,5 @@ export interface ITodoItem{
   isCompleted: boolean;
   state: boolean;
   idDay: string;
+  uidUser: string;
 }

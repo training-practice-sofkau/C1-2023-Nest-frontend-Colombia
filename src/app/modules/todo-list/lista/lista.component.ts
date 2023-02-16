@@ -13,8 +13,11 @@ export class ListaComponent implements OnInit{
   //editar: string[];
   eliminar: string[];
   detalles: string[];
+  salir: string[];
 
   tareas: ITodoItem[];
+
+  uidUser: string;
 
 
   constructor(private readonly todoListService: TodoListService){
@@ -22,17 +25,21 @@ export class ListaComponent implements OnInit{
     this.agregar = ["agregar"];
     this.eliminar = ["eliminar"];
     this.detalles = ["detalles"];
+    this.salir = ["../"];
+
+    this.uidUser = localStorage.getItem('uid') ?? '';
 
     this.tareas = new Array<ITodoItem>();
+
+
   }
   ngOnInit(): void {
     this.todoListService.getAllTodoList().subscribe({
-      next: data => (this.tareas = data),
+      next: data => (this.tareas = data.filter(tarea => tarea.uidUser === this.uidUser)),
       error: err => console.log(err),
       complete: ()=> console.log('complete')
     })
+
   }
-
-
 
 }
