@@ -1,10 +1,9 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../../services/account/account.service';
-import { AccountModel } from '../../models/account.model';
-import Swal from 'sweetalert2';
 import { CustomersService } from '../../../security/services/customer/customers.service';
-import { Subscription } from 'rxjs';
 import { AccountInterface } from '../../interfaces/account.interface';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'account-info',
@@ -17,28 +16,26 @@ export class InfoComponent implements OnInit {
   accounts = new Array<AccountInterface>();
   constructor(
     private readonly accountService: AccountService,
-    private customerService: CustomersService
+    private customerService: CustomersService,
+    private readonly router: Router
   ) {}
   getAccountId($event: string) {
     this.AccountId = $event;
     console.log($event);
   }
-  ngOnInit(): void {
-    // this.customerService.getCustomerObserv().subscribe((id) => this.customerId = id)
-    //   this.accountService.getAll(this.customerId).subscribe({
-    //     next: (data) => this.accounts = data,
-    //     error: (err) => {
-    //       console.log(err.error.message);
-    //       Swal.fire({
-    //         position: 'top-end',
-    //         icon: 'error',
-    //         title: err.error.message,
-    //         showConfirmButton: false,
-    //         timer: 3500,
-    //       });
-    //     },
-    //     complete: () => {console.log("completed")
-    //     }
-    //   });
+  history() {
+    if (this.AccountId) {
+      this.accountService.setAccountOut(this.AccountId);
+      this.router.navigate(['movements/']);
+    } else {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: 'Seleccione una cuenta para ver el historial de transacciones',
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
   }
+  ngOnInit(): void {}
 }

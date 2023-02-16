@@ -16,19 +16,19 @@ export class FormSignupComponent implements OnInit {
     private router: Router
   ) {
     this.frmSingUp = new FormGroup({
-      documentTypeId: new FormControl(null, [Validators.required]),
-      document: new FormControl(null, Validators.required),
-      fullName: new FormControl(null, [
+      documentTypeId: new FormControl('', [Validators.required]),
+      document: new FormControl('', Validators.required),
+      fullName: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
         Validators.maxLength(500),
       ]),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      phone: new FormControl(null, [
+      email: new FormControl('', [Validators.required, Validators.email]),
+      phone: new FormControl('', [
         Validators.required,
         Validators.maxLength(30),
       ]),
-      password: new FormControl(null, [
+      password: new FormControl('', [
         Validators.required,
         Validators.minLength(8),
         Validators.pattern(
@@ -44,7 +44,6 @@ export class FormSignupComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.customerService.setCustomer(data.account.customer.id);
-          debugger;
           localStorage.setItem('id', data.account.customer.id);
           localStorage.setItem('token', data.access_token);
         },
