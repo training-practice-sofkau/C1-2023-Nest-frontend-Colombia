@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/modules/auth/services/auth.service';
 
 @Component({
   selector: 'sofka-narbar',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./narbar.component.scss']
 })
 export class NarbarComponent {
+  constructor(private readonly authService: AuthService) {}
 
+  logout(): void {
+    this.authService.SignOut();
+  }
 }

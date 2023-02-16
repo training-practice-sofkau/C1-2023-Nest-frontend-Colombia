@@ -10,8 +10,9 @@ import { HomComponent } from './pages/hom/hom.component';
 import {
   AngularFireAuthGuard,
   redirectLoggedInTo,
-  redirectUnauthorizedTo
+  redirectUnauthorizedTo,
 } from '@angular/fire/compat/auth-guard';
+import { CreateAccountsComponent } from './components/create-accounts/create-accounts.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'transfers', component: TransfersComponent },
       { path: 'customers', component: CustomersComponent },
       { path: 'deposit', component: DepositComponent },
+      { path: 'createAccounts', component: CreateAccountsComponent },
     ],
   },
 ];

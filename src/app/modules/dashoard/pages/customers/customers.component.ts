@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from 'src/app/modules/auth/services/user/user.service';
+import { StateService } from '../../services/state/state.service';
 
 @Component({
   selector: 'sofka-customers',
@@ -15,10 +16,10 @@ export class CustomersComponent implements OnInit {
   email: string;
   phone: string;
   password: string;
-
+  estado: boolean;
   constructor(
     private readonly userService: UsersService,
-    private router: Router
+    private router: Router, private readonly stateService: StateService
   ) {
     this.id = '';
     this.documentTypeId = '';
@@ -27,6 +28,7 @@ export class CustomersComponent implements OnInit {
     this.email = '';
     this.phone = '';
     this.password = '';
+    this.estado = this.stateService.state;
   }
 
   ngOnInit(): void {
@@ -48,4 +50,9 @@ export class CustomersComponent implements OnInit {
       },
     });
   }
+  cambiarEstado(): void {
+    this.stateService.state = !this.estado;
+    this.estado = this.stateService.state;
+  }
 }
+///crea el emisor

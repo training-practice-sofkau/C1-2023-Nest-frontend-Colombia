@@ -4,41 +4,90 @@
     <p class="fs-5 text-muted">AliBank</p>
   </div>
 </header>
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+  data-bs-whatever="@mdo">
+  crea tu cuenta
+</button>
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+  data-bs-whatever="@fat">
+  Open modal for @fat
+</button>
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+  data-bs-whatever="@getbootstrap">
+  Open modal for @getbootstrap
+</button>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="recipient-name" class="col-form-label"
+              >Recipient:</label
+            >
+            <input type="text" class="form-control" id="recipient-name" />
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <main>
-  <div id="account" class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+  <div
+    id="account"
+    class="row row-cols-1 row-cols-md-3 mb-3 text-center"
+    *ngFor="let account of accounts">
     <div class="col">
       <div class="card mb-4 rounded-3 shadow-sm">
         <div class="card-header py-3">
-          <h4 class="my-0 fw-normal">Ahorros</h4>
+          <h4 class="my-0 fw-normal">{{ account.accountType.name }}</h4>
+          <h4 class="my-0 fw-normal">{{ account.id }}</h4>
         </div>
         <div class="card-body">
           <h1 class="card-title pricing-card-title">
-            $15
+            {{ account.balance | currency }}
             <small class="text-muted fw-light">USD</small>
           </h1>
           <ul class="list-unstyled mt-3 mb-4">
             <li>0 costo de manejo</li>
             <li>1.9% de interes</li>
-          </ul>
-          <button type="button" class="w-100 btn btn-lg btn-primary">
-            revisar cuenta
-          </button>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card mb-4 rounded-3 shadow-sm border-primary">
-        <div class="card-header py-3 text-bg-primary border-primary">
-          <h4 class="my-0 fw-normal">Corriente</h4>
-        </div>
-        <div class="card-body">
-          <h1 class="card-title pricing-card-title">
-            $29<small class="text-muted fw-light">USD</small>
-          </h1>
-          <ul class="list-unstyled mt-3 mb-4">
-            <li>5 costo de manejo</li>
-            <li>2.9% de interes</li>
           </ul>
           <button type="button" class="w-100 btn btn-lg btn-primary">
             revisar cuenta

@@ -4,7 +4,15 @@
     <p class="fs-3 text-muted">AliBank</p>
   </div>
 </header>
-<div class="container-home-customer" style="background-color: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; height: 100vh;">
+<div
+  class="container-home-customer"
+  style="
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  ">
   <div class="chc-profile d-flex flex-column align-items-center">
     <div class="chc-profile-first d-flex align-items-center">
       <div class="chc-avatar rounded-circle mr-3"></div>
@@ -30,13 +38,14 @@
         <h6>{{ phone }}</h6>
       </div>
     </div>
-    <div class="chc-profile-four d-flex justify-content-between w-100 mt-3">
-      <button class="btn btn-primary chc-accounts">Mis cuentas</button>
-      <button class="btn btn-primary chc-deposits">Mis depositos</button>
-      <button class="btn btn-primary chc-transfer">Mis transferencias</button>
-    </div>
     <div class="chc-profile-five mt-3">
       <button class="btn btn-primary chc-update">Actualizar Datos</button>
+      <button
+        class="btn btn-primary chc-update"
+        type="button"
+        (click)="cambiarEstado()">
+        Cambiar estado
+      </button>
     </div>
   </div>
 </div>
