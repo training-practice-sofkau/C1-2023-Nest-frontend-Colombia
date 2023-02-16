@@ -7,7 +7,6 @@ import { AccountsComponent } from './pages/accounts/accounts.component';
 import { CustomersComponent } from './pages/customers/customers.component';
 import { TransfersComponent } from './pages/transfers/transfers.component';
 import { NarbarComponent } from './components/narbar/narbar.component';
-import { DepositComponent } from './pages/deposit/deposit.component';
 import { HomComponent } from './pages/hom/hom.component';
 import { CreateAccountsComponent } from './components/create-accounts/create-accounts.component';
 @NgModule({
@@ -18,7 +17,6 @@ import { CreateAccountsComponent } from './components/create-accounts/create-acc
     CustomersComponent,
     TransfersComponent,
     NarbarComponent,
-    DepositComponent,
     HomComponent,
     CreateAccountsComponent,
   ],

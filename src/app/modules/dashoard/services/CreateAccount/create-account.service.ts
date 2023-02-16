@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AccountsInterface } from '../../interfaces/accounts.interface';
-import { NewAccountModel } from '../../models/new-Account-model';
 
 @Injectable({
   providedIn: 'root',
@@ -10,10 +9,18 @@ import { NewAccountModel } from '../../models/new-Account-model';
 export class CreateAccountService {
   constructor(private readonly httpClient: HttpClient) {}
 
-  CreateAccountService(account: NewAccountModel) {
-    return this.httpClient.post(
+  CreateAccountService(
+    accountTypeId: string,
+    CustomerEntityId: string
+  ): Observable<AccountsInterface> {
+    const newAccount = {
+      accontType: accountTypeId,
+      CustomerEntityId: CustomerEntityId,
+      balance: '0',
+    };
+    return this.httpClient.post<AccountsInterface>(
       'http://localhost:3000/account/new',
-      account.getData()
+      newAccount
     );
   }
   getAll(customer: string): Observable<AccountsInterface[]> {

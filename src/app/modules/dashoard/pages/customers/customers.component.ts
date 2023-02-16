@@ -19,7 +19,8 @@ export class CustomersComponent implements OnInit {
   estado: boolean;
   constructor(
     private readonly userService: UsersService,
-    private router: Router, private readonly stateService: StateService
+    private router: Router,
+    private readonly stateService: StateService
   ) {
     this.id = '';
     this.documentTypeId = '';

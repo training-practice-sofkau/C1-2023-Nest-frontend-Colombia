@@ -7,6 +7,8 @@ import { StateService } from '../../services/state/state.service';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent implements OnInit {
+  
+
   constructor(private readonly stateService: StateService) {}
 
   cambiarEstadoC1(estado: boolean): void {
@@ -18,6 +20,5 @@ export class SidebarComponent implements OnInit {
       next: (state: boolean) => console.log('activado customer', state),
       error: (err: Error) => console.log(err),
     });
-  }
-}
+  }}
 // receptor setitem

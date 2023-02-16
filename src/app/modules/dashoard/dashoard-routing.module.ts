@@ -4,7 +4,6 @@ import { HomeeComponent } from './pages/homee/homee.component';
 import { AccountsComponent } from './pages/accounts/accounts.component';
 import { TransfersComponent } from './pages/transfers/transfers.component';
 import { CustomersComponent } from './pages/customers/customers.component';
-import { DepositComponent } from './pages/deposit/deposit.component';
 import { HomComponent } from './pages/hom/hom.component';
 
 import {
@@ -26,7 +25,6 @@ const routes: Routes = [
       { path: 'accounts', component: AccountsComponent },
       { path: 'transfers', component: TransfersComponent },
       { path: 'customers', component: CustomersComponent },
-      { path: 'deposit', component: DepositComponent },
       { path: 'createAccounts', component: CreateAccountsComponent },
     ],
   },
