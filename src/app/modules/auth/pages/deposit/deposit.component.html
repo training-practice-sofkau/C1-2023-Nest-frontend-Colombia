@@ -8,16 +8,33 @@
   <section class="get-in-touch">
     <form class="contact-form row">
       <div class="form-field col-lg-6">
-        <input id="name" class="input-text js-input" type="text" required />
-        <label class="label" for="name">outcome</label>
+        <input
+          id="name"
+          class="input-text js-input"
+          type="text"
+          required
+          [(ngModel)]="formulario.accountId"
+          name="accountId" />
+        <label class="label" for="name">Id cuenta</label>
       </div>
       <br />
+
       <div class="form-field col-lg-6">
-        <input id="company" class="input-text js-input" type="text" required />
-        <label class="label" for="company">Amount</label>
+        <input
+          id="company"
+          class="input-text js-input"
+          type="number"
+          required
+          [(ngModel)]="formulario.amount"
+          name="amount" />
+        <label class="label" for="company">dinero a enviar</label>
       </div>
       <div class="form-field col-lg-12">
-        <input class="submit-btn" type="submit" value="Enviar" />
+        <input
+          (click)="createDeposit()"
+          class="submit-btn"
+          type="submit"
+          value="Enviar" />
       </div>
     </form>
   </section>
