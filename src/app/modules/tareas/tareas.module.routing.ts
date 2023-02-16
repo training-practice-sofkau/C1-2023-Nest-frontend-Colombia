@@ -8,22 +8,20 @@ import { CrearTareasComponent } from './pages/crearTareas/crearTareas.component'
 import { EliminarTareasComponent } from './pages/eliminarTareas/eliminarTareas.component';
 import { TraerTareasComponent } from './pages/traerTareas/traerTareas.component';
 import { LayoutsComponent } from './layouts/layouts.component';
-import { LoginComponent } from './pages/login/login.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
     component: LayoutsComponent,
     children: [
-      {
+     /*  {
         path: 'login', //http://localhost:4200/login
         component: LoginComponent,
       },
       {
         path: 'dashboard', //http://localhost:4200/dashboard
         component: DashboardComponent,
-      },
+      }, */
       {
         path: 'traer', //http://localhost:4200/tareas/traer
         component: TraerTareasComponent,

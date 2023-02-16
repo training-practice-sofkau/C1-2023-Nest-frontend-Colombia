@@ -9,18 +9,23 @@ import { AppComponent } from './pages/app/app.component';
 import { IndexComponent } from './pages/index/index.component';
 import { ListUsersComponent } from './pages/list-users/list-users.component';
 import { MyPipePipe } from './pipes/my-pipe/my-pipe.pipe';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../../../environments/environment';
-import { provideAuth, getAuth } from '@angular/fire/auth';
+import { LoginComponent } from './pages/login/login.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+
+
 
 @NgModule({
-  declarations: [AppComponent, IndexComponent, MyPipePipe, ListUsersComponent],
+  declarations: [AppComponent, IndexComponent, MyPipePipe, ListUsersComponent, LoginComponent, DashboardComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth())
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

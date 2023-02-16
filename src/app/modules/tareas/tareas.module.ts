@@ -12,8 +12,7 @@ import { IntermedioComponent } from './plantillas/intermedio/intermedio.componen
 import { HeaderComponent } from './plantillas/header/header.component';
 import { FooterComponent } from './plantillas/footer/footer.component';
 import { LayoutsComponent } from './layouts/layouts.component';
-import { LoginComponent } from './pages/login/login.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [
@@ -25,15 +24,15 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     IntermedioComponent,
     HeaderComponent,
     FooterComponent,
-    LoginComponent,
-    DashboardComponent
+
   ],
   imports: [
     CommonModule,
     TareaRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
   ]
 })
 export class TareasModule {}
