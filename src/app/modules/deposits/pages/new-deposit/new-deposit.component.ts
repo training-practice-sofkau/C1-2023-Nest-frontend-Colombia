@@ -11,5 +11,4 @@ export class NewDepositComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

@@ -1,8 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AuthService } from '../../../auth/services/auth.service';
-import { UserInterface } from '../../../auth/interfaces/user.interface';
-import { DocumentTypeEnum } from '../../../../shared/enums/document-type.enum';
-import { UpdateUserModel } from '../../../auth/models/update-user.model';
+import { Component, OnInit } from '@angular/core';
+
+import { UpdateUserModel } from '../../../auth/models';
+import { UserInterface } from '../../../auth/interfaces';
+import { DocumentTypeEnum } from '../../../../shared/enums';
 
 @Component({
   selector: 'sofka-bank-customer-detail',
@@ -14,35 +14,20 @@ export class CustomerDetailComponent implements OnInit {
   user!: UserInterface;
   updateUser!: UpdateUserModel;
 
-  constructor(private readonly auth$: AuthService) { }
+  constructor() {
+    this.user = JSON.parse(localStorage.getItem('user')??JSON.stringify(''));
+  }
 
   ngOnInit(): void {
-    this.user = {
-      success: true,
-      data: {
-        id: 'dddd',
-        documentTypeId: 'ddd',
-        document: 'ddd',
-        fullName: 'ddd',
-        email: 'ddd',
-        phone: 'ddd',
-        password: 'dd',
-        avatarUrl: 'ddd',
-        token: 'dddd',
-      }
-    }
   }
 
-  getUserInfo(): void {
-    //this.user = <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''));
-  }
 
   onEdit(): void {
-    this.updateUser = {...this.user.data}
+    this.updateUser = {...this.user.user}
   }
 
   onUpdate(user: UpdateUserModel):void{
-    this.user.data = {...this.user.data, ...user, }
+    this.user.user = {...this.user.user, ...user, }
   }
 
   getPercentage(object: Object): number {

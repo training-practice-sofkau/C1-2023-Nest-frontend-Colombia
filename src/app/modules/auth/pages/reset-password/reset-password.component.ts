@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { UserInterface } from '../../interfaces';
 
 @Component({
-  //standalone: true,
   selector: 'sofka-bank-reset-password',
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.scss']
@@ -31,5 +31,4 @@ export class ResetPasswordComponent implements OnInit {
     var bgColor = "rgb(" + r + "," + g + "," + b + ")";
     document.body.style.background = bgColor;
   }
-
 }

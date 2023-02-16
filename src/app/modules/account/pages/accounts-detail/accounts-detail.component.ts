@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import { AccountService } from '../../services/account.service';
-import { PageAccountsInterface } from '../../interfaces/page-accounts.interface';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { NewAccountModel } from '../../models/new-account.model';
-import { AccountTypeEnum } from '../../enums/account-type.enum';
+
+import { AccountService } from '../../services';
+import { NewAccountModel } from '../../models';
+import { PageAccountsInterface } from '../../interfaces';
+import { AccountTypeEnum } from '../../enums';
+import { BackgroundColorService } from '../../../../shared/services/background-color.service';
 
 @Component({
   selector: 'sofka-bank-accounts-detail',
@@ -16,8 +18,11 @@ export class AccountsDetailComponent implements OnInit {
   pagination = { currentPage: 1, range: 10 }
   totalPages = 1;
 
-  constructor(private readonly account$: AccountService,
-    readonly router: Router) { }
+  constructor(
+    private readonly account$: AccountService,
+    readonly router: Router,
+    private readonly backgroundColor$: BackgroundColorService,
+    ) { }
 
   ngOnInit(): void {
     AccountTypeEnum['Checking account']
@@ -47,6 +52,14 @@ export class AccountsDetailComponent implements OnInit {
       error: (err) => this.handlerError(err),
       complete: () => this.totalPages = this.accounts.totalPages,
     })
+    this.backgroundColor$.color = !this.backgroundColor$.color;
+    this.backgroundColor$.updateColor.emit(!this.backgroundColor$.color);
+  }
+
+  onDeposits(color: boolean): void{
+    this.backgroundColor$.color = color
+    this.backgroundColor$.updateColor.emit(color);
+    //this.router.navigate(['../deposits'])
   }
 
   private handlerSuccess(data: PageAccountsInterface): void {
@@ -62,6 +75,4 @@ export class AccountsDetailComponent implements OnInit {
     this.totalPages = this.accounts.totalPages
     this.getAll();
   }
-
-
 }

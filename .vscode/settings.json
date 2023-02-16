@@ -15,7 +15,10 @@
       "[formGroup]",
       "formControlName",
       "(editUser)",
-      "[userData]"
+      "[userData]",
+      "(accountId)",
+      "[accountId]",
+      "[selectedAccountId]"
     ],
     "doctype-first": false
   },

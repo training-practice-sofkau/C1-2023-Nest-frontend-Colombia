@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../auth/services/auth.service';
-import { UserInterface } from '../../../auth/interfaces/user.interface';
+
+import { AuthService } from '../../../auth/services';
+import { UserInterface } from '../../../auth/interfaces';
+import { BackgroundColorService } from '../../../../shared/services/background-color.service';
 
 @Component({
   selector: 'sofka-bank-navbar',
@@ -21,8 +23,12 @@ export class NavbarComponent implements OnInit {
   editCustomer!: string[]
   customerDetail!: string[]
   currentUser!: UserInterface;
+  accountId!: string;
 
-  constructor(private readonly auth$: AuthService) {
+  constructor(
+    private readonly auth$: AuthService,
+    private readonly backgroundColor$: BackgroundColorService,
+  ) {
     this.home = ['dashboard'];
     this.signout = ['../index'];
     this.accounts = ['./accounts'];
@@ -34,18 +40,26 @@ export class NavbarComponent implements OnInit {
     this.newTransfer = ['./transfers/add'];
     this.editCustomer = ['./edit'];
     this.customerDetail = ['./'];
+    this.currentUser = JSON.parse(localStorage.getItem('user') ?? JSON.stringify(''));
   }
 
   ngOnInit(): void {
-    
+    this.backgroundColor$.updateColor.subscribe({
+      next: (color: boolean) => {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+        const bgColor = "rgb(" + r + "," + g + "," + b + ")";
+        document.body.style.background = bgColor;
+      }
+    })
   }
 
-  getUserInfo():void{
-    this.auth$
+  onUpdate(accountId: string) {
+
   }
 
-  signOut():void{
+  signOut(): void {
     this.auth$.signOut().subscribe
   }
-
 }

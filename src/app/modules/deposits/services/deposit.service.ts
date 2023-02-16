@@ -1,38 +1,30 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { environment } from 'src/environments/environment';
-import { UserInterface } from '../../auth/interfaces';
+
 import { Observable } from 'rxjs';
-import { DepositInterface } from '../interfaces/deposit.interface';
+
+import { DepositInterface } from '../interfaces';
+
+import { DateRangeModel, PaginationModel } from 'src/app/shared/models';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DepositService {
 
-  private readonly uri = environment.baseUrl + 'deposits/all'
-  private currentUser!: UserInterface;
-  private headers!: HttpHeaders;
+  private readonly uri = environment.baseUrl + 'deposits/all';
 
-  constructor(private readonly http: HttpClient) {
-    this.setUser(this.getUser());
-  }
+  constructor(private readonly http: HttpClient) { }
 
-  getDepositsByAccountId(id: string): Observable<DepositInterface> {
-    return this.http.get<DepositInterface>(this.uri);
-  }
-
-  private setUser(user: UserInterface): void {
-    this.currentUser = user;
-    if (user) {
-      this.headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.currentUser.data.token}`,
-      })
-    }
-  }
-
-  private getUser(): UserInterface {
-    return <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''));
+  getDepositsByAccountId(
+    accountId: string,
+    pagination: PaginationModel,
+    dateRange?: DateRangeModel
+  ): Observable<DepositInterface> {
+    const body = { pagination, dateRange };
+    return this.http.post<DepositInterface>(`${this.uri}/${accountId}`, body);
   }
 }

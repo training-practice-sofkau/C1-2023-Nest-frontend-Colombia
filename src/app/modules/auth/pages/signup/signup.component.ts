@@ -7,14 +7,13 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 // Models and interfaces
-import { NewAuthModel } from '../../models/new-user.model';
-import { UserInterface } from '../../interfaces/user.interface';
+import { NewAuthModel } from '../../models';
+import { UserInterface } from '../../interfaces';
 
-import { DocumentTypeEnum } from '../../../../shared/enums/document-type.enum';
+import { DocumentTypeEnum } from '../../../../shared/enums';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  //standalone: true,
   selector: 'sofka-bank-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']

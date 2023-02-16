@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { UserInterface } from '../../../auth/interfaces/user.interface';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { UpdateUserModel } from '../../../auth/models/update-user.model';

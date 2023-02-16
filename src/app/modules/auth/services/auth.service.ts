@@ -24,15 +24,18 @@ export class AuthService {
   private readonly uri = environment.baseUrl + 'security/';
   private headers!: HttpHeaders;
 
-  constructor(private readonly http: HttpClient,
-    private readonly router: Router, private readonly afAuth: AngularFireAuth) { }
+  constructor(
+    private readonly http: HttpClient,
+    private readonly router: Router,
+    private readonly afAuth: AngularFireAuth,
+  ) { }
 
   signUp(user: NewAuthModel): Observable<UserInterface> {
     return this.http.post<UserInterface>(this.uri + 'signup', user)
       .pipe(
         tap(
           valid => {
-            if (valid) this.setToken(valid.data.token);
+            if (valid) this.setUser(valid);
             this.router.navigate(['dashboard']);
           }))
   }
@@ -42,7 +45,7 @@ export class AuthService {
       .pipe(
         tap(
           valid => {
-            if (valid) this.setToken(valid.data.token);
+            if (valid) this.setUser(valid);
             this.router.navigate(['dashboard']);
           }))
   }
@@ -55,20 +58,21 @@ export class AuthService {
 
   signInGoogle(): Observable<UserInterface> {
     const googleToken = localStorage.getItem('googleToken');
-    return this.http.post<UserInterface>(this.uri + 'signin/google', {token: googleToken})
+    return this.http.post<UserInterface>(this.uri + 'signin/google', { token: googleToken })
   }
 
   refreshToken(): Observable<boolean> {
     return this.http.get<UserInterface>(this.uri + 'refresh')
       .pipe(
         map(resp => {
-          localStorage.setItem('access_token', resp.data.token)
+          localStorage.setItem('access_token', resp.token)
           return resp.success
         }), catchError(() => of(false)))
   }
 
-  private setToken(token: string): void {
-    localStorage.setItem('access_token', token);
+  private setUser(user: UserInterface): void {
+    localStorage.setItem('access_token', user.token);
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
   async signInGoogleAuth(): Promise<void> {
@@ -89,7 +93,7 @@ export class AuthService {
             localStorage.setItem('googleToken', token)
             this.signInGoogle().subscribe({
               next: (data) => {
-                this.setToken(data.data.token);
+                this.setUser(data);
                 this.router.navigate(['dashboard']);
               },
               error: (err) => console.log(err),
