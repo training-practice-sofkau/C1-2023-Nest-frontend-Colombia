@@ -7,5 +7,6 @@ export interface Item{
   estate: number,
   dia: number,
   mes: number,
-  anio: number
+  anio: number,
+  idUser: string,
 }

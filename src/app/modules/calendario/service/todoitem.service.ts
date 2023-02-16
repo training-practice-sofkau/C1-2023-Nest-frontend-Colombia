@@ -13,7 +13,7 @@ export class TodoitemService {
   constructor(private http:HttpClient) { }
 
   getAllItems(): Observable<Item[]>{
-   return this.http.get<Item[]>(this.baseApiUrl + '/api/items')
+   return this.http.get<Item[]>(this.baseApiUrl + '/api/items/user/'+localStorage.getItem('uid'))
   }
 
   addItem(addItemRequest: Item): Observable<Item>{

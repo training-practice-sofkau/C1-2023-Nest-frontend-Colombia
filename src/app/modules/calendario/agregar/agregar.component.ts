@@ -24,7 +24,8 @@ export class AgregarComponent {
       'estate':new FormControl(1),
       'dia': new FormControl(0),
       'mes': new FormControl(0),
-      'anio': new FormControl(0)
+      'anio': new FormControl(0),
+      'idUser': new FormControl(localStorage.getItem('uid'))
     })
   }
 

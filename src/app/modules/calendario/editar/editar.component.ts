@@ -21,7 +21,8 @@ export class EditarComponent implements OnInit {
     estate:0,
     dia: 0,
     mes: 0,
-    anio: 0
+    anio: 0,
+    idUser: ""
 
   }
 

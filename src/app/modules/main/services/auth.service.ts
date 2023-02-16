@@ -23,7 +23,8 @@ export class AuthService {
       .then((result) => {
         this.router.navigate(['items']);
         console.log(result);
-        localStorage.setItem('user', JSON.stringify(result.user))
+        localStorage.setItem('user', JSON.stringify(result.user));
+        localStorage.setItem('uid', result.user?.uid ?? '');
       })
       .catch((error) => {
         window.alert(error);
