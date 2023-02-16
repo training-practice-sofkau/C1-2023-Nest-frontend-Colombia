@@ -8,8 +8,13 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
+  routerTask: string[];
+  constructor(private readonly auth$: AuthService) {
 
-  constructor(private readonly auth$: AuthService) { }
+    this.routerTask = ['../'];
+
+
+   }
 
 
 

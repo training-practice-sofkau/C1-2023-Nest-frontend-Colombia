@@ -8,8 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  title = 'FEBRERO';
+  routerTask: string[];
 
+  constructor(){
+
+
+    this.routerTask = ['calendar-todo-list/login'];
+
+
+  }
 
 
 }

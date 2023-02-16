@@ -24,7 +24,7 @@ export class AuthService {
       .then((result) => {
         this.router.navigate(['calendar-todo-list/dashboard']);
        console.log(result);
-       localStorage.setItem('user', JSON.stringify(result.user));
+        localStorage.setItem('user', JSON.stringify(result.user));
         localStorage.setItem('uid', result.user?.uid?? '');
         result.user?.getIdToken().then((token =>localStorage.setItem('token', token)));
       })
@@ -39,8 +39,6 @@ export class AuthService {
       localStorage.removeItem('user');
       localStorage.removeItem('uid');
       localStorage.removeItem('token');
-
-
       this.router.navigate(['calendar-todo-list/login']);
     });
   }

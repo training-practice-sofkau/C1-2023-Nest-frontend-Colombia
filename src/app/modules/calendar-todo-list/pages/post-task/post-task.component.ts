@@ -20,9 +20,9 @@ export class PostTaskComponent {
     title: new FormControl('', Validators.required),
     descripccion: new FormControl('', Validators.required),
     resposible:new FormControl('', Validators.required),
-    isCompleted:new FormControl('', Validators.required),
-    estate:new FormControl('', Validators.required),
-    idCalendar:new FormControl('', Validators.required)
+    idCalendar:new FormControl('', Validators.required),
+    idUser: new FormControl(localStorage.getItem('uid'), Validators.required)
+
 
   });
 
@@ -34,7 +34,7 @@ export class PostTaskComponent {
     console.log('sendData',this.frmFormReactive);
 
     this.task$.createTask(this.frmFormReactive.getRawValue()).subscribe({
-      next: data => console.log(data),
+      next: data => console.log(data , localStorage.getItem('uid')),
       error: err => console.log(err),
       complete: () => console.log('completo'),
     });
