@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MovementsComponent } from './pages/movements/movements.component';
 import { TransferComponent } from './components/transfer/transfer.component';
 import { VaucherComponent } from './components/vaucher/vaucher.component';
+import { DepositComponent } from './components/deposit/deposit.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'vaucher',
     component: VaucherComponent,
+  },
+  {
+    path: 'deposit',
+    component: DepositComponent,
   },
 ];
 
