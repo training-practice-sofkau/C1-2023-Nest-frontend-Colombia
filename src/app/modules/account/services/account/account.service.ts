@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import { AccountModel } from '../../models/account.model';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { CustomersService } from 'src/app/modules/security/services/customer/customers.service';
-import { FormSignupComponent } from '../../../security/components/form-signup/form-signup.component';
 import { AccountInterface } from '../../interfaces/account.interface';
 
 @Injectable({
@@ -11,6 +9,17 @@ import { AccountInterface } from '../../interfaces/account.interface';
 })
 export class AccountService {
   constructor(private readonly httpClient: HttpClient) {}
+
+  accountId = new BehaviorSubject<string>('');
+  setAccountOut(customerId: string) {
+    this.accountId.next(customerId);
+  }
+  getAccountObservOut(): Observable<string> {
+    return this.accountId.asObservable();
+  }
+  getAccountSubjectOut() {
+    return this.accountId.getValue();
+  }
 
   createAccount(
     accountTypeId: string,

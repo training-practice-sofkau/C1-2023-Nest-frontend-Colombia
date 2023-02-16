@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { environment } from '../../../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { DepositComponent } from '../movements/components/deposit/deposit.component';
 
 @NgModule({
   imports: [
