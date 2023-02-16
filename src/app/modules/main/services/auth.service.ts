@@ -23,11 +23,18 @@ export class AuthService {
       .then((result) => {
         this.router.navigate(['items']);
         console.log(result);
-        //this.SetUserData(result.user);
+        localStorage.setItem('user', JSON.stringify(result.user))
       })
       .catch((error) => {
         window.alert(error);
       });
+  }
+
+  public SignOut() {
+    return this.afAuth.signOut().then(() => {
+      localStorage.removeItem('user');
+      this.router.navigate(['']);
+    });
   }
 
 }

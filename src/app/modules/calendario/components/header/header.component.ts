@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { AuthService } from 'src/app/modules/main/services/auth.service';
 
 @Component({
   selector: 'sofka-header',
@@ -8,7 +9,12 @@ import { Component, Input } from '@angular/core';
 export class HeaderComponent {
   @Input() auth: boolean;
 
-  constructor() {
+  constructor(private readonly authService: AuthService) {
     this.auth = true;
+  }
+
+  logOut(): void{
+    this.authService.SignOut();
+
   }
 }
