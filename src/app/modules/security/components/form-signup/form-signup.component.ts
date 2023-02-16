@@ -1,8 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CustomersService } from '../../services/customer/customers.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'account-form-signup',
@@ -11,33 +17,59 @@ import { CustomersService } from '../../services/customer/customers.service';
 })
 export class FormSignupComponent implements OnInit {
   frmSingUp: FormGroup;
+  google = true;
+  googleSession = this.authService.getGoogleSubjectOut();
   constructor(
     private readonly customerService: CustomersService,
-    private router: Router
+    private router: Router,
+    private readonly authService: AuthService,
+    private frmBuilder: FormBuilder
   ) {
-    this.frmSingUp = new FormGroup({
-      documentTypeId: new FormControl('', [Validators.required]),
-      document: new FormControl('', Validators.required),
-      fullName: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(500),
-      ]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      phone: new FormControl('', [
-        Validators.required,
-        Validators.maxLength(30),
-      ]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(8),
-        Validators.pattern(
-          new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g)
-        ),
-      ]),
+    this.frmSingUp = this.frmBuilder.group({
+      documentTypeId: ['', [Validators.required]],
+      document: ['', Validators.required],
+      fullName: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(500),
+        ],
+      ],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required, Validators.maxLength(30)]],
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+          Validators.pattern(
+            new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/g)
+          ),
+        ],
+      ],
     });
   }
+
+  auth(): void {
+    this.authService.GoogleAuth();
+    const customerGoogle = JSON.parse(
+      sessionStorage.getItem('googleUserEmail') as string
+    );
+    console.log('tomaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
+    this.frmSingUp.get('fullName')?.setValue(customerGoogle.name);
+    this.frmSingUp.get('email')?.setValue(customerGoogle.email);
+    this.frmSingUp.get('email')?.disable();
+    this.frmSingUp.get('fullName')?.disable();
+    this.google = false;
+  }
   registerCustomer(): void {
+    if (this.google) {
+      this.authService.SignUp(
+        this.frmSingUp.get('email')?.getRawValue(),
+        this.frmSingUp.get('password')?.getRawValue()
+      );
+    }
     this.frmSingUp.get('documentTypeId');
     const newCustomer = this.customerService
       .createCustomer(this.frmSingUp.getRawValue())

@@ -180,6 +180,8 @@
           value="Register"
         />
         <securtiy-google-button
+          *ngIf="google"
+          (click)="auth()"
           [mensaje]="'registrase con'"
         ></securtiy-google-button>
         <br />

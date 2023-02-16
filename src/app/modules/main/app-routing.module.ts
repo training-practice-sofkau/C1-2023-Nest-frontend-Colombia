@@ -7,9 +7,9 @@ import {
   redirectUnauthorizedTo,
 } from '@angular/fire/compat/auth-guard';
 import { DepositComponent } from '../movements/components/deposit/deposit.component';
-
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
-const redirectLoggedInToAccount = () => redirectLoggedInTo(['account']);
+import { AuthGuard } from './guards/auth.guard';
+// const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+// const redirectLoggedInToAccount = () => redirectLoggedInTo(['account']);
 const routes: Routes = [
   {
     path: '',
@@ -19,8 +19,7 @@ const routes: Routes = [
     path: 'account',
     loadChildren: () =>
       import('../account/account.module').then((m) => m.AccountModule),
-    // canActivate: [AngularFireAuthGuard],
-    // data: { authGuardPipe: redirectLoggedInToAccount },
+    canActivate: [AuthGuard],
   },
   {
     path: 'movements',

@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { singInModel } from '../../models/sing-in.model';
 import { CustomersService } from '../../services/customer/customers.service';
+import { AccountService } from '../../../account/services/account/account.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'login-form',
@@ -15,10 +17,15 @@ export class FormComponent implements OnInit {
 
   constructor(
     private readonly customerService: CustomersService,
-    private router: Router
+    private router: Router,
+    private readonly authService: AuthService
   ) {
     this.email = '';
     this.password = '';
+  }
+  auth(): void {
+    this.authService.GoogleAuth();
+    this.router.navigate(['account']);
   }
   singIn(): void {
     const customer = new singInModel(this.email, this.password);
