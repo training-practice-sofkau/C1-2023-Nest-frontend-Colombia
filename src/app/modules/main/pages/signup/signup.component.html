@@ -1,0 +1,82 @@
+<!-- eslint-disable prettier/prettier -->
+<!-- eslint-disable prettier/prettier -->
+<header class="header">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="header__content">
+          <div class="header__logo">
+            <img src="assets/images/th.jpg" alt="logo" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="jumbotron" id="linear-gradient">
+  <h1 class="display-4">Bienvenido a la aplicación de tareas</h1>
+  <p class="lead">Esta aplicación te permite crear, editar y eliminar tareas.</p>
+  <hr class="my-4" />
+
+  <div class="displayTable">
+    <div class="displayTableCell">
+      <div class="authBlock">
+        <h3>Ingrese la siguiente información para registrarse</h3>
+        <div class="mb-3 row">
+        <form [formGroup]="form" action="" method="post" class="form-control mt-3 p-3 border-3 border-info text-start">
+          <div class="mb-3 row">
+            <input type="text" class="form-control form-control-sm mx-auto" placeholder="Correo" formControlName="email"
+              name="email" value="">
+              <div class="mensaje" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">
+                <p class="text-danger">Correo electrónico requerido</p>
+              </div>
+              <div class="mensaje" *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">
+                <p class="text-danger">El correo electrónico no es válido</p>
+              </div>
+              <div class="mensaje" *ngIf="form.get('email')?.hasError('pattern') && form.get('email')?.touched">
+                <p class="text-danger">El correo electrónico no cumple con el formato requerido</p>
+              </div>
+          </div>
+
+          <div class="mb-3 row">
+            <input type="password" class="form-control form-control-sm mx-auto" placeholder="Contraseña"
+              formControlName="password" name="password" value="">
+            <div class="mensaje" *ngIf="
+                      form.get('password')?.hasError('required') &&
+                      form.get('password')?.touched
+                    ">
+              <p class="text-danger">contraseña requerida</p>
+            </div>
+          </div>
+          <div class="mb-3 row" *ngIf="form.valid">
+            <input type="button" class="btn btnPrimary" value="Sign Up" (click)="signup()" />
+          </div>
+        </form>
+      </div>
+        <!-- Continue with Google -->
+        <div class="mb-3 row">
+          <span class="or"><span class="orInner">¿Ya tiene una cuenta de Google?</span></span>
+        </div>
+        <div class="mb-3 row">
+          <button type="button" class="btn googleBtn" (click)="auth()">
+            <i class="fab fa-google-plus-g"></i>
+            Iniciar con Google
+          </button>
+        </div>
+      </div>
+      <div class="redirectToLogin">
+        <span>¿Ya tiene una cuenta?
+          <button type="button" class="btn">
+            <span class="redirect" routerLink="/login">Iniciar sesión</span>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <span class="text-muted">Todos los derechos reservados</span>
+  </div>
+</footer>

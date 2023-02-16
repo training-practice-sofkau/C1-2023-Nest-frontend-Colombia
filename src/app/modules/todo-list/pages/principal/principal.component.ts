@@ -27,13 +27,6 @@ export class PrincipalComponent implements OnInit {
     this.routeNewItem = ['new-item'];
     this.todoList = new Array<TodoListI>();
     this.uid = '';
-    // const userStr = this.localStorage.retrieve('user');
-    // if (userStr) {
-    //   const user = JSON.parse(userStr);
-    //   //console.log(user);
-    // }
-
-
   }
 
 

@@ -19,35 +19,69 @@
   <hr class="my-4" />
 
 <!-- <div class="displayTable"> -->
-  <div class="displayTableCell">
+  <div class="text-center">
     <div class="authBlock">
-      <h3>Sign In</h3>
-      <div class="formGroup">
-        <input type="text" class="formControl" placeholder="Username" #userName required>
+      <h3>Para iniciar sesión ingrese la siguiente información</h3>
+      <div class="mb-3 row">
+        <form [formGroup]="form"
+        action=""
+        method="post"
+        class="form-control mt-3 p-3 border-3 border-info text-start">
+        <div class="mb-3 row">
+          <input
+          type="text"
+          class="form-control form-control-sm mx-auto"
+          placeholder="Correo"
+          formControlName="email"
+          name="email"
+          value="">
+          <div class="mensaje" *ngIf="form.get('email')?.hasError('required') && form.get('email')?.touched">
+            <p class="text-danger">Correo electrónico requerido</p>
+          </div>
+          <div class="mensaje" *ngIf="form.get('email')?.hasError('email') && form.get('email')?.touched">
+            <p class="text-danger">El correo electrónico no es válido</p>
+          </div>
+          <div class="mensaje" *ngIf="form.get('email')?.hasError('pattern') && form.get('email')?.touched">
+            <p class="text-danger">El correo electrónico no cumple con el formato requerido</p>
+          </div>
       </div>
-      <div class="formGroup">
-        <input type="password" class="formControl" placeholder="Password" #userPassword required>
-      </div>
-      <!-- Calling SignIn Api from AuthService -->
-      <div class="formGroup">
-        <input type="button" class="btn btnPrimary" value="Log in">
-      </div>
-      <div class="formGroup">
-        <span class="or"><span class="orInner">Or</span></span>
-      </div>
-      <!-- Calling GoogleAuth Api from AuthService -->
-      <div class="formGroup">
-        <button type="button" class="btn googleBtn" (click)="auth()">
-          <i class="fab fa-google-plus-g"></i>
-          Log in with Google
-        </button>
-      </div>
-      <div class="forgotPassword">
-        <span routerLink="/forgot-password">Forgot Password?</span>
+
+      <div class="mb-3 row">
+        <input
+        type="password"
+        class="form-control form-control-sm mx-auto"
+        placeholder="Contraseña"
+        formControlName="password"
+        name="password"
+        value="">
+      <div class="mensaje" *ngIf="
+                      form.get('password')?.hasError('required') &&
+                      form.get('password')?.touched
+                    ">
+        <p class="text-danger">contraseña requerida</p>
       </div>
     </div>
+  </form>
+      <!-- Calling SignIn Api from AuthService -->
+      <div class="mb-3 row" *ngIf="form.valid">
+        <input type="button" class="btn btnPrimary" value="Log in" (click)="login()">
+      </div>
+      <div class="mb-3 row">
+        <span class="or"><span class="orInner">¿Ya tiene una cuenta de Google?</span></span>
+      </div>
+      <!-- Calling GoogleAuth Api from AuthService -->
+      <div class="mb-3 row">
+        <button type="button" class="btn googleBtn" (click)="auth()">
+          <i class="fab fa-google-plus-g"></i>
+          Iniciar con Google
+        </button>
+      </div>
+      <!-- <div class="forgotPassword">
+        <span routerLink="/forgot-password">Forgot Password?</span>
+      </div> -->
+    </div>
     <div class="redirectToLogin">
-      <span>Don't have an account?<span class="redirect"> Sign Up</span></span>
+      <span>¿No tiene una cuenta? <button type="button" class="btn"><span class="redirect" routerLink="/signup"> Regístrese!</span></button></span>
     </div>
   </div>
 </div>

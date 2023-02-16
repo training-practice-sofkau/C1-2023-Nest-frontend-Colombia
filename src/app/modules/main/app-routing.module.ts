@@ -10,6 +10,7 @@ import {
 } from '@angular/fire/compat/auth-guard';
 
 import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToItems = () => redirectLoggedInTo(['todo-list']);
@@ -24,6 +25,10 @@ const routes: Routes = [
     component: LoginComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectLoggedInToItems },
+  },
+  {
+    path: 'signup',
+    component: SignupComponent,
   },
   {
     path: 'todo-list', // localhost:4200/todo-list

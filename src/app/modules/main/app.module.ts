@@ -18,10 +18,14 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AuthService } from './services/auth/auth.service';
 
+import { CommonModule } from '@angular/common';
+
 import { LocalStorageService } from 'ngx-webstorage';
+import { LoginComponent } from './pages/login/login.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 @NgModule({
-  declarations: [AppComponent, IndexComponent, MyPipePipe],
+  declarations: [AppComponent, IndexComponent, MyPipePipe, LoginComponent, SignupComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -31,6 +35,7 @@ import { LocalStorageService } from 'ngx-webstorage';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    CommonModule,
   ],
   providers: [LocalStorageService, AuthService],
   bootstrap: [AppComponent],

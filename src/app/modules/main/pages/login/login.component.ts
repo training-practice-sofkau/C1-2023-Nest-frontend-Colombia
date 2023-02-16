@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth/auth.service';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'sofka-login',
@@ -8,7 +10,15 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  constructor(public readonly authService: AuthService) {}
+  form: FormGroup;
+  constructor(public readonly authService: AuthService, public fb: FormBuilder)
+  {
+    this.form = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email, Validators.pattern(/^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/)]),
+    });
+  }
+
 
 
   auth(): void {
@@ -20,7 +30,9 @@ export class LoginComponent {
   //   this.authService.SignOut();
   // }
 
-  // login(): void {
-  //   this.authService.SignIn(this.userName, this.userPassword);
-  // }
+  login(): void {
+    console.log(this.form.get('email')?.value, this.form.get('password')?.value);
+
+    this.authService.SignIn(this.form.get('email')?.value, this.form.get('password')?.value);
+  }
 }
