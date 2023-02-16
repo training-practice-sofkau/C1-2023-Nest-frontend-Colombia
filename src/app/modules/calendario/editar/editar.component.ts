@@ -76,4 +76,13 @@ export class EditarComponent implements OnInit {
       }
     });
   }
+
+  deleteItem(id:string){
+    this.itemService.deleteItem(id)
+    .subscribe({
+      next:(response)=>{
+        this.router.navigate(['items'])
+      }
+    })
+  }
 }

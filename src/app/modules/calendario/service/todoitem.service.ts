@@ -28,4 +28,8 @@ export class TodoitemService {
     return this.http.put<Item>(this.baseApiUrl + '/api/items/'+id,updateItemRequest)
   }
 
+  deleteItem(id: string): Observable<Item>{
+    return this.http.delete<Item>(this.baseApiUrl+'/api/items/' + id)
+  }
+
 }
