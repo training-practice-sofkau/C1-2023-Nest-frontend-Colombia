@@ -17,6 +17,7 @@ export class PutTaskComponent {
 
     this.routergoBackMenu = ['../'];
     this.frmFormReactive = new FormGroup({
+
       id: new FormControl(null, [Validators.required]),
       title: new FormControl('', Validators.required),
       descripccion: new FormControl('', Validators.required),

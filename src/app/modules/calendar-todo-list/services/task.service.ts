@@ -17,6 +17,7 @@ export class TaskService {
 
   constructor(private readonly httClient: HttpClient) {}
 
+  //listo
   createTask(task: OnlyTaskModel) : Observable<InewTask> {
     return this.httClient.post<InewTask>('https://localhost:7281/api/Controlador',task);
   }
@@ -31,8 +32,8 @@ export class TaskService {
     return this.httClient.put<InewTask>('https://localhost:7281/CompletedOneTask/' + id, task);
   }
 
-  getById(id: number): Observable<TaskUpdateModel[]> {
-    return this.httClient.get<TaskUpdateModel[]>('https://localhost:7281/OneDay/' + id);
+  getById(id: number, idU: string): Observable<TaskUpdateModel[]> {
+    return this.httClient.get<TaskUpdateModel[]>('https://localhost:7281/OneDay/' + id +'/'+ idU);
   }
 
 
@@ -40,6 +41,7 @@ export class TaskService {
     return this.httClient.get<TaskUpdateModel[]>('https://localhost:7281/OneTask/' + id);
   }
 
+  //listo
   GetAll(id: string): Observable<ICalendar[]> {
 
     return this.httClient.get<ICalendar[]>('https://localhost:7281/api/Controlador/AllDaysAndItems/'+ id);

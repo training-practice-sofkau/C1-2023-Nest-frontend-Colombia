@@ -16,12 +16,13 @@ export class GetTaskByIdComponent {
   frmFormReactive : FormGroup;
   routergoBackMenu: string[];
   routeShowTaskById: TaskUpdateModel[];
-
+  idU: string;
 
   constructor(private readonly task$: TaskService,private ruta: ActivatedRoute)  {
 
     this.routergoBackMenu = ['../'];
     this.routeShowTaskById =  new Array<TaskUpdateModel>() ;
+    this.idU = localStorage.getItem('uid')?? '';
     this.frmFormReactive = new FormGroup({
 
       idCalendar:new FormControl('', Validators.required)
@@ -32,7 +33,7 @@ export class GetTaskByIdComponent {
 
   cargarLista():void{
 
-    this.task$.getById(this.frmFormReactive.get('idCalendar')?.value).subscribe({
+    this.task$.getById(this.frmFormReactive.get('idCalendar')?.value,this.idU).subscribe({
 
       next: data => (this.routeShowTaskById = data),
       error: err => console.log(err),
