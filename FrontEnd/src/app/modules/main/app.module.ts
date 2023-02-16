@@ -12,7 +12,9 @@ import { TransferComponent } from './pages/transfer/transfer.component';
 import { ForgotPassComponent } from './pages/forgot-pass/forgot-pass.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../../../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 @NgModule({
   declarations: [
@@ -24,15 +26,18 @@ import { HttpClientModule } from '@angular/common/http';
     AccountComponent, 
     TransferComponent, 
     ForgotPassComponent,
-    
      ],
 
-  imports: [BrowserModule, 
+  imports: [
+    BrowserModule, 
     AppRoutingModule, 
     SharedModule, 
     FormsModule , 
     HttpClientModule,
-    ReactiveFormsModule],
+    ReactiveFormsModule,
+    
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,],
 
   providers: [],
   

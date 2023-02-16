@@ -1,1 +1,23 @@
-<p>transfer works!</p>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Producto Destino</th>
+        <th scope="col">Producto Origen</th>
+        <th scope="col">Monto</th>
+        <th scope="col">Razon</th>
+        <th scope="col">Fecha Transacción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaccion of transfers">
+        <th scope="row">{{transaccion.id}}</th>
+        <td>{{transaccion.outcome.id}}</td>
+        <td>{{transaccion.income.id}}</td>
+        <td>{{transaccion.amount}}</td>
+        <td>{{transaccion.reason}}</td>
+        <td>{{transaccion.date_time}}</td>
+      </tr>
+      <tr>
+    </tbody>
+  </table>

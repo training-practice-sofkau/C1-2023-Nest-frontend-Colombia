@@ -23,6 +23,7 @@ export class UsersService {
     getAll():Observable<IUsers[]>{
       return this.httpClient.get<IUsers[]>('http://localhost:3000/user')
     }
+
   }
 
 
