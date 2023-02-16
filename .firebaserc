@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "angularsofka": {
+      "hosting": {
+        "tourOfHeroes": [
+          "angularsofka"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "angularsofka"
+  }
+}
