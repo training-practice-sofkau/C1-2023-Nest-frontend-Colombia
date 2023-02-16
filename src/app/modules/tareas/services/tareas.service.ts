@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TareasI  } from '../interfaces/tareas.interface';
-import { environment } from 'src/environments/environment';
 import { crearTareaI } from '../interfaces/crearTarea';
 import { actualizarTareaI } from '../interfaces/actualizarTarea';
 
@@ -16,12 +15,20 @@ export class TareasService {
       return this.httpClient.get<TareasI[]>('https://localhost:7281/api/ToDo');
      }
 
-    postTarea(tarea: crearTareaI): Observable<any>{
-      return this.httpClient.post<TareasI>('https://localhost:7281/api/ToDo', tarea);
+    getTareaId(id: string | null): Observable<TareasI>{
+      return this.httpClient.get<TareasI>('https://localhost:7281/api/ToDo/' + id);
      }
 
-    putTarea(tarea : actualizarTareaI): Observable<any>{
-      return this.httpClient.put<TareasI>('https://localhost:7281/api/ToDo', tarea);
+    postTarea(tarea: crearTareaI): Observable<crearTareaI>{
+      return this.httpClient.post<crearTareaI>('https://localhost:7281/api/ToDo', tarea);
+     }
+
+    putTarea(tarea : actualizarTareaI): Observable<actualizarTareaI>{
+      return this.httpClient.put<actualizarTareaI>('https://localhost:7281/api/ToDo/', tarea);
+     }
+
+    deleteTarea(id: string|null): Observable<TareasI> {
+      return this.httpClient.delete<TareasI>('https://localhost:7281/api/ToDo/' + id);
      }
 
 }

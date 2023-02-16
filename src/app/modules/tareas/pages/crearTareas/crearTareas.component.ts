@@ -17,6 +17,11 @@ export class CrearTareasComponent {
   constructor(private tareaService: TareasService, private router: Router){
     this.tarea = [],
     this.frmFormulario = new FormGroup({
+      idUser: new FormControl('', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.maxLength(10)
+      ]),
       title: new FormControl('', [
         Validators.required,
         Validators.minLength(3),
@@ -38,6 +43,8 @@ export class CrearTareasComponent {
   }
 
   crearTarea(): void {
+    this.frmFormulario.get('isCompleted')?.setValue(JSON.parse(this.frmFormulario.get('isCompleted')?.value));
+    console.log(this.frmFormulario.getRawValue())
     this.tareaService.postTarea(this.frmFormulario.getRawValue()).subscribe({
       next:(Item) =>{
         console.log(Item);
