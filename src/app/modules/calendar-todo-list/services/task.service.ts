@@ -23,8 +23,8 @@ export class TaskService {
   }
 
 
-  updateTaskCompleted(id: number, task: TaskUpdateModel) : Observable<InewTask> {
-    return this.httClient.put<InewTask>('https://localhost:7281/UpdateAllTask/' + id, task);
+  updateTaskCompleted(id: number, task: TaskUpdateModel,idU: string) : Observable<InewTask> {
+    return this.httClient.put<InewTask>('https://localhost:7281/UpdateAllTask/' + id +'/'+ idU, task);
   }
 
 
