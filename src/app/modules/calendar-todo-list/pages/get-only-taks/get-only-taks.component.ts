@@ -13,10 +13,10 @@ export class GetOnlyTaksComponent {
   frmFormReactive : FormGroup;
   routergoBackMenu: string[];
   routeShowTaskById: TaskUpdateModel[];
-
+  idU: string;
 
   constructor(private readonly task$: TaskService,private ruta: ActivatedRoute)  {
-
+    this.idU = localStorage.getItem('uid')?? '';
     this.routergoBackMenu = ['../'];
     this.routeShowTaskById =  new Array<TaskUpdateModel>() ;
     this.frmFormReactive = new FormGroup({
@@ -29,7 +29,7 @@ export class GetOnlyTaksComponent {
 
   cargarLista():void{
 
-    this.task$.getTaskById(this.frmFormReactive.get('idCalendar')?.value).subscribe({
+    this.task$.getTaskById(this.frmFormReactive.get('idCalendar')?.value,this.idU).subscribe({
 
       next: data => (this.routeShowTaskById = data),
       error: err => console.log(err),

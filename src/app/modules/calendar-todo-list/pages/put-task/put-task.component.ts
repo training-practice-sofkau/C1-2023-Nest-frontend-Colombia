@@ -12,8 +12,10 @@ export class PutTaskComponent {
 
   routergoBackMenu: string[];
   frmFormReactive : FormGroup;
+  idU: string;
   constructor(private readonly task$: TaskService,private ruta: ActivatedRoute) {
 
+    this.idU = localStorage.getItem('uid')?? '';
 
     this.routergoBackMenu = ['../'];
     this.frmFormReactive = new FormGroup({
@@ -22,24 +24,23 @@ export class PutTaskComponent {
       title: new FormControl('', Validators.required),
       descripccion: new FormControl('', Validators.required),
       resposible:new FormControl('', Validators.required),
-      isCompleted:new FormControl('', Validators.required),
-      idCalendar:new FormControl('', Validators.required)
+      isCompleted:new FormControl('', Validators.required)
 
     });
 
   }
 
 
-
   ngOnInit(): void {
-    this.ruta.params.subscribe(params => {
-      this.task$.getTaskById(params['id']).subscribe({
+
+     this.ruta.params.subscribe(params => {
+      this.task$.getTaskById(params['id'], this.idU).subscribe({
         next: data => { this.frmFormReactive.setValue({
               title: data[0].title,
               description: data[0].descripccion,
               responsible: data[0].resposible,
-              isCompleted: data[0].isCompleted,
-              idCalendar:data[0].idCalendar
+              isCompleted: data[0].isCompleted
+
             });
         },
         error: err => console.log(err),

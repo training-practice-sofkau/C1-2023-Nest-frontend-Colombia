@@ -47,31 +47,4 @@ export class GetTaskComponent implements OnInit {
 
 
 
- /*  ngOnInit(): void {
-
-
-    this.taskService.GetAll().subscribe({
-    next: (data) => {(this.calendarWithTask = data.
-      filter(calendarWithTask => calendarWithTask.items.
-        filter(variable => variable.idUser===this.idUser))
-        )
-        console.log(this.calendarWithTask)
-
-        ;
-    },error: (err) => {
-
-          console.log(err)
-
-  },
-    complete: () => {
-        console.log(this.calendarWithTask);
-      }
-    })
-
-  }
-}
-
- */
-
-
 

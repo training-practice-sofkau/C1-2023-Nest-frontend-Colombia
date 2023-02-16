@@ -58,14 +58,6 @@
           Elige un valor
         </div>
 
-        <div class="mb-3 mt-2 row">
-          <label for="Día" class="col-sm-2 col-form-label">Ingresa en este campo si quieres cambiarlo de día</label>
-          <div class="col-sm-10">
-            <input type="number" class="form-control" id="idCalendar" formControlName="idCalendar" name="idCalendar">
-                <div id="altoMensaje" *ngIf="frmFormReactive.get('idCalendar')?.hasError('required')
-           && frmFormReactive.get('idCalendar')?.touched">Campo requerido, ingresar por favor</div>
-            </div>
-          </div>
 
         <button type="button" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
 

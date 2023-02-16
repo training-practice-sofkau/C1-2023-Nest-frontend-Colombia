@@ -28,8 +28,8 @@ export class TaskService {
   }
 
 
-  updateTaskFinish(id: number, task: TaskUpdateCompletekModel) : Observable<InewTask> {
-    return this.httClient.put<InewTask>('https://localhost:7281/CompletedOneTask/' + id, task);
+  updateTaskFinish(id: number, task: TaskUpdateCompletekModel, idU: string) : Observable<InewTask> {
+    return this.httClient.put<InewTask>('https://localhost:7281/CompletedOneTask/' + id +'/'+ idU, task);
   }
 
   getById(id: number, idU: string): Observable<TaskUpdateModel[]> {
@@ -37,8 +37,8 @@ export class TaskService {
   }
 
 
-  getTaskById(id: number): Observable<TaskUpdateModel[]> {
-    return this.httClient.get<TaskUpdateModel[]>('https://localhost:7281/OneTask/' + id);
+  getTaskById(id: number,idU: string): Observable<TaskUpdateModel[]> {
+    return this.httClient.get<TaskUpdateModel[]>('https://localhost:7281/OneTask/' + id +'/'+ idU);
   }
 
   //listo
