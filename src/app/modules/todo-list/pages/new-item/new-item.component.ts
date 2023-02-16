@@ -12,6 +12,8 @@ import { TodoListService } from '../../services/todo-list/todo-list.service';
 export class NewItemComponent {
 
   form: FormGroup;
+
+  idUser: string | null;
   title: string;
   description: string;
   responsible: string;
@@ -21,6 +23,7 @@ export class NewItemComponent {
   routeExperienciaLaboral: string[];
 
   constructor(private fb: FormBuilder, private readonly todoListService: TodoListService) {
+    this.idUser = localStorage.getItem('uid');
     this.title = '';
     this.description = '';
     this.responsible = '';
@@ -29,6 +32,7 @@ export class NewItemComponent {
     this.routeExperienciaLaboral = ['../experiencia-laboral'];
 
     this.form = new FormGroup({
+      idUser: new FormControl(this.idUser,[Validators.required]),
       title: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),
       description: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
       responsible: new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]),

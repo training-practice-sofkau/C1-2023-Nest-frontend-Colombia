@@ -17,7 +17,7 @@ const redirectLoggedInToItems = () => redirectLoggedInTo(['todo-list']);
 const routes: Routes = [
   {
     path: '',
-    component: IndexComponent,
+    component: LoginComponent,
   },
   {
     path: 'login',

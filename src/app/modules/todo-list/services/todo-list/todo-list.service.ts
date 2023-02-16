@@ -22,6 +22,9 @@ export class TodoListService {
     return this.HttpClient.get<TodoListI[]>('https://localhost:7281/api/Todoitem/');
   }
 
+  getItemByUId(uId: string | null): Observable<TodoListI[]> {
+    return this.HttpClient.get<TodoListI[]>('https://localhost:7281/api/Todoitem/' + uId);
+  }
   getItemById(id: string | null): Observable<TodoListI> {
     return this.HttpClient.get<TodoListI>('https://localhost:7281/api/Todoitem/' + id);
   }

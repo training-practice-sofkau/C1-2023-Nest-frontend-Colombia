@@ -24,7 +24,7 @@
               class="form-control"
               formControlName="title"
               name="title"
-              value="">
+              value="{{item.title}}">
               <div class="mensaje"
               *ngIf="form.get('title')?.hasError('required') && form.get('title')?.touched">
               <p class="text-danger">El título es requerido</p>

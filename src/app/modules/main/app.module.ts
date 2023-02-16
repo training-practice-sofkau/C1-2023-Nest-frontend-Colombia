@@ -16,7 +16,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from '../../../environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AuthService } from './services/auth/auth.service';
 
+import { LocalStorageService } from 'ngx-webstorage';
 
 @NgModule({
   declarations: [AppComponent, IndexComponent, MyPipePipe],
@@ -30,7 +32,7 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
   ],
-  providers: [],
+  providers: [LocalStorageService, AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

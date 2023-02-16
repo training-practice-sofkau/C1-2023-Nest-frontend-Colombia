@@ -58,7 +58,14 @@ export class EditItemComponent implements OnInit{
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.todoListService.getItemById(this.id).subscribe({
-      next: (data) =>  this.item = data,
+      next: (data) =>  {
+        this.item = data;
+        this.form.setValue({
+          title: this.item.title,
+          description: this.item.description,
+          responsible: this.item.responsible,
+        })
+      },
       error: err =>  console.log(err),
       complete: () =>  console.log('complete'),
     });

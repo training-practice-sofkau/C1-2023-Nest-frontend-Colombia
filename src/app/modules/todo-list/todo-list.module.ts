@@ -19,6 +19,8 @@ import { ViewItemComponent } from './pages/view-item/view-item.component';
 import { DeleteItemComponent } from './pages/delete-item/delete-item.component';
 import { HttpClientModule } from '@angular/common/http';
 
+import { LocalStorageService } from 'ngx-webstorage';
+
 @NgModule({
   declarations: [
     PrincipalComponent,
@@ -30,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     ViewItemComponent,
     DeleteItemComponent,
   ],
-  imports: [CommonModule, FormsModule,ReactiveFormsModule, ToDoListRoutingModule, SharedModule, HttpClientModule]
+  imports: [CommonModule, FormsModule,ReactiveFormsModule, ToDoListRoutingModule, SharedModule, HttpClientModule],
+  providers: [LocalStorageService],
 })
 export class ToDoListModule {}
