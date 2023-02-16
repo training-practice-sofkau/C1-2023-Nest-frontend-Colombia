@@ -6,16 +6,18 @@ export class TaskUpdateModel{
   descripccion: string;
   resposible: string;
   isCompleted: boolean;
+  estate: number;
   idCalendar: number;
 
 
 
-  constructor(title: string, descripccion: string,resposible: string,isCompleted: boolean,idCalendar: number){
+  constructor(title: string, descripccion: string,resposible: string,isCompleted: boolean,estate: number ,idCalendar: number){
 
    this.title = title;
    this.descripccion = descripccion;
    this.resposible = resposible;
    this.isCompleted = isCompleted;
+   this.estate = estate;
    this.idCalendar = idCalendar;
 
 
@@ -23,7 +25,7 @@ export class TaskUpdateModel{
 
 
 
- getData(): {title: string, descripccion: string, resposible: string, isCompleted: boolean,idCalendar: number} {
+ getData(): {title: string, descripccion: string, resposible: string, isCompleted: boolean,estate: number,idCalendar: number} {
 
 
   {
@@ -34,6 +36,7 @@ export class TaskUpdateModel{
    descripccion: this.descripccion,
    resposible: this.resposible,
    isCompleted: this.isCompleted,
+   estate: this.estate,
    idCalendar: this.idCalendar
 
    }

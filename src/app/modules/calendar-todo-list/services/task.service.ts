@@ -50,4 +50,14 @@ export class TaskService {
   }
 
 
+  //listo
+  deleteTask(id: number,idU: string): Observable<ICalendar[]> {
+
+    return this.httClient.delete<ICalendar[]>('https://localhost:7281/DeleteTask/' + id + '/' + idU);
+
+
+  }
+
+
+
 }
