@@ -12,40 +12,66 @@ export class GetTaskComponent implements OnInit {
 
   routergoBackMenu: string[];
   calendarWithTask: ICalendar[];
+  idUser: string;
 
   constructor(private readonly taskService: TaskService) {
 
 
     this.routergoBackMenu = ['../'];
     this.calendarWithTask = new Array<ICalendar>();
+    this.idUser = localStorage.getItem('uid')?? '';
 
 
   }
 
   ngOnInit(): void {
 
-    this.taskService.GetAll().subscribe({
+
+    this.taskService.GetAll(this.idUser).subscribe({
     next: (data) => {(this.calendarWithTask = data)
+    },error: (err) => {
+    console.log(err),console.log(this.calendarWithTask)
+  },
+    complete: () => {
+        console.log(this.calendarWithTask);
+      }
+    })
 
-      data.forEach(element => {
-
-        console.log(element.numberDaY)
-
-        element.items.forEach(element2 =>{
-
-        console.log(element2.descripccion)
-
-        });
-
-
-      });
-
-    },
-    error: (err) =>
-    console.log(err),
-    complete: () =>
-    console.log(this.calendarWithTask)
-
-    });
   }
 }
+
+
+
+
+
+
+
+
+ /*  ngOnInit(): void {
+
+
+    this.taskService.GetAll().subscribe({
+    next: (data) => {(this.calendarWithTask = data.
+      filter(calendarWithTask => calendarWithTask.items.
+        filter(variable => variable.idUser===this.idUser))
+        )
+        console.log(this.calendarWithTask)
+
+        ;
+    },error: (err) => {
+
+          console.log(err)
+
+  },
+    complete: () => {
+        console.log(this.calendarWithTask);
+      }
+    })
+
+  }
+}
+
+ */
+
+
+

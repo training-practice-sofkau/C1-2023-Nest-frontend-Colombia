@@ -40,9 +40,9 @@ export class TaskService {
     return this.httClient.get<TaskUpdateModel[]>('https://localhost:7281/OneTask/' + id);
   }
 
-  GetAll(): Observable<ICalendar[]> {
+  GetAll(id: string): Observable<ICalendar[]> {
 
-    return this.httClient.get<ICalendar[]>('https://localhost:7281/api/Controlador/AllDaysAndItems');
+    return this.httClient.get<ICalendar[]>('https://localhost:7281/api/Controlador/AllDaysAndItems/'+ id);
 
 
   }
