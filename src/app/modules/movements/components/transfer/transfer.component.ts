@@ -19,16 +19,16 @@ export class TransferComponent implements OnInit {
     private readonly router: Router
   ) {
     this.frmTransfer = new FormGroup({
-      inComeId: new FormControl(null, [
+      inComeId: new FormControl('', [
         Validators.required,
         Validators.minLength(10),
       ]),
       outComeId: new FormControl(this.outComeId),
-      amount: new FormControl(null, [
+      amount: new FormControl('', [
         Validators.required,
         Validators.pattern(new RegExp(/\d+(\.\d{0,9})?/)),
       ]),
-      reason: new FormControl(null, [
+      reason: new FormControl('', [
         Validators.required,
         Validators.minLength(1),
         Validators.maxLength(500),
