@@ -2,6 +2,13 @@
     Calendario de Tareas
 </h1>
 <div class="row">
+    <div class="card border-success mb-3 " style="max-width: 18rem; " *ngIf="dias.length == 0">
+        <div class="card-header">Nueva Tarea</div>
+        <div class="card-body text-success">
+        <h5 class="card-title">No hay tareas pendientes </h5>
+        <p class="card-text" [routerLink]="['../crear']">Agregar una nueva tarea</p>
+        </div>
+    </div>
     <div *ngFor="let tarea of dias" class="col-md-4 col-sm-6 animate__animated animate__fadeIn g-4">
 
         <div class="card">

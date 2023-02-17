@@ -26,4 +26,5 @@ export class LoginComponent {
   auth(): void{
     this.authService.GoogleAuth();
   }
+
 }

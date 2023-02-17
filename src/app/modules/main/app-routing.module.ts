@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { IndexComponent } from './pages/index/index.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegistrarComponent } from './pages/registrar/registrar.component';
 
 import {
   AngularFireAuthGuard,
@@ -16,18 +14,17 @@ const redirectLoggedInToTareas = () => redirectLoggedInTo(['tareas']);
 
 const routes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent,
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectLoggedInToTareas}
-  },
-  {
-    path: 'registrar',
-    component: RegistrarComponent
-  },
-  {
     path: '',
     component: IndexComponent
+  },
+  {
+    path: 'seguridad', // localhost:4200/tareas
+    loadChildren: () =>
+      import('../seguridad/seguridad.module').then(
+        (m) => m.SeguridadModule
+      ),
+      canActivate: [AngularFireAuthGuard],
+      data: { authGuardPipe: redirectLoggedInToTareas}
   },
   {
     path: 'tareas', // localhost:4200/tareas
@@ -38,6 +35,10 @@ const routes: Routes = [
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin}
   },
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];
 
 @NgModule({

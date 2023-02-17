@@ -13,8 +13,8 @@ export class TareaService {
 
   constructor(private readonly httpClient: HttpClient) { }
 
- getAll(): Observable<IgetTarea[]>{
-  return this.httpClient.get<IgetTarea[]>(`${environment.url_backend_tarea}/ToDo`);
+ getAll(id: string | null): Observable<IgetTarea[]>{
+  return this.httpClient.get<IgetTarea[]>(`${environment.url_backend_tarea}/Usuario/todo/${id}`);
  }
 
  getIdUser(id: string | null): Observable<number[]>{

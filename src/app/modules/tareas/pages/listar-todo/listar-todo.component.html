@@ -1,0 +1,22 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Dia</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Responsable</th>
+        <th scope="col">Prioridad</th>
+        <th scope="col">Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tarea of tareas">
+        <th scope="row">{{tarea.dia}}</th>
+        <td>{{tarea.title}}</td>
+        <td>{{tarea.description}}</td>
+        <td>{{tarea.responsible}}</td>
+        <td>{{tarea.priority}}</td>
+        <td>{{tarea.isCompleted | estado}}</td>
+      </tr>
+    </tbody>
+  </table>

@@ -15,18 +15,13 @@ export class PrincipalComponent implements OnInit{
 
   ngOnInit(): void {
     this.tareaService.getIdUser(localStorage.getItem('uid')).subscribe({
-      next: dias => (this.dias = dias),
+      next: dias => (this.dias = dias.sort((a, b) => a - b)),
       error: err => console.log(err),
       complete: () => console.log('Complete')
     });
-
-     /* if(this.mes == 2){
-      for(let i=1; i <= 28; i++){
-        this.dias.push(i);
-      } 
-    } */
   }
 
+  
       
 }
 

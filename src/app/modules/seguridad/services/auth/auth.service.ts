@@ -21,6 +21,7 @@ export class AuthService {
         console.log(result);
         localStorage.setItem('user', JSON.stringify(result.user));
         localStorage.setItem('uid', result.user?.uid ?? '');
+        localStorage.setItem('correo', result.user?.email ?? '');
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             this.router.navigate(['tareas']);
@@ -42,6 +43,7 @@ export class AuthService {
         console.log(result);
         localStorage.setItem('user', JSON.stringify(result.user));
         localStorage.setItem('uid', result.user?.uid ?? '');
+        localStorage.setItem('correo', result.user?.email ?? '');
       })
       .catch((error) => {
         window.alert(error.message);
@@ -71,6 +73,7 @@ export class AuthService {
         console.log(result);
         localStorage.setItem('user', JSON.stringify(result.user));
         localStorage.setItem('uid', result.user?.uid ?? '');
+        localStorage.setItem('correo', result.user?.email ?? '');
       })
       .catch((error) => {
         window.alert(error);
@@ -81,8 +84,10 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
+      localStorage.removeItem('uid');
+      localStorage.removeItem('correo');
       localStorage.removeItem('token');
-      this.router.navigate(['login']);
+      this.router.navigate(['']);
     });
   }
 }

@@ -13,6 +13,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActualizarTareaComponent } from './pages/actualizar-tarea/actualizar-tarea.component';
+import { EstadoPipe } from './pipes/pipe-estado/estado.pipe';
+import { ListarTodoComponent } from './pages/listar-todo/listar-todo.component';
 
 
 
@@ -27,6 +29,8 @@ import { ActualizarTareaComponent } from './pages/actualizar-tarea/actualizar-ta
     SidebarComponent,
     MainLayoutComponent,
     ActualizarTareaComponent,
+    EstadoPipe,
+    ListarTodoComponent,
   ],
   imports: [
     CommonModule,

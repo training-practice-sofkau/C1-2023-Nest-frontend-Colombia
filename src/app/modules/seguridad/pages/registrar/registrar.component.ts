@@ -23,4 +23,5 @@ export class RegistrarComponent {
     this.authService.SignUp(this.usuarioForm.get('correo')?.value, this.usuarioForm.get('contrasenia')?.value);
   }
 
+
 }

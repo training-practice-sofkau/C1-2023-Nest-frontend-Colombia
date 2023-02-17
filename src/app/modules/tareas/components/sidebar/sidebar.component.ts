@@ -8,9 +8,11 @@ import { Component } from '@angular/core';
 export class SidebarComponent {
   routeCrear: string[];
   routeHome: string[];
+  routeListarTodo: string[];
 
   constructor(){
     this.routeCrear = ['./crear']
     this.routeHome = ['./home']
+    this.routeListarTodo = ['./listarTodo']
   }
 }
