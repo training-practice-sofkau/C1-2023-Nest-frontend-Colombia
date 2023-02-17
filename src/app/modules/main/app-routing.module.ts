@@ -20,7 +20,7 @@ const routes: Routes = [
     component: LoginComponent,
   }, */
   {
-    path: 'login',
+    path: 'login', //http://localhost:4200/login
     component: LoginComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectLoggedInToDashboard },
