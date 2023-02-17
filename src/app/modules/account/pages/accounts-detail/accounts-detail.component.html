@@ -44,17 +44,17 @@
           <div class="card-body {{a.accountType.name==='Saving account'?'text-primary':'text-success'}}">
             <div class="row">
               <a class="list-group-item list-group-item-action text-center"> History </a>
-              <div class="col list-group list-group-flush">
+              <div class="col list-group list-group-flush text-center">
                 <a class="list-group-item list-group-item-action text-center"
                   routerLink="../transfers/{{a.id}}">Transfers</a>
               </div>
-              <div class="col list-group list-group-flush">
+              <div class="col list-group list-group-flush text-center">
                 <a class="list-group-item list-group-item-action text-center"
                   routerLink="../deposits/{{a.id}}">Deposits</a>
               </div>
               <div class="col-12 list-group list-group-flush text-center">
-                <a class="list-group-item list-group-item-action text-center" routerLink="./delete/{{a.id}}">
-                  Transacctions </a>
+                <a class="list-group-item list-group-item-action text-center"
+                routerLink="../transactions/{{a.id}}">Transacctions</a>
               </div>
             </div>
             <hr>

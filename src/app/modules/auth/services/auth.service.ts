@@ -113,7 +113,8 @@ export class AuthService {
           });
       })
       .catch(error => {
-        window.alert(error);
+        console.error(error)
+        //window.alert(error);
       });
   }
 

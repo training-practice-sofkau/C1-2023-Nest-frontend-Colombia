@@ -27,7 +27,6 @@ export class DepositService {
     dateRange?: DateRangeModel
   ): Observable<PageDepositInterface> {
     const body = { pagination, dateRange };
-    console.log(body);
     return this.http.post<PageDepositInterface>(`${this.uri}all/${accountId}`, body);
   }
 

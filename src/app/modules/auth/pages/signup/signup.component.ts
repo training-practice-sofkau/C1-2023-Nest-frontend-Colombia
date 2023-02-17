@@ -13,6 +13,8 @@ import { UserInterface } from '../../interfaces';
 import { DocumentTypeEnum } from '../../../../shared/enums';
 import { environment } from 'src/environments/environment';
 
+import Swal from 'sweetalert2'
+
 @Component({
   selector: 'sofka-bank-signup',
   templateUrl: './signup.component.html',
@@ -97,8 +99,12 @@ export class SignupComponent implements OnInit {
   }
 
   handlerError(err: any): void {
-    console.log(err)
-    alert(err?.message)
+    console.error(err)
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: err?.error?.message,
+    })
   }
 
   clear() {

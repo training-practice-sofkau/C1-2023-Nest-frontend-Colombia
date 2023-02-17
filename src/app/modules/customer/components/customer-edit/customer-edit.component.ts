@@ -93,7 +93,6 @@ export class CustomerEditComponent implements OnInit {
   }
   onSubmit(): void {
     const user = <UpdateUserModel>this.checkoutForm.value
-    console.log(user);
     switch (this.checkoutForm.value.documentTypeId) {
       case 'CC': user.documentTypeId = DocumentTypeEnum.CC;
         break;

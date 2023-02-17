@@ -50,7 +50,6 @@ export class NewTransferComponent implements OnInit {
     this.incomeAccounts = JSON.parse(JSON.stringify(this.incomeAccounts));
     this.incomeAccountId = this.checkoutForm.value.incomeAccountId;
     const a = this.incomeAccounts.find(a => a.id === this.outcomeAccount.id)
-    console.log(a);
     let b: number;
     if (a) { b = this.incomeAccounts.indexOf(a) }
     else { b = -1 }
@@ -63,7 +62,6 @@ export class NewTransferComponent implements OnInit {
     this.reason = this.checkoutForm.value.reason;
     this.checkoutForm.markAllAsTouched()
     const transfer = new NewTransferModel(this.outcomeAccount.id, this.incomeAccountId, this.amount, this.reason);
-    console.log(transfer);
     if (this.checkoutForm.valid) {
       this.transfer$.addTransfer(transfer).subscribe({
         next: (data: TransferInterface) => this.added.emit(true),

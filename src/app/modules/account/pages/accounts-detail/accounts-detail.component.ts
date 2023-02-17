@@ -6,6 +6,7 @@ import { NewAccountModel } from '../../models';
 import { AccountInterface, PageAccountsInterface } from '../../interfaces';
 import { AccountTypeEnum } from '../../enums';
 import { BackgroundColorService } from '../../../../shared/services/background-color.service';
+
 import Swal from 'sweetalert2'
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
@@ -93,7 +94,12 @@ export class AccountsDetailComponent implements OnInit {
   }
 
   private handlerError(err: any): void {
-    console.log(err)
+    console.error(err)
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: err?.error?.message,
+    })
   }
 
   getPage(page: number): void {

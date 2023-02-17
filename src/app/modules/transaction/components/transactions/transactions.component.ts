@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { AccountService, PageAccountsInterface } from 'src/app/modules/account';
-import { PageTransfersInterface, TransferService } from 'src/app/modules/transfers';
+import { PageAccountsInterface } from 'src/app/modules/account/interfaces';
 import { TableDataInterface } from 'src/app/shared/interfaces/table-data.interface';
 import { DateRangeModel, PaginationModel } from 'src/app/shared/models';
+import { TransactionService } from '../../services/transaction.service';
+import { AccountService } from 'src/app/modules/account/services';
+import { PageTransactionInterface } from '../../interfaces/page-transaction.interface';
 
 @Component({
-  selector: 'sofka-bank-transfers-detail',
-  templateUrl: './transfers-detail.component.html',
-  styleUrls: ['./transfers-detail.component.scss']
+  selector: 'sofka-bank-transactions',
+  templateUrl: './transactions.component.html',
+  styleUrls: ['./transactions.component.scss']
 })
-export class TransfersDetailComponent implements OnInit {
+export class TransactionsComponent implements OnInit {
 
   accountId!: string;
   pagination!: PaginationModel;
@@ -19,22 +21,23 @@ export class TransfersDetailComponent implements OnInit {
   tableData!: TableDataInterface;
   hiddenCols!: string[];
   titles!: string[];
+  transactions!: PageTransactionInterface;
 
-  constructor(
+    constructor(
     private readonly route: ActivatedRoute,
-    private readonly transfer$: TransferService,
+    private readonly transaction$: TransactionService,
     private readonly account$: AccountService,
 
   ) {
     this.accountId = this.route.snapshot.paramMap.get('id') ?? '';
     this.pagination = new PaginationModel(1, 10);
     this.dateRange = new DateRangeModel(new Date('1999-01-01').getTime(), Date.now())
-    this.titles = ['OutcomeId', 'IncomeId', 'Amount', 'Reason', 'Date'];
-    this.hiddenCols = ['id'];
+    this.titles = ['Id', 'type', 'Amount', 'Date'];
+    this.hiddenCols = [];
   }
 
   ngOnInit(): void {
-    this.getAllAccounts()
+    this.getAllAccounts();
     this.getAllTransfersById();
   }
 
@@ -54,10 +57,11 @@ export class TransfersDetailComponent implements OnInit {
   }
 
   getAllTransfersById() {
-    this.transfer$.getTransfersByAccountId(this.accountId, this.pagination, this.dateRange).subscribe({
-      next: (data: PageTransfersInterface) => {
+    this.transaction$.getTransactionsByAccountId(this.accountId, this.pagination, this.dateRange).subscribe({
+      next: (data: PageTransactionInterface) => {
+        this.transactions = data;
         this.tableData = {
-          ...data, titles: this.titles, items: this.format(data.transfers, this.hiddenCols)
+          ...data, titles: this.titles, items: this.format(data.transactions, this.hiddenCols)
         }
       },
       error: (err: Error) => console.log(err),
@@ -106,4 +110,5 @@ export class TransfersDetailComponent implements OnInit {
     }
     return result;
   }
+
 }

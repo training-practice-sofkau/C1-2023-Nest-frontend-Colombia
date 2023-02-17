@@ -1,0 +1,26 @@
+<sofka-bank-table [data]="tableData" [selected]="accountId" [name]="'Accounts Id'" [options]="accounts.accounts"
+  (getPagination)="onGetPage($event)" (getSelected)="onAccountId($event)" *ngIf="tableData"></sofka-bank-table>
+
+<!-- <sofka-bank-table></sofka-bank-table>
+<div class="container bg-white rounded-3 p-2" *ngIf="transactions" data-aos="zoom-in" data-aos-duration="1000">
+  <div class="row" >
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Type</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let transaction in transactions.transactions">
+          <th scope="row">{{transaction.id}}</th>
+          <td scope="row">{{transaction.type}}</td>
+          <td scope="row">{{transaction.amount}}</td>
+          <td scope="row">{{transaction.dateTime}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div> -->
