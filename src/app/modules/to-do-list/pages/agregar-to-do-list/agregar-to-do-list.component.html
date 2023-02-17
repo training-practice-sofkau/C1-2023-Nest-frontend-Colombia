@@ -9,14 +9,6 @@
       Aquí puedes agregar tu tarea :)
     </div>
   </div>
-  <div class="toast align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="d-flex">
-      <div class="toast-body">
-        Hello, world! This is a toast message.
-      </div>
-      <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
-    </div>
-  </div>
 </div>
 <div class="row m-3">
   <div class="col col-lg-1"></div>
@@ -89,8 +81,8 @@
 <div class="row m-3">
   <div class="col col-lg-1"></div>
   <div class="col col-10">
-    <button type="submit" form="frmAddItem" [disabled]="frmAddItem.invalid"
-      class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto">
+    <button type="submit" form="frmAddItem" [disabled]=" frmAddItem.invalid"
+      class="btn btn-primary btn-lg shadow bottom-0 end-0 float-end w-auto">
       <i class="bi bi-folder-plus"> Guardar</i>
     </button>
   </div>

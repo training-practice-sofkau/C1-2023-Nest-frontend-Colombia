@@ -38,11 +38,14 @@ export class AgregarToDoListComponent {
         Validators.required,
         Validators.minLength(3),
       ]),
+      uidUser: new FormControl(localStorage.getItem('uidUser'), [
+        Validators.required,
+      ]),
     });
   }
 
   sendData(): void {
-    // console.log('send', this.frmAddItem.getRawValue());
+    console.log('send', localStorage.getItem('uidUser'));
     this.toDoList$.addItemToDo(this.frmAddItem.getRawValue()).subscribe({
       next: data => this.router.navigate(['to-do-list/dashboard']),
       error: err => console.log(err),

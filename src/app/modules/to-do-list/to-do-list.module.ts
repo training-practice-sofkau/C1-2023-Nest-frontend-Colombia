@@ -16,6 +16,8 @@ import { AgregarToDoListComponent } from './pages/agregar-to-do-list/agregar-to-
 import { ToDoListLayoutComponent } from './layouts/to-do-list-layout/to-do-list-layout.component';
 import { EditarToDoListComponent } from './pages/editar-to-do-list/editar-to-do-list.component';
 import { EliminarToDoListComponent } from './pages/eliminar-to-do-list/eliminar-to-do-list.component';
+import { BooleanToStringPipe } from 'src/app/shared/pipes/my-pipe/BooleanToString.pipe';
+import { ListadoToDoListComponent } from './pages/listado-to-do-list/listado-to-do-list.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,8 @@ import { EliminarToDoListComponent } from './pages/eliminar-to-do-list/eliminar-
     ToDoListLayoutComponent,
     EditarToDoListComponent,
     EliminarToDoListComponent,
+    BooleanToStringPipe,
+    ListadoToDoListComponent,
   ],
   imports: [
     CommonModule,
