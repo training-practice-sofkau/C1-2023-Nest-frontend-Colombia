@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IItems } from '../../interfaces/items.interface';
 import { ToDoListService } from '../../services/to-do-list.service';
 
@@ -12,14 +12,27 @@ export class ListadoToDoListComponent implements OnInit {
   routeDashboard: string[];
   // Data
   calendarToDo!: IItems;
+  empty!: boolean;
 
   constructor(private readonly toDoList$: ToDoListService) {
     this.routeDashboard = ['../'];
+    this.empty = false;
   }
+
+  response(respuesta: string) {
+    console.log(respuesta);
+  }
+
   ngOnInit(): void {
     this.toDoList$.getAllAvailable().subscribe({
-      next: data => (this.calendarToDo = data),
-      error: err => console.log(err),
+      next: data => {
+        this.calendarToDo = data;
+        this.empty = false;
+      },
+      error: err => {
+        console.log(err);
+        this.empty = false;
+      },
     });
   }
 }

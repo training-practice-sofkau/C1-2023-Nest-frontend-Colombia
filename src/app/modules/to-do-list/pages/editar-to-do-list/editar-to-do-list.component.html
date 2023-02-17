@@ -1,8 +1,6 @@
 <div class="row m-3 ">
   <div class="col col-lg-1">
-    <a class="btn btn-primary btn-lg shadow-lg" [routerLink]="routeDashboard">
-      <i class="bi bi-arrow-left"></i>
-    </a>
+    <sofka-back-button (valueResponse)="response($event)" [routeDashboard]="routeDashboard"></sofka-back-button>
   </div>
   <div class="col col-10 mt-3">
     <div class="alert alert-info" role="alert">

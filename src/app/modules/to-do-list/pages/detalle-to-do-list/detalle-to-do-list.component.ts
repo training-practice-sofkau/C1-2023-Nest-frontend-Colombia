@@ -9,7 +9,7 @@ import { itemDetail } from '../../models/itemDetail.model';
   templateUrl: './detalle-to-do-list.component.html',
   styleUrls: ['./detalle-to-do-list.component.scss'],
 })
-export class DetalleToDoListComponent implements OnInit, OnDestroy {
+export class DetalleToDoListComponent implements OnInit {
   routeDashboard: string[];
   itemDetail: itemDetail[];
 
@@ -20,6 +20,11 @@ export class DetalleToDoListComponent implements OnInit, OnDestroy {
     this.routeDashboard = ['../../'];
     this.itemDetail = new Array<itemDetail>();
   }
+
+  response(respuesta: string) {
+    console.log(respuesta);
+  }
+
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.toDoList$.getById(params['id']).subscribe({
@@ -28,5 +33,4 @@ export class DetalleToDoListComponent implements OnInit, OnDestroy {
       });
     });
   }
-  ngOnDestroy(): void {}
 }
