@@ -10,7 +10,6 @@ import { DetalleToDoListComponent } from './pages/detalle-to-do-list/detalle-to-
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AgregarToDoListComponent } from './pages/agregar-to-do-list/agregar-to-do-list.component';
 import { EditarToDoListComponent } from './pages/editar-to-do-list/editar-to-do-list.component';
-import { EliminarToDoListComponent } from './pages/eliminar-to-do-list/eliminar-to-do-list.component';
 import { ListadoToDoListComponent } from './pages/listado-to-do-list/listado-to-do-list.component';
 
 const routes: Routes = [
@@ -33,10 +32,6 @@ const routes: Routes = [
       {
         path: 'edit/:id', // localhost:4200/to-do-list/dashboard/editar
         component: EditarToDoListComponent,
-      },
-      {
-        path: 'delete/:id', // localhost:4200/to-do-list/dashboard/eliminar
-        component: EliminarToDoListComponent,
       },
       {
         path: 'list', // localhost:4200/to-do-list/dashboard/listar
