@@ -1,4 +1,11 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  NgModule,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import { AuthService } from '../../../security/security/userAuth/auth.service';
 import { StateService } from '../../../../shared/services/state.service';
 
@@ -13,17 +20,25 @@ export class HeaderComponent implements OnInit {
   routeList: string[];
   state: boolean;
   userName!: string | null;
+
   constructor(
     private readonly auth$: AuthService,
-    private readonly stateAvatar$: StateService
+    private readonly state$: StateService
   ) {
     this.routeDashboard = ['../dashboard'];
     this.routeAdd = ['add'];
     this.routeList = ['list'];
-    this.state = this.stateAvatar$.State;
+    this.state = this.state$.State;
   }
+
+  changeState(): void {
+    this.state$.State = true;
+    this.state = this.state$.State;
+  }
+
   ngOnInit(): void {
-    if (this.state === true) {
+    if (localStorage.getItem('userName') !== null) {
+      this.changeState();
       this.userName = localStorage.getItem('userName');
     }
   }

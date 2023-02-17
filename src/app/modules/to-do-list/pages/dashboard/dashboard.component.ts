@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IItems } from '../../interfaces/items.interface';
 import { ToDoListService } from '../../services/to-do-list.service';
 import { Router } from '@angular/router';

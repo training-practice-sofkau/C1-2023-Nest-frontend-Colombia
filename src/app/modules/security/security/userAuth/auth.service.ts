@@ -10,19 +10,11 @@ import { environment } from '../../../../../environments/environment';
   providedIn: 'root',
 })
 export class AuthService {
-  state: boolean;
   constructor(
     private router: Router,
     private afAuth: AngularFireAuth,
-    private stateAvatar$: StateService
-  ) {
-    this.state = this.stateAvatar$.State;
-  }
-
-  changeStateAvatar(): void {
-    this.stateAvatar$.State = true;
-    this.state = this.stateAvatar$.State;
-  }
+    private state$: StateService
+  ) {}
 
   // Sign in with email/password
   SignIn(email: string, password: string) {
@@ -40,7 +32,6 @@ export class AuthService {
         localStorage.setItem('uidUser', result.user?.uid as string);
         this.afAuth.authState.subscribe(user => {
           if (user) {
-            this.changeStateAvatar();
             this.router.navigate(['to-do-list/dashboard']);
           }
         });
@@ -63,7 +54,6 @@ export class AuthService {
           result.user?.photoURL ? result.user.photoURL : environment.urlIconUser
         );
         localStorage.setItem('uidUser', result.user?.uid as string);
-        this.changeStateAvatar();
         this.router.navigate(['to-do-list/dashboard']);
       })
       .catch(error => {
@@ -85,7 +75,6 @@ export class AuthService {
         localStorage.setItem('userName', result.user?.displayName as string);
         localStorage.setItem('userAvatar', result.user?.photoURL as string);
         localStorage.setItem('uidUser', result.user?.uid as string);
-        this.changeStateAvatar();
         this.router.navigate(['to-do-list/dashboard']);
       })
       .catch(error => {
