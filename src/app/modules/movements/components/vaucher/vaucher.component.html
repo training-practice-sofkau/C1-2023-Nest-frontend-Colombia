@@ -11,19 +11,21 @@
     <p class="text-white m-auto pt-3 text-center">
       Comprobante
       <span
-        ><p class="text-white font-weight-bold">{{ transfer.id }}</p></span
+        ><p class="text-white font-weight-bold">
+          {{ transfer.id | separate }}
+        </p></span
       >
     </p>
     <p class="text-white">
       Desde cuenta:
       <span class="text-white font-weight-bold">
-        {{ transfer.outCome.id }}
+        {{ transfer.outCome.id | separate }}
       </span>
     </p>
     <p class="text-white">
       Para cuenta:
       <span class="text-white font-weight-bold">
-        {{ transfer.inCome.id }}
+        {{ transfer.inCome.id | separate }}
       </span>
     </p>
     <p class="text-white mb-0">
@@ -41,7 +43,7 @@
             <span
               ><p>
                 <span class="text-dark text fs-5 m-0">{{
-                  transfer.reason
+                  transfer.reason | lowercase
                 }}</span>
               </p></span
             >

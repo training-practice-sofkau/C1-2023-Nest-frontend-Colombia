@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AccountService } from '../../services/account/account.service';
 import { CustomersService } from '../../../security/services/customer/customers.service';
 import { AccountInterface } from '../../interfaces/account.interface';
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
   templateUrl: './info.component.html',
   styleUrls: ['./info.component.scss'],
 })
-export class InfoComponent implements OnInit {
+export class InfoComponent {
   customerId = '';
   AccountId!: string;
   accounts = new Array<AccountInterface>();
@@ -19,10 +19,23 @@ export class InfoComponent implements OnInit {
     private customerService: CustomersService,
     private readonly router: Router
   ) {}
+  /**
+   * The function getAccountId() is called when the user selects an account from the dropdown list. The
+   * function takes the accountId as an argument and sets it to the variable AccountId. The variable
+   * AccountId is then stored in sessionStorage
+   * @param {string}  - string - This is the parameter that is passed from the child component.
+   */
   getAccountId($event: string) {
     this.AccountId = $event;
-    console.log($event);
+    sessionStorage.setItem('accountId', this.AccountId);
   }
+
+  /**
+   * The function history() is called when the user clicks on the button "Ver historial de
+   * transacciones" in the HTML file. If the user has selected an account, the function sets the
+   * account as the current account and navigates to the movements page. If the user has not selected
+   * an account, a warning message is displayed
+   */
   history() {
     if (this.AccountId) {
       this.accountService.setAccountOut(this.AccountId);
@@ -37,5 +50,4 @@ export class InfoComponent implements OnInit {
       });
     }
   }
-  ngOnInit(): void {}
 }

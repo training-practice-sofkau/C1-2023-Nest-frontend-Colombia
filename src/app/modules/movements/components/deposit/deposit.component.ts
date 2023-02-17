@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -14,7 +14,7 @@ import { DepositService } from '../../services/deposit/deposit.service';
   templateUrl: './deposit.component.html',
   styleUrls: ['./deposit.component.scss'],
 })
-export class DepositComponent implements OnInit {
+export class DepositComponent {
   frmDeposit: FormGroup;
 
   constructor(
@@ -58,6 +58,4 @@ export class DepositComponent implements OnInit {
       },
     });
   }
-
-  ngOnInit(): void {}
 }

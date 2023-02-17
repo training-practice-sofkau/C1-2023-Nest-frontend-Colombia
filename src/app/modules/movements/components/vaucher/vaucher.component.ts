@@ -13,6 +13,10 @@ export class VaucherComponent implements OnInit {
   transfer!: TransferInterface;
   constructor(private readonly transferService: TransferService) {}
 
+  /**
+   * The function ngOnInit() is a lifecycle hook that is called after Angular has initialized all
+   * data-bound properties of a directive
+   */
   ngOnInit(): void {
     this.transferId = this.transferService.getTransferIdSubject();
     this.transferService.getTransfer(this.transferId).subscribe({
@@ -28,7 +32,6 @@ export class VaucherComponent implements OnInit {
           timer: 3500,
         });
       },
-      complete: () => console.log('completed'),
     });
   }
 }

@@ -1,10 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { CustomersService } from '../../services/customer/customers.service';
@@ -15,7 +10,7 @@ import { AuthService } from '../../services/auth/auth.service';
   templateUrl: './form-signup.component.html',
   styleUrls: ['./form-signup.component.scss'],
 })
-export class FormSignupComponent implements OnInit {
+export class FormSignupComponent {
   frmSingUp: FormGroup;
   google = true;
   googleSession = this.authService.getGoogleSubjectOut();
@@ -50,25 +45,37 @@ export class FormSignupComponent implements OnInit {
       ],
     });
   }
-
+  /**
+   * The function auth() is called when the user clicks on the Google button, which calls the
+   * GoogleAuth() function in the authService service, which returns a response that is stored in the
+   * sessionStorage, and then the form is filled with the data obtained from the response
+   */
   auth(): void {
-    this.authService.GoogleAuth();
-    const customerGoogle = JSON.parse(
-      sessionStorage.getItem('googleUserEmail') as string
-    );
-    console.log('tomaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa');
-    this.frmSingUp.get('fullName')?.setValue(customerGoogle.name);
-    this.frmSingUp.get('email')?.setValue(customerGoogle.email);
-    this.frmSingUp.get('email')?.disable();
-    this.frmSingUp.get('fullName')?.disable();
-    this.google = false;
+    this.authService.GoogleAuth().then((Response) => {
+      sessionStorage.setItem(
+        'googleUserEmail',
+        JSON.stringify(Response.additionalUserInfo?.profile)
+      );
+      const customerGoogle = JSON.parse(
+        sessionStorage.getItem('googleUserEmail') as string
+      );
+      this.frmSingUp.get('fullName')?.setValue(customerGoogle.name);
+      this.frmSingUp.get('email')?.setValue(customerGoogle.email);
+      this.frmSingUp.get('email')?.disable();
+      this.frmSingUp.get('fullName')?.disable();
+      this.google = false;
+    });
   }
+  /**
+   * A function that is responsible for registering a new customer.
+   */
   registerCustomer(): void {
     if (this.google) {
       this.authService.SignUp(
         this.frmSingUp.get('email')?.getRawValue(),
         this.frmSingUp.get('password')?.getRawValue()
       );
+      this.authService.isEmail(this.frmSingUp.get('email')?.getRawValue());
     }
     this.frmSingUp.get('documentTypeId');
     const newCustomer = this.customerService
@@ -77,10 +84,9 @@ export class FormSignupComponent implements OnInit {
         next: (data) => {
           this.customerService.setCustomer(data.account.customer.id);
           localStorage.setItem('id', data.account.customer.id);
-          localStorage.setItem('token', data.access_token);
+          localStorage.setItem('access_token', data.access_token);
         },
         error: (err) => {
-          console.log(err.error.message);
           Swal.fire({
             position: 'top-end',
             icon: 'error',
@@ -97,12 +103,13 @@ export class FormSignupComponent implements OnInit {
             showConfirmButton: false,
             timer: 1500,
           });
+          this.customerService.setCustomer(
+            localStorage.getItem('id') as string
+          );
           setTimeout(() => {
             this.router.navigate(['account']);
           }, 1500);
         },
       });
   }
-
-  ngOnInit(): void {}
 }

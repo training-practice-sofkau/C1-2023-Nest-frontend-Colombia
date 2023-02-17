@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AccountService } from '../../services/account/account.service';
@@ -8,18 +8,22 @@ import { AccountService } from '../../services/account/account.service';
   templateUrl: './generate.component.html',
   styleUrls: ['./generate.component.scss'],
 })
-export class GenerateComponent implements OnInit {
+export class GenerateComponent {
   constructor(
     private readonly accountService: AccountService,
     private router: Router
   ) {}
+  /**
+   * The function takes an accountTypeId as a parameter, and then calls the createAccount function from
+   * the accountService, which takes the accountTypeId and the userId as parameters, and then
+   * subscribes to the observable returned by the createAccount function
+   * @param {string} accountTypeId - string
+   */
   registerAccount(accountTypeId: string): void {
     const newCustomer = this.accountService
       .createAccount(accountTypeId, localStorage.getItem('id') as string)
       .subscribe({
-        next: (data) => console.log(data),
         error: (err) => {
-          console.log(err.error.message);
           Swal.fire({
             position: 'top-end',
             icon: 'error',
@@ -40,6 +44,4 @@ export class GenerateComponent implements OnInit {
         },
       });
   }
-
-  ngOnInit(): void {}
 }

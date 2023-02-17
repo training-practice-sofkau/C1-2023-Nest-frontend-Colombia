@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { FormSignupComponent } from './components/form-signup/form-signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GoogleButtonComponent } from './components/google-button/google-button.component';
+import { UpdateUserComponent } from './components/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { GoogleButtonComponent } from './components/google-button/google-button.
     FormSignupComponent,
     FormSignupComponent,
     GoogleButtonComponent,
+    UpdateUserComponent,
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TransferService } from '../../services/transfer/transfer.service';
-import { TransferModel } from '../../models/transfer.model';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -10,10 +9,16 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './transfer.component.html',
   styleUrls: ['./transfer.component.scss'],
 })
-export class TransferComponent implements OnInit {
+export class TransferComponent {
   outComeId = this.transferService.getCustomerSubjectOut();
   frmTransfer: FormGroup;
 
+  /**
+   * The constructor function is used to initialize the class
+   * @param {TransferService} transferService - TransferService: This is the service that we created
+   * earlier.
+   * @param {Router} router - Router - This is the Angular Router service.
+   */
   constructor(
     private readonly transferService: TransferService,
     private readonly router: Router
@@ -36,15 +41,15 @@ export class TransferComponent implements OnInit {
     });
   }
 
+  /**
+   * It creates a transfer and then navigates to the vaucher page
+   */
   createTransfer() {
-    const transfer = TransferModel;
     this.transferService
       .createTransfer(this.frmTransfer.getRawValue())
       .subscribe({
         next: (data) => {
           this.transferService.setTransferId(data.id);
-          console.log('-----------');
-          console.log(this.transferService.getTransferIdSubject());
         },
         error: (err) => {
           Swal.fire({
@@ -69,5 +74,4 @@ export class TransferComponent implements OnInit {
         },
       });
   }
-  ngOnInit(): void {}
 }
