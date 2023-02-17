@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { InfoComponent } from './components/info/info.component';
 import { ActionsComponent } from './components/actions/actions.component';
 import { GenerateComponent } from './components/generate/generate.component';
+import { UserInfoComponent } from './components/user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { GenerateComponent } from './components/generate/generate.component';
     BalanceComponent,
     ActionsComponent,
     GenerateComponent,
+    UserInfoComponent,
   ],
   imports: [CommonModule, AccountRoutingModule, FormsModule, HttpClientModule],
 })

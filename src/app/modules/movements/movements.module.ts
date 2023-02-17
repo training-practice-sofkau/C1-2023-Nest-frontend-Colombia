@@ -7,6 +7,8 @@ import { TransferComponent } from './components/transfer/transfer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VaucherComponent } from './components/vaucher/vaucher.component';
 import { DepositComponent } from './components/deposit/deposit.component';
+import { SeparatePipe } from 'src/app/shared/pipes/separate/separate.pipe';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { DepositComponent } from './components/deposit/deposit.component';
     TransferComponent,
     VaucherComponent,
     DepositComponent,
+    SeparatePipe,
   ],
   imports: [
     CommonModule,
     MovementsRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
   ],
 })
 export class MovementsModule {}

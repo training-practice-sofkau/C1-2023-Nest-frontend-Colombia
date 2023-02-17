@@ -11,13 +11,20 @@ import { FooterComponent } from '../../shared/components/footer/footer.component
 import { HomeComponent } from './components/home/home.component';
 import { environment } from '../../../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { DepositComponent } from '../movements/components/deposit/deposit.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 @NgModule({
+  declarations: [
+    AppComponent,
+    IndexComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+  ],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -28,18 +35,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
   ],
-  declarations: [
-    AppComponent,
-    IndexComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent,
-  ],
-  bootstrap: [AppComponent],
 })
 export class AppModule {}
