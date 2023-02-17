@@ -1,32 +1,135 @@
 <header>
   <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-    <h1 class="display-4 fw-normal">Tranferencias</h1>
+    <h1 class="display-4 fw-normal">Transferencia</h1>
     <p class="fs-3 text-muted">AliBank</p>
   </div>
 </header>
 
-<div class="card shadow-sm">
+<div class="card shadow-sm" (click)="getOutcome()">
   <section class="get-in-touch">
-    <form class="contact-form row">
+    <form
+      class="contact-form row"
+      (ngSubmit)="createTransfer()"
+      [formGroup]="frmTransfer">
       <div class="form-field col-lg-6">
-        <input id="name" class="input-text js-input" type="text" required />
-        <label class="label" for="name">outcome</label>
+        <input
+          name="outcome"
+          id="name"
+          class="input-text js-input"
+          type="text"
+          required
+          placeholder="{{ outcome | uuid }}"
+          value="{{ outcome | uuid }}"
+          [disabled]="true" />
       </div>
       <div class="form-field col-lg-6">
-        <input id="name" class="input-text js-input" type="email" required />
-        <label class="label" for="email">income</label>
+        <input
+          id="name"
+          class="input-text js-input"
+          type="email"
+          required
+          name="income"
+          formControlName="income" />
+        <label class="label" for="email">Id de la cuenta</label>
+      </div>
+      <div
+        class="text-danger div-alert"
+        *ngIf="
+          frmTransfer.get('income')?.hasError('required') &&
+          frmTransfer.get('income')?.touched
+        ">
+        *El número de cuenta es obligatoria
+      </div>
+      <div
+        class="text-danger div-alert"
+        *ngIf="
+          frmTransfer.get('income')?.hasError('minlength') &&
+          frmTransfer.get('income')?.touched
+        ">
+        *El número de cuenta es incorrecto
       </div>
       <div class="form-field col-lg-6">
-        <input id="company" class="input-text js-input" type="text" required />
+        <input
+          id="company"
+          class="input-text js-input"
+          type="number"
+          required
+          name="amount"
+          formControlName="amount" />
         <label class="label" for="company">Amount</label>
+        <div
+          class="text-danger div-alert"
+          *ngIf="
+            frmTransfer.get('amount')?.hasError('required') &&
+            frmTransfer.get('amount')?.touched
+          ">
+          *El valor es obligatorio
+        </div>
+        <div
+          class="text-danger div-alert"
+          *ngIf="
+            frmTransfer.get('amount')?.hasError('pattern') &&
+            frmTransfer.get('amount')?.touched
+          ">
+          *El valor no es valido
+        </div>
       </div>
       <div class="form-field col-lg-12">
-        <input id="message" class="input-text js-input" type="text" required />
-        <label class="label" for="message">Message</label>
+        <input
+          id="message"
+          class="input-text js-input"
+          type="text"
+          required
+          name="reason"
+          formControlName="reason" />
+
+        <label class="label" for="message">mensaje</label>
+        <div
+          class="text-danger div-alert"
+          *ngIf="
+            frmTransfer.get('reason')?.hasError('required') &&
+            frmTransfer.get('reason')?.touched
+          ">
+          *La razón de la transferencia es obligatoria
+        </div>
+        <div
+          class="text-danger div-alert"
+          *ngIf="
+            frmTransfer.get('reason')?.hasError('minLength') &&
+            frmTransfer.get('reason')?.touched
+          ">
+          *La razón de la transferencia es de mínimo un carácter
+        </div>
+        <div
+          class="text-danger div-alert"
+          *ngIf="
+            frmTransfer.get('reason')?.hasError('maxLength') &&
+            frmTransfer.get('reason')?.touched
+          ">
+          *La razón de la transferencia es de máximo 500 carácter
+        </div>
       </div>
       <div class="form-field col-lg-12">
-        <input class="submit-btn" type="submit" value="Enviar" />
+        <input
+          class="submit-btn"
+          type="submit"
+          value="Enviar"
+          [disabled]="frmTransfer.invalid" />
       </div>
     </form>
   </section>
+</div>
+<div class="container-login">
+  <div class="row">
+    <div class="card">
+      <form id="transfer-login" class="box form-login">
+        <h1>Transferencia</h1>
+        <p class="text-muted">
+          mientras realiza la transacción no recargué la página!
+        </p>
+        <h1>{{ outcome }}</h1>
+        <br />
+      </form>
+    </div>
+  </div>
 </div>

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { CreateAccountService } from '../../services/CreateAccount/create-account.service';
 
 @Component({
@@ -22,6 +23,12 @@ export class CreateAccountsComponent {
           console.log(err);
         },
         complete: () => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href="">Cuenta creada!</a>',
+          });
           console.log('complete');
         },
       });

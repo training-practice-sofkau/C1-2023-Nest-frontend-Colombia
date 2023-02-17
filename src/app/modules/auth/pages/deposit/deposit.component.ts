@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import Swal from 'sweetalert2';
 import { DepositService } from '../../services/deposit.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class DepositComponent {
   constructor(
     private readonly depositServie: DepositService,
     private readonly route: ActivatedRoute
-  ) { }
+  ) {}
 
   createDeposit() {
     this.depositServie.createDeposit(this.formulario).subscribe({
@@ -22,8 +22,19 @@ export class DepositComponent {
       },
       error: err => {
         console.log(err);
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Tienes un error!',
+        });
       },
       complete: () => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Oops...',
+          text: 'Tu dinero a sido enviado!',
+          footer: '<a href="">Deposito enviado!</a>',
+        });
         console.log('complete');
       },
     });

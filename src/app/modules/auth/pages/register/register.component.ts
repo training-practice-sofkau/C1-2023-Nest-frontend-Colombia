@@ -4,6 +4,7 @@ import { UsersService } from '../../services/user/user.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment.prod';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'sofka-register',
@@ -45,6 +46,12 @@ export class RegisterComponent {
         },
         error: err => console.error(err),
         complete: () => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Oops...',
+            text: 'Something went wrong!',
+            footer: '<a href="">Bienvenido!!!!</a>',
+          });
           this.router.navigate(['dashboard']);
         },
       });

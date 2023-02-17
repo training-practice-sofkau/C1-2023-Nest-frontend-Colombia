@@ -16,7 +16,7 @@
   <div class="chc-profile d-flex flex-column align-items-center">
     <div class="chc-profile-first d-flex align-items-center">
       <div class="chc-avatar rounded-circle mr-3"></div>
-      <h4 class="chc-name">{{ fullName }}</h4>
+      <h4 class="chc-name">{{ fullName | lowercase }}</h4>
     </div>
     <div class="chc-profile-second d-flex justify-content-between w-100">
       <div class="chc-info">
@@ -35,7 +35,7 @@
       </div>
       <div class="chc-info">
         <h5>Telefono</h5>
-        <h6>{{ phone }}</h6>
+        <h6>{{ phone | phone }}</h6>
       </div>
     </div>
     <div class="chc-profile-five mt-3">

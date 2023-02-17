@@ -4,7 +4,7 @@ export interface userInterface {
   documentType: {
     id: string;
     name: string;
-    state: boolean
+    state: boolean;
   };
   document: number;
   fullName: string;

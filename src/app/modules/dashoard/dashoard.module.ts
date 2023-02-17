@@ -10,6 +10,9 @@ import { NarbarComponent } from './components/narbar/narbar.component';
 import { HomComponent } from './pages/hom/hom.component';
 import { CreateAccountsComponent } from './components/create-accounts/create-accounts.component';
 import { HistoryComponent } from './pages/history/history.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UuidPipe } from './pipes/uuid.pipe';
+import { PhonePipe } from './pipes/phone/phone.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,14 @@ import { HistoryComponent } from './pages/history/history.component';
     HomComponent,
     CreateAccountsComponent,
     HistoryComponent,
+    UuidPipe,
+    PhonePipe,
   ],
-  imports: [CommonModule, DashoardRoutingModule],
+  imports: [
+    CommonModule,
+    DashoardRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class DashoardModule {}

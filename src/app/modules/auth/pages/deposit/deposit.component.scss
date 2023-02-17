@@ -69,3 +69,9 @@ get-in-touch {
   width:200px;
   cursor: pointer;
 }
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
