@@ -64,30 +64,29 @@
  </form>
 </div>
 
- <div class="d-grid gap-2 col-6 mx-auto">
-  <div class="spinner-border text-danger" role="status" id="divSpiner">
-    <span class="visually-hidden" >Loading...</span>
-  </div>
 <div *ngFor="let data of calendarWithTask" class="col-3 mb-3">
   <div class="card border border-1 border-success">
     <div class="card-body">
       <h5 class="card-title">Día: {{data.numberDaY}} </h5>
       <h6 class="card-subtitle mb-2 text-muted">Tareas:</h6>
       <ul *ngFor="let final of data.items">
-      <p>Id de tarea:</p>
-      <h6 class="card-title">{{final.id}}</h6>
-      <p>Titulo de tarea:</p>
-      <h6 class="card-title">{{final.title}}</h6>
-      <label>Descripccion de la tarea: </label>
-      <h6 class="card-title">{{final.descripccion}}</h6>
-      <label>Responsable: </label>
-      <h6 class="card-title">{{final.resposible}}</h6>
-       <label>Estado: </label>
-      <h6 class="card-title">{{final.isCompleted}}</h6>
-       <label>---------------------------</label>
+        <p id="valorTitle">ID DE LA TAREA:</p>
+        <h6 class="card-title" id="valorTask">{{final.id}}</h6>
+        <br>
+        <p id="valorTitle">TITULO DE LA TAREA:</p>
+        <h6 class="card-title" id="valorTask">{{final.title |  lowercase}}</h6>
+        <br>
+        <label id="valorTitle">DESCRIPCION: </label>
+        <h6 class="card-title" id="valorTask">{{final.descripccion |  lowercase}}</h6>
+        <br>
+        <label id="valorTitle">RESPONSABLE: </label>
+        <h6 class="card-title" id="valorTask">{{final.resposible |  lowercase}}</h6>
+        <br>
+        <label id="valorTitle">ESTADO: </label>
+        <h6 class="card-title" id="valorTask">{{final.isCompleted|refactorValues}}</h6>
+        <br>
+        <br>
       </ul>
     </div>
   </div>
 </div>
-</div>
-
