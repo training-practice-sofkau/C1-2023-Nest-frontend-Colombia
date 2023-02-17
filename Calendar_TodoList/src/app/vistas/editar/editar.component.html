@@ -1,20 +1,24 @@
 <app-header></app-header>
     <div class="container">
-        <form [[formGroup]="editarFor"] (ngSubmit="postForm(editarFor.value)")>
+        <form [formGroup]="editarForm" ngSubmit="postForm(editarForm.value)">
             <div class="form-group">
-                <label for="exampleFormControlInput1">Nombre</label>
-                <input type="text" class="form-control" placeholder="Nombre de la tarea" formControlName="nombre">
+                <label for="exampleFormControlInput1">Title</label>
+                <input type="text" class="form-control" placeholder="title" formControlName="title">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlInput1">Descripcion</label>
-                <input type="text" class="form-control" placeholder="Descripcion de la tarea" formControlName="descripcion">
+                <label for="exampleFormControlInput1">Description</label>
+                <input type="text" class="form-control" placeholder="description" formControlName="description">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlInput1">Jornada</label>
-                <input type="text" class="form-control" placeholder="Jornada de la tarea" formControlName="jornada">
+                <label for="exampleFormControlInput1">Responsible</label>
+                <input type="text" class="form-control" placeholder="responsible" formControlName="responsible">
             </div>
-            <buttom type="submit" class="btn btn-primary">Guardar</buttom>
-            <buttom type="buttom" class="btn btn-danger" (click)="Eliminar()">Eliminar</buttom>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">isCompleted</label>
+              <input type="text" class="form-control" placeholder="Item completo" formControlName="isCompleted">
+            </div>
+          <buttom type="submit" class="btn btn-primary">Guardar</buttom>
+          <buttom type="buttom" class="btn btn-danger" (click)="eliminar()">Eliminar</buttom>
         </form>
     </div>
 <app-footer></app-footer>

@@ -1,24 +1,24 @@
 <app-header></app-header>
 <div class="container">
-    <h3>Lsita de Tareas</h3>
-    <button type="buttom" class="btn btn-primary" (click)="nuevaTarea()">Nueva tarea</button>
+    <h3>Lista de Item</h3>
     <table class="table table-bordered table-dark">
         <thead>
         <tr>
-            <th scope="col">Nombre</th>
-            <th scope="col">Descripcion</th>
-            <th scope="col">Jornada</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Responsible</th>
+            <th scope="col">IsCompleted</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngForm="let tarea of tareas" (click)="editarTarea(tarea.TareaId)">
-            <th scope="row">{{tarea.Nombre}}</th>
-            <td>{{tarea.Descripcion}}</td>
-            <td>{{tarea.Jornada}}</td>
-            <td>Organizacion de datos</td>
-            <td>Se deben organizar datos para la optimizacion</td>
-            <td>Madrugada</td>
+        <tr *ngFor="let item of items" (click)="editarItem(item.itemId)">
+            <th scope = "row">{{item.title}}</th>
+            <td>{{item.description}}</td>
+            <td>{{item.responsible}}</td>
+            <td>{{item.isCompleted}}</td>
+          </tr>
         </tbody>
     </table>
+    <button type="buttom" class="btn btn-primary" (click)="nuevoItem()">Nueva tarea</button>
 </div>
 <app-footer></app-footer>

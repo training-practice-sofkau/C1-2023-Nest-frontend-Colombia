@@ -2,17 +2,21 @@
     <div class="container">
         <form [formGroup]="nuevoForm" (ngSubmit="postForm(nuevoForm.value)")>
             <div class="form-group">
-                <label for="exampleFormControlInput1">Nombre</label>
-                <input type="text" class="form-control" placeholder="Nombre de la tarea" formControlName="nombre">
+                <label for="exampleFormControlInput1">Title</label>
+                <input type="text" class="form-control" placeholder="Title" formControlName="Title">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlInput1">Descripcion</label>
-                <input type="text" class="form-control" placeholder="Descripcion de la tarea" formControlName="descripcion">
+                <label for="exampleFormControlInput1">Description</label>
+                <input type="text" class="form-control" placeholder="Description" formControlName="Description">
             </div>
             <div class="form-group">
-                <label for="exampleFormControlInput1">Jornada</label>
-                <input type="text" class="form-control" placeholder="Jornada de la tarea" formControlName="jornada">
+                <label for="exampleFormControlInput1">Responsible</label>
+                <input type="text" class="form-control" placeholder="Responsible" formControlName="Responsible">
             </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">IsCompleted</label>
+              <input type="text" class="form-control" placeholder="IsCompleted" formControlName="IsCompleted">
+          </div>
             <buttom type="submit" class="btn btn-primary">Guardar</buttom>
             <buttom type="buttom" class="btn btn-dark" (click)="Salir()">Salir</buttom>
         </form>

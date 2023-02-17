@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/servicios/api/api.service';
 import { Router } from '@angular/router';
-import { TareaI } from 'src/app/modelos/tarea.interface';
+import { ListaItemI } from 'src/app/modelos/listaItem.interface';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,19 +10,22 @@ import { TareaI } from 'src/app/modelos/tarea.interface';
 })
 export class DashboardComponent implements OnInit{
 
-  tareas!:TareaI[];
+  items !: ListaItemI[];
 
   constructor(private api:ApiService, private router:Router){}
 
   ngOnInit(): void{
-    this.api.getAllTareas().subscribe(data => {console.log(data)});
+    this.api.getAllItems().subscribe(data =>{
+      this.items = data.listItems;
+      console.log(data);
+    })
   }
 
-  editarTarea(id:string){
-    this.router.navigate(['editar', id]);
+  editarItem(id: string){
+    this.router.navigate(['editar/:', id]);
   }
 
-  nuevaTarea(){
+  nuevoItem(){
     this.router.navigate(['nuevo']);
   }
 }

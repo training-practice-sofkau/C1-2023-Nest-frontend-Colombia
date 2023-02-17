@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { TareaI } from 'src/app/modelos/tarea.interface';
+import { ItemI } from 'src/app/modelos/item.interface';
 import { ResponseI } from 'src/app/modelos/response.interface';
 import { ApiService } from 'src/app/servicios/api/api.service';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
@@ -14,9 +14,11 @@ import { AlertasService } from 'src/app/servicios/alertas/alertas.service';
 export class NuevoComponent implements OnInit {
 
   nuevoForm = new FormGroup({
-    nombre: new FormControl(''),
-    descripcion: new FormControl(''),
-    jornada: new FormControl('')});
+    Title: new FormControl(''),
+    Description: new FormControl(''),
+    Responsible: new FormControl(''),
+    IsCompleted : new FormControl(''),
+  });
 
     constructor(private api:ApiService, private router:Router, private alertas: AlertasService){}
 
@@ -27,8 +29,8 @@ export class NuevoComponent implements OnInit {
       });
     }
 
-    postForm(form: TareaI){
-      this.api.putTarea(form).subscribe((data: any) =>{
+    postForm(form: ItemI){
+      this.api.putItem(form, form.itemId).subscribe(data =>{
         console.log(data);
       })
     }

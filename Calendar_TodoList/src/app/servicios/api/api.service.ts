@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { LoginI } from 'src/app/modelos/login.interface';
 import { ResponseI } from 'src/app/modelos/response.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { TareaI } from 'src/app/modelos/tarea.interface';
+import { ItemI } from 'src/app/modelos/item.interface';
+import { ListaItemI2 } from 'src/app/modelos/ListaItem2.interface';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -19,27 +20,32 @@ export class ApiService {
     return this.http.post<ResponseI>(direccion, form);
   }
 
-  getAllTareas( ):Observable<TareaI[]>{
+  getAllItems():Observable<ListaItemI2>{
     let direccion = this.url + "AllItems/Get";
-    return (this.http.get<TareaI[]>(direccion));
+    return (this.http.get<ListaItemI2>(direccion));
   }
 
-  getSingleTarea(id: any): Observable<TareaI>{
-    let direccion = this.url + id + "/UncompleteItems/Get";
-    return (this.http.get<TareaI>(direccion));
+  //Metodo Put
+  getSingleItem(id: String): Observable<ItemI>{
+    let direccion = this.url + id + "/UpdateAll";
+    return (this.http.get<ItemI>(direccion));
+    //https://localhost:7281/api/ToDoList/id/UpdateAll
   }
-  putTarea(form: TareaI){
-    let direccion = this.url + "/UpdateItemAll/";// + id;
+
+  putItem(form: ItemI, id : string):Observable<ResponseI>{
+    let direccion = this.url + id + "UpdateItemAll";// + id;
+   // https://localhost:7281/api/ToDoList/id/UpdateAll
     return this.http.put<ResponseI>(direccion, form);
-
   }
-  deleteTarea(form:TareaI):Observable<ResponseI>{
-    let direccion = this.url; //+ "/" + id;
+
+  deleteItem(id:string):Observable<ResponseI>{
+    let direccion = this.url + "/" + id;
+    //https://localhost:7281/api/ToDoList/id
     let options ={
       headers: new HttpHeaders({
         'Conten-type':'application/json'
       }),
-      body:form
+      //body:form
     }
     return this.http.delete<ResponseI>(direccion, options);
   }

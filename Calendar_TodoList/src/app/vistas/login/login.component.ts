@@ -13,8 +13,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit{
 
   loginForm = new FormGroup({
-    usuario : new FormControl( " ", Validators.required),
-    password : new FormControl( " ", Validators.required),
+    usuario : new FormControl("", Validators.required),
+    password : new FormControl("", Validators.required),
   })
 
   constructor(private api:ApiService, private router: Router){}
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit{
     }
   }
 
-  onLogin(form: any){
+  onLogin(form:any){
     this.api.loginByEmail(form).subscribe(data => {let dataResponse: ResponseI = data;
     if(dataResponse.status == "ok"){
       localStorage.setItem("token",dataResponse.result.token);
