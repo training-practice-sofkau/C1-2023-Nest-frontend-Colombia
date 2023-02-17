@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IgetTarea } from '../../interfaces/tareas.interface';
 import { TareaService } from '../../services/tareaService/tarea.service';
+import { SidebarService } from '../../services/sidebar-service/sidebar.service';
 
 @Component({
   selector: 'sofka-listar-todo',
@@ -9,8 +10,10 @@ import { TareaService } from '../../services/tareaService/tarea.service';
 })
 export class ListarTodoComponent {
   tareas: IgetTarea[];
+  estadoSidebar: boolean;
 
-  constructor(private readonly tareaService: TareaService){
+  constructor(private readonly tareaService: TareaService, private readonly sidebarService: SidebarService){
+    this.estadoSidebar = sidebarService.estado;
     this.tareas = new Array<IgetTarea>();
   }
 
@@ -20,5 +23,8 @@ export class ListarTodoComponent {
       error: err => console.log(err),
       complete: () => console.log('Complete')
     });
+    this.sidebarService.estado = !this.estadoSidebar;
+    this.estadoSidebar = this.sidebarService.estado;
+    
   }
 }
