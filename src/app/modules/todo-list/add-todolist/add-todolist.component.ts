@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AddItemModel } from '../models/addItem.model';
 import { TodoListService } from '../services/todo-list.service';
 
@@ -13,17 +14,17 @@ export class AddTodolistComponent {
 
   frmFormulario: FormGroup;
 
-  constructor(private readonly todoListService: TodoListService){
+  constructor(private readonly todoListService: TodoListService, private router: Router){
     this.lista = ["../"]
 
     //this.uidUser = localStorage.getItem('uid') ?? '';
 
     this.frmFormulario = new FormGroup({
-      title: new FormControl(null, [Validators.required, Validators.maxLength(50)]),
-      description: new FormControl(null, Validators.required),
-      responsible: new FormControl(null, Validators.required),
-      numberDay: new FormControl(null, Validators.required),
-      nameCalendar: new FormControl(null, Validators.required),
+      title: new FormControl('', [Validators.required, Validators.maxLength(50)]),
+      description: new FormControl('', Validators.required),
+      responsible: new FormControl('', Validators.required),
+      numberDay: new FormControl(1, [Validators.required,Validators.min(1), Validators.max(28)]),
+      nameCalendar: new FormControl('', Validators.required),
       uidUser: new FormControl(localStorage.getItem('uid')),
     });
 
@@ -39,5 +40,6 @@ export class AddTodolistComponent {
       error: err => console.error(err),
       complete: () => console.info('complete')
     })
+    this.frmFormulario.reset();
   }
 }

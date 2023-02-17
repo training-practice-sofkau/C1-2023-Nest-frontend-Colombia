@@ -10,6 +10,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { TodolistLayoutComponent } from './layout/todolist-layout/todolist-layout.component';
 import { TodoListRoutingModule } from './todo-list-routing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { SubstringPipe } from '../main/pipes/substring/substring.pipe';
 
 
 
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
     DetailTodolistComponent,
     FooterComponent,
     HeaderComponent,
-    TodolistLayoutComponent
+    TodolistLayoutComponent,
+    SubstringPipe
   ],
   imports: [
     CommonModule,

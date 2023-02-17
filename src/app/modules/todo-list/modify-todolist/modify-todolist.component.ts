@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TodoListService } from '../services/todo-list.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class ModifyTodolistComponent implements OnInit{
 
   frmFormularioModify : FormGroup;
 
-  constructor(private readonly todoListService: TodoListService, private route:ActivatedRoute){
+  constructor(private readonly todoListService: TodoListService, private route:ActivatedRoute, private router: Router){
     this.lista = ["../../"]
 
     this.frmFormularioModify = new FormGroup({
@@ -53,6 +53,7 @@ export class ModifyTodolistComponent implements OnInit{
       error: err => console.log(err),
       complete: ()=> console.log('complete')
     });
+    this.router.navigate(['todolist'])
   }
 
 }

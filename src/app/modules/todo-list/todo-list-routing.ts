@@ -33,7 +33,7 @@ const routes: Routes = [
         component: DeleteTodolistComponent
       },
       {
-        path: 'detalles',
+        path: 'detalles/:id',
         component: DetailTodolistComponent
       }
     ],

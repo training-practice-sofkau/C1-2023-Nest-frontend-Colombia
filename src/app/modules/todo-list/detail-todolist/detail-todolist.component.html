@@ -1,6 +1,26 @@
-<p>detail-todolist works!</p>
+
+<div class="container">
+  <div class="centered">
+
+    <div>
+      <h1>Estos son los detalles de tu tarea</h1>
+    </div>
+
+    <ul class="list-group">
+      <li class="list-group-item">ID {{tarea.id | substring : 0:7}}</li>
+      <li class="list-group-item">Título: {{tarea.title | uppercase}}</li>
+      <li class="list-group-item">Detalles: {{tarea.description | lowercase}}</li>
+      <li class="list-group-item">Responsable: {{tarea.responsible | titlecase}}</li>
+      <li class="list-group-item">Completa: {{tarea.isCompleted}}</li>
+    </ul>
 
 
-<a class="btn btn-lg btn-outline-primary shadow-sm ms-4" [routerLink]="lista">
-  Atrás
-</a>
+
+    <a class="btn btn-lg btn-outline-danger shadow-sm" [routerLink]="lista">
+      Atrás
+    </a>
+  </div>
+</div>
+
+
+
