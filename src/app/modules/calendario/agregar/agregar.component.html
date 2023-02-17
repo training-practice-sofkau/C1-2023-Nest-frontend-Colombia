@@ -18,12 +18,6 @@
             <label for="responsible" class="form-label">Responsible</label>
             <input required type="text" class="form-control" id="responsible" formControlName="responsible">
             <p class="text-danger" *ngIf="formularioAgg.get('responsible')?.hasError('required') && formularioAgg.get('responsible')?.touched">Este campo no puede ir vacio</p>
-
-          </div>
-          <div class="mb-3">
-            <label for="isComplete" class="form-label">IsComplete</label>
-            <input required type="number" class="form-control" id="isComplete" formControlName="isComplete">
-            <p class="text-danger" *ngIf="formularioAgg.get('isComplete')?.hasError('required') && formularioAgg.get('isComplete')?.touched">Este campo no puede ir vacio</p>
           </div>
           <div class="mb-3">
             <label for="day" class="form-label">Day</label>

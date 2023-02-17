@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {Item} from "../interface/item";
 import { TodoitemService } from '../service/todoitem.service';
 
@@ -17,7 +18,7 @@ export class ListarComponent implements OnInit {
   editar: string[];
   eliminar: string[];
   detalles: string[];
-  constructor(private todoitemservice: TodoitemService){
+  constructor(private router: Router,private todoitemservice: TodoitemService){
     this.editar = ["editar"];
     this.agregar = ["agregar"];
     this.eliminar = ["eliminar"];
@@ -30,6 +31,15 @@ export class ListarComponent implements OnInit {
       this.items = items
       },
       error:(response) => {
+        console.log(response)
+      }
+    })
+  }
+
+  completarItem(id:string|undefined, isComplete:number){
+    this.todoitemservice.completarItem(id, isComplete)
+    .subscribe({
+      next:(response)=>{
         console.log(response)
       }
     })

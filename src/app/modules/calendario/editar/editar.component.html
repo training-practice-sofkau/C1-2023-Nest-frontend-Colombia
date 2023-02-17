@@ -20,13 +20,6 @@
           <label for="responsible" class="form-label">Responsible</label>
           <input required type="text" class="form-control" id="Responsible" name="responsible" formControlName="responsible">
           <p class="text-danger" *ngIf="itemDetalles2.get('responsible')?.hasError('required') && itemDetalles2.get('responsible')?.touched">Este campo no puede ir vacio</p>
-
-        </div>
-        <div class="mb-3">
-          <label for="IsComplete" class="form-label">IsComplete</label>
-          <input required type="number" class="form-control" id="IsComplete" name="isComplete" formControlName="isComplete">
-          <p class="text-danger" *ngIf="itemDetalles2.get('isComplete')?.hasError('required') && itemDetalles2.get('isComplete')?.touched">Este campo no puede ir vacio</p>
-
         </div>
         <div class="mb-3">
           <label for="Day" class="form-label">Day</label>

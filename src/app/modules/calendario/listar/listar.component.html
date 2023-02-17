@@ -29,9 +29,14 @@
         <td>{{item.dia}}</td>
         <td>{{item.mes}}</td>
         <td>{{item.anio}}</td>
-        <td><a style="margin-right: 5%; margin-top: 5%;" class="btn btn-sm btn-info shadow-sm ms-4" [routerLink]="['editar', item.id]">
+        <td><a style="margin-top: 5%;" class="btn btn-sm btn-info shadow-sm ms-4" [routerLink]="['editar', item.id]">
           Ver
         </a>
+        </td>
+        <td>
+          <a style=" margin-top: 5%;" class="btn btn-sm btn-warning shadow-sm ms-4" (click)="completarItem(item.id, item.isComplete)">
+            Completar
+          </a>
         </td>
       </tr>
     </tbody>
