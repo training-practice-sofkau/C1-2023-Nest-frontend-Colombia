@@ -12,9 +12,7 @@ import {
   redirectUnauthorizedTo,
 } from '@angular/fire/compat/auth-guard';
 import { CreateAccountsComponent } from './components/create-accounts/create-accounts.component';
-
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
-const redirectLoggedInToDashboard = () => redirectLoggedInTo(['dashboard']);
+import { HistoryComponent } from './pages/history/history.component';
 
 const routes: Routes = [
   {
@@ -25,7 +23,7 @@ const routes: Routes = [
       { path: 'accounts', component: AccountsComponent },
       { path: 'transfers', component: TransfersComponent },
       { path: 'customers', component: CustomersComponent },
-      { path: 'createAccounts', component: CreateAccountsComponent },
+      { path: 'history', component: HistoryComponent },
     ],
   },
 ];

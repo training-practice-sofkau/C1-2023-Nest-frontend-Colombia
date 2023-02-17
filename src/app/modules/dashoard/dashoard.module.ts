@@ -9,6 +9,8 @@ import { TransfersComponent } from './pages/transfers/transfers.component';
 import { NarbarComponent } from './components/narbar/narbar.component';
 import { HomComponent } from './pages/hom/hom.component';
 import { CreateAccountsComponent } from './components/create-accounts/create-accounts.component';
+import { HistoryComponent } from './pages/history/history.component';
+
 @NgModule({
   declarations: [
     HomeeComponent,
@@ -19,6 +21,7 @@ import { CreateAccountsComponent } from './components/create-accounts/create-acc
     NarbarComponent,
     HomComponent,
     CreateAccountsComponent,
+    HistoryComponent,
   ],
   imports: [CommonModule, DashoardRoutingModule],
 })
