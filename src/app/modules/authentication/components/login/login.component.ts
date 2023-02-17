@@ -6,6 +6,7 @@ import { UserService } from '../../../user/services/user-profile/user.service';
 import { MustMatch } from './help-must-match';
 import Swal from 'sweetalert2';
 import { AuthService } from '../../services/auth/auth.service';
+import { v4 as uuid } from 'uuid';
 
 @Component({
   selector: 'app-login',
@@ -78,7 +79,7 @@ onSubmit() {
         return;
     }
       const user = {
-        id: '',
+        id: uuid(),
         fullName: this.newUser.get('fullName')?.value,
         email: this.newUser.get('email')?.value,
         phone: this.newUser.get('phone')?.value,
@@ -133,3 +134,6 @@ get f(): { [key: string]: AbstractControl; }
 }
 
 }
+
+
+

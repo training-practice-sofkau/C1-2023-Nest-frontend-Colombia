@@ -42,18 +42,6 @@ export class SignInComponent {
       email: this.user.get('email')?.value,
     }
     this.authService.registerWithEmailandPassword(this.user.value)
-   /* this.user$.createUser(user).subscribe({
-      next: data  => {
-        if(data.status === 'success'){
-          console.log('re ', data.token)
-          localStorage.setItem('token', data.token);
-          this.submitted = true;
-          this.newUser.reset();
-        }
-      },
-      error: err => console.error(err),
-      complete: () => console.info('complete')
-    }*/
   }
 
   otra(){
@@ -79,9 +67,11 @@ export class SignInComponent {
   this.user$.signIn (user).subscribe({
     next: data  => {
       console.log('re ', data)
-      if(data.status === 'success'){
+      localStorage.setItem('user', JSON.stringify(data.user));
+      localStorage.setItem('uid', data.user?.id ?? '');
+     /* if(data.status === 'success'){
         this.authService.registerWithEmailandPassword(this.user.value)
-      }
+      }*/
     },
     error: err => {
       console.log('entra en error')

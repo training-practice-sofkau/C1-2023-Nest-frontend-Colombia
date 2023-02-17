@@ -31,7 +31,8 @@ aria-hidden="true">
           </div>
           <div class="d-grid">
             <button class="btn btn-primary btn-login text-uppercase fw-bold" type="submit"
-            form="user" [disabled]="user.invalid" [attr.data-bs-dismiss]="!userExist ? 'modal' : null">
+            form="user" [disabled]="user.invalid" 
+            data-bs-dismiss="modal">
             Sign in</button>
           </div>
         </form>
@@ -47,7 +48,7 @@ aria-hidden="true">
 </div>
 
 
-<!--<form>
+<!-- [attr.data-bs-dismiss]="!userExist ? 'modal' : null"<form>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">

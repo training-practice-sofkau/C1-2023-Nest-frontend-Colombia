@@ -28,6 +28,7 @@ export class UserProfileComponent {
   amount!: number
   buttonClicked = false;
   stateBalance: number
+  withdrawBalance!: number
 
   @Output() changeRouter: EventEmitter<String[]>;
 
@@ -48,12 +49,6 @@ export class UserProfileComponent {
     this.routeDeposit = ['/deposit']
     this.photo = ''
     this.id = ''
-
-   /* this.depositAmount = {
-      account: "7eb31c82-ddd1-47e6-ba2f-f775ea04aa4c",
-    "amount": 100,
-    "dateTime": 1640995200000
-    }*/
 
     this.updatUser = new FormGroup({
       documentTypeId: new FormControl('', [Validators.required]),            
@@ -140,6 +135,21 @@ export class UserProfileComponent {
     this.stateBalanceService.changeBalance
   }
 
+  withdrawDeposit(){
+    console.log('THIS', this.amount)
+    const date = new Date()
+    const accountId = localStorage.getItem('accountId')
+    console.log('with ', this.withdrawBalance)  
+    this.user$.withdrawDeposit(accountId ? accountId : '', this.withdrawBalance).subscribe({
+      next: data  => {
+        this.stateBalanceService.balance = this.stateBalanceService.balance - this.withdrawBalance
+      },
+      error: err => console.error('err', err),
+      complete: () => console.info('complete')
+    }
+    );
+  }
+
   makeDeposit(){
     console.log('THIS', this.amount)
     const date = new Date()
@@ -168,8 +178,12 @@ export class UserProfileComponent {
   getAccounts(){
     console.log('entra en get account')
     const user = localStorage.getItem('user')
-    const u = JSON.parse(user ? user : '')
-    this.accountService.getAccountsByCustomer(u.uid).subscribe({
+    let u;
+    if(user){
+      u = JSON.parse(user ? user : '')
+    }
+    const id = localStorage.getItem('uid')
+    this.accountService.getAccountsByCustomer(id ? id : '').subscribe({
       next: data  => {
         this.account = data
         localStorage.setItem('accountId', this.account[0].id)

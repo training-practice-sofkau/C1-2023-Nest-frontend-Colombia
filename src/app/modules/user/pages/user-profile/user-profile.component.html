@@ -77,29 +77,29 @@
                           </div>
                         </div>
                         <!-- Form Group (birthday)-->
-                        <div class="row gx-3 mb-3">
-                            <!-- Form Group (organization name)-->
+                        <!--<div class="row gx-3 mb-3">-->
+                            <!-- Form Group (organization name)
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputLocation">Contraseña</label>
                                 <input class="form-control" formControlName="password"
                                 type="text" placeholder="Contraseña" 
                                 [value]="updatUser.get('password')">
-                            </div>
-                            <!-- Form Group (location)-->
+                            </div>-->
+                            <!-- Form Group (location)
                             <div class="col-md-6">
                                 <label class="small mb-1" for="inputLocation">Confirmar Contraseña</label>
                                 <input class="form-control" formControlName="password"
                                 type="text" placeholder="Confirmar Contraseña" 
                                 [value]="updatUser.get('password')">
                             </div>
-                      </div>
+                      </div>-->
                       <!-- Save changes button
                                           [disabled]="updatUser.invalid"
                     -->
                       <button class="btn btn-primary" 
                       form="updatUser"
                       type="submit" 
-                      >Save changes</button>
+                      >Guardar</button>
                   </form>
               </div>
           </div>
@@ -134,14 +134,20 @@
                     type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Hacer un deposito</button>
                    </div>
+                   <div>
+                    <button class="btn btn-primary" 
+                    type="button" data-bs-toggle="modal" data-bs-target="#exampleModalWithDraw">
+                    Retirar deposito</button>
+                   </div>
               </div>
             </div>
     </div>
   </div>
 </div>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" 
+aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -150,7 +156,7 @@
         <div class="modal-body">
           <div>
             <div class="col-md-6">
-                <label class="small mb-1" for="inputLocation">Deposito</label>
+                <label class="small mb-1" for="inputLocation">Retirar deposito</label>
                 <input class="form-control" [(ngModel)]="amount"
                 type="text" placeholder="Deposito" >
             </div>
@@ -161,6 +167,33 @@
           <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" 
           (click)="makeDeposit()">
             Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalWithDraw" tabindex="-1" aria-labelledby="exampleModalLabel"
+   aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div>
+            <div class="col-md-6">
+                <label class="small mb-1" for="inputLocation">Deposito</label>
+                <input class="form-control" [(ngModel)]="withdrawBalance"
+                type="text" placeholder="Deposito" >
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+          <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" 
+          (click)="withdrawDeposit()">
+            Guardar</button>
         </div>
       </div>
     </div>

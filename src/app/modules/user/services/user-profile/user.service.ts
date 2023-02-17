@@ -54,4 +54,11 @@ export class UserService {
   getAll(): Observable<IUsers> {
     return this.httpClient.get<IUsers>('/api/customer');
   }
+
+  withdrawDeposit(id: string, amount: number) {
+    return this.httpClient.post(
+      `/api/account/balance/remove/${id}?amount=${amount}`,
+      {}
+    )
 }
+  }
