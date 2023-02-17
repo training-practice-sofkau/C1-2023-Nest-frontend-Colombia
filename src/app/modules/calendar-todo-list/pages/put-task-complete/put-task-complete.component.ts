@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TaskService } from '../../services/task.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ICalendar } from '../../interfaces/calendar.interface';
 
 @Component({
@@ -16,7 +16,7 @@ export class PutTaskCompleteComponent {
   calendarWithTask: ICalendar[];
   idU: string;
 
-  constructor(private readonly task$: TaskService, private ruta: ActivatedRoute) {
+  constructor(private readonly task$: TaskService, private ruta: ActivatedRoute,private router: Router) {
     this.calendarWithTask = new Array<ICalendar>();
     this.idU = localStorage.getItem('uid')?? '';
     this.routergoBackMenu = ['../'];
@@ -63,7 +63,7 @@ this.ruta.params.subscribe(params => {
     .updateTaskFinish(this.frmFormReactive.get('id')?.value, this.frmFormReactive.getRawValue(),this.idU)
     .subscribe({
       next: data => {
-          console.log(data);
+        this.router.navigate(['calendar-todo-list/dashboard']);
       },
       error: err => {
         console.log(err);

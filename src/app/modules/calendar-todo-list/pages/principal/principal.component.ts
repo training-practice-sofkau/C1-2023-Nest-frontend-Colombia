@@ -14,6 +14,8 @@ export class PrincipalComponent  {
   routerPuTaskComplete: string[];
   routerPutTask: string[];
   routerDeleteTask: string[];
+  routerdashboard: string[];
+
   estado: boolean;
 
   constructor(private readonly state$: StateService) {
@@ -25,6 +27,10 @@ export class PrincipalComponent  {
     this.routerPuTaskComplete = ['put-task-complete'];
     this.routerPutTask = ['put-task'];
     this.routerDeleteTask = ['delete-task'];
+    this.routerdashboard = ['../dashboard'];
+
+
+
     this.estado = this.state$.state;
 
 
