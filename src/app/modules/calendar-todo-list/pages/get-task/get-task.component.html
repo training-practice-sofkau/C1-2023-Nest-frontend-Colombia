@@ -7,18 +7,18 @@
     <div *ngFor="let data of calendarWithTask" class="col-3 mb-3">
       <div class="card border border-1 border-success">
         <div class="card-body">
-          <h5 class="card-title">Día: {{data.numberDaY}} </h5>
-          <h6 class="card-subtitle mb-2 text-muted">Tareas:</h6>
+          <h5 class="card-title">{{data.numberDaY}} DE FEBRERO 2023</h5>
+          <h6>-</h6>
           <ul *ngFor="let final of data.items">
-          <p>Titulo de tarea:</p>
-          <h6 class="card-title">{{final.title}}</h6>
-          <label>Descripccion de la tarea: </label>
-          <h6 class="card-title">{{final.descripccion}}</h6>
-          <label>Responsable: </label>
-          <h6 class="card-title">{{final.resposible}}</h6>
-          <label>Esta o no completada</label>
-          <h6 class="card-title">{{final.isCompleted}}</h6>
-           <label>---------------------------</label>
+          <p>*TITULO DE LA TAREA:</p>
+          <h6 class="card-title">{{final.title |  lowercase}}</h6>
+          <label>*DESCRIPCION: </label>
+          <h6 class="card-title">{{final.descripccion |  lowercase}}</h6>
+          <label>*RESPONSABLE: </label>
+          <h6 class="card-title">{{final.resposible |  lowercase}}</h6>
+          <label>*ESTADO: </label>
+          <h6 class="card-title">{{final.isCompleted|refactorValues}}</h6>
+           <label>-------------------------</label>
           </ul>
         </div>
       </div>

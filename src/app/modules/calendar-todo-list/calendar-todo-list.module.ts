@@ -25,6 +25,9 @@ import { Componente1Component } from './pages/componente1/componente1.component'
 import { Componente2Component } from './components/componente2/componente2.component';
 import { Componente3Component } from './components/componente3/componente3.component';
 import { Componente4Component } from './components/componente4/componente4.component';
+import { RefactorValuesPipe } from './pipes/pipes-custom/refactor-values.pipe';
+import { TrasformIngeneralPipe } from './pipes/pipes-custom/trasform-ingeneral.pipe';
+
 
 
 @NgModule({
@@ -42,7 +45,10 @@ import { Componente4Component } from './components/componente4/componente4.compo
     Componente1Component,
     Componente2Component,
     Componente3Component,
-    Componente4Component
+    Componente4Component,
+    RefactorValuesPipe,
+    TrasformIngeneralPipe
+
 
 
   ],

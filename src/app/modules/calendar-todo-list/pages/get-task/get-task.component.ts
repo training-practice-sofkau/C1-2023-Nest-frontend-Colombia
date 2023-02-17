@@ -1,18 +1,25 @@
-import { Component, OnInit } from '@angular/core';
-import { TaskModel } from '../../models/task.model';
+import { Component, OnInit, PipeTransform } from '@angular/core';
+
 import { TaskService } from '../../services/task.service';
 import { ICalendar } from '../../interfaces/calendar.interface';
+
 
 @Component({
   selector: 'sofka-get-task',
   templateUrl: './get-task.component.html',
   styleUrls: ['./get-task.component.scss']
 })
-export class GetTaskComponent implements OnInit {
+export class GetTaskComponent implements OnInit{
 
   routergoBackMenu: string[];
   calendarWithTask: ICalendar[];
   idUser: string;
+
+
+  /* transform(value: string ): string {
+    return moment(value, "YYYYMMDD").fromNow();;
+  }
+ */
 
   constructor(private readonly taskService: TaskService) {
 

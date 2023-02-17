@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { StateService } from '../../calendar-todo-list/services/states/state.service';
 
 @Component({
   selector: 'sofka-root',
@@ -9,14 +10,20 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   routerTask: string[];
+  estado: boolean;
+  constructor(private readonly state$: StateService){
 
-  constructor(){
-
-
+    this.estado = this.state$.state;
     this.routerTask = ['calendar-todo-list/login'];
 
 
   }
 
+  cambiarEstado():void{
+
+    this.estado =!this.state$.state;
+    this.state$.state = this.estado;
+
+  }
 
 }

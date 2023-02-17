@@ -12,9 +12,8 @@
       </div>
 
     <hr>
-    <button type="submit" form="frmFormReactive" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto">
-      <i class="bi bi-folder-plus"> Eliminar</i>
-</button>
+    <button type="submit" form="frmFormReactive" [disabled]="frmFormReactive.invalid" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto">
+      ELIMINAR TAREA</button>
     <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome"> AL MENU PRINCIPAL</button>
   </form>
 </div>

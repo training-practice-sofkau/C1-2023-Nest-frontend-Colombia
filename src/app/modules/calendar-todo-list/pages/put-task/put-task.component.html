@@ -60,7 +60,7 @@
 
 
 <button type="button" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
-<button type="submit"  form="frmFormReactive" id="actualizar">Actualizar Tarea</button>
+<button type="submit"  form="frmFormReactive" [disabled]="frmFormReactive.invalid" id="actualizar">Actualizar Tarea</button>
  </form>
 </div>
 

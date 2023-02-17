@@ -21,7 +21,7 @@ export class PutTaskCompleteComponent {
     this.idU = localStorage.getItem('uid')?? '';
     this.routergoBackMenu = ['../'];
     this.frmFormReactive = new FormGroup({
-    id:new FormControl('', Validators.required),
+    id:new FormControl('', [Validators.minLength(1),Validators.maxLength(2)]),
     isCompleted:new FormControl('', Validators.required)
 
   });

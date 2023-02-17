@@ -47,17 +47,8 @@
       </div>
 
 
-
-
-
-
-
-
-
-
-
-<button type="submit" form="frmFormReactive" class="btn btn-primary btn-lg shadow-lg bottom-0 end-0 float-end w-auto">
-          <i class="bi bi-folder-plus"> Guardar</i>
+<button type="submit" form="frmFormReactive" [disabled]="frmFormReactive.invalid"
+class="btn btn-primary btn-lg shadow bottom-0 end-0 float-end w-auto">Crear Tarea
 </button>
         <button type="button" class="btn btn-primary" [routerLink]="routergoBackMenu" id="goBackHome">VOLVER AL MENU PRINCIPAL</button>
       </form>

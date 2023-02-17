@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { StateService } from '../../services/states/state.service';
 
 @Component({
   selector: 'sofka-principal',
   templateUrl: './principal.component.html',
   styleUrls: ['./principal.component.scss']
 })
-export class PrincipalComponent {
+export class PrincipalComponent  {
 
   routerGetAllTask: string[];
   routerGetTaskById: string[];
@@ -13,9 +14,9 @@ export class PrincipalComponent {
   routerPuTaskComplete: string[];
   routerPutTask: string[];
   routerDeleteTask: string[];
+  estado: boolean;
 
-
-  constructor() {
+  constructor(private readonly state$: StateService) {
 
 
     this.routerGetAllTask = ['get-task'];
@@ -24,8 +25,15 @@ export class PrincipalComponent {
     this.routerPuTaskComplete = ['put-task-complete'];
     this.routerPutTask = ['put-task'];
     this.routerDeleteTask = ['delete-task'];
+    this.estado = this.state$.state;
 
 
+  }
+
+  cambiarEstado():void{
+
+    this.estado =!this.state$.state;
+    this.state$.state = this.estado;
 
   }
 

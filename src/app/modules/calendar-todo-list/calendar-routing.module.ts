@@ -23,7 +23,7 @@ import{
 
 
 } from '@angular/fire/compat/auth-guard';
- const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+ const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['calendar-todo-list/login']);
 const redirectLoggedInToDashboard = () => redirectLoggedInTo(['calendar-todo-list/dashboard']);
 
 
@@ -31,63 +31,66 @@ const redirectLoggedInToDashboard = () => redirectLoggedInTo(['calendar-todo-lis
 const routes : Routes = [
 
   {
-    path: 'login', //localhost:4200/calendar-todo-list
+    path: '', //localhost:4200/calendar-todo-list
     component: LoginComponent,
     //si puede o no entrar
     canActivate: [AngularFireAuthGuard],
     data:{authGuardPipe: redirectLoggedInToDashboard}
   },
-
   {
-    path: 'dashboard', //localhost:4200/calendar-todo-list
+    path: 'calendar-todo-list/login', //localhost:4200/calendar-todo-list
+    component: LoginComponent,
+  },
+  {
+    path: 'calendar-todo-list/dashboard', //localhost:4200/calendar-todo-list
     component: DashboardComponent,
     canActivate: [AngularFireAuthGuard],
     data:{authGuardPipe: redirectUnauthorizedToLogin}
   },
   {
-    path: '', //localhost:4200/calendar-todo-list
+    path: 'calendar-todo-list/principal', //localhost:4200/calendar-todo-list
     component: PrincipalComponent,
   },
   {
-    path: 'get-task', //localhost:4200/calendar-todo-list/get-task
+    path: 'calendar-todo-list/principal/get-task', //localhost:4200/calendar-todo-list/get-task
     component: GetTaskComponent,
   },
   {
-    path: 'get-task-by-id', //localhost:4200/calendar-todo-list
+    path: 'calendar-todo-list/principal/get-task-by-id', //localhost:4200/calendar-todo-list
     component: GetTaskByIdComponent,
   },
   {
-      path: 'post-task', //localhost:4200/calendar-todo-list
+      path: 'calendar-todo-list/principal/post-task', //localhost:4200/calendar-todo-list
       component: PostTaskComponent,
   },
   {
-    path: 'put-task', //localhost:4200/calendar-todo-list
+    path: 'calendar-todo-list/principal/put-task', //localhost:4200/calendar-todo-list
     component: PutTaskComponent,
 
   },
   {
-    path: 'post-task', //localhost:4200/calendar-todo-list
+    path: 'calendar-todo-list/principal/post-task', //localhost:4200/calendar-todo-list
     component: PostTaskComponent,
 
   },
   {
-    path: 'put-task-complete', //localhost:4200/calendar-todo-list
+    path: 'calendar-todo-list/principal/put-task-complete', //localhost:4200/calendar-todo-list
     component: PutTaskCompleteComponent,
 
  },
  {
-  path: 'delete-task', //localhost:4200/calendar-todo-list
+  path: 'calendar-todo-list/principal/delete-task', //localhost:4200/calendar-todo-list
   component: DeleteTaskComponent,
 
 },
 
 {
-  path: 'component1', //localhost:4200/calendar-todo-list
+  path: 'calendar-todo-list/principal/component1', //localhost:4200/calendar-todo-list
   component: Componente1Component,
 
 },
 {
-  path: 'get-only-task', //localhost:4200/calendar-todo-list
+  path: 'calendar-todo-list/principal/get-only-task', //localhost:4200/calendar-todo-list
   component: GetOnlyTaksComponent,
 
 }

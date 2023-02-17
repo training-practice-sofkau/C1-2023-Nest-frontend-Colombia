@@ -22,9 +22,18 @@ export class PutTaskComponent {
     this.frmFormReactive = new FormGroup({
 
       id: new FormControl(null, [Validators.required]),
-      title: new FormControl('', Validators.required),
-      descripccion: new FormControl('', Validators.required),
-      resposible:new FormControl('', Validators.required),
+      title: new FormControl('', [
+        Validators.required,
+        Validators.minLength(5),
+      ]),
+      descripccion: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+      ]),
+      resposible:new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+      ]),
       isCompleted:new FormControl('', Validators.required)
 
     });

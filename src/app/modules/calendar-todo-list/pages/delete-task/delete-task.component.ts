@@ -24,7 +24,7 @@ export class DeleteTaskComponent {
     this.routergoBackMenu = ['../'];
     this.frmFormReactive = new FormGroup({
 
-    id:new FormControl('', Validators.required),
+    id:new FormControl('', [Validators.minLength(1),Validators.required]),
 
     });
 

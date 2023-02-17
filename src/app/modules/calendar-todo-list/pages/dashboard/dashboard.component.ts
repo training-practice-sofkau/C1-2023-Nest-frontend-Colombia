@@ -11,7 +11,7 @@ export class DashboardComponent {
   routerTask: string[];
   constructor(private readonly auth$: AuthService) {
 
-    this.routerTask = ['../'];
+    this.routerTask = ['../principal'];
 
 
    }
