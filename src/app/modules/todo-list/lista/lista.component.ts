@@ -30,9 +30,9 @@ export class ListaComponent implements OnInit{
     this.uidUser = localStorage.getItem('uid') ?? '';
 
     this.tareas = new Array<ITodoItem>();
-
-
   }
+
+
   ngOnInit(): void {
     this.todoListService.getAllTodoList().subscribe({
       next: data => (this.tareas = data.filter(tarea => tarea.uidUser === this.uidUser)),
