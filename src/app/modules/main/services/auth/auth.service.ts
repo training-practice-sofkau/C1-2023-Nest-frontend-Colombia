@@ -10,11 +10,25 @@ import {
 import { AuthProvider } from 'firebase/auth';
 import { LocalStorageService } from 'ngx-webstorage';
 
+/**
+ * Servicio de autenticación de usuarios.
+ *
+ * @class
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
+/**
+   * Constructor del servicio de autenticación.
+   *
+   * @constructor
+   * @param {AngularFirestore} afs - Servicio de Firestore.
+   * @param {Router} router - Servicio de enrutamiento.
+   * @param {AngularFireAuth} afAuth - Servicio de autenticación de Firebase.
+   * @param {NgZone} ngZone - Zona de detección de cambios de Angular.
+   * @param {LocalStorageService} localStorage - Servicio de almacenamiento local.
+   */
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
     private router: Router,
@@ -28,7 +42,13 @@ export class AuthService {
 
 
 
-// Sign in with email/password
+/**
+   * Inicio de sesión con correo electrónico y contraseña.
+   *
+   * @param {string} email - Dirección de correo electrónico.
+   * @param {string} password - Contraseña.
+   * @returns {Promise} - Promesa que devuelve un objeto de usuario.
+   */
 SignIn(email: string, password: string) {
   return this.afAuth
     .signInWithEmailAndPassword(email, password)
@@ -48,7 +68,13 @@ SignIn(email: string, password: string) {
 }
 
 
-// Sign up with email/password
+/**
+   * Registro de usuario con correo electrónico y contraseña.
+   *
+   * @param {string} email - Dirección de correo electrónico.
+   * @param {string} password - Contraseña.
+   * @returns {Promise} - Promesa que devuelve un objeto de usuario.
+   */
 SignUp(email: string, password: string) {
   return this.afAuth
     .createUserWithEmailAndPassword(email, password)
@@ -64,7 +90,11 @@ SignUp(email: string, password: string) {
     });
 }
 
-// Send email verfificaiton when new user sign up
+ /**
+   * Envío de correo electrónico de verificación para un usuario nuevo.
+   *
+   * @returns {Promise} - Promesa que devuelve nada.
+   */
 SendVerificationMail() {
   return this.afAuth.currentUser
     .then((u: any) => u.sendEmailVerification())
@@ -73,13 +103,25 @@ SendVerificationMail() {
     });
 }
 
+/**
+   * Inicio de sesión con Google.
+   *
+   * @returns {Promise} - Promesa que devuelve un objeto de usuario.
+   */
   GoogleAuth() {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
       this.router.navigate(['todo-list']);
     });
   }
-  // Auth logic to run auth providers
+
+  /**
+   * Inicio de sesión con proveedores de autenticación de terceros.
+   *
+   * @private
+   * @param {AuthProvider} provider - Proveedor de autenticación.
+   * @returns {Promise} - Promesa que devuelve un objeto de usuario.
+   */
   private AuthLogin(provider: AuthProvider) {
     return this.afAuth
       .signInWithPopup(provider)
@@ -96,7 +138,11 @@ SendVerificationMail() {
       });
   }
 
-  // Sign out
+  /**
+   * Cierre de sesión de usuario.
+   *
+   * @returns {Promise} - Promesa que devuelve nada.
+   */
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('uid');

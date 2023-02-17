@@ -1,4 +1,9 @@
 /* eslint-disable prettier/prettier */
+
+/**
+ * @fileoverview Description of this file.
+ * @module appModule
+ */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -24,6 +29,9 @@ import { LocalStorageService } from 'ngx-webstorage';
 import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 
+/**
+ * Description of the NgModule
+ */
 @NgModule({
   declarations: [AppComponent, IndexComponent, MyPipePipe, LoginComponent, SignupComponent],
   imports: [

@@ -1,3 +1,8 @@
+/**
+ * Componente de pie de página
+ *
+ * @interface FooterComponent
+ */
 import { Component } from '@angular/core';
 
 @Component({

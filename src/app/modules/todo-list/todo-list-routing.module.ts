@@ -1,3 +1,8 @@
+/**
+ * Archivo que define las rutas del módulo ToDoList
+ * @packageDocumentation
+ */
+
 // Libraries
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -10,6 +15,9 @@ import { PrincipalComponent } from './pages/principal/principal.component';
 import { ViewItemComponent } from './pages/view-item/view-item.component';
 import { DeleteItemComponent } from './pages/delete-item/delete-item.component';
 
+/**
+ * Las rutas del módulo ToDoList.
+ */
 const routes: Routes = [
   {
     path: '', // localhost:4200/todo-list
@@ -38,6 +46,9 @@ const routes: Routes = [
   },
 ];
 
+/**
+ * El módulo de rutas del módulo ToDoList.
+ */
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],

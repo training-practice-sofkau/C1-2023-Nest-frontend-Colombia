@@ -1,4 +1,15 @@
 /* eslint-disable prettier/prettier */
+/**
+ * Componente que representa la página principal del módulo de Lista de Tareas.
+ *
+ * @remarks
+ * Este componente muestra la lista de tareas del usuario y proporciona opciones para agregar nuevos elementos, editar elementos existentes y eliminar elementos.
+ *
+ * @example
+ * ```
+ * <sofka-principal></sofka-principal>
+ * ```
+ */
 // Libraries
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
