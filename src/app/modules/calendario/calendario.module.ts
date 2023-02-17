@@ -12,6 +12,9 @@ import { LayautComponent } from './layaut/layaut.component';
 import { CalendarioRoutingModule } from './calendario.module.routing';
 import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { EstadoPipe } from '../my-pipes/pipes/estadopipe/estado.pipe';
+import { NombrePipe } from '../my-pipes/pipes/nombrepipe/nombre.pipe';
+import { RecortIdPipe } from '../my-pipes/pipes/recort-id.pipe';
 
 
 
@@ -26,6 +29,9 @@ import { LoginComponent } from './login/login.component';
     FooterComponent,
     LayautComponent,
     LoginComponent,
+    EstadoPipe,
+    NombrePipe,
+    RecortIdPipe
 
   ],
   imports: [
