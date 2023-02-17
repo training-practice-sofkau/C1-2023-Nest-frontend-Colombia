@@ -29,4 +29,8 @@ constructor(private readonly httpClient: HttpClient){}
   modifyTodoList(id: string, item: ITodoItem): Observable<ITodoItem>{
     return this.httpClient.put<ITodoItem>(this.baseUrl + "/" + id, item);
   }
+
+  deleteTodoList(id: string): Observable<ITodoItem>{
+    return this.httpClient.delete<ITodoItem>(this.baseUrl +  "/" + id);
+  }
 }

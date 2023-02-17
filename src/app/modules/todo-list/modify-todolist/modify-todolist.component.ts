@@ -53,7 +53,7 @@ export class ModifyTodolistComponent implements OnInit{
       error: err => console.log(err),
       complete: ()=> console.log('complete')
     });
-    this.router.navigate(['todolist'])
+    this.router.navigate(['todolist']);
   }
 
 }

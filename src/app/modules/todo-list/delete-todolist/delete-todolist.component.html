@@ -1,6 +1,8 @@
-<p>delete-todolist works!</p>
 
-
-<a class="btn btn-lg btn-outline-primary shadow-sm ms-4" [routerLink]="lista">
-  Atrás
-</a>
+<div class="container">
+  <div class="centered">
+    <h1>¿Seguro desea Eliminar la tarea?</h1>
+    <button class="btn btn-lg btn-danger shadow-sm ms-4" (click)="deleteTodoList()">Confirmar</button>
+    <button class="btn btn-lg btn-secondary shadow-sm ms-4" [routerLink]="lista">Cancelar</button>
+  </div>
+</div>

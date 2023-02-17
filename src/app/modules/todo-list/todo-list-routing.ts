@@ -29,7 +29,7 @@ const routes: Routes = [
         component: ModifyTodolistComponent
       },
       {
-        path: 'eliminar',
+        path: 'eliminar/:id',
         component: DeleteTodolistComponent
       },
       {
