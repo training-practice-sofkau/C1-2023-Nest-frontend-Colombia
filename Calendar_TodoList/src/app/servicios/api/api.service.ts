@@ -32,8 +32,8 @@ export class ApiService {
     //https://localhost:7281/api/ToDoList/id/UpdateAll
   }
 
-  putItem(form: ItemI, id : string):Observable<ResponseI>{
-    let direccion = this.url + id + "UpdateItemAll";// + id;
+  putItem(form: ItemI):Observable<ResponseI>{
+    let direccion = this.url + form.itemId + "UpdateItemAll";// + id;
    // https://localhost:7281/api/ToDoList/id/UpdateAll
     return this.http.put<ResponseI>(direccion, form);
   }

@@ -17,11 +17,11 @@ export class EditarComponent implements OnInit {
   datoItem !: ItemI;
 
   editarForm = new FormGroup({
-    id: new FormControl('', Validators.required),
-    title: new FormControl('', Validators.required),
-    description: new FormControl('', Validators.required),
-    responsible: new FormControl('', Validators.required),
-    isCompleted : new FormControl('', Validators.required),
+    id: new FormControl(''),
+    title: new FormControl(''),
+    description: new FormControl(''),
+    responsible: new FormControl(''),
+    isCompleted : new FormControl(''),
   });
 
   ngOnInit(): void{
@@ -44,7 +44,7 @@ export class EditarComponent implements OnInit {
   }
 
   postForm(form: ItemI){
-    this.api.putItem(form, form.itemId).subscribe(data =>{
+    this.api.putItem(form).subscribe(data =>{
       console.log(data)
     })
   }

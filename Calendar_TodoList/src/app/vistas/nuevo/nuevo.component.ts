@@ -30,7 +30,7 @@ export class NuevoComponent implements OnInit {
     }
 
     postForm(form: ItemI){
-      this.api.putItem(form, form.itemId).subscribe(data =>{
+      this.api.putItem(form).subscribe(data =>{
         console.log(data);
       })
     }

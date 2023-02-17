@@ -4,6 +4,7 @@ import { ApiService } from 'src/app/servicios/api/api.service';
 import { LoginI } from 'src/app/modelos/login.interface';
 import { ResponseI } from 'src/app/modelos/response.interface';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/shared/services/auth.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,7 +18,11 @@ export class LoginComponent implements OnInit{
     password : new FormControl("", Validators.required),
   })
 
-  constructor(private api:ApiService, private router: Router){}
+  constructor(private api:ApiService, private router: Router, private readonly authService: AuthService){}
+
+  auth():void{
+    this.authService.GoogleAuth();
+  }
 
   errorStatus:boolean = false;
   errorMsj: any ='';

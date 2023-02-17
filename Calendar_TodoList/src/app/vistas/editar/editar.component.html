@@ -1,6 +1,6 @@
 <app-header></app-header>
     <div class="container">
-        <form [formGroup]="editarForm" (ngSubmit)="postForm(editarForm.value)">
+        <form [formGroup]="editarForm"> //(ngSubmit)="postForm(editarForm.value)">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Title</label>
                 <input type="text" class="form-control" placeholder="title" formControlName="title">

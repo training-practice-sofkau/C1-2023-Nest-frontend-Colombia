@@ -1,7 +1,7 @@
 export interface ItemI{
-  itemId : string;
-  title : string;
-  description : string;
-  responsible : string;
-  isCompleted : string;
+  itemId : string | null;
+  title : string | null;
+  description : string | null;
+  responsible : string | null;
+  isCompleted : string | null;
 }
