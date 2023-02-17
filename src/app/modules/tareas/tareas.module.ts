@@ -15,6 +15,8 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 import { ActualizarTareaComponent } from './pages/actualizar-tarea/actualizar-tarea.component';
 import { EstadoPipe } from './pipes/pipe-estado/estado.pipe';
 import { ListarTodoComponent } from './pages/listar-todo/listar-todo.component';
+import { ListaComponent } from './components/lista/lista.component';
+import { InputComponent } from './components/input/input.component';
 
 
 
@@ -31,6 +33,8 @@ import { ListarTodoComponent } from './pages/listar-todo/listar-todo.component';
     ActualizarTareaComponent,
     EstadoPipe,
     ListarTodoComponent,
+    ListaComponent,
+    InputComponent,
   ],
   imports: [
     CommonModule,

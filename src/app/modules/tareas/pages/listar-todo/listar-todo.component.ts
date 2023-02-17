@@ -10,11 +10,15 @@ import { SidebarService } from '../../services/sidebar-service/sidebar.service';
 })
 export class ListarTodoComponent {
   tareas: IgetTarea[];
-  estadoSidebar: boolean;
+  tareasFiltradas: IgetTarea[];
+  termino: string;
+  bandera: boolean;
 
   constructor(private readonly tareaService: TareaService, private readonly sidebarService: SidebarService){
-    this.estadoSidebar = sidebarService.estado;
+    this.termino = '';
+    this.bandera = true;
     this.tareas = new Array<IgetTarea>();
+    this.tareasFiltradas = new Array<IgetTarea>();
   }
 
   ngOnInit(): void {
@@ -23,8 +27,18 @@ export class ListarTodoComponent {
       error: err => console.log(err),
       complete: () => console.log('Complete')
     });
-    this.sidebarService.estado = !this.estadoSidebar;
-    this.estadoSidebar = this.sidebarService.estado;
+  }
+
+
+  buscar( termino: string ) {
+    this.bandera = false;
+    this.termino = termino;
+    this.tareas.forEach(element => {
+      if(this.termino.toLowerCase() == element.title.toLowerCase()){
+        this.tareasFiltradas.push(element);
+      }
+    });
     
   }
+
 }
