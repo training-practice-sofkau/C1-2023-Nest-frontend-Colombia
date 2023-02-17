@@ -8,6 +8,8 @@ import * as auth from 'firebase/auth';
 })
 export class AuthService {
 
+  userData:any;
+
   constructor(private router:Router,
     private afAuth: AngularFireAuth) { }
 
@@ -28,7 +30,8 @@ export class AuthService {
       })
       .catch((error) => {
         window.alert(error);
-      });
+      }
+    );
   }
 
   public SignOut() {
@@ -38,4 +41,38 @@ export class AuthService {
     });
   }
 
+  SignIn(email: string, password: string) {
+    return this.afAuth
+      .signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        localStorage.setItem('user', JSON.stringify(result.user));
+        localStorage.setItem('uid', result.user?.uid ?? '');
+        this.afAuth.authState.subscribe((user) => {
+          if (user) {
+            this.router.navigate(['items']);
+          }
+        });
+      })
+      .catch((error) => {
+        window.alert(error.message);
+      }
+    );
+  }
+
+  SignUp(email: string, password: string) {
+    return this.afAuth
+      .createUserWithEmailAndPassword(email, password)
+      .then((result) => {
+        localStorage.setItem('user', JSON.stringify(result.user));
+        localStorage.setItem('uid', result.user?.uid ?? '');
+        this.afAuth.authState.subscribe((user) => {
+          if (user) {
+            this.router.navigate(['../']);
+          }
+        });
+      })
+      .catch((error) => {
+        window.alert(error.message);
+      });
+    }
 }

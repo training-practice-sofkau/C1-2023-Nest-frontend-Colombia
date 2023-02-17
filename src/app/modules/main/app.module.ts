@@ -16,12 +16,14 @@ import { environment } from 'src/environments/environment';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { RegistrarseComponent } from './components/registrarse/registrarse.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
-    MyPipePipe
+    MyPipePipe,
+    RegistrarseComponent
   ],
   imports:
   [

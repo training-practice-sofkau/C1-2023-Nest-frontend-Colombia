@@ -7,7 +7,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./index.component.scss'],
 })
 export class IndexComponent {
-  constructor(private readonly authService: AuthService) {}
+  constructor(public readonly authService: AuthService) {}
 
   auth(): void{
     this.authService.GoogleAuth();
