@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IItems } from '../../interfaces/items.interface';
 import { ToDoListService } from '../../services/to-do-list.service';
 import { Router } from '@angular/router';
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
   routeDashboard: string[];
   routeAdd: string[];
   routeDelete: string[];
@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
   itemId!: string;
   // Data
   calendarToDo!: IItems;
+  empty: boolean;
   //variables util
   taskId!: string;
   title!: string;
@@ -29,15 +30,20 @@ export class DashboardComponent implements OnInit {
     this.routeDashboard = ['../']; //le envio el id
     this.routeAdd = ['add'];
     this.routeDelete = ['delete', 'id'];
-    // this.calendarToDo = new Array<IItems>();
+    this.empty = false;
   }
+  ngOnDestroy(): void {}
 
   ngOnInit(): void {
     this.toDoList$.getAllByUser().subscribe({
       next: data => {
         this.calendarToDo = data;
+        this.empty = false;
       },
-      error: err => console.log(err),
+      error: err => {
+        console.log(err);
+        this.empty = true;
+      },
     });
   }
 

@@ -24,25 +24,30 @@
         </tr>
       </thead>
       <tbody class="table-group-divider ">
-        <tr *ngFor="let item of calendarToDo.listItems">
-          <th scope="row">{{item.indexDay}}</th>
-          <td>{{item.title | lowercase}}</td>
-          <td>{{item.isCompleted | valueBooleanToString}}</td>
-          <td>
-            <a class="btn btn-sm btn-info bg-info bg-opacity-75 me-2 text-light shadow"
-              [routerLink]="['detail', item.itemId]">
-              <i class="bi bi-eye-fill"></i>
-            </a>
-            <a class="btn btn-sm btn-warning bg-warning bg-opacity-75 me-2 text-light shadow"
-              [routerLink]="['edit', item.itemId]">
-              <i class="bi bi-pencil-fill"></i>
-            </a>
-            <a class="btn btn-sm btn-danger bg-danger bg-opacity-75 text-light shadow" data-bs-toggle="modal"
-              data-bs-target="#modal-delete" (click)="modal(item.itemId, item.title)">
-              <i class="bi bi-trash-fill"></i>
-            </a>
-          </td>
+        <tr *ngIf="empty;else datos" class="text-center">
+          <th colspan=" 4">No hay elementos para mostrar</th>
         </tr>
+        <ng-template #datos>
+          <tr *ngFor="let item of calendarToDo.listItems">
+            <th scope="row">{{item.indexDay}}</th>
+            <td>{{item.title | lowercase}}</td>
+            <td>{{item.isCompleted | valueBooleanToString}}</td>
+            <td>
+              <a class="btn btn-sm btn-info bg-info bg-opacity-75 me-2 text-light shadow"
+                [routerLink]="['detail', item.itemId]">
+                <i class="bi bi-eye-fill"></i>
+              </a>
+              <a class="btn btn-sm btn-warning bg-warning bg-opacity-75 me-2 text-light shadow"
+                [routerLink]="['edit', item.itemId]">
+                <i class="bi bi-pencil-fill"></i>
+              </a>
+              <a class="btn btn-sm btn-danger bg-danger bg-opacity-75 text-light shadow" data-bs-toggle="modal"
+                data-bs-target="#modal-delete" (click)="modal(item.itemId, item.title)">
+                <i class="bi bi-trash-fill"></i>
+              </a>
+            </td>
+          </tr>
+        </ng-template>
       </tbody>
     </table>
   </div>
