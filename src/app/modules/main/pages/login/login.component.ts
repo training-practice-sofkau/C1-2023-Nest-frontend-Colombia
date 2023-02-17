@@ -15,7 +15,7 @@ export class LoginComponent {
   {
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email, Validators.pattern(/^([a-zA-Z0-9._%+-]+)@([a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/)]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6),Validators.pattern(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
     });
   }
 

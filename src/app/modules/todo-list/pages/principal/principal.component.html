@@ -5,45 +5,50 @@
 <div class="row m-3">
   <div>
     <button type="button" class="btn" (click)="logout()">Cerrar sesión</button>
-  <h1 class="display-4">Lista de tareas</h1>
-</div>
-  <hr class="my-4"/>
+    <h1 class="display-4">
+      Hola! {{displayName | firstWord | titlecase}}
+      {{displayName ? ', a continuación su lista de tareas' : '¡Empiece agregando tareas!' }}
+    </h1>
+  </div>
+  <hr class="my-4" />
   <button type="button" class="btn btn-primary" [routerLink]="routeNewItem">
     Nuevo item
   </button>
 
-<table class="table table-striped" *ngIf="todoList.length>0">
-  <thead>
-    <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Description</th>
-      <th scope="col">Responsible</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of todoList">
-      <td>{{item.title}}</td>
-      <td>{{item.description}}</td>
-      <td>{{item.responsible}}</td>
-      <td class="view">
-        <button type="button" class="btn btn-primary" routerLink="view-item/{{item.id}}">
-          Ver
-        </button>
-      </td>
-      <td class="edit">
-        <button type="button" class="btn btn-primary" routerLink="edit-item/{{item.id}}">
-          Editar
-        </button>
-      </td>
-      <td class="delete">
-        <button type="button" class="btn btn-primary" routerLink="delete-item/{{item.id}}">
-          Eliminar
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<p *ngIf="todoList.length <= 0" style="text-align: center;">No se han encontrado actividades</p>
+  <table class="table table-striped" *ngIf="todoList.length>0">
+    <thead>
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Responsible</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of todoList">
+        <td>{{item.title}}</td>
+        <td>{{item.description}}</td>
+        <td>{{item.responsible}}</td>
+        <td class="view">
+          <button type="button" class="btn btn-primary" routerLink="view-item/{{item.id}}">
+            Ver
+          </button>
+        </td>
+        <td class="edit">
+          <button type="button" class="btn btn-primary" routerLink="edit-item/{{item.id}}">
+            Editar
+          </button>
+        </td>
+        <td class="delete">
+          <button type="button" class="btn btn-primary" routerLink="delete-item/{{item.id}}">
+            Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="row m-3" style="text-align: center;">
+  <p *ngIf="todoList.length < 1">No se han encontrado actividades</p>
+  </div>
 </div>
 
 <div class="footer">

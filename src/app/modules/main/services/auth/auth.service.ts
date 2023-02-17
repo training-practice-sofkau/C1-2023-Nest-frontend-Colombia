@@ -5,11 +5,10 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import * as auth from 'firebase/auth';
 import {
-  AngularFirestore, AngularFirestoreDocument,
+  AngularFirestore,
 } from '@angular/fire/compat/firestore';
-import { AuthProvider, IdTokenResult, User } from 'firebase/auth';
+import { AuthProvider } from 'firebase/auth';
 import { LocalStorageService } from 'ngx-webstorage';
-import { DeleteItemComponent } from '../../../todo-list/pages/delete-item/delete-item.component';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +35,7 @@ SignIn(email: string, password: string) {
     .then((result) => {
       localStorage.setItem('user', JSON.stringify(result.user));
       localStorage.setItem('uid', result.user?.uid as string);
+      localStorage.setItem('displayName', result.user?.displayName as string);
       this.afAuth.authState.subscribe((user) => {
         if (user) {
           this.router.navigate(['todo-list']);
@@ -87,6 +87,7 @@ SendVerificationMail() {
         this.router.navigate(['todo-list']);
         localStorage.setItem('user', JSON.stringify(result.user));
         localStorage.setItem('uid', result.user?.uid as string);
+        localStorage.setItem('displayName', result.user?.displayName as string);
 
         //this.SetUserData(result.user);
       })
@@ -100,6 +101,7 @@ SendVerificationMail() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('uid');
       localStorage.removeItem('user');
+      localStorage.removeItem('displayName');
       this.router.navigate(['login']);
     });
   }

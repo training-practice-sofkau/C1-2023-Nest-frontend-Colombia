@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 // Routes
 
+
 import { ToDoListRoutingModule } from './todo-list-routing.module';
 
 // Components
@@ -21,6 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { LocalStorageService } from 'ngx-webstorage';
 
+//import { AppModule } from '../main/app.module';
+import { FirstWordPipe } from './pipes/first-word/first-word.pipe';
+
 @NgModule({
   declarations: [
     PrincipalComponent,
@@ -31,6 +35,7 @@ import { LocalStorageService } from 'ngx-webstorage';
     EditItemComponent,
     ViewItemComponent,
     DeleteItemComponent,
+    FirstWordPipe,
   ],
   imports: [CommonModule, FormsModule,ReactiveFormsModule, ToDoListRoutingModule, SharedModule, HttpClientModule],
   providers: [LocalStorageService],
