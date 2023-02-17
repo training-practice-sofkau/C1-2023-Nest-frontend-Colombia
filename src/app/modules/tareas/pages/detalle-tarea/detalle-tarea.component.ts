@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { IgetTarea } from '../../interfaces/tareas.interface';
@@ -12,10 +12,8 @@ import { TareaService } from '../../services/tareaService/tarea.service';
 export class DetalleTareaComponent {
   tarea: IgetTarea[];
   id: number;
-  dia: number;
 
   constructor(private readonly tareaService: TareaService, private rutaActiva: ActivatedRoute, private router: Router){
-    this.dia = 0;
     this.tarea = new Array<IgetTarea>();
     this.id = 0;
   }
@@ -52,7 +50,7 @@ export class DetalleTareaComponent {
             )
           },
           error: err => console.log(err),
-          complete: () => {console.log('Complete'), this.router.navigate([`/tareas/listar/${this.dia}`]);}
+          complete: () => {console.log('Complete'), this.router.navigate([`/tareas/home`]);}
         });
       }
     });
