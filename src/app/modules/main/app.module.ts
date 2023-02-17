@@ -17,6 +17,9 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 registerLocaleData(localeEsCo, 'es-Co');
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from 'src/app/shared';
+import { FormsModule } from '@angular/forms';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -30,11 +33,13 @@ export function tokenGetter() {
   ],
   bootstrap: [AppComponent],
   imports: [
-    CustomerModule,
+    SharedModule,
     BrowserModule,
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
+    NgbModule,
+    FormsModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,

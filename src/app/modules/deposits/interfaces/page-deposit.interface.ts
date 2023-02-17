@@ -1,11 +1,11 @@
-import { TransferInterface } from "./transfer.Interface";
+import { DepositInterface } from './deposit.interface';
 
-export interface PageTransfersInterface {
+export interface PageDepositInterface {
   currentPage: number;
   totalPages: number;
   range: number;
   size: number;
-  transfers: TransferInterface[];
+  deposits: DepositInterface[];
   dateInit?: number | Date;
   dateEnd?: number | Date;
 }

@@ -1,7 +1,7 @@
-<div class="container text-center align-items-center" >
+<div class="container text-center align-items-center">
   <div class="row">
     <div class="col">
-      <div class="card text-center bg-white align-items-center pt-5" data-aos="zoom-in" data-aos-duration="1000">
+      <div class="card text-center bg-white align-items-center pt-5 mb-4" data-aos="zoom-in" data-aos-duration="1000">
         <img src="{{user.user.avatarUrl}}" class="rounded-circle" style="width: 150px;" alt="Avatar" />
         <div class="card-body">
           <h5 class="card-title">{{user.user.fullName | titlecase}}</h5>
@@ -12,8 +12,8 @@
         </div>
       </div>
     </div>
-    <div class="col {{updateUser?'':'d-none'}}">
-      <sofka-bank-customer-edit [userData]="updateUser" (editUser)="onUpdate($event)" data-aos="fade-down" *ngIf="updateUser" data-aos="zoom-in" data-aos-duration="1000"></sofka-bank-customer-edit>
-    </div>
+    <sofka-bank-customer-edit class="col-12 {{updateUser?'':'d-none'}}  col-sm-12 col-md-6" [userData]="updateUser"
+      (editUser)="onUpdate($event)" data-aos="fade-down" *ngIf="updateUser" data-aos="zoom-in"
+      data-aos-duration="1000"></sofka-bank-customer-edit>
   </div>
 </div>

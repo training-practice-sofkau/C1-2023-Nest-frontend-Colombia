@@ -34,7 +34,8 @@
             "styles": [
               "./node_modules/bootstrap/scss/bootstrap.scss",
               "src/styles.scss",
-              "./node_modules/aos/dist/aos.css"
+              "./node_modules/aos/dist/aos.css",
+              "./node_modules/sweetalert2/src/sweetalert2.scss"
             ],
             "scripts": [
               "./node_modules/bootstrap/dist/js/bootstrap.min.js",

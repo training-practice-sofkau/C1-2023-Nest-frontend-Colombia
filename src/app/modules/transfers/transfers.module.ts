@@ -1,22 +1,26 @@
 // Libraries
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Components
-import { NewTransferComponent } from './pages/new-transfer/new-transfer.component';
 import { TransfersDetailComponent } from './pages/transfers-detail/transfers-detail.component';
 
 // Modules
-import { transfersRoutingModule } from './transfers-routing.module';
+import { TransfersRoutingModule } from './transfers-routing.module';
+import { SharedModule } from 'src/app/shared';
 
 @NgModule({
   declarations: [
-    NewTransferComponent,
-    TransfersDetailComponent
+    //TransfersDetailComponent,
   ],
   imports: [
     CommonModule,
-    transfersRoutingModule,
+    TransfersRoutingModule,
+    FormsModule,
+    NgbModule,
+    SharedModule,
   ]
 })
 export class TransfersModule { }

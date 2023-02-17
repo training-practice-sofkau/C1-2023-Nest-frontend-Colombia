@@ -5,16 +5,17 @@ import { environment } from 'src/environments/environment';
 
 import { Observable } from 'rxjs';
 
-import { PageTransfersInterface } from '../interfaces';
+import { PageTransfersInterface, TransferInterface } from '../interfaces';
 
 import { DateRangeModel, PaginationModel } from 'src/app/shared/models';
+import { NewTransferModel } from '../models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TransferService {
 
-  private readonly uri = environment.baseUrl + 'transfers/all';
+  private readonly uri = environment.baseUrl + 'transfers/';
 
   constructor(private readonly http: HttpClient) { }
 
@@ -25,6 +26,18 @@ export class TransferService {
   ):
     Observable<PageTransfersInterface> {
     const body = { pagination, dateRange };
-    return this.http.post<PageTransfersInterface>(`${this.uri}/${accountId}`, body);
+    return this.http.post<PageTransfersInterface>(`${this.uri}all/${accountId}`, body);
+  }
+
+  getAllTransfers(
+    pagination: PaginationModel,
+    dateRange?: DateRangeModel
+  ): Observable<PageTransfersInterface> {
+    const body = { pagination, dateRange };
+    return this.http.post<PageTransfersInterface>(`${this.uri}all`, body);
+  }
+
+  addTransfer(transfer: NewTransferModel): Observable<TransferInterface> {
+    return this.http.post<TransferInterface>(`${this.uri}add`, transfer);
   }
 }

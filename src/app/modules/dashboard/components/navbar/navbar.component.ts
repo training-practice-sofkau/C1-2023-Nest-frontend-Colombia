@@ -23,7 +23,6 @@ export class NavbarComponent implements OnInit {
   editCustomer!: string[]
   customerDetail!: string[]
   currentUser!: UserInterface;
-  accountId!: string;
 
   constructor(
     private readonly auth$: AuthService,
@@ -53,10 +52,6 @@ export class NavbarComponent implements OnInit {
         document.body.style.background = bgColor;
       }
     })
-  }
-
-  onUpdate(accountId: string) {
-
   }
 
   signOut(): void {

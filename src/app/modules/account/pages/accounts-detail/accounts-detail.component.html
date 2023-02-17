@@ -1,4 +1,4 @@
-<div class="container mx-5">
+<div class="container ">
   <div class="row pb-3">
     <div class="col btn-sm">
       <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -10,7 +10,7 @@
       </ul>
     </div>
     <div class="col">
-      <ul class="pagination justify-content-center">
+      <ul class="pagination justify-content-end">
         <li class="page-item {{pagination.currentPage-1==0?'disabled':''}}">
           <span class="page-link" (click)="pagination.currentPage-1!==0?getPage(pagination.currentPage-1):''"
             tabindex="-1">Previous</span>
@@ -31,45 +31,101 @@
       </ul>
     </div>
   </div>
-  <table class="table">
-    <thead>
-      <tr class="text-center">
-        <th scope="col">Account Id</th>
-        <th scope="col">Account Type</th>
-        <th scope="col">Balance</th>
-        <th scope="col">Actions</th>
-      </tr>
-    </thead>
-    <tbody class="table-group-divider">
-      <tr *ngFor="let a of accounts?.accounts">
-        <td scope="row">{{a.id | slice:0:8}}</td>
-        <td>{{a.accountType.name}}</td>
-        <td>{{a.balance}}</td>
-        <td>
-          <div class="btn-group dropend">
-            <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Actions
-            </button>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" type="button" routerLink="./delete/{{a.id}}">Transacctions</a>
-              </li>
-              <li><a class="dropdown-item" type="button" routerLink="../transfers/{{a.id}}">Transfers</a></li>
-              <li><a class="dropdown-item" type="button" routerLink="../deposits/{{a.id}}">Deposits</a>
-              </li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item" type="button" routerLink="../deposits/{{a.id}}">Add deposits</a></li>
-              <li><a class="dropdown-item" type="button" routerLink="../deposits/{{a.id}}">Generate transfer</a></li>
-              <li>
-                <hr class="dropdown-divider">
-              </li>
-              <li><a class="dropdown-item btn-sm" type="button" (click)="delete(a.id)">Delete</a></li>
-            </ul>
+
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let a of accounts?.accounts" data-aos="zoom-in"
+      data-aos-duration="1000">
+      <div class="col mb-4">
+        <div class="card h-100 {{a.accountType.name==='Saving account'?'border-primary':'border-success'}}">
+          <div class="card-header {{a.accountType.name==='Saving account'?'border-primary':'border-success'}}">
+            <h5 class="card-title text-center">{{a.accountType.name}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">id: {{a.id | slice:0:8}}****</h6>
           </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+          <div class="card-body {{a.accountType.name==='Saving account'?'text-primary':'text-success'}}">
+            <div class="row">
+              <a class="list-group-item list-group-item-action text-center"> History </a>
+              <div class="col list-group list-group-flush">
+                <a class="list-group-item list-group-item-action text-center"
+                  routerLink="../transfers/{{a.id}}">Transfers</a>
+              </div>
+              <div class="col list-group list-group-flush">
+                <a class="list-group-item list-group-item-action text-center"
+                  routerLink="../deposits/{{a.id}}">Deposits</a>
+              </div>
+              <div class="col-12 list-group list-group-flush text-center">
+                <a class="list-group-item list-group-item-action text-center" routerLink="./delete/{{a.id}}">
+                  Transacctions </a>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <a class="list-group-item list-group-item-action text-center"> Add </a>
+              <div class="col list-group list-group-flush">
+                <a class="list-group-item list-group-item-action text-center"
+                  (click)="onGenerateTransfer(a, transferModal)">Transfers</a>
+              </div>
+              <div class="col list-group list-group-flush">
+                <a class="list-group-item list-group-item-action text-center"
+                  (click)="onAddDeposit(a.id, depositModal)">Deposits</a>
+              </div>
+            </div>
+            <hr>
+            <div class="text-center">
+              <button class=" btn btn-danger" (click)="onDelete(a.id, deleteModal)">Delete</button>
+            </div>
+          </div>
+          <div
+            class="card-footer text-muted text-center {{a.accountType.name==='Saving account'?'border-primary':'border-success'}}">
+            {{a.balance | currency}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<ng-template #depositModal let-modal class="modal-dialog-centered" data-aos="zoom-in" data-aos-duration="1000">
+  <div class="modal-header">
+    <h1 class="modal-title fs-5" id="exampleModalLabel">Add deposit</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+      (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    <sofka-bank-new-deposit [accountId]="accountIdSelected" (added)="depositAdded(modal)"></sofka-bank-new-deposit>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #transferModal let-modal class="modal-dialog-centered" data-aos="zoom-in" data-aos-duration="1000">
+  <div class="modal-header">
+    <h1 class="modal-title fs-5" id="exampleModalLabel">Add transfer</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+      (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    <sofka-bank-new-transfer [outcomeAccount]="outcomeAccountSelected" [incomeAccounts]="accounts.accounts"
+      (added)="transferGenerated(modal)"></sofka-bank-new-transfer>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+  </div>
+</ng-template>
+
+<ng-template #deleteModal let-modal class="modal-dialog-centered" data-aos="zoom-in" data-aos-duration="1000">
+  <div class="modal-header">
+    <h1 class="modal-title fs-5" id="exampleModalLabel">DeleteAccount</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+      (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    <div (added)="transferGenerated(modal)">
+      <span class="text-center">Are you sure to delete this account?</span>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-outline-danger" type="button" (click)="delete(modal)">Done</button>
+    <button class="btn btn-outline-dark" type="button" (click)="modal.close()">Close</button>
+  </div>
+</ng-template>

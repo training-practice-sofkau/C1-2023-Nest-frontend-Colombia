@@ -15,6 +15,7 @@ import { AuthModel } from '../models/auth.model';
 // Variables and interfaces
 import { environment } from 'src/environments/environment';
 import { UserInterface } from '../interfaces/user.interface';
+import { UpdateCustomerModel } from '../../customer/models/update-customer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -68,6 +69,16 @@ export class AuthService {
           localStorage.setItem('access_token', resp.token)
           return resp.success
         }), catchError(() => of(false)))
+  }
+
+  updateUserInfo(user: UpdateCustomerModel): Observable<UserInterface> {
+    return this.http.put<UserInterface>(this.uri + 'update', { user })
+      .pipe(
+        tap(
+          valid => {
+            if (valid) this.setUser(valid);
+            this.router.navigate(['dashboard']);
+          }))
   }
 
   private setUser(user: UserInterface): void {

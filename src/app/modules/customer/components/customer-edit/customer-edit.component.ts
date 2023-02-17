@@ -2,6 +2,10 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { UpdateUserModel } from '../../../auth/models/update-user.model';
+import { DocumentTypeEnum } from 'src/app/shared/enums';
+import { AuthService } from '../../../auth/services/auth.service';
+
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'sofka-bank-customer-edit',
@@ -10,11 +14,14 @@ import { UpdateUserModel } from '../../../auth/models/update-user.model';
 })
 export class CustomerEditComponent implements OnInit {
 
-  @Input () userData!: UpdateUserModel;
-  @Output () editUser = new EventEmitter<UpdateUserModel>();
+  @Input() userData!: UpdateUserModel;
+  @Output() editUser = new EventEmitter<UpdateUserModel>();
   checkoutForm!: FormGroup;
 
-  constructor(private readonly formBuilder: FormBuilder,) {
+  constructor(
+    private readonly formBuilder: FormBuilder,
+    private readonly auth$: AuthService,
+  ) {
     this.checkoutForm = this.formBuilder.group({
       email: ['', [
         Validators.required,
@@ -53,39 +60,64 @@ export class CustomerEditComponent implements OnInit {
         Validators.required,
         Validators.pattern(new RegExp(environment.regexEmail))
       ]],
-      password: ['', [
+      password: ['888', [
         Validators.required,
         Validators.pattern(new RegExp(environment.regexPassword)),
       ]],
-      fullName: ['', [
+      fullName: [this.userData.fullName, [
         Validators.required,
         Validators.minLength(5),
         Validators.maxLength(500)
       ]],
-      phone: ['', [
+      phone: [this.userData.phone, [
         Validators.required,
         Validators.minLength(7),
         Validators.maxLength(10),
         Validators.pattern(new RegExp('^[0-9]+$'))
       ]],
       documentTypeId: ['CC', Validators.required],
-      document: ['', [
+      document: [this.userData.document, [
         Validators.required,
         Validators.minLength(6),
         Validators.maxLength(12),
         Validators.pattern(new RegExp('^[0-9]+$'))
       ]],
-      avatarUrl: ['', [
+      avatarUrl: [this.userData.avatarUrl, [
       ]],
     });
   }
 
-  changeProfile(){
-    this.userData = {...this.checkoutForm.getRawValue()}
+  changeProfile() {
+    this.userData = { ...this.checkoutForm.getRawValue() }
     this.editUser.emit(this.userData);
   }
   onSubmit(): void {
-    
+    const user = <UpdateUserModel>this.checkoutForm.value
+    console.log(user);
+    switch (this.checkoutForm.value.documentTypeId) {
+      case 'CC': user.documentTypeId = DocumentTypeEnum.CC;
+        break;
+      case 'CE': user.documentTypeId = DocumentTypeEnum.CE;
+        break;
+      default: user.documentTypeId = DocumentTypeEnum.CC;
+    }
+    if (user.avatarUrl === '') user.avatarUrl = undefined;
+    this.checkoutForm.markAllAsTouched();
+    if (this.checkoutForm.valid) {
+      this.auth$.updateUserInfo(user).subscribe({
+        next: (data) => {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Done',
+            showConfirmButton: false,
+            timer: 1000
+          })
+        },
+        error: (err: Error)=> console.error(err),
+      });
+      this.userData
+    }
   }
 
   handlerValidators(param: 'email' | 'password' | 'fullName' | 'phone' | 'document' | 'documentTypeId' | 'avatarUrl'): string {

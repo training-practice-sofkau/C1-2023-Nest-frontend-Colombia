@@ -1,0 +1,84 @@
+<div class="container bg-white rounded-3 p-2" *ngIf="data" data-aos="zoom-in" data-aos-duration="1000">
+  <div class="row">
+    <div class="col">
+      <div class="input-group">
+        <span class="input-group-text" id="basic-addon3">{{name}}</span>
+        <select class="form-select" [(ngModel)]="selected" (ngModelChange)="changeSelected(selected)">
+          <option value="data." *ngFor="let op of options" [ngValue]="op.id">{{op.id}}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item {{data.currentPage-1==0?'disabled':''}}">
+                <a class="page-link" (click)="data.currentPage-1!==0?getPage(data.currentPage-1):''"
+                  aria-label="Previous">
+                  <span aria-hidden="true">
+                    &laquo;
+                  </span>
+                </a>
+              </li>
+              <li class="page-item" (click)="getPage(data.currentPage-1)">
+                <span class="page-link" *ngIf="data.currentPage-1 !== 0">
+                  {{data.currentPage-1}}
+                </span>
+              </li>
+              <li class="page-item active">
+                <span class="page-link">
+                  {{data.currentPage}}
+                </span>
+              </li>
+              <li class="page-item" (click)="getPage(data.currentPage+1)">
+                <span class="page-link" *ngIf="data.currentPage+1<=data.totalPages">
+                  {{data.currentPage+1}}
+                </span>
+              </li>
+              <li class="page-item {{data.currentPage+1>data.totalPages?'disabled':''}}">
+                <a class="page-link" aria-label="Next"
+                  (click)="data.currentPage+1>data.totalPages?'':getPage(data.currentPage+1)">
+                  <span aria-hidden="true">
+                    &raquo;
+                  </span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="col">
+          <select class="form-select" style="width: auto" [(ngModel)]="data.range"
+            (ngModelChange)="changeRange(data.range)">
+            <option [ngValue]="5">5 items per page</option>
+            <option [ngValue]="10">10 items per page</option>
+            <option [ngValue]="15">15 items per page</option>
+          </select>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row p-3">
+    <table class="table table-hover" *ngIf="data">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col" *ngFor="let key of titles">{{ key }}</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr *ngFor="let item of data.items">
+          <th scope="row" *ngFor="let key of item">{{
+            key.key==='amount'
+            ?(key.value | currency)
+            :key.key==='dateTime'?
+            (key.value | relativeTime)
+            :key.key==='id'?
+            (key.value | slice:0:8)
+            :key.value}}</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

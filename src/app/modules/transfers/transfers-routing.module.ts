@@ -2,8 +2,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-// Components
-import { NewTransferComponent } from './pages/new-transfer/new-transfer.component'; 
+// Components 
 import { TransfersDetailComponent } from './pages/transfers-detail/transfers-detail.component';
 
 const routes: Routes = [
@@ -11,9 +10,9 @@ const routes: Routes = [
     path: '',
     children: [
       { path: '', component: TransfersDetailComponent },
-      { path: 'add', component: NewTransferComponent },
+      { path: ':id', component: TransfersDetailComponent },
       { path: '', redirectTo: '', pathMatch: 'full' },
-      { path: '**', redirectTo: '' },
+      //{ path: '**', redirectTo: '' },
     ],
   },
 ];
@@ -22,4 +21,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class transfersRoutingModule { }
+export class TransfersRoutingModule { }

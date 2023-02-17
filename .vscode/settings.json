@@ -18,7 +18,9 @@
       "[userData]",
       "(accountId)",
       "[accountId]",
-      "[selectedAccountId]"
+      "[selectedAccountId]",
+      "[ngValue]",
+      "(ngModelChange)"
     ],
     "doctype-first": false
   },

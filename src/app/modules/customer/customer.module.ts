@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CustomerDetailComponent } from './pages/customer-detail/customer-detail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { CustomerRoutingModule } from './customer-routing.module';
 import { SharedModule } from '../../shared/shared.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { CustomerDetailComponent } from './pages/customer-detail/customer-detail.component';
 import { CustomerEditComponent } from './components/customer-edit/customer-edit.component';
-
-
 
 @NgModule({
   declarations: [CustomerDetailComponent, CustomerEditComponent],

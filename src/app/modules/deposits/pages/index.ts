@@ -1,2 +1,2 @@
 export * from './deposits-detail';
-export * from './new-deposit';
+export * from '../components/new-deposit';

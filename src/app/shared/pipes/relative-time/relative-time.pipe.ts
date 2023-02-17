@@ -6,9 +6,12 @@ import * as moment from 'moment';
 })
 export class RelativeTimePipe implements PipeTransform {
 
-  transform(value: Date | number | undefined | string): any {
-    if(value){
-      moment.locale('es')
+  transform(value: number | undefined): any {
+    if (value) {
+      //moment.locale('es')
+      if (value < (Date.now() - (24 * 60 * 60000))) {
+        return value.toLocaleString
+      }
       return moment(new Date(value), 'YYYYMMDD').fromNow();
     }
   }

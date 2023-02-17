@@ -66,7 +66,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     this.random_bg_color();
     const user = <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''));
-    if(user) this.router.navigate(['dashboard']);
+    if (user) this.router.navigate(['dashboard']);
   }
 
   onSubmit(): void {
@@ -81,17 +81,15 @@ export class SignupComponent implements OnInit {
     if (user.avatarUrl === '') user.avatarUrl = undefined;
     this.checkoutForm.markAllAsTouched();
     if (this.checkoutForm.valid) {
-      this.auth$.signUp(user).subscribe(
-        {
-          next: (data) => this.handlerSuccess(data),
-          error: (err) => this.handlerError(err),
-          complete: () => console.log('complente')
-        }
-      )
+      this.auth$.signUp(user).subscribe({
+        next: (data) => this.handlerSuccess(data),
+        error: (err) => this.handlerError(err),
+        complete: () => console.log('complente')
+      })
     }
   }
 
-  onGoogle(){
+  onGoogle() {
     this.auth$.signUpGoogleAuth();
   }
 
