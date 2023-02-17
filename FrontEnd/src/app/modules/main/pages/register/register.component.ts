@@ -38,8 +38,6 @@ export class RegisterComponent {
 
     })
   }
-
-
   sendData(): void{
     this.usersService.createUser(this.frmFormularyRegister.getRawValue()).subscribe({
       next: (data) =>console.log(data),

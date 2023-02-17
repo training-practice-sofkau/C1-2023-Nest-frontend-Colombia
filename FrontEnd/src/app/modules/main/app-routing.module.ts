@@ -8,10 +8,20 @@ import { TransferComponent } from './pages/transfer/transfer.component';
 import { AccountComponent } from './pages/account/account.component';
 import { ForgotPassComponent } from './pages/forgot-pass/forgot-pass.component';
 
+import {
+  redirectUnauthorizedTo,
+  redirectLoggedInTo,
+  AngularFireAuthGuard
+} from '@angular/fire/compat/auth-guard'
+
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
+const redirectLoggedInToUser = () => redirectLoggedInTo(['user'])
 const routes: Routes = [
   {
     path: '',
     component: IndexComponent,
+    canActivate: [AngularFireAuthGuard],
+    data:{authGuardPipe: redirectLoggedInToUser}
   },
   {
     path: 'account',
@@ -22,7 +32,9 @@ const routes: Routes = [
   },
   {
    path: 'user',
-   component: UserComponent
+   component: UserComponent,
+   canActivate: [AngularFireAuthGuard],
+   data: {authGuardPipe: redirectUnauthorizedToLogin}
   },
   {
     path: 'deposit',
