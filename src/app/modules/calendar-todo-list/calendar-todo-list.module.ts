@@ -21,7 +21,10 @@ import { LoginComponent } from './pages/login/login.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from './environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-
+import { Componente1Component } from './pages/componente1/componente1.component';
+import { Componente2Component } from './components/componente2/componente2.component';
+import { Componente3Component } from './components/componente3/componente3.component';
+import { Componente4Component } from './components/componente4/componente4.component';
 
 
 @NgModule({
@@ -36,6 +39,10 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     GetOnlyTaksComponent,
     LoginComponent,
     DashboardComponent,
+    Componente1Component,
+    Componente2Component,
+    Componente3Component,
+    Componente4Component
 
 
   ],

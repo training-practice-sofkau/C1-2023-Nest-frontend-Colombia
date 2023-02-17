@@ -12,6 +12,7 @@ import { DeleteTaskComponent } from './pages/delete-task/delete-task.component';
 import { GetOnlyTaksComponent } from './pages/get-only-taks/get-only-taks.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
+import { Componente1Component } from './pages/componente1/componente1.component';
 
 
 import{
@@ -81,12 +82,15 @@ const routes : Routes = [
 },
 
 {
+  path: 'component1', //localhost:4200/calendar-todo-list
+  component: Componente1Component,
+
+},
+{
   path: 'get-only-task', //localhost:4200/calendar-todo-list
   component: GetOnlyTaksComponent,
 
 }
-
-
 
 ];
 

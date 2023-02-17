@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TaskService } from '../../services/task.service';
 import { ActivatedRoute } from '@angular/router';
-import { TaskUpdateModel } from '../../models/task-update.model';
 import { ICalendar } from '../../interfaces/calendar.interface';
 @Component({
   selector: 'sofka-put-task',
@@ -31,25 +30,7 @@ export class PutTaskComponent {
     });
 
   }
-/*
 
-  ngOnInit(): void {
-
-     this.ruta.params.subscribe(params => {
-      this.task$.getTaskById(params['id'], this.idU).subscribe({
-        next: data => { this.frmFormReactive.setValue({
-              title: data[0].title,
-              description: data[0].descripccion,
-              responsible: data[0].resposible,
-              isCompleted: data[0].isCompleted
-
-            });
-        },
-        error: err => console.log(err),
-      });
-    });
-  }
- */
 
 
   ngOnInit(): void {
