@@ -7,34 +7,42 @@
           <div class="mb-3">
             <label for="title" class="form-label">Titulo</label>
             <input required type="text" class="form-control" id="title" formControlName="title">
-            <p class="text-danger" *ngIf="formularioAgg.get('title')?.hasError('required') && formularioAgg.get('title')?.touched">Este campo no puede ir vacio</p>
+            <p class="alert-danger" *ngIf="formularioAgg.get('title')?.hasError('required') && formularioAgg.get('title')?.touched">Este campo no puede ir vacio</p>
           </div>
           <div class="mb-3">
             <label for="description" class="form-label">Desciption</label>
             <input required type="text" class="form-control" id="description" formControlName="description">
-            <p class="text-danger" *ngIf="formularioAgg.get('description')?.hasError('required') && formularioAgg.get('description')?.touched">Este campo no puede ir vacio</p>
+            <p class="alert-danger" *ngIf="formularioAgg.get('description')?.hasError('required') && formularioAgg.get('description')?.touched">Este campo no puede ir vacio</p>
+
           </div>
           <div class="mb-3">
             <label for="responsible" class="form-label">Responsible</label>
             <input required type="text" class="form-control" id="responsible" formControlName="responsible">
-            <p class="text-danger" *ngIf="formularioAgg.get('responsible')?.hasError('required') && formularioAgg.get('responsible')?.touched">Este campo no puede ir vacio</p>
+            <p class="alert-danger" *ngIf="formularioAgg.get('responsible')?.hasError('required') && formularioAgg.get('responsible')?.touched">Este campo no puede ir vacio</p>
           </div>
           <div class="mb-3">
             <label for="day" class="form-label">Day</label>
-            <input required type="number" class="form-control" id="day" formControlName="dia">
-            <p class="text-danger" *ngIf="formularioAgg.get('dia')?.hasError('required') && formularioAgg.get('dia')?.touched">Este campo no puede ir vacio</p>
+            <input required type="number" class="form-control" id="day" formControlName="dia" role="alert">
+            <p class="alert-danger" *ngIf="formularioAgg.get('dia')?.hasError('required') && formularioAgg.get('dia')?.touched">Este campo no puede ir vacio</p>
+            <p class="alert-danger" *ngIf="formularioAgg.get('dia')?.hasError('max') && formularioAgg.get('dia')?.touched">Febrero solo tiene 28 dias</p>
+            <p class="alert-danger" *ngIf="formularioAgg.get('dia')?.hasError('min') && formularioAgg.get('dia')?.touched">Ingresa un dia valido</p>
+
           </div>
           <div class="mb-3">
             <label for="monthly" class="form-label">Monthly</label>
             <input required type="number" class="form-control" id="monthly" formControlName="mes">
-            <p class="text-danger" *ngIf="formularioAgg.get('mes')?.hasError('required') && formularioAgg.get('mes')?.touched">Este campo no puede ir vacio</p>
+            <p class="alert-danger" *ngIf="formularioAgg.get('mes')?.hasError('required') && formularioAgg.get('mes')?.touched">Este campo no puede ir vacio</p>
+            <p class="alert-danger" *ngIf="formularioAgg.get('mes')?.hasError('max') && formularioAgg.get('mes')?.touched">Solo se pueden registrar tareas para Febrero</p>
+            <p class="alert-danger" *ngIf="formularioAgg.get('mes')?.hasError('min') && formularioAgg.get('mes')?.touched">Solo se pueden registrar tareas para Febrero</p>
+
 
           </div>
           <div class="mb-3">
             <label for="year" class="form-label">Year</label>
             <input required type="number" class="form-control" id="year" formControlName="anio">
-            <p class="text-danger" *ngIf="formularioAgg.get('anio')?.hasError('required') && formularioAgg.get('anio')?.touched">Este campo no puede ir vacio</p>
-
+            <p class="alert-danger" *ngIf="formularioAgg.get('anio')?.hasError('required') && formularioAgg.get('anio')?.touched">Este campo no puede ir vacio</p>
+            <p class="alert-danger" *ngIf="formularioAgg.get('anio')?.hasError('max') && formularioAgg.get('anio')?.touched">Solo se pueden registrar tareas para 2023</p>
+            <p class="alert-danger" *ngIf="formularioAgg.get('anio')?.hasError('min') && formularioAgg.get('anio')?.touched">Solo se pueden registrar tareas para 2023</p>
           </div>
           <button type="submit" class="btn btn-outline-success">Guardar</button>
         </form>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Item } from '../interface/item';
 import { TodoitemService } from '../service/todoitem.service';
@@ -30,14 +30,29 @@ export class EditarComponent implements OnInit {
     this.lista = ["../"]
     this.itemDetalles2 = new FormGroup({
       'id':new FormControl(''),
-      'title':new FormControl(''),
+      'title':new FormControl('',[
+        Validators.minLength(3),
+        Validators.required
+      ]),
       'description':new FormControl(''),
       'responsible':new FormControl(''),
       'isComplete':new FormControl(0),
       'estate':new FormControl(1),
-      'dia': new FormControl(0),
-      'mes': new FormControl(0),
-      'anio': new FormControl(0)
+      'dia': new FormControl(0,[
+        Validators.min(1),
+        Validators.max(28),
+        Validators.required
+      ]),
+      'mes': new FormControl(2,[
+        Validators.min(2),
+        Validators.required,
+        Validators.max(2)
+        ]),
+      'anio': new FormControl(2023,[
+        Validators.min(2023),
+        Validators.required,
+        Validators.max(2023)
+        ]),
     })
   }
 

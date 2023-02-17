@@ -9,34 +9,43 @@
         <div class="mb-3">
           <label for="title" class="form-label">Titulo</label>
           <input required type="text" class="form-control" id="title" name="title" formControlName="title">
-          <p class="text-danger" *ngIf="itemDetalles2.get('title')?.hasError('required') && itemDetalles2.get('title')?.touched">Este campo no puede ir vacio</p>
+          <p class="alert-danger" *ngIf="itemDetalles2.get('title')?.hasError('required') && itemDetalles2.get('title')?.touched">Este campo no puede ir vacio</p>
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>
           <input required required type="text" class="form-control" id="description" name="description" formControlName="description">
-          <p class="text-danger" *ngIf="itemDetalles2.get('description')?.hasError('required') && itemDetalles2.get('description')?.touched">Este campo no puede ir vacio</p>
+          <p class="alert-danger" *ngIf="itemDetalles2.get('description')?.hasError('required') && itemDetalles2.get('description')?.touched">Este campo no puede ir vacio</p>
         </div>
         <div class="mb-3">
           <label for="responsible" class="form-label">Responsible</label>
           <input required type="text" class="form-control" id="Responsible" name="responsible" formControlName="responsible">
-          <p class="text-danger" *ngIf="itemDetalles2.get('responsible')?.hasError('required') && itemDetalles2.get('responsible')?.touched">Este campo no puede ir vacio</p>
+          <p class="alert-danger" *ngIf="itemDetalles2.get('responsible')?.hasError('required') && itemDetalles2.get('responsible')?.touched">Este campo no puede ir vacio</p>
+
         </div>
+
         <div class="mb-3">
           <label for="Day" class="form-label">Day</label>
           <input required type="number" class="form-control" id="Day" name="dia" formControlName="dia">
-          <p class="text-danger" *ngIf="itemDetalles2.get('dia')?.hasError('required') && itemDetalles2.get('dia')?.touched">Este campo no puede ir vacio</p>
+          <p class="alert-danger" *ngIf="itemDetalles2.get('dia')?.hasError('required') && itemDetalles2.get('dia')?.touched">Este campo no puede ir vacio</p>
+          <p class="alert-danger" *ngIf="itemDetalles2.get('dia')?.hasError('max') && itemDetalles2.get('dia')?.touched">Febrero solo tiene 28 dias</p>
+          <p class="alert-danger" *ngIf="itemDetalles2.get('dia')?.hasError('min') && itemDetalles2.get('dia')?.touched">Ingresa un dia valido</p>
 
         </div>
         <div class="mb-3">
           <label for="Monthly" class="form-label">Monthly</label>
           <input required type="number" class="form-control" id="Monthly" name="mes" formControlName="mes">
-          <p class="text-danger" *ngIf="itemDetalles2.get('mes')?.hasError('required') && itemDetalles2.get('mes')?.touched">Este campo no puede ir vacio</p>
+          <p class="alert-danger" *ngIf="itemDetalles2.get('mes')?.hasError('required') && itemDetalles2.get('mes')?.touched">Este campo no puede ir vacio</p>
+          <p class="alert-danger" *ngIf="itemDetalles2.get('mes')?.hasError('max') && itemDetalles2.get('mes')?.touched">Solo se pueden registrar tareas para Febrero</p>
+          <p class="alert-danger" *ngIf="itemDetalles2.get('mes')?.hasError('min') && itemDetalles2.get('mes')?.touched">Solo se pueden registrar tareas para Febrero</p>
+
 
         </div>
         <div class="mb-3">
           <label for="Year" class="form-label">Year</label>
           <input required type="number" class="form-control" id="Year" name="anio" formControlName="anio">
-          <p class="text-danger" *ngIf="itemDetalles2.get('anio')?.hasError('required') && itemDetalles2.get('anio')?.touched">Este campo no puede ir vacio</p>
+          <p class="alert-danger" *ngIf="itemDetalles2.get('anio')?.hasError('required') && itemDetalles2.get('anio')?.touched">Este campo no puede ir vacio</p>
+          <p class="alert-danger" *ngIf="itemDetalles2.get('anio')?.hasError('max') && itemDetalles2.get('anio')?.touched">Solo se pueden registrar tareas para 2023</p>
+          <p class="alert-danger" *ngIf="itemDetalles2.get('anio')?.hasError('min') && itemDetalles2.get('anio')?.touched">Solo se pueden registrar tareas para 2023</p>
 
         </div>
         <button type="submit" class="btn btn-outline-success" form="FormAc">Guardar</button>
