@@ -1,9 +1,4 @@
-/* eslint-disable prettier/prettier */
 
-/**
- * @fileoverview Description of this file.
- * @module appModule
- */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
