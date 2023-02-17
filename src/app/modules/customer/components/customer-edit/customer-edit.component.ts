@@ -104,16 +104,8 @@ export class CustomerEditComponent implements OnInit {
     this.checkoutForm.markAllAsTouched();
     if (this.checkoutForm.valid) {
       this.auth$.updateUserInfo(user).subscribe({
-        next: (data) => {
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Done',
-            showConfirmButton: false,
-            timer: 1000
-          })
-        },
-        error: (err: Error)=> console.error(err),
+        next: (data) => this.handlerSuccess(),
+        error: (err: Error)=> this.handlerError(err),
       });
       this.userData
     }
@@ -144,6 +136,25 @@ export class CustomerEditComponent implements OnInit {
         break
     }
     return message;
+  }
+
+  private handlerSuccess(): void {
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Done',
+      showConfirmButton: false,
+      timer: 1000
+    })
+  }
+
+  private handlerError(err: any): void {
+    console.error(err)
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: err?.error?.message,
+    })
   }
 
 }

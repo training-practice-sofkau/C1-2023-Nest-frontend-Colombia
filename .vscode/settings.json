@@ -20,7 +20,15 @@
       "[accountId]",
       "[selectedAccountId]",
       "[ngValue]",
-      "(ngModelChange)"
+      "(ngModelChange)",
+      "(getSelected)",
+      "(getPagination)",
+      "[hiddenCols]",
+      "#depositModal",
+      "#transferModal",
+      "[outcomeAccount]",
+      "#deleteModal",
+      "[incomeAccounts]",
     ],
     "doctype-first": false
   },
