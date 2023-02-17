@@ -4,11 +4,13 @@ import { Observable } from 'rxjs';
 import { TareasI  } from '../interfaces/tareas.interface';
 import { crearTareaI } from '../interfaces/crearTarea';
 import { actualizarTareaI } from '../interfaces/actualizarTarea';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
 
 @Injectable({providedIn: 'root'})
 export class TareasService {
 
-    constructor(private readonly httpClient: HttpClient) { }
+    constructor(private readonly httpClient: HttpClient,private router: Router, private afAuth: AngularFireAuth) { }
 
 
     getAll(): Observable<TareasI[]>{
@@ -31,4 +33,12 @@ export class TareasService {
       return this.httpClient.delete<TareasI>('https://localhost:7281/api/ToDo/' + id);
      }
 
+     SignOut() {
+      return this.afAuth.signOut().then(() => {
+        localStorage.removeItem('user');
+        localStorage.removeItem('token');
+        this.router.navigate(['login']);
+      });
+
+  }
 }

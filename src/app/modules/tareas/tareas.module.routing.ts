@@ -14,24 +14,17 @@ const routes: Routes = [
     path: '',
     component: LayoutsComponent,
     children: [
-     /*  {
-        path: 'login', //http://localhost:4200/login
-        component: LoginComponent,
-      },
       {
-        path: 'dashboard', //http://localhost:4200/dashboard
-        component: DashboardComponent,
-      }, */
-      {
-        path: 'traer', //http://localhost:4200/tareas/traer
+        path: 'traer',
         component: TraerTareasComponent,
       },
+
       {
         path: 'crear',//http://localhost:4200/tareas/crear
         component: CrearTareasComponent,
       },
       {
-        path: 'editar',//http://localhost:4200/tareas/editar
+        path: 'actualizar',//http://localhost:4200/tareas/actualizar
         component: ActualizarTareasComponent,
       },
       {

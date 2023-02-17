@@ -18,6 +18,7 @@ export class ActualizarTareasComponent {
   constructor(private readonly tareaService: TareasService, private router: Router){
     this.tarea = new Array<actualizarTareaI>(),
     this.frmFormulario = new FormGroup({
+      id: new FormControl<string | null>(null, Validators.required),
       idUser: new FormControl<string | null>(null, Validators.required),
       title: new FormControl<string | null>(null, Validators.required),
       description: new FormControl<string | null>(null, Validators.required),

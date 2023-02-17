@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/modules/main/services/auth/auth.service';
 
 @Component({
   selector: 'app-intermedio',
@@ -6,12 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./intermedio.component.css']
 })
 export class IntermedioComponent {
+  opciones : string = 'MENU'
   routeCrear: string[];
-  routeMain: string[];
+  routeTraer: string[];
+  routeActualizar: string[];
+  routeEliminar: string[];
 
-  constructor(){
+  constructor( private readonly authService: AuthService){
     this.routeCrear = ['./crear']
-    this.routeMain = ['./main']
+    this.routeTraer = ['./traer']
+    this.routeActualizar = ['./actualizar']
+    this.routeEliminar = ['./eliminar']
+  }
+
+  logout(): void {
+    this.authService.SignOut();
   }
 
  }

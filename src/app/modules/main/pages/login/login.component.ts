@@ -15,3 +15,4 @@ export class LoginComponent {
     this.authService.GoogleAuth();
   }
 }
+

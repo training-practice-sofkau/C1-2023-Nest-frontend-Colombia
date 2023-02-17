@@ -1,20 +1,25 @@
-<h2>Opciones</h2>
+<h1>{{ opciones | uppercase }}</h1>
 <hr>
 <ul class="list-group">
 
-    <li [routerLink]="routeMain" class="list-group-item">
-        Inicio
+    <li [routerLink]="routeTraer" class="list-group-item">
+      <button type="button" class="btn btn-primary">Traer tarea</button>
     </li>
     <li [routerLink]="routeCrear" class="list-group-item">
-        Traer tarea
+      <button type="button" class="btn btn-secondary">Crear tarea</button>
     </li>
-    <li [routerLink]="routeCrear" class="list-group-item">
-      Crear tarea
+    <li [routerLink]="routeActualizar" class="list-group-item">
+      <button type="button" class="btn btn-success">Actualizar tarea</button>
     </li>
-    <li [routerLink]="routeCrear" class="list-group-item">
-      Actualizar tarea
+    <li [routerLink]="routeEliminar" class="list-group-item">
+      <button type="button" class="btn btn-danger">Eliminar tarea</button>
     </li>
-    <li [routerLink]="routeCrear" class="list-group-item">
-      Elimiar tarea
-    </li>
+    <div><button type="button" (click)="logout()">Cerrar Sesión</button></div>
 </ul>
+
+
+
+
+
+
+

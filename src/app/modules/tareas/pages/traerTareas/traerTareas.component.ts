@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/modules/main/services/auth/auth.service';
 import {TareasI} from "../../interfaces/tareas.interface";
 import { TareasService } from '../../services/tareas.service';
 
@@ -23,6 +24,5 @@ export class TraerTareasComponent {
       complete: () => console.log('Complete')
     });
   }
-
 
 }
