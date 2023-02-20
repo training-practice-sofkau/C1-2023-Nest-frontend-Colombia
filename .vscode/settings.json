@@ -18,5 +18,9 @@
         "titleBar.inactiveBackground": "#2b7e2b99",
         "titleBar.inactiveForeground": "#e7e7e799"
     },
-    "peacock.color": "#2b7e2b"
+    "peacock.color": "#2b7e2b",
+    "cSpell.words": [
+        "getdeposit",
+        "setdeposit"
+    ]
 }

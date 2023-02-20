@@ -179,6 +179,11 @@
           [disabled]="frmSingUp.invalid"
           value="Register"
         />
+        <google-button
+          *ngIf="google"
+          (click)="auth()"
+          [mensaje]="'registrase con'"
+        ></google-button>
         <br />
       </form>
     </div>

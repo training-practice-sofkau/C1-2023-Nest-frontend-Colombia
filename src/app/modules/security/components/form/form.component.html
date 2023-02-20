@@ -17,6 +17,10 @@
           placeholder="Contraseña"
         />
         <input type="submit" form="form-login" name="" value="Login" href="#" />
+        <google-button
+          (click)="auth()"
+          [mensaje]="'iniciar sesión con'"
+        ></google-button>
         <br />
         <a class="text-light" routerLink="signup"> Registrarse</a>
       </form>
