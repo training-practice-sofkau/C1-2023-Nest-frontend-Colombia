@@ -41,6 +41,10 @@ export class EditarToDoListComponent implements OnInit {
     });
   }
 
+  response(respuesta: string) {
+    console.log(respuesta);
+  }
+
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       this.toDoList$.getById(params['id']).subscribe({

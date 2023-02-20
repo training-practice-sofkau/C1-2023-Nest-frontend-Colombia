@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToDoListService } from '../../services/to-do-list.service';
 import { Router } from '@angular/router';
@@ -20,6 +20,7 @@ export class AgregarToDoListComponent {
     private router: Router
   ) {
     this.routeDashboard = ['../'];
+
     this.frmAddItem = new FormGroup({
       indexDay: new FormControl('', [
         Validators.required,
@@ -38,11 +39,17 @@ export class AgregarToDoListComponent {
         Validators.required,
         Validators.minLength(3),
       ]),
+      uidUser: new FormControl(localStorage.getItem('uidUser'), [
+        Validators.required,
+      ]),
     });
   }
 
+  response(respuesta: string) {
+    console.log(respuesta);
+  }
+
   sendData(): void {
-    // console.log('send', this.frmAddItem.getRawValue());
     this.toDoList$.addItemToDo(this.frmAddItem.getRawValue()).subscribe({
       next: data => this.router.navigate(['to-do-list/dashboard']),
       error: err => console.log(err),
