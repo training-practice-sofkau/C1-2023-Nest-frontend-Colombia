@@ -9,16 +9,24 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 // Modules
 import { CustomerModule } from '../customer/customer.module';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { TransfersDetailComponent } from '../transfers';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SharedModule } from 'src/app/shared';
 
 @NgModule({
   declarations: [
-    NavbarComponent,
+    NavbarComponent,TransfersDetailComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
     DashboardRoutingModule,
-    CustomerModule
+    CustomerModule,
+    FormsModule,
+    NgbModule,
+    SharedModule,
+    
   ],
   exports: [NavbarComponent]
 })

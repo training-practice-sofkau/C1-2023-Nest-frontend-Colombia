@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+$theme-colors: (
+  "primary": #1d55c6,
+  "secondary": #bbd3e5,
+  "success": #2bc8c8,
+  "danger": #ff3661,
+  "warning": #ffc935,
+  "dark": black,
+  "info": #9e5578,
+  "light": #e5e5e5
+);
+
+@import '@sweetalert2/theme-dark/dark.scss';
+
+@import "node_modules/bootstrap/scss/bootstrap";

@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AuthService } from '../../../auth/services/auth.service';
-import { UserInterface } from '../../../auth/interfaces/user.interface';
-import { DocumentTypeEnum } from '../../../../shared/enums/document-type.enum';
+import { Component, OnInit } from '@angular/core';
+
+import { UpdateUserModel } from '../../../auth/models';
+import { UserInterface } from '../../../auth/interfaces';
+import { DocumentTypeEnum } from '../../../../shared/enums';
 
 @Component({
   selector: 'sofka-bank-customer-detail',
@@ -11,15 +12,22 @@ import { DocumentTypeEnum } from '../../../../shared/enums/document-type.enum';
 export class CustomerDetailComponent implements OnInit {
 
   user!: UserInterface;
+  updateUser!: UpdateUserModel;
 
-  constructor(private readonly auth$: AuthService) { }
-
-  ngOnInit(): void {
-    this.getUserInfo();
+  constructor() {
+    this.user = JSON.parse(localStorage.getItem('user')??JSON.stringify(''));
   }
 
-  getUserInfo(): void {
-    this.user = <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''));
+  ngOnInit(): void {
+  }
+
+
+  onEdit(): void {
+    this.updateUser = {...this.user.user}
+  }
+
+  onUpdate(user: UpdateUserModel):void{
+    this.user.user = {...this.user.user, ...user, }
   }
 
   getPercentage(object: Object): number {
@@ -35,9 +43,9 @@ export class CustomerDetailComponent implements OnInit {
 
   getKeyByValue(value: string) {
     const indexOfS = Object.values(DocumentTypeEnum).indexOf(value as unknown as DocumentTypeEnum);
-  
+
     const key = Object.keys(DocumentTypeEnum)[indexOfS];
-  
+
     return key;
   }
 }

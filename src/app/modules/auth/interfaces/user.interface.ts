@@ -1,6 +1,7 @@
 export interface UserInterface {
-  success: boolean
-  data: {
+  success: boolean,
+  token: string,
+  user: {
     id: string;
     documentTypeId: string;
     document: string;
@@ -9,6 +10,5 @@ export interface UserInterface {
     phone: string;
     password: string;
     avatarUrl: string;
-    token: string;
   }
 }

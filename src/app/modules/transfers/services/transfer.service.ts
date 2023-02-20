@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 import { environment } from 'src/environments/environment';
-import { UserInterface } from '../../auth';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Observable } from 'rxjs';
-import { PageTransfersInterface } from '../interfaces/page-transfers.interface';
-import { PaginationModel } from 'src/app/shared/models/pagination.model';
-import { DateRangeModel } from '../../../shared/models/date-range.model';
+
+import { PageTransfersInterface, TransferInterface } from '../interfaces';
+
+import { DateRangeModel, PaginationModel } from 'src/app/shared/models';
+import { NewTransferModel } from '../models';
 
 @Injectable({
   providedIn: 'root'
@@ -13,30 +16,28 @@ import { DateRangeModel } from '../../../shared/models/date-range.model';
 export class TransferService {
 
   private readonly uri = environment.baseUrl + 'transfers/';
-  private currentUser!: UserInterface;
-  private headers!: HttpHeaders;
 
-  constructor(private readonly http: HttpClient) {
-    this.setUser(this.getUser());
-  }
+  constructor(private readonly http: HttpClient) { }
 
-  getTransfersByAccount(pagination: PaginationModel, dateRange?: DateRangeModel):
+  getTransfersByAccountId(
+    accountId: string,
+    pagination: PaginationModel,
+    dateRange?: DateRangeModel
+  ):
     Observable<PageTransfersInterface> {
-    const body = { pagination, dateRange }
-    return this.http.post<PageTransfersInterface>(this.uri, body);
+    const body = { pagination, dateRange };
+    return this.http.post<PageTransfersInterface>(`${this.uri}all/${accountId}`, body);
   }
 
-  private setUser(user: UserInterface): void {
-    this.currentUser = user;
-    if(user){
-      this.headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.currentUser.data.token}`,
-      })
-    }
+  getAllTransfers(
+    pagination: PaginationModel,
+    dateRange?: DateRangeModel
+  ): Observable<PageTransfersInterface> {
+    const body = { pagination, dateRange };
+    return this.http.post<PageTransfersInterface>(`${this.uri}all`, body);
   }
 
-  private getUser(): UserInterface {
-    return <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''));
+  addTransfer(transfer: NewTransferModel): Observable<TransferInterface> {
+    return this.http.post<TransferInterface>(`${this.uri}add`, transfer);
   }
 }

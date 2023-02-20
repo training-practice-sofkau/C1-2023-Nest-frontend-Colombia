@@ -1,11 +1,19 @@
 <div class="container text-center align-items-center">
-  <div class="card text-center align-items-center pt-5">
-    <img src="{{user.data.avatarUrl}}" class="rounded-circle" style="width: 150px;" alt="Avatar" />
-    <div class="card-body">
-      <h5 class="card-title">{{user.data.fullName | titlecase}}</h5>
-      <p class="card-text">Email: {{user.data.email | lowercase}}</p>
-      <p class="card-text">Phone: {{user.data.phone | phoneNumber:undefined:' '}}</p>
-      <p class="card-text">Document: {{getKeyByValue(user.data.documentTypeId)}}. {{user.data.document}}</p>
+  <div class="row">
+    <div class="col">
+      <div class="card text-center bg-white align-items-center pt-5 mb-4" data-aos="zoom-in" data-aos-duration="1000">
+        <img src="{{user.user.avatarUrl}}" class="rounded-circle" style="width: 150px;" alt="Avatar" />
+        <div class="card-body">
+          <h5 class="card-title">{{user.user.fullName | titlecase}}</h5>
+          <p class="card-text">Email: {{user.user.email | lowercase}}</p>
+          <p class="card-text">Phone: {{user.user.phone | phoneNumber:undefined:' '}}</p>
+          <p class="card-text">Document: {{getKeyByValue(user.user.documentTypeId)}} {{user.user.document}}</p>
+          <a type="button" class="btn btn-primary" (click)="onEdit()">Edit</a>
+        </div>
+      </div>
     </div>
+    <sofka-bank-customer-edit class="col-12 {{updateUser?'':'d-none'}}  col-sm-12 col-md-6" [userData]="updateUser"
+      (editUser)="onUpdate($event)" data-aos="fade-down" *ngIf="updateUser" data-aos="zoom-in"
+      data-aos-duration="1000"></sofka-bank-customer-edit>
   </div>
 </div>

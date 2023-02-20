@@ -7,14 +7,15 @@ import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 // Models and interfaces
-import { NewAuthModel } from '../../models/new-user.model';
-import { UserInterface } from '../../interfaces/user.interface';
+import { NewAuthModel } from '../../models';
+import { UserInterface } from '../../interfaces';
 
-import { DocumentTypeEnum } from '../../../../shared/enums/document-type.enum';
+import { DocumentTypeEnum } from '../../../../shared/enums';
 import { environment } from 'src/environments/environment';
 
+import Swal from 'sweetalert2'
+
 @Component({
-  //standalone: true,
   selector: 'sofka-bank-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
@@ -67,7 +68,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
     this.random_bg_color();
     const user = <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''));
-    if(user) this.router.navigate(['dashboard']);
+    if (user) this.router.navigate(['dashboard']);
   }
 
   onSubmit(): void {
@@ -82,24 +83,28 @@ export class SignupComponent implements OnInit {
     if (user.avatarUrl === '') user.avatarUrl = undefined;
     this.checkoutForm.markAllAsTouched();
     if (this.checkoutForm.valid) {
-      this.auth$.signUp(user).subscribe(
-        {
-          next: (data) => this.handlerSuccess(data),
-          error: (err) => this.handlerError(err),
-          complete: () => console.log('complente')
-        }
-      )
+      this.auth$.signUp(user).subscribe({
+        next: (data) => this.handlerSuccess(data),
+        error: (err) => this.handlerError(err),
+        complete: () => console.log('complente')
+      })
     }
   }
 
+  onGoogle() {
+    this.auth$.signUpGoogleAuth();
+  }
+
   handlerSuccess(data: UserInterface): void {
-    localStorage.setItem('currentUser', JSON.stringify(data));
-    this.router.navigate(['dashboard']);
   }
 
   handlerError(err: any): void {
-    console.log(err)
-    alert(err?.message)
+    console.error(err)
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: err?.error?.message,
+    })
   }
 
   clear() {

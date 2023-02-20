@@ -3,6 +3,14 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  firebase: {
+    projectId: 'sofkabank-71571',
+    appId: '1:823546693809:web:476b96ed9f241d46497a90',
+    storageBucket: 'sofkabank-71571.appspot.com',
+    apiKey: 'AIzaSyCAxRWEOsdETXhHB_vxXTWXY6x1DZJPK6s',
+    authDomain: 'sofkabank-71571.firebaseapp.com',
+    messagingSenderId: '823546693809',
+  },
   production: false,
   baseUrl: "http://localhost:3000/",
   regexEmail:

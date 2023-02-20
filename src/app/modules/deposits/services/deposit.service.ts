@@ -1,38 +1,44 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { environment } from 'src/environments/environment';
-import { UserInterface } from '../../auth/interfaces';
+
 import { Observable } from 'rxjs';
-import { DepositInterface } from '../interfaces/deposit.interface';
+
+import { DepositInterface } from '../interfaces';
+
+import { DateRangeModel, PaginationModel } from 'src/app/shared/models';
+import { NewDepositModel } from '../models/new-deposit.model';
+import { PageDepositInterface } from '../interfaces/page-deposit.interface';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class DepositService {
 
-  private readonly uri = environment.baseUrl + 'deposits/all'
-  private currentUser!: UserInterface;
-  private headers!: HttpHeaders;
+  private readonly uri = environment.baseUrl + 'deposits/';
 
-  constructor(private readonly http: HttpClient) {
-    this.setUser(this.getUser());
+  constructor(private readonly http: HttpClient) { }
+
+  getDepositsByAccountId(
+    accountId: string,
+    pagination: PaginationModel,
+    dateRange?: DateRangeModel
+  ): Observable<PageDepositInterface> {
+    const body = { pagination, dateRange };
+    return this.http.post<PageDepositInterface>(`${this.uri}all/${accountId}`, body);
   }
 
-  getDepositsByAccountId(id: string): Observable<DepositInterface> {
-    return this.http.get<DepositInterface>(this.uri);
+  getAllDeposits(
+    pagination: PaginationModel,
+    dateRange?: DateRangeModel
+  ): Observable<PageDepositInterface> {
+    const body = { pagination, dateRange };
+    return this.http.post<PageDepositInterface>(`${this.uri}all`, body);
   }
 
-  private setUser(user: UserInterface): void {
-    this.currentUser = user;
-    if (user) {
-      this.headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.currentUser.data.token}`,
-      })
-    }
-  }
-
-  private getUser(): UserInterface {
-    return <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''));
+  addDeposit(deposit: NewDepositModel): Observable<DepositInterface> {
+    return this.http.post<DepositInterface>(`${this.uri}add`, deposit);
   }
 }

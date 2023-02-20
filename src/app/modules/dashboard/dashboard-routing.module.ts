@@ -26,11 +26,15 @@ const routes: Routes = [
           .then(m => m.TransfersModule)
       },
       {
+        path: 'transactions', loadChildren: () => import('../transaction/transaction.module')
+          .then(m => m.TransactionModule)
+      },
+      {
         path: 'accounts', loadChildren: () => import('../account/account.module')
           .then(m => m.AccountsModule)
       },
       { path: '', redirectTo: '', pathMatch: 'full' },
-      //{ path: '**', redirectTo: '' },
+      { path: '**', redirectTo: '' },
     ]
   }
 ];

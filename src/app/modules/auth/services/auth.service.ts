@@ -4,6 +4,10 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { map, tap, catchError } from 'rxjs/operators';
 
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
+import * as auth from 'firebase/auth';
+
 // Models
 import { NewAuthModel } from '../models/new-user.model';
 import { AuthModel } from '../models/auth.model';
@@ -11,6 +15,7 @@ import { AuthModel } from '../models/auth.model';
 // Variables and interfaces
 import { environment } from 'src/environments/environment';
 import { UserInterface } from '../interfaces/user.interface';
+import { UpdateCustomerModel } from '../../customer/models/update-customer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,10 +23,13 @@ import { UserInterface } from '../interfaces/user.interface';
 export class AuthService {
 
   private readonly uri = environment.baseUrl + 'security/';
-  private currentUser!: UserInterface;
   private headers!: HttpHeaders;
 
-  constructor(private readonly http: HttpClient) { }
+  constructor(
+    private readonly http: HttpClient,
+    private readonly router: Router,
+    private readonly afAuth: AngularFireAuth,
+  ) { }
 
   signUp(user: NewAuthModel): Observable<UserInterface> {
     return this.http.post<UserInterface>(this.uri + 'signup', user)
@@ -29,6 +37,7 @@ export class AuthService {
         tap(
           valid => {
             if (valid) this.setUser(valid);
+            this.router.navigate(['dashboard']);
           }))
   }
 
@@ -38,35 +47,81 @@ export class AuthService {
         tap(
           valid => {
             if (valid) this.setUser(valid);
+            this.router.navigate(['dashboard']);
+          }))
+  }
+
+  signOut(): Observable<string> {
+    this.signOutGoogle();
+    localStorage.removeItem('access_token');
+    return this.http.post<string>(this.uri + 'signout', '', { headers: this.headers })
+  }
+
+  signInGoogle(): Observable<UserInterface> {
+    const googleToken = localStorage.getItem('googleToken');
+    return this.http.post<UserInterface>(this.uri + 'signin/google', { token: googleToken })
+  }
+
+  refreshToken(): Observable<boolean> {
+    return this.http.get<UserInterface>(this.uri + 'refresh')
+      .pipe(
+        map(resp => {
+          localStorage.setItem('access_token', resp.token)
+          return resp.success
+        }), catchError(() => of(false)))
+  }
+
+  updateUserInfo(user: UpdateCustomerModel): Observable<UserInterface> {
+    return this.http.put<UserInterface>(this.uri + 'update', { user })
+      .pipe(
+        tap(
+          valid => {
+            if (valid) this.setUser(valid);
+            this.router.navigate(['dashboard']);
           }))
   }
 
   private setUser(user: UserInterface): void {
-    localStorage.setItem('currentUser', JSON.stringify(user));
-    this.currentUser = user;
-    if(user){
-      this.headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.currentUser.data.token}`,
+    localStorage.setItem('access_token', user.token);
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  async signInGoogleAuth(): Promise<void> {
+    return this.authLogin(new auth.GoogleAuthProvider())
+  }
+
+  async signUpGoogleAuth(): Promise<void> {
+    return await this.authLogin(new auth.GoogleAuthProvider());
+  }
+
+  private async authLogin(provider: any): Promise<void> {
+    return this.afAuth
+      .signInWithPopup(provider)
+      .then(result => {
+        result.user
+          ?.getIdToken()
+          .then(token => {
+            localStorage.setItem('googleToken', token)
+            this.signInGoogle().subscribe({
+              next: (data) => {
+                this.setUser(data);
+                this.router.navigate(['dashboard']);
+              },
+              error: (err) => console.log(err),
+              complete: () => console.log('complete'),
+            })
+          });
       })
-    }
+      .catch(error => {
+        console.error(error)
+        //window.alert(error);
+      });
   }
 
-  private getUser(): UserInterface {
-    return <UserInterface>JSON.parse(localStorage.getItem('currentUser') ?? JSON.stringify(''));
-  }
-
-  signOut(): Observable<string> {
-    localStorage.removeItem('currentUser');
-    return this.http.post<string>(this.uri + 'signout', '', { headers: this.headers })
-  }
-
-  refreshToken(): Observable<boolean> {
-    this.setUser(this.getUser());
-    return this.http.get<UserInterface>(this.uri + 'refresh', { headers: this.headers })
-      .pipe(
-        map(resp => {
-          return resp.success
-        }), catchError(() => of(false)))
+  async signOutGoogle(): Promise<void> {
+    return this.afAuth.signOut().then(() => {
+      localStorage.removeItem('googleToken');
+      this.router.navigate(['login']);
+    });
   }
 }
