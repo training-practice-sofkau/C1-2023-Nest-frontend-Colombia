@@ -6,6 +6,7 @@ import { DetalleTareaComponent } from './pages/detalle-tarea/detalle-tarea.compo
 import { CrearTareaComponent } from './pages/crear-tarea/crear-tarea.component';
 import { MainLayoutComponent } from './layouts/main-layout/main-layout.component';
 import { ActualizarTareaComponent } from './pages/actualizar-tarea/actualizar-tarea.component';
+import { ListarTodoComponent } from './pages/listar-todo/listar-todo.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
         component: ListarTareaComponent
       },
       {
+        path: 'listarTodo',// localhost:4200/tareas/listarTodo
+        component: ListarTodoComponent
+      },
+      {
         path: 'detalle/:id',// localhost:4200/tareas/detalle
         component: DetalleTareaComponent
       },
@@ -29,7 +34,7 @@ const routes: Routes = [
         component: CrearTareaComponent
       },
       {
-        path: 'actualizar/:dia/:id',// localhost:4200/tareas/detalle
+        path: 'actualizar/:id',// localhost:4200/tareas/detalle
         component: ActualizarTareaComponent
       },
       {

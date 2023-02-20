@@ -8,6 +8,16 @@
 }
 
 .body {
-  background-color: #b9d5f2;
-  height: 700px;
+  height: 1000px;
+}
+
+html, body * { box-sizing: border-box; font-family: 'Open Sans', sans-serif; }
+
+body {
+  background:
+    linear-gradient(
+    rgba(246,247,249,0.8),
+    rgba(246,247,249,0.8)),
+    url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1564049481/bg-clouds.jpg) no-repeat center center fixed;
+  background-size: cover;
 }

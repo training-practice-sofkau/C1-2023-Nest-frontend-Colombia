@@ -21,7 +21,7 @@ export class ListarTareaComponent {
     this.rutaActiva.params.subscribe( params => {
       console.log(params['dia']);
 
-      this.tareaService.getId(params['dia'])
+      this.tareaService.getIdDia(params['dia'])
         .subscribe(tareas => {
           this.tareas = tareas;
           console.log(tareas);

@@ -1,0 +1,25 @@
+<h2>Todas las Tareas</h2>
+<hr>
+
+<div class="row">
+    <div class="col">
+        <sofka-input (onEnter)="buscar( $event )" placeholder="Buscar Tarea..."></sofka-input>
+    </div>
+</div>
+
+<hr>
+<!-- 
+<div *ngIf="hayError" class="alert alert-danger">
+    No se encontro nada con el termino {{termino}}
+</div> -->
+<div *ngIf=" tareas.length > 0 && bandera" class="row">
+    <div class="col">
+        <sofka-lista [tareas]="tareas"></sofka-lista>
+    </div>
+</div>
+
+<div *ngIf=" tareasFiltradas.length > 0 && !bandera" class="row">
+    <div class="col">
+        <sofka-lista [tareas]="tareasFiltradas"></sofka-lista>
+    </div>
+</div>

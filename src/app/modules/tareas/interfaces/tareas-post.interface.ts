@@ -5,4 +5,5 @@ export interface IpostTarea {
     responsible: string;
     priority: string;
     isCompleted: boolean;
+    uidUser: string;
 }
