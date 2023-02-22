@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
-import { DepositService } from '../../services/deposit.service';
+import { DepositService } from '../../services/deposit/deposit.service';
 
 @Component({
   selector: 'sofka-deposit',

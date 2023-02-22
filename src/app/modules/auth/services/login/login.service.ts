@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { IUsers } from '../../interfaces/users.interface';
 
-
 @Injectable({
   providedIn: 'root',
 })

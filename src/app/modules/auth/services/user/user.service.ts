@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { IGetUser } from 'src/app/modules/dashoard/models/get-User.model';
 
 import { IUsers } from '../../interfaces/users.interface';
@@ -10,6 +10,7 @@ import { NewUserModel } from '../../models/new-user-models';
   providedIn: 'root',
 })
 export class UsersService {
+  userId = new BehaviorSubject<string>('');
   constructor(private readonly httpClient: HttpClient) {}
 
   createUser(user: NewUserModel): Observable<IUsers> {
@@ -24,5 +25,8 @@ export class UsersService {
   }
   getUserById(id: string): Observable<IGetUser> {
     return this.httpClient.get<IGetUser>('http://localhost:3000/user/' + id);
+  }
+  setUser(userId: string) {
+    this.userId.next(userId);
   }
 }

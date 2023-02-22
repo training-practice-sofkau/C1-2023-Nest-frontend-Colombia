@@ -13,6 +13,7 @@ import { HistoryComponent } from './pages/history/history.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UuidPipe } from './pipes/uuid.pipe';
 import { PhonePipe } from './pipes/phone/phone.pipe';
+import { TransfersHistoryComponent } from './components/transfersHistory/transfers-history/transfers-history.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { PhonePipe } from './pipes/phone/phone.pipe';
     HistoryComponent,
     UuidPipe,
     PhonePipe,
+    TransfersHistoryComponent,
   ],
   imports: [
     CommonModule,
