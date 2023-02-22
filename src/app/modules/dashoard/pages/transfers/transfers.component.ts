@@ -36,7 +36,7 @@ export class TransfersComponent implements OnInit {
   ngOnInit(): void {
     this.getOutcome();
   }
-
+  //prueba
   getOutcome() {
     this.outcome = localStorage.getItem('outcome') as string;
   }
