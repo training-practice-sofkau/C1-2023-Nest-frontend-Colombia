@@ -36,7 +36,9 @@
   <div class="d-flex justify-content-between align-items-center mt-3">
     <ul class="nav nav-tabs w-75">
       <li class="nav-item">
-        <a class="nav-link active" href="#history">Depositos</a>
+        <a class="nav-link active" href="#history"
+          ><strong>Depositos</strong></a
+        >
       </li>
     </ul>
   </div>
@@ -44,7 +46,7 @@
     <table class="table table-dark table-borderless">
       <thead>
         <tr>
-          <th scope="col">ID</th>
+          <th scope="col">ID del deposito</th>
           <th scope="col">cuenta</th>
           <th scope="col">Fecha</th>
           <th scope="col" class="text-right">Deposito</th>
@@ -56,7 +58,9 @@
             <span class="fa fa-briefcase mr-1"></span> {{ deposit.id }}
           </td>
           <td>
-            <span class="fa fa-cc-mastercard"> {{ deposit.account.id }}</span>
+            <span class="fa fa-cc-mastercard">
+              {{ deposit.account.id | uuid }}</span
+            >
           </td>
           <td class="text-muted">{{ deposit.dateTime | date : 'medium' }}</td>
           <td class="d-flex justify-content-end align-items-center">
@@ -69,7 +73,10 @@
       </tbody>
     </table>
   </div>
-  <div class="d-flex justify-content-between align-items-center results">
+
+  <div
+    class="table-container"
+    class="d-flex justify-content-between align-items-center results">
     <span class="pl-md-3">Gracias por usar nuestos servicios</span>
     <div class="pt-3">
       <nav aria-label="Page navigation example">

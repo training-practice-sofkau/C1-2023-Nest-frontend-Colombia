@@ -150,7 +150,6 @@
                   [disabled]="formRegister.invalid">
                   Enviar
                 </button>
-                <button *ngIf="google" (click)="auth()"></button>
                 <br />
                 <br />
                 <button
@@ -159,6 +158,22 @@
                   class="btn btn-outline-light btn-lg px-5">
                   Borrar
                 </button>
+                <br />
+                <br />
+                <div class="google-btn">
+                  <div class="google-icon-wrapper">
+                    <img
+                      class="google-icon"
+                      src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+                  </div>
+                  <p
+                    class="btn-text"
+                    type="button"
+                    *ngIf="google"
+                    (click)="auth()">
+                    <b>Sign up with google</b>
+                  </p>
+                </div>
               </form>
             </div>
           </div>
