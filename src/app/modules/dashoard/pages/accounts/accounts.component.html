@@ -13,14 +13,7 @@
   data-bs-whatever="@mdo">
   crea tu cuenta</button
 ><br />
-<button
-  type="button"
-  class="btn btn-primary"
-  data-bs-toggle="modal"
-  data-bs-target="#transferHModal"
-  data-bs-whatever="@mdo">
-  historial
-</button>
+
 <div
   class="modal fade"
   id="exampleModal"
@@ -92,7 +85,14 @@
             (click)="obtenerOutcome(account.id)">
             Transfiere tu dinero
           </button>
-
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-bs-toggle="modal"
+            data-bs-target="#transferHModal"
+            data-bs-whatever="@mdo">
+            historial
+          </button>
           <div
             class="modal fade"
             id="transferModal"

@@ -27,6 +27,11 @@ export class UsersService {
   getUserById(id: string): Observable<IGetUser> {
     return this.httpClient.get<IGetUser>('http://localhost:3000/user/' + id);
   }
+  getUserByEmail(email: string): Observable<IGetUser> {
+    return this.httpClient.get<IGetUser>(
+      'http://localhost:3000/user/google/' + email
+    );
+  }
   setUser(userId: string) {
     this.userId.next(userId);
   }

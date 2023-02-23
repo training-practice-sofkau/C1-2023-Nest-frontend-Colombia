@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { AuthService } from '../../services/auth/auth.service';
 import { LoginService } from '../../services/login/login.service';
+import { UsersService } from '../../services/user/user.service';
 
 @Component({
   selector: 'sofka-login',
@@ -17,13 +18,35 @@ export class LoginComponent implements OnInit {
   constructor(
     private loginService: LoginService,
     private router: Router,
-    private readonly authService: AuthService
+    private readonly authService: AuthService,
+    private userService: UsersService
   ) {}
   ngOnInit(): void {
     this.htmlformulario();
   }
   auth(): void {
-    this.authService.GoogleAuth().then;
+    this.authService.GoogleAuth().then(Response => {
+      sessionStorage.setItem(
+        'googleUserEmail',
+        JSON.stringify(Response.additionalUserInfo?.profile)
+      );
+      const customerGoogle = JSON.parse(
+        sessionStorage.getItem('googleUserEmail') as string
+      );
+      this.userService.getUserByEmail(customerGoogle.email).subscribe({
+        next: data => {
+          this.loginService
+            .sendLogin(customerGoogle.email, data.password)
+            .subscribe({
+              next: token => {
+                localStorage.setItem('token', token.access_token),
+                  localStorage.setItem('id', token.id),
+                  this.router.navigate(['dashboard']);
+              },
+            });
+        },
+      });
+    });
   }
   htmlformulario(): void {
     this.formLogin = new FormGroup({
