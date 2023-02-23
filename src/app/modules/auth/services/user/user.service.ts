@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { IGetUser } from 'src/app/modules/dashoard/models/get-User.model';
+import { UpdateUser } from '../../interfaces/update-User.interface';
 
 import { IUsers } from '../../interfaces/users.interface';
 import { NewUserModel } from '../../models/new-user-models';
@@ -28,5 +29,12 @@ export class UsersService {
   }
   setUser(userId: string) {
     this.userId.next(userId);
+  }
+
+  updateUser(id: string, user: UpdateUser): Observable<UpdateUser> {
+    return this.httpClient.put<UpdateUser>(
+      'http://localhost:3000/user/' + id,
+      user
+    );
   }
 }
