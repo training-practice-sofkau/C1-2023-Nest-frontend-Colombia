@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AccountService } from 'src/app/modules/account/services/account/account.service';
+import Swal from 'sweetalert2';
 import { MakeTransferModel } from '../../models/make-transfer.model';
 import { TransferModel } from '../../models/transfer.model';
 import { TransferService } from '../../services/transfer.service';
@@ -18,7 +20,7 @@ export class TransferComponent {
   reason!: string
 
   constructor(private router: Router,
-    private readonly transferService: TransferService){
+    private readonly transferService: TransferService, private readonly accountService: AccountService){
     }
 
     ngOnInit(): void {
@@ -64,12 +66,18 @@ export class TransferComponent {
     this.transferService.makeTransfer(t).subscribe({
       next: data  => {
         console.log('re ', data)
+        location.reload();
       },
-      error: err => console.error('err', err),
+      error: err => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: `${err.error.message}`!,
+        })
+       },
       complete: () => console.info('complete')
     }
     );
   }
-
   
 }

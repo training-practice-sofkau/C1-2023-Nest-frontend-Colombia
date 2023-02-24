@@ -18,10 +18,14 @@ export class AccountService {
   }
 
   getBalanceByIdAccount(id: string): Observable<number>{
-    console.log('entra get balance')
-
     return this.httpClient.get<number>(
       `/api/account/balance/${id}`
+    )
+  }
+
+  verifyAmountIntoBalance(id: string): Observable<boolean>{
+    return this.httpClient.get<boolean>(
+      `/api/account/verifyAmountIntoBalance/${id}`
     )
   }
 }

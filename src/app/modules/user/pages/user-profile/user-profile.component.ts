@@ -144,7 +144,13 @@ export class UserProfileComponent {
       next: data  => {
         this.stateBalanceService.balance = this.stateBalanceService.balance - this.withdrawBalance
       },
-      error: err => console.error('err', err),
+      error: err => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: `${err.error.message}!!`,
+        })
+      },
       complete: () => console.info('complete')
     }
     );
