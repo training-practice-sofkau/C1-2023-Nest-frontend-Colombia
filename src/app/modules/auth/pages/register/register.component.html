@@ -9,7 +9,7 @@
                 action=""
                 id="formulario"
                 class="formulario"
-                (ngSubmit)="sendData()"
+                (ngSubmit)="registerUser()"
                 [formGroup]="formRegister">
                 <h2 class="fw-bold mb-2 text-uppercase">Registro</h2>
                 <div class="form-outline form-white mb-4">
@@ -145,12 +145,11 @@
                   class="btn btn-outline-light btn-lg px-5"
                   type="button"
                   id="enviar"
-                  (click)="sendData()"
+                  (click)="registerUser()"
                   form="frmUsuario"
                   [disabled]="formRegister.invalid">
                   Enviar
                 </button>
-
                 <br />
                 <br />
                 <button
@@ -159,6 +158,22 @@
                   class="btn btn-outline-light btn-lg px-5">
                   Borrar
                 </button>
+                <br />
+                <br />
+                <div class="google-btn">
+                  <div class="google-icon-wrapper">
+                    <img
+                      class="google-icon"
+                      src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" />
+                  </div>
+                  <p
+                    class="btn-text"
+                    type="button"
+                    *ngIf="google"
+                    (click)="auth()">
+                    <b>Sign up with google</b>
+                  </p>
+                </div>
               </form>
             </div>
           </div>

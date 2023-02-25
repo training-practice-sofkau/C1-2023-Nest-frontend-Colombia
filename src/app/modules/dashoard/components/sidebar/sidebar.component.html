@@ -1,4 +1,7 @@
-<div id="side" class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
+<div
+  id="side"
+  class="container-fluid"
+  class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark">
   <a
     href="/"
     class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
@@ -22,21 +25,13 @@
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#speedometer2" />
         </svg>
-        Account
+        Cuentas
       </a>
-      <a routerLink="transfers" class="nav-link text-white">
+      <a routerLink="history" class="nav-link text-white">
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#speedometer2" />
         </svg>
-        Transfer
-      </a>
-    </li>
-    <li>
-      <a routerLink="deposit" class="nav-link text-white">
-        <svg class="bi pe-none me-2" width="16" height="16">
-          <use xlink:href="#people-circle" />
-        </svg>
-        Deposit
+        Historial Dep
       </a>
     </li>
     <li>
@@ -44,7 +39,7 @@
         <svg class="bi pe-none me-2" width="16" height="16">
           <use xlink:href="#people-circle" />
         </svg>
-        Customer
+        Cliente
       </a>
     </li>
   </ul>
@@ -61,7 +56,7 @@
         width="39"
         height="39"
         class="rounded-circle me-2" />
-      <strong>Nombre del usuario</strong>
+      <button>Nombrecliente</button>
     </a>
     <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
       <li><a class="dropdown-item" href="#">Settings</a></li>

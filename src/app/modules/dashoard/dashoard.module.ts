@@ -7,8 +7,14 @@ import { AccountsComponent } from './pages/accounts/accounts.component';
 import { CustomersComponent } from './pages/customers/customers.component';
 import { TransfersComponent } from './pages/transfers/transfers.component';
 import { NarbarComponent } from './components/narbar/narbar.component';
-import { DepositComponent } from './pages/deposit/deposit.component';
 import { HomComponent } from './pages/hom/hom.component';
+import { CreateAccountsComponent } from './components/create-accounts/create-accounts.component';
+import { HistoryComponent } from './pages/history/history.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UuidPipe } from './pipes/uuid.pipe';
+import { PhonePipe } from './pipes/phone/phone.pipe';
+import { TransfersHistoryComponent } from './components/transfersHistory/transfers-history/transfers-history.component';
+
 @NgModule({
   declarations: [
     HomeeComponent,
@@ -17,9 +23,18 @@ import { HomComponent } from './pages/hom/hom.component';
     CustomersComponent,
     TransfersComponent,
     NarbarComponent,
-    DepositComponent,
     HomComponent,
+    CreateAccountsComponent,
+    HistoryComponent,
+    UuidPipe,
+    PhonePipe,
+    TransfersHistoryComponent,
   ],
-  imports: [CommonModule, DashoardRoutingModule],
+  imports: [
+    CommonModule,
+    DashoardRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class DashoardModule {}

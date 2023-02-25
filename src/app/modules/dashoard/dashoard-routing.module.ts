@@ -4,8 +4,15 @@ import { HomeeComponent } from './pages/homee/homee.component';
 import { AccountsComponent } from './pages/accounts/accounts.component';
 import { TransfersComponent } from './pages/transfers/transfers.component';
 import { CustomersComponent } from './pages/customers/customers.component';
-import { DepositComponent } from './pages/deposit/deposit.component';
 import { HomComponent } from './pages/hom/hom.component';
+
+import {
+  AngularFireAuthGuard,
+  redirectLoggedInTo,
+  redirectUnauthorizedTo,
+} from '@angular/fire/compat/auth-guard';
+import { CreateAccountsComponent } from './components/create-accounts/create-accounts.component';
+import { HistoryComponent } from './pages/history/history.component';
 
 const routes: Routes = [
   {
@@ -16,7 +23,7 @@ const routes: Routes = [
       { path: 'accounts', component: AccountsComponent },
       { path: 'transfers', component: TransfersComponent },
       { path: 'customers', component: CustomersComponent },
-      { path: 'deposit', component: DepositComponent },
+      { path: 'history', component: HistoryComponent },
     ],
   },
 ];

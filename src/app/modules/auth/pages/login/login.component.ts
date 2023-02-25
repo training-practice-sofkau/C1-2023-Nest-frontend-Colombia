@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from '../../services/login.service';
+import Swal from 'sweetalert2';
+import { AuthService } from '../../services/auth/auth.service';
+import { LoginService } from '../../services/login/login.service';
+import { UsersService } from '../../services/user/user.service';
 
 @Component({
   selector: 'sofka-login',
@@ -12,11 +15,39 @@ export class LoginComponent implements OnInit {
   // tipo FormGrupo creamos una instancia vacia
   formLogin: FormGroup = new FormGroup({});
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(
+    private loginService: LoginService,
+    private router: Router,
+    private readonly authService: AuthService,
+    private userService: UsersService
+  ) {}
   ngOnInit(): void {
     this.htmlformulario();
   }
-
+  auth(): void {
+    this.authService.GoogleAuth().then(Response => {
+      sessionStorage.setItem(
+        'googleUserEmail',
+        JSON.stringify(Response.additionalUserInfo?.profile)
+      );
+      const customerGoogle = JSON.parse(
+        sessionStorage.getItem('googleUserEmail') as string
+      );
+      this.userService.getUserByEmail(customerGoogle.email).subscribe({
+        next: data => {
+          this.loginService
+            .sendLogin(customerGoogle.email, data.password)
+            .subscribe({
+              next: token => {
+                localStorage.setItem('token', token.access_token),
+                  localStorage.setItem('id', token.id),
+                  this.router.navigate(['dashboard']);
+              },
+            });
+        },
+      });
+    });
+  }
   htmlformulario(): void {
     this.formLogin = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
