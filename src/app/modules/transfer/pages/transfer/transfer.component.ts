@@ -78,6 +78,7 @@ export class TransferComponent {
       complete: () => console.info('complete')
     }
     );
+    
   }
   
 }
